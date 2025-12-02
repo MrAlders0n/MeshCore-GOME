@@ -9,24 +9,28 @@
       
       
       
+        <link rel="prev" href="../build-repeater-solar-rak-unify-box/">
+      
+      
+        <link rel="next" href="../heltec-v3-wifi-firmware/">
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Ottawa Mesh</title>
+        <title>RAK4631 Custom Display Firmware - Ottawa Mesh</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -45,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#compiling-meshcore-firmware-for-rak4631-with-makerfocus-13-oled-sh1106" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -79,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Ottawa Mesh" class="md-header__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
+    <a href="../.." title="Ottawa Mesh" class="md-header__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -99,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              RAK4631 Custom Display Firmware
             
           </span>
         </div>
@@ -177,7 +186,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Ottawa Mesh" class="md-nav__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
+    <a href="../.." title="Ottawa Mesh" class="md-nav__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -195,7 +204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -219,18 +228,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -251,7 +262,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -269,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/hardware-overview/" class="md-nav__link">
+      <a href="../hardware-overview/" class="md-nav__link">
         
   
   
@@ -297,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/meshcore-faq/" class="md-nav__link">
+      <a href="../meshcore-faq/" class="md-nav__link">
         
   
   
@@ -325,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/companion-nodes-antenna/" class="md-nav__link">
+      <a href="../companion-nodes-antenna/" class="md-nav__link">
         
   
   
@@ -353,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/rak-based-repeaters-node/" class="md-nav__link">
+      <a href="../rak-based-repeaters-node/" class="md-nav__link">
         
   
   
@@ -381,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/repeater-mounting-options/" class="md-nav__link">
+      <a href="../repeater-mounting-options/" class="md-nav__link">
         
   
   
@@ -409,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/flash-companion-node/" class="md-nav__link">
+      <a href="../flash-companion-node/" class="md-nav__link">
         
   
   
@@ -437,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/flash-repeater-node/" class="md-nav__link">
+      <a href="../flash-repeater-node/" class="md-nav__link">
         
   
   
@@ -465,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/configure-room-server/" class="md-nav__link">
+      <a href="../configure-room-server/" class="md-nav__link">
         
   
   
@@ -493,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/build-repeater-solar-rak-unify-box/" class="md-nav__link">
+      <a href="../build-repeater-solar-rak-unify-box/" class="md-nav__link">
         
   
   
@@ -518,10 +529,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/meshcore/rak-custom-display-firmware/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAK4631 Custom Display Firmware
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -537,6 +575,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-platformio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install PlatformIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-the-meshcore-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clone the MeshCore Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-the-platformio-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit the PlatformIO Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the Firmware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-and-move-the-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rename and Move the Firmware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -549,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/heltec-v3-wifi-firmware/" class="md-nav__link">
+      <a href="../heltec-v3-wifi-firmware/" class="md-nav__link">
         
   
   
@@ -577,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/packet-capture-overview/" class="md-nav__link">
+      <a href="../packet-capture-overview/" class="md-nav__link">
         
   
   
@@ -605,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/packet-capture-companion-listener/" class="md-nav__link">
+      <a href="../packet-capture-companion-listener/" class="md-nav__link">
         
   
   
@@ -633,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/packet-capture-standalone-repeater-listener/" class="md-nav__link">
+      <a href="../packet-capture-standalone-repeater-listener/" class="md-nav__link">
         
   
   
@@ -661,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/repeaters-and-coverage/" class="md-nav__link">
+      <a href="../repeaters-and-coverage/" class="md-nav__link">
         
   
   
@@ -689,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/frequency-settings-meshcore/" class="md-nav__link">
+      <a href="../frequency-settings-meshcore/" class="md-nav__link">
         
   
   
@@ -717,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshcore/wanted-repeater-locations/" class="md-nav__link">
+      <a href="../wanted-repeater-locations/" class="md-nav__link">
         
   
   
@@ -799,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshtastic/getting-started/" class="md-nav__link">
+      <a href="../../meshtastic/getting-started/" class="md-nav__link">
         
   
   
@@ -827,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/meshtastic/frequency-settings/" class="md-nav__link">
+      <a href="../../meshtastic/frequency-settings/" class="md-nav__link">
         
   
   
@@ -872,6 +996,82 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-platformio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install PlatformIO
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-the-meshcore-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clone the MeshCore Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-the-platformio-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit the PlatformIO Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the Firmware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rename-and-move-the-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rename and Move the Firmware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -884,8 +1084,135 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="compiling-meshcore-firmware-for-rak4631-with-makerfocus-13-oled-sh1106">Compiling MeshCore Firmware for RAK4631 with MakerFocus 1.3" OLED (SH1106)</h1>
+<p><strong>Device:</strong> These instructions are specifically for the <strong>RAK4631</strong> with the <strong>MakerFocus 1.3" SH1106 OLED</strong>.<br />
+<strong>OS:</strong> This guide was completed on <strong>Red Hat 9.6</strong>.  </p>
+<p><strong>Note:</strong> MeshCore does not natively support the MakerFocus SH1106 OLED out of the box on the RAK4631.<br />
+The steps below modify the PlatformIO configuration to add SH1106 display support.</p>
+<h2 id="install-platformio">Install PlatformIO</h2>
+<pre>
+cd ~
+curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
+python3 get-platformio.py 
+export PATH=$PATH:/home/linuxuser/.platformio/penv/bin
+</pre>
+
+<h2 id="clone-the-meshcore-repository">Clone the MeshCore Repository</h2>
+<pre>
+git pull https://github.com/ripplebiz/MeshCore.git
+git clone https://github.com/ripplebiz/MeshCore.git
+cd MeshCore/
+</pre>
+
+<h2 id="edit-the-platformio-configuration">Edit the PlatformIO Configuration</h2>
+<pre>
+vi variants/rak4631/platformio.ini
+</pre>
+
+<p>Replace the OLED-related lines as shown below.<br />
+Every line marked with “&lt;============= CHANGED” is different from the default configuration.</p>
+<pre>
+[rak4631]
+extends = nrf52_base
+platform = https://github.com/maxgerhardt/platform-nordicnrf52.git#rak
+board = wiscore_rak4631
+board_check = true
+build_flags = ${nrf52_base.build_flags}
+  ${sensor_base.build_flags}
+  -I variants/rak4631
+  -D RAK_4631
+  -D RAK_BOARD
+  -D PIN_BOARD_SCL=14
+  -D PIN_BOARD_SDA=13
+  -D PIN_GPS_TX=16
+  -D PIN_GPS_RX=15
+  -D PIN_GPS_EN=-1
+  -D PIN_OLED_RESET=-1
+  -D RADIO_CLASS=CustomSX1262
+  -D WRAPPER_CLASS=CustomSX1262Wrapper
+  -D LORA_TX_POWER=22
+  -D SX126X_CURRENT_LIMIT=140
+  -D SX126X_RX_BOOSTED_GAIN=1
+build_src_filter = ${nrf52_base.build_src_filter}
+  +<../variants/rak4631>
+  +<helpers/sensors>
+;  +<helpers/ui/SSD1306Display.cpp> <============= CHANGED 
+  +<helpers/ui/SH1106Display.cpp> <============= CHANGED 
+  +<helpers/ui/MomentaryButton.cpp>
+lib_deps =
+  ${nrf52_base.lib_deps}
+  ${sensor_base.lib_deps}
+;  adafruit/Adafruit SSD1306 @ ^2.5.13 <============= CHANGED 
+  sparkfun/SparkFun u-blox GNSS Arduino Library@^2.2.27
+  adafruit/Adafruit SH110X @ ^2.1.13 <============= CHANGED 
+  adafruit/Adafruit GFX Library @ ^1.12.1 <============= CHANGED 
+
+
+[env:RAK_4631_companion_radio_ble]
+extends = rak4631
+board_build.ldscript = boards/nrf52840_s140_v6_extrafs.ld
+board_upload.maximum_size = 712704
+build_flags =
+  ${rak4631.build_flags}
+  -I examples/companion_radio/ui-new
+  -D PIN_USER_BTN=9
+  -D PIN_USER_BTN_ANA=31
+;  -D DISPLAY_CLASS=SSD1306Display <============= CHANGED 
+  -D DISPLAY_CLASS=SH1106Display <============= CHANGED 
+  -D MAX_CONTACTS=350
+  -D MAX_GROUP_CHANNELS=40
+  -D BLE_PIN_CODE=123456
+  -D BLE_DEBUG_LOGGING=1
+  -D OFFLINE_QUEUE_SIZE=256
+;  -D MESH_PACKET_LOGGING=1
+;  -D MESH_DEBUG=1
+build_src_filter = ${rak4631.build_src_filter}
+  +<helpers/nrf52/SerialBLEInterface.cpp>
+  +<../examples/companion_radio/*.cpp>
+  +<../examples/companion_radio/ui-new/*.cpp>
+lib_deps =
+  ${rak4631.lib_deps}
+  densaugeo/base64 @ ~1.4.0
+</pre>
+
+<h2 id="build-the-firmware">Build the Firmware</h2>
+<pre>
+set FIRMWARE_VERSION=1.9.0
+./build.sh build-firmware RAK_4631_companion_radio_ble
+</pre>
+
+<h2 id="rename-and-move-the-firmware">Rename and Move the Firmware</h2>
+<pre>
+cd .pio/build/RAK_4631_companion_radio_ble/
+mv firmware-merged.bin RAK_4631_companion_radio_ble_1.9.0-merged.bin
+mv firmware.bin RAK_4631_companion_radio_ble_1.9.0.bin
+mv RAK_4631_companion_radio_ble* /home/linuxuser/
+</pre>
+
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>Flash the compiled firmware (<code>RAK_4631_companion_radio_ble_1.7.3.bin</code> or <code>RAK_4631_companion_radio_ble_1.7.3-merged.bin</code>) to your RAK4631.</li>
+<li>Connect your MakerFocus 1.3" OLED (SH1106) at I²C address <strong>0x3C</strong> (jumper on <strong>0x7A</strong> side).  </li>
+<li>Power only with <strong>3.3 V</strong> — this module is <strong>not 5 V tolerant</strong>.</li>
+<li>Once flashed, the SH1106 display should initialize normally on boot.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -922,10 +1249,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": [], "search": "/assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

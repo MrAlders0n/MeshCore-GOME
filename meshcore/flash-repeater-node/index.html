@@ -9,26 +9,28 @@
       
       
       
+        <link rel="prev" href="../flash-companion-node/">
       
-        <link rel="next" href="meshcore/hardware-overview/">
+      
+        <link rel="next" href="../configure-room-server/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Ottawa Mesh</title>
+        <title>Flashing a Repeater Node - Ottawa Mesh</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-greater-ottawa-mesh-enthusiasts" class="md-skip">
+        <a href="#flashing-configuring-a-repeater-node" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Ottawa Mesh" class="md-header__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
+    <a href="../.." title="Ottawa Mesh" class="md-header__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Flashing a Repeater Node
             
           </span>
         </div>
@@ -184,7 +186,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Ottawa Mesh" class="md-nav__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
+    <a href="../.." title="Ottawa Mesh" class="md-nav__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -199,37 +201,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -245,142 +220,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        About
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore-vs-meshtastic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore vs Meshtastic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="MeshCore">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meshcore-packet-analyzer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore Packet Analyzer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ottawa-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ottawa Deployment
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshtastic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Meshtastic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Resources
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -389,18 +228,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -421,7 +262,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -439,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/hardware-overview/" class="md-nav__link">
+      <a href="../hardware-overview/" class="md-nav__link">
         
   
   
@@ -467,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/meshcore-faq/" class="md-nav__link">
+      <a href="../meshcore-faq/" class="md-nav__link">
         
   
   
@@ -495,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/companion-nodes-antenna/" class="md-nav__link">
+      <a href="../companion-nodes-antenna/" class="md-nav__link">
         
   
   
@@ -523,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/rak-based-repeaters-node/" class="md-nav__link">
+      <a href="../rak-based-repeaters-node/" class="md-nav__link">
         
   
   
@@ -551,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/repeater-mounting-options/" class="md-nav__link">
+      <a href="../repeater-mounting-options/" class="md-nav__link">
         
   
   
@@ -579,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/flash-companion-node/" class="md-nav__link">
+      <a href="../flash-companion-node/" class="md-nav__link">
         
   
   
@@ -604,10 +445,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="meshcore/flash-repeater-node/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flashing a Repeater Node
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -623,6 +489,85 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#flashing-configuring-a-repeater-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing &amp; Configuring a Repeater Node
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flashing &amp; Configuring a Repeater Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rak-bootloader-update-skip-if-not-using-a-rak-based-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAK Bootloader update (Skip if not using a RAK based board)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flashing-meshcore-repeater-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing MeshCore Repeater Firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-meshcore-repeater" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring a MeshCore Repeater
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-required-due-to-a-duplicate-id-this-is-how-to-generate-a-new-repeater-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If required due to a duplicate ID, this is how to generate a new repeater ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -635,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/configure-room-server/" class="md-nav__link">
+      <a href="../configure-room-server/" class="md-nav__link">
         
   
   
@@ -663,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/build-repeater-solar-rak-unify-box/" class="md-nav__link">
+      <a href="../build-repeater-solar-rak-unify-box/" class="md-nav__link">
         
   
   
@@ -691,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/rak-custom-display-firmware/" class="md-nav__link">
+      <a href="../rak-custom-display-firmware/" class="md-nav__link">
         
   
   
@@ -719,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/heltec-v3-wifi-firmware/" class="md-nav__link">
+      <a href="../heltec-v3-wifi-firmware/" class="md-nav__link">
         
   
   
@@ -747,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/packet-capture-overview/" class="md-nav__link">
+      <a href="../packet-capture-overview/" class="md-nav__link">
         
   
   
@@ -775,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/packet-capture-companion-listener/" class="md-nav__link">
+      <a href="../packet-capture-companion-listener/" class="md-nav__link">
         
   
   
@@ -803,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/packet-capture-standalone-repeater-listener/" class="md-nav__link">
+      <a href="../packet-capture-standalone-repeater-listener/" class="md-nav__link">
         
   
   
@@ -831,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/repeaters-and-coverage/" class="md-nav__link">
+      <a href="../repeaters-and-coverage/" class="md-nav__link">
         
   
   
@@ -859,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/frequency-settings-meshcore/" class="md-nav__link">
+      <a href="../frequency-settings-meshcore/" class="md-nav__link">
         
   
   
@@ -887,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/wanted-repeater-locations/" class="md-nav__link">
+      <a href="../wanted-repeater-locations/" class="md-nav__link">
         
   
   
@@ -969,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshtastic/getting-started/" class="md-nav__link">
+      <a href="../../meshtastic/getting-started/" class="md-nav__link">
         
   
   
@@ -997,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshtastic/frequency-settings/" class="md-nav__link">
+      <a href="../../meshtastic/frequency-settings/" class="md-nav__link">
         
   
   
@@ -1042,8 +987,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1052,44 +995,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
+  <a href="#flashing-configuring-a-repeater-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        About
+        Flashing &amp; Configuring a Repeater Node
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore-vs-meshtastic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore vs Meshtastic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="MeshCore">
+    <nav class="md-nav" aria-label="Flashing &amp; Configuring a Repeater Node">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#rak-bootloader-update-skip-if-not-using-a-rak-based-board" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        RAK Bootloader update (Skip if not using a RAK based board)
       
     </span>
   </a>
@@ -1097,10 +1018,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
+  <a href="#flashing-meshcore-repeater-firmware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware
+        Flashing MeshCore Repeater Firmware
       
     </span>
   </a>
@@ -1108,10 +1029,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#configuring-a-meshcore-repeater" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        Configuring a MeshCore Repeater
       
     </span>
   </a>
@@ -1119,21 +1040,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#meshcore-packet-analyzer" class="md-nav__link">
+  <a href="#if-required-due-to-a-duplicate-id-this-is-how-to-generate-a-new-repeater-id" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MeshCore Packet Analyzer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ottawa-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ottawa Deployment
+        If required due to a duplicate ID, this is how to generate a new repeater ID
       
     </span>
   </a>
@@ -1142,28 +1052,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshtastic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Meshtastic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Resources
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1184,86 +1072,143 @@
 
 
 
-<h1 id="welcome-to-greater-ottawa-mesh-enthusiasts">Welcome to Greater Ottawa Mesh Enthusiasts!</h1>
-<ul>
-<li><a href="https://discord.gg/WSyNd8SfNr">Join us on Discord!</a></li>
-</ul>
-<h2 id="about">About</h2>
-<p>Welcome to the Ottawa mesh group!
-See the info below for default frequencies, and please join our Discord to chat with us.</p>
-<p>Both <strong>MeshCore</strong> and <strong>Meshtastic</strong> are protocols that run on top of LoRa radios.
-LoRa (Long Range) is a low-power modulation suited to long-distance links at modest data rates.
-By building on LoRa, both systems enable decentralized, low-cost community networks.</p>
-<p>Most of the city is currently running <strong>MeshCore</strong> with some <strong>Meshtastic</strong> presence scattered around.
-We have roughly <strong>50 static MeshCore repeaters</strong> around the region, linking Carleton Place, Ashton, Stittsville,
-Kemptville, Kanata, Barrhaven, Westboro, Downtown, Old Ottawa South, Vanier, Orléans, and areas near Cumberland.</p>
-<p>If you’re interested in playing an active role in the community, we’re always looking for volunteers.
-Reach out to <strong>MrAlders0n</strong> with what you’d like to help with.</p>
-<p><strong>Community Outreach</strong>
-<em>Spread the word on social media (e.g., Reddit, Facebook, TikTok), put posters up around the community
-</em><em>Community Support</em><em>
-</em>Welcoming new users in the discord and answering any questions they have
-<strong>Fabrication Team</strong>
-<em>For people who want to be involved in custom PCB design
-</em><em>Knowledge Curators</em><em>
-</em>Maintain wiki content
-<strong>Tower Tech</strong>
-* People who like to climb stuff, help install/maintain repeaters</p>
-<h2 id="meshcore-vs-meshtastic">MeshCore vs Meshtastic</h2>
-<p><strong>Meshtastic</strong> is a peer-to-peer mesh where every node can forward traffic, making it flexible for ad-hoc use but prone to congestion in larger networks.<br />
-Because it relies on nodes that are typically moving, coverage can also be unreliable and sporadic.  </p>
-<p><strong>MeshCore</strong> relies on fixed repeaters for routing, providing a more stable and scalable backbone for city-wide coverage.  </p>
-<p><a href="https://www.youtube.com/watch?v=tXoAhebQc0c">Watch an overview on YouTube</a></p>
-<h2 id="meshcore">MeshCore</h2>
-<p>To get started and connect to the mesh, begin with a <strong>companion node</strong>.<br />
-Pick a build that fits your needs, then flash MeshCore companion firmware to the device.  </p>
-<p>From there, you can explore repeaters builds and mounting options to expand coverage and strengthen the Ottawa mesh.  </p>
-<h3 id="getting-started">Getting Started</h3>
-<ul>
-<li><a href="meshcore/hardware-overview/">Roles Explained</a></li>
-<li><a href="meshcore/meshcore-faq/">F.A.Q</a></li>
-</ul>
-<h3 id="hardware">Hardware</h3>
-<ul>
-<li><a href="meshcore/companion-nodes-antenna/">Companion Nodes</a></li>
-<li><a href="meshcore/rak-based-repeaters-node/">Repeaters Nodes</a></li>
-<li><a href="meshcore/repeater-mounting-options/">Mounting Options</a></li>
-</ul>
-<h3 id="configuration">Configuration</h3>
-<ul>
-<li><a href="meshcore/flash-companion-node/">Flashing a companion node</a></li>
-<li><a href="meshcore/flash-repeater-node/">Flashing a Repeater node</a></li>
-<li><a href="meshcore/configure-room-server/">Flashing a room server</a></li>
-<li><a href="meshcore/build-repeater-solar-rak-unify-box/">Recommended Repeater Build Instructions</a></li>
-<li>MeshCore to Discord using Meshcore-HA</li>
-<li><a href="meshcore/heltec-v3-wifi-firmware/">Compiling Wifi Firmware for Heltek v3</a></li>
-<li><a href="meshcore/rak-custom-display-firmware/">Compiling RAK4631 firmware with a Custom Display</a></li>
-</ul>
-<h3 id="meshcore-packet-analyzer">MeshCore Packet Analyzer</h3>
-<ul>
-<li><a href="meshcore/packet-capture-overview/">Overview</a></li>
-<li><a href="meshcore/packet-capture-companion-listener/">Add a Companion Listener</a></li>
-<li><a href="meshcore/packet-capture-standalone-repeater-listener/">Add a Standalone Listener</a></li>
-</ul>
-<h3 id="ottawa-deployment">Ottawa Deployment</h3>
-<ul>
-<li><a href="meshcore/repeaters-and-coverage/">Repeaters &amp; Coverage</a></li>
-<li><a href="meshcore/frequency-settings-meshcore/">Frequency Settings</a></li>
-<li><a href="meshcore/wanted-repeater-locations/">Wanted Repeater Locations</a></li>
-</ul>
-<h2 id="meshtastic">Meshtastic</h2>
-<p>The Meshtastic section is a work-in-progress </p>
-<ul>
-<li><a href="meshtastic/getting-started/">Getting Started</a></li>
-<li><a href="meshtastic/frequency-settings/">Frequency Settings</a></li>
-</ul>
-<h2 id="useful-resources">Useful Resources</h2>
-<ul>
-<li><a href="https://www.austinmesh.org/">Austin Mesh</a> – Useful information and real-world testing of mesh nodes  </li>
-<li><a href="https://yycmesh.com/2025/04/19/cold-weather-charging-of-lithium-ion-batteries-real-world-lessons-from-the-meshtastic-community/">Cold Weather Charging of Lithium-Ion Batteries</a> – A great write-up on repeater performance in extreme cold with LiPos  </li>
-</ul>
+  <h1>Flashing a Repeater Node</h1>
+
+<p>← Home</p>
+<p>This guide will help you flash a node, configure it as a repeater.</p>
+<h2 id="flashing-configuring-a-repeater-node">Flashing &amp; Configuring a Repeater Node</h2>
+<h3 id="rak-bootloader-update-skip-if-not-using-a-rak-based-board">RAK Bootloader update (Skip if not using a RAK based board)</h3>
+<p><strong>Important:</strong> Before configuration, you must update the bootloader on RAK boards.<br />
+Without this fix, failed OTA updates can leave the repeater in an unusable state that requires physical recovery.</p>
+<ol>
+<li>
+<p>Download the OTA bootloader fix from <a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-otafix1/update-wiscore_rak4631_board_bootloader-0.9.2-otafix1_nosd.uf2">this link</a>.  </p>
+</li>
+<li>
+<p>Connect your repeater to your computer.  </p>
+</li>
+<li>
+<p>Double click the button on the RAK board beside the USB port, the green light should turn on indicating DFU mode is enabled.  </p>
+</li>
+<li>
+<p>It should appear in your file explorer as a <strong>USB Drive</strong>.  </p>
+</li>
+<li>
+<p>Drag the <strong>.uf2</strong> file into the mounted drive.  </p>
+</li>
+<li>
+<p>The file copy will appear to fail, and the device will restart and remount as a USB drive — this is expected and indicates a successful update.  </p>
+</li>
+<li>
+<p>To confirm, open the <strong>INFO.TXT</strong> file on the drive and check that it shows version <strong>0.9.2 bootloader firmware</strong>.  </p>
+</li>
+</ol>
+<h3 id="flashing-meshcore-repeater-firmware">Flashing MeshCore Repeater Firmware</h3>
+<ol>
+<li>
+<p>Plug your device into your computer via USB.  </p>
+</li>
+<li>
+<p>Open the <a href="https://flasher.meshcore.co.uk/">MeshCore Web Flasher</a>.  </p>
+</li>
+<li>
+<p>Select your device hardware.  </p>
+</li>
+<li>
+<p>Select the firmware choice <strong>Repeater</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Enter DFU Mode</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Erase Flash</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Flash</strong> to install the MeshCore firmware.  </p>
+</li>
+</ol>
+<p><strong>Note:</strong> Sometimes after erasing, the flash step may fail. If this happens, refresh the page, click <strong>Enter DFU Mode</strong> again, and then click <strong>Flash</strong> to retry.  </p>
+<h3 id="configuring-a-meshcore-repeater">Configuring a MeshCore Repeater</h3>
+<ol>
+<li>
+<p>Using Google Chrome, open the repeater configuration tool: <a href="https://config.meshcore.dev/">MeshCore Repeater Config</a>.  </p>
+</li>
+<li>
+<p>After connecting to the device, navigate to Ottawa Repeater IDs and make sure the first two characters of your public key are not already in use.  </p>
+</li>
+<li>MeshCore repeater IDs are based on the <strong>first two characters of the public key</strong>.  </li>
+<li>As the mesh has grown, duplicate IDs have caused routing conflicts — it’s important to avoid using an existing ID.  </li>
+<li>Developers are working on a long-term fix, but for now, each new repeater must use a unique ID.</li>
+</ol>
 <hr />
-<p><em>This wiki is maintained by the Greater Ottawa Mesh Enthusiasts to provide information and track deployments.</em></p>
+<h3 id="if-required-due-to-a-duplicate-id-this-is-how-to-generate-a-new-repeater-id">If required due to a duplicate ID, this is how to generate a new repeater ID</h3>
+<p>There are <strong>two ways</strong> to assign a new repeater ID:</p>
+<p><strong>Option 1 – Reflash the repeater (automatic key generation)</strong></p>
+<ol>
+<li>
+<p>Reflash the repeater. Follow Flashing a Node from the beginning, and make sure to <strong>Flash Erase</strong> during the process.</p>
+</li>
+<li>
+<p>This will generate a new random private key and therefore a new public key and repeater ID. However, it could generate a duplicate again, so please verify afterwards that your new repeater ID is unique by checking it against the <a href="../repeaters-and-coverage/">Ottawa Repeater ID List</a>.</p>
+</li>
+</ol>
+<p><strong>Option 2 – Manually generate a private key (choose your own ID)</strong></p>
+<p>If you want to choose your repeater’s ID prefix manually:</p>
+<ol>
+<li>
+<p>Visit the <a href="../repeaters-and-coverage/">Ottawa Repeater ID List</a> and select an unused 2-digit ID.</p>
+</li>
+<li>
+<p>Go to <a href="https://gessaman.com/mc-keygen/">mc-keygen</a> and enter that 2-digit ID into the “Repeater ID” field, then click <strong>Generate Key</strong>.</p>
+</li>
+<li>
+<p>Scroll down and copy the value under <strong>Private Key</strong>.</p>
+</li>
+<li>
+<p>Open <a href="https://flasher.meshcore.co.uk/">MeshCore Flasher</a>, click <strong>Console</strong>, and select the serial device for your repeater.</p>
+</li>
+<li>
+<p>Run the following command, replacing <PRIVATE-KEY> with the key you copied:</p>
+</li>
+</ol>
+<p>set prv.key <PRIVATE-KEY></p>
+<ol>
+<li>Reboot the repeater.<br />
+It will now use the new private key, and the public key will reflect your chosen repeater ID.</li>
+</ol>
+<hr />
+<ol>
+<li>
+<p>Give the node a descriptive <strong>name</strong> (e.g. <strong>Callsign_R1</strong> or a location-based name).  </p>
+</li>
+<li>
+<p>Set an <strong>admin password</strong> for the repeater — this is required for remote management over MeshCore.  </p>
+</li>
+<li>
+<p>Apply the Ottawa frequency defaults: <strong>910.525 MHz / BW: 62.5 kHz / SF7 / CR5</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Save</strong> and reboot the node.  </p>
+</li>
+<li>
+<p>Reconnect to the device using the configuration tool and click <strong>Send Advert</strong>.  </p>
+</li>
+<li>If your repeater is running correctly, you should see the advert appear on nearby companion nodes.  </li>
+</ol>
+<p>After the repeater has been configured and discovered by your companion node, log into it via MeshCore Remote Administration and set the following advert intervals:  </p>
+<ol>
+<li>
+<p>Set <strong>Zero-hop adverts (direct)</strong> to every 1 hour.  </p>
+</li>
+<li>
+<p>Set <strong>Flood adverts (forwarded across repeaters)</strong> to every 12 hours.  </p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.  </p>
+</li>
+</ol>
+<p><strong>Tip:</strong> After every reboot, you must resync the repeater’s clock.<br />
+The repeater will still route messages without a clock, but its adverts will be ignored until the time is set.</p>
 
 
 
@@ -1313,10 +1258,10 @@ Pick a build that fits your needs, then flash MeshCore companion firmware to the
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

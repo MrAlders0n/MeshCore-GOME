@@ -9,26 +9,28 @@
       
       
       
+        <link rel="prev" href="../repeater-mounting-options/">
       
-        <link rel="next" href="meshcore/hardware-overview/">
+      
+        <link rel="next" href="../flash-repeater-node/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Ottawa Mesh</title>
+        <title>Flashing a Companion Node - Ottawa Mesh</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-greater-ottawa-mesh-enthusiasts" class="md-skip">
+        <a href="#flashing-configuring-a-companion-node" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Ottawa Mesh" class="md-header__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
+    <a href="../.." title="Ottawa Mesh" class="md-header__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Flashing a Companion Node
             
           </span>
         </div>
@@ -184,7 +186,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Ottawa Mesh" class="md-nav__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
+    <a href="../.." title="Ottawa Mesh" class="md-nav__button md-logo" aria-label="Ottawa Mesh" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -199,37 +201,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -245,142 +220,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        About
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore-vs-meshtastic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore vs Meshtastic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="MeshCore">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meshcore-packet-analyzer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore Packet Analyzer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ottawa-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ottawa Deployment
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshtastic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Meshtastic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Resources
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -389,18 +228,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -421,7 +262,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -439,7 +280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/hardware-overview/" class="md-nav__link">
+      <a href="../hardware-overview/" class="md-nav__link">
         
   
   
@@ -467,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/meshcore-faq/" class="md-nav__link">
+      <a href="../meshcore-faq/" class="md-nav__link">
         
   
   
@@ -495,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/companion-nodes-antenna/" class="md-nav__link">
+      <a href="../companion-nodes-antenna/" class="md-nav__link">
         
   
   
@@ -523,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/rak-based-repeaters-node/" class="md-nav__link">
+      <a href="../rak-based-repeaters-node/" class="md-nav__link">
         
   
   
@@ -551,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/repeater-mounting-options/" class="md-nav__link">
+      <a href="../repeater-mounting-options/" class="md-nav__link">
         
   
   
@@ -576,10 +417,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="meshcore/flash-companion-node/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flashing a Companion Node
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -595,6 +461,190 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#flashing-configuring-a-companion-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing &amp; Configuring a Companion Node
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flashing &amp; Configuring a Companion Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flashing-a-companion-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing a Companion Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plug-your-device-into-your-computer-via-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plug your device into your computer via USB.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-the-meshcore-web-flasher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open the MeshCore Web Flasher.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-your-device-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select your device hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-the-firmware-choice-companion-radio-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select the firmware choice Companion Radio (Bluetooth)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-enter-dfu-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Click Enter DFU Mode.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-erase-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Click Erase Flash.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-flash-to-install-the-meshcore-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Click Flash to install the MeshCore firmware.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Click Flash to install the MeshCore firmware.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-companion-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring a Companion Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pair-the-node-with-your-phone-or-computer-usually-over-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pair the node with your phone or computer (usually over Bluetooth).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#give-the-node-a-descriptive-name-eg-your-callsign-location-or-handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Give the node a descriptive name (e.g. your callsign, location, or handle).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-it-to-the-ottawa-frequency-defaults-910525-mhz-bw-625-khz-sf7-cr5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set it to the Ottawa frequency defaults: 910.525 MHz / BW: 62.5 kHz / SF7 / CR5.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-by-sending-a-message-in-the-public-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test by sending a message in the Public channel.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -607,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/flash-repeater-node/" class="md-nav__link">
+      <a href="../flash-repeater-node/" class="md-nav__link">
         
   
   
@@ -635,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/configure-room-server/" class="md-nav__link">
+      <a href="../configure-room-server/" class="md-nav__link">
         
   
   
@@ -663,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/build-repeater-solar-rak-unify-box/" class="md-nav__link">
+      <a href="../build-repeater-solar-rak-unify-box/" class="md-nav__link">
         
   
   
@@ -691,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/rak-custom-display-firmware/" class="md-nav__link">
+      <a href="../rak-custom-display-firmware/" class="md-nav__link">
         
   
   
@@ -719,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/heltec-v3-wifi-firmware/" class="md-nav__link">
+      <a href="../heltec-v3-wifi-firmware/" class="md-nav__link">
         
   
   
@@ -747,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/packet-capture-overview/" class="md-nav__link">
+      <a href="../packet-capture-overview/" class="md-nav__link">
         
   
   
@@ -775,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/packet-capture-companion-listener/" class="md-nav__link">
+      <a href="../packet-capture-companion-listener/" class="md-nav__link">
         
   
   
@@ -803,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/packet-capture-standalone-repeater-listener/" class="md-nav__link">
+      <a href="../packet-capture-standalone-repeater-listener/" class="md-nav__link">
         
   
   
@@ -831,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/repeaters-and-coverage/" class="md-nav__link">
+      <a href="../repeaters-and-coverage/" class="md-nav__link">
         
   
   
@@ -859,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/frequency-settings-meshcore/" class="md-nav__link">
+      <a href="../frequency-settings-meshcore/" class="md-nav__link">
         
   
   
@@ -887,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshcore/wanted-repeater-locations/" class="md-nav__link">
+      <a href="../wanted-repeater-locations/" class="md-nav__link">
         
   
   
@@ -969,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshtastic/getting-started/" class="md-nav__link">
+      <a href="../../meshtastic/getting-started/" class="md-nav__link">
         
   
   
@@ -997,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="meshtastic/frequency-settings/" class="md-nav__link">
+      <a href="../../meshtastic/frequency-settings/" class="md-nav__link">
         
   
   
@@ -1042,8 +1092,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1052,88 +1100,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about" class="md-nav__link">
+  <a href="#flashing-configuring-a-companion-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        About
+        Flashing &amp; Configuring a Companion Node
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore-vs-meshtastic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore vs Meshtastic
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshcore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="MeshCore">
+    <nav class="md-nav" aria-label="Flashing &amp; Configuring a Companion Node">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#flashing-a-companion-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hardware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hardware
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#meshcore-packet-analyzer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MeshCore Packet Analyzer
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ottawa-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ottawa Deployment
+        Flashing a Companion Node
       
     </span>
   </a>
@@ -1146,10 +1128,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#meshtastic" class="md-nav__link">
+  <a href="#plug-your-device-into-your-computer-via-usb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Meshtastic
+        Plug your device into your computer via USB.
       
     </span>
   </a>
@@ -1157,10 +1139,126 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#useful-resources" class="md-nav__link">
+  <a href="#open-the-meshcore-web-flasher" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Useful Resources
+        Open the MeshCore Web Flasher.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-your-device-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select your device hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-the-firmware-choice-companion-radio-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select the firmware choice Companion Radio (Bluetooth)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-enter-dfu-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Click Enter DFU Mode.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-erase-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Click Erase Flash.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#click-flash-to-install-the-meshcore-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Click Flash to install the MeshCore firmware.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Click Flash to install the MeshCore firmware.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-companion-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring a Companion Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pair-the-node-with-your-phone-or-computer-usually-over-bluetooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pair the node with your phone or computer (usually over Bluetooth).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#give-the-node-a-descriptive-name-eg-your-callsign-location-or-handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Give the node a descriptive name (e.g. your callsign, location, or handle).
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-it-to-the-ottawa-frequency-defaults-910525-mhz-bw-625-khz-sf7-cr5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set it to the Ottawa frequency defaults: 910.525 MHz / BW: 62.5 kHz / SF7 / CR5.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-by-sending-a-message-in-the-public-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test by sending a message in the Public channel.
       
     </span>
   </a>
@@ -1184,86 +1282,33 @@
 
 
 
-<h1 id="welcome-to-greater-ottawa-mesh-enthusiasts">Welcome to Greater Ottawa Mesh Enthusiasts!</h1>
+<p>← Home</p>
+<p>This guide will help you flash a node, configure it as a companion.</p>
+<h2 id="flashing-configuring-a-companion-node">Flashing &amp; Configuring a Companion Node</h2>
+<h3 id="flashing-a-companion-node">Flashing a Companion Node</h3>
+<p>The easiest way to flash a MeshCore-supported node is by using the official web flasher tool in Google Chrome:</p>
+<p><a href="https://flasher.meshcore.co.uk/">MeshCore Web Flasher</a></p>
+<p>Only <strong>Google Chrome</strong> supports the serial connection required for flashing.</p>
+<p>Steps:</p>
+<h1 id="plug-your-device-into-your-computer-via-usb">Plug your device into your computer via USB.</h1>
+<h1 id="open-the-meshcore-web-flasher">Open the <a href="https://flasher.meshcore.co.uk/">MeshCore Web Flasher</a>.</h1>
+<h1 id="select-your-device-hardware">Select your device hardware</h1>
+<h1 id="select-the-firmware-choice-companion-radio-bluetooth">Select the firmware choice <strong>Companion Radio (Bluetooth)</strong></h1>
+<h1 id="click-enter-dfu-mode">Click <strong>Enter DFU Mode</strong>.</h1>
+<p><strong>Note:</strong> Sometimes after erasing, the flash step may fail. If this happens, refresh the page, click <strong>Enter DFU Mode</strong> again, and then click <strong>Flash</strong> to retry.</p>
+<h1 id="click-erase-flash">Click <strong>Erase Flash</strong>.</h1>
+<h1 id="click-flash-to-install-the-meshcore-firmware">Click <strong>Flash</strong> to install the MeshCore firmware.</h1>
+<p><strong>Note:</strong> Sometimes after erasing, the flash step may fail. If this happens, refresh the page, click <strong>Enter DFU Mode</strong> again, and then click <strong>Flash</strong> to retry.</p>
+<h3 id="configuring-a-companion-node">Configuring a Companion Node</h3>
+<p>After flashing, follow these steps to set up your companion node:</p>
+<h1 id="pair-the-node-with-your-phone-or-computer-usually-over-bluetooth">Pair the node with your phone or computer (usually over Bluetooth).</h1>
+<h1 id="give-the-node-a-descriptive-name-eg-your-callsign-location-or-handle">Give the node a descriptive <strong>name</strong> (e.g. your callsign, location, or handle).</h1>
+<h1 id="set-it-to-the-ottawa-frequency-defaults-910525-mhz-bw-625-khz-sf7-cr5">Set it to the Ottawa frequency defaults: <strong>910.525 MHz / BW: 62.5 kHz / SF7 / CR5</strong>.</h1>
+<h1 id="test-by-sending-a-message-in-the-public-channel">Test by sending a message in the <strong>Public channel</strong>.</h1>
 <ul>
-<li><a href="https://discord.gg/WSyNd8SfNr">Join us on Discord!</a></li>
+<li>If a repeater hears you, the message will show <strong>Heard X Repeats</strong> instead of just <strong>Sent</strong>.  </li>
 </ul>
-<h2 id="about">About</h2>
-<p>Welcome to the Ottawa mesh group!
-See the info below for default frequencies, and please join our Discord to chat with us.</p>
-<p>Both <strong>MeshCore</strong> and <strong>Meshtastic</strong> are protocols that run on top of LoRa radios.
-LoRa (Long Range) is a low-power modulation suited to long-distance links at modest data rates.
-By building on LoRa, both systems enable decentralized, low-cost community networks.</p>
-<p>Most of the city is currently running <strong>MeshCore</strong> with some <strong>Meshtastic</strong> presence scattered around.
-We have roughly <strong>50 static MeshCore repeaters</strong> around the region, linking Carleton Place, Ashton, Stittsville,
-Kemptville, Kanata, Barrhaven, Westboro, Downtown, Old Ottawa South, Vanier, Orléans, and areas near Cumberland.</p>
-<p>If you’re interested in playing an active role in the community, we’re always looking for volunteers.
-Reach out to <strong>MrAlders0n</strong> with what you’d like to help with.</p>
-<p><strong>Community Outreach</strong>
-<em>Spread the word on social media (e.g., Reddit, Facebook, TikTok), put posters up around the community
-</em><em>Community Support</em><em>
-</em>Welcoming new users in the discord and answering any questions they have
-<strong>Fabrication Team</strong>
-<em>For people who want to be involved in custom PCB design
-</em><em>Knowledge Curators</em><em>
-</em>Maintain wiki content
-<strong>Tower Tech</strong>
-* People who like to climb stuff, help install/maintain repeaters</p>
-<h2 id="meshcore-vs-meshtastic">MeshCore vs Meshtastic</h2>
-<p><strong>Meshtastic</strong> is a peer-to-peer mesh where every node can forward traffic, making it flexible for ad-hoc use but prone to congestion in larger networks.<br />
-Because it relies on nodes that are typically moving, coverage can also be unreliable and sporadic.  </p>
-<p><strong>MeshCore</strong> relies on fixed repeaters for routing, providing a more stable and scalable backbone for city-wide coverage.  </p>
-<p><a href="https://www.youtube.com/watch?v=tXoAhebQc0c">Watch an overview on YouTube</a></p>
-<h2 id="meshcore">MeshCore</h2>
-<p>To get started and connect to the mesh, begin with a <strong>companion node</strong>.<br />
-Pick a build that fits your needs, then flash MeshCore companion firmware to the device.  </p>
-<p>From there, you can explore repeaters builds and mounting options to expand coverage and strengthen the Ottawa mesh.  </p>
-<h3 id="getting-started">Getting Started</h3>
-<ul>
-<li><a href="meshcore/hardware-overview/">Roles Explained</a></li>
-<li><a href="meshcore/meshcore-faq/">F.A.Q</a></li>
-</ul>
-<h3 id="hardware">Hardware</h3>
-<ul>
-<li><a href="meshcore/companion-nodes-antenna/">Companion Nodes</a></li>
-<li><a href="meshcore/rak-based-repeaters-node/">Repeaters Nodes</a></li>
-<li><a href="meshcore/repeater-mounting-options/">Mounting Options</a></li>
-</ul>
-<h3 id="configuration">Configuration</h3>
-<ul>
-<li><a href="meshcore/flash-companion-node/">Flashing a companion node</a></li>
-<li><a href="meshcore/flash-repeater-node/">Flashing a Repeater node</a></li>
-<li><a href="meshcore/configure-room-server/">Flashing a room server</a></li>
-<li><a href="meshcore/build-repeater-solar-rak-unify-box/">Recommended Repeater Build Instructions</a></li>
-<li>MeshCore to Discord using Meshcore-HA</li>
-<li><a href="meshcore/heltec-v3-wifi-firmware/">Compiling Wifi Firmware for Heltek v3</a></li>
-<li><a href="meshcore/rak-custom-display-firmware/">Compiling RAK4631 firmware with a Custom Display</a></li>
-</ul>
-<h3 id="meshcore-packet-analyzer">MeshCore Packet Analyzer</h3>
-<ul>
-<li><a href="meshcore/packet-capture-overview/">Overview</a></li>
-<li><a href="meshcore/packet-capture-companion-listener/">Add a Companion Listener</a></li>
-<li><a href="meshcore/packet-capture-standalone-repeater-listener/">Add a Standalone Listener</a></li>
-</ul>
-<h3 id="ottawa-deployment">Ottawa Deployment</h3>
-<ul>
-<li><a href="meshcore/repeaters-and-coverage/">Repeaters &amp; Coverage</a></li>
-<li><a href="meshcore/frequency-settings-meshcore/">Frequency Settings</a></li>
-<li><a href="meshcore/wanted-repeater-locations/">Wanted Repeater Locations</a></li>
-</ul>
-<h2 id="meshtastic">Meshtastic</h2>
-<p>The Meshtastic section is a work-in-progress </p>
-<ul>
-<li><a href="meshtastic/getting-started/">Getting Started</a></li>
-<li><a href="meshtastic/frequency-settings/">Frequency Settings</a></li>
-</ul>
-<h2 id="useful-resources">Useful Resources</h2>
-<ul>
-<li><a href="https://www.austinmesh.org/">Austin Mesh</a> – Useful information and real-world testing of mesh nodes  </li>
-<li><a href="https://yycmesh.com/2025/04/19/cold-weather-charging-of-lithium-ion-batteries-real-world-lessons-from-the-meshtastic-community/">Cold Weather Charging of Lithium-Ion Batteries</a> – A great write-up on repeater performance in extreme cold with LiPos  </li>
-</ul>
-<hr />
-<p><em>This wiki is maintained by the Greater Ottawa Mesh Enthusiasts to provide information and track deployments.</em></p>
+<p><strong>Tip:</strong> You may wish to disable <strong>Message Settings → Auto Reset Path</strong>. This isn’t required, but many users find it helpful when testing links that aren’t fully stable, as it prevents the path from constantly resetting.</p>
 
 
 
@@ -1313,10 +1358,10 @@ Pick a build that fits your needs, then flash MeshCore companion firmware to the
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
