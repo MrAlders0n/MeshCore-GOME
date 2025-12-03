@@ -139,5 +139,5 @@ Each repeater has a unique ID, a name for easier reference, and basic informatio
 This section contains community-generated coverage maps based on expected RF propagation.  
 These are estimates only — actual coverage may vary depending on terrain, buildings, and antenna placement.
 
-* [CAN to Ground (@2.0M)](meshcore/docs\meshcore\images\731px-CAN_To_Roofnode.png)
-* [CAN to Roof (@7.5M)](meshcore/docs\meshcore\images\800px-CAN_to_Groundnode_2M.png)
+* CAN to Ground (@2.0M)
+* CAN to Roof (@7.5M)
