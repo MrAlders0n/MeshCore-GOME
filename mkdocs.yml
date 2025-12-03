@@ -3,8 +3,9 @@ nav:
   - Home: index.md
   - MeshCore:
       - General:
-          - MeshCore FAQ: meshcore/faq.md
-          - MeshCore Frequency Settings: meshcore/frequency-settings.md
+          - MeshCore FAQ: meshcore/general-faq.md
+          - MeshCore Roles: meshcore/general-meshcore-roles.md
+          - MeshCore Frequency Settings: meshcore/general-frequency-settings.md
       - Ottawa Deployment:
           - Repeaters & Coverage: meshcore/repeaters-and-coverage.md
           - Wanted Repeater Locations: meshcore/wanted-repeater-locations.md
