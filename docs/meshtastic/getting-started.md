@@ -32,8 +32,11 @@ Follow the official guides here:
 * [Initial Configuration](https://meshtastic.org/docs/getting-started/initial-config/)
 * [General Configuration Reference](https://meshtastic.org/docs/configuration/)
 
-When configuring your node, ensure you set the Ottawa frequency preset:  
-; Preset : **US/LongFast – 906.875 MHz**
+When configuring your node, ensure you set the Ottawa frequency preset:
+
+### Preset
+
+**US/LongFast – 906.875 MHz**
 
 ## Building a Repeater (Optional)
 
