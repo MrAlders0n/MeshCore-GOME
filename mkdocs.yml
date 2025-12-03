@@ -5,7 +5,7 @@ nav:
       - Getting Involved: community/getting-involved.md
   - MeshCore:
       - General:
-          - MeshCore FAQ: meshcore/general-faq.md
+          - MeshCore FAQ & How-To: meshcore/general-faq-howto.md
           - MeshCore Roles: meshcore/general-meshcore-roles.md
           - MeshCore Frequency Settings: meshcore/general-frequency-settings.md
       - Ottawa Deployment:
