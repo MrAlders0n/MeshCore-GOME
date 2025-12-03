@@ -1734,19 +1734,19 @@
 
 
 
-<h1 id="meshcore-packet-capture-companion-node-listener">MeshCore Packet Capture (Companion Node Listener)</h1>
+<h1 id="meshcore-packet-capture-companion-node-listener">MeshCore Packet Capture (Companion Node Listener)<a class="headerlink" href="#meshcore-packet-capture-companion-node-listener" title="Permanent link">&para;</a></h1>
 <p><strong>Purpose:</strong><br />
 This guide explains how to install and run <a href="https://github.com/agessaman/meshcore-packet-capture">MeshCore Packet Capture</a> on a <strong>Debian-based system</strong> (such as Raspberry Pi OS or Ubuntu) to stream captured packets from a <strong>dedicated MeshCore companion node</strong> to the <a href="https://analyzer.letsme.sh/o">MeshCore Packet Analyzer</a>.</p>
 <p><strong>Scope:</strong><br />
 This setup covers <strong>packet capture from companion nodes only</strong>.<br />
 Packet capture for <strong>repeaters</strong> and <strong>room servers</strong> is supported by MeshCore but not yet documented on this page.</p>
-<h2 id="requirements">Requirements</h2>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <ul>
 <li>A <strong>Debian-based operating system</strong> (Raspberry Pi OS, Ubuntu, or equivalent)  </li>
 <li>A <strong>dedicated MeshCore companion node</strong> connected via USB or TCP bridge  </li>
 <li><strong>Internet access</strong> for sending packet data to analyzer servers  </li>
 </ul>
-<h2 id="1-companion-configuration">1. Companion Configuration</h2>
+<h2 id="1-companion-configuration">1. Companion Configuration<a class="headerlink" href="#1-companion-configuration" title="Permanent link">&para;</a></h2>
 <p>Before installing, ensure your companion node is properly configured and named according to the Ottawa MeshCore naming standard.</p>
 <p>Each companion should follow the format:</p>
 <pre>
@@ -1758,7 +1758,7 @@ YOW_<LOCATION>
 * <code>YOW_Centretown</code>
 * <code>YOW_Orleans</code></p>
 <p>This helps the MeshCore Packet Analyzer identify which area each listener belongs to and keeps the Ottawa network consistent.</p>
-<h2 id="2-install-dependencies">2. Install Dependencies</h2>
+<h2 id="2-install-dependencies">2. Install Dependencies<a class="headerlink" href="#2-install-dependencies" title="Permanent link">&para;</a></h2>
 <p>Run the following commands to update your system and install required packages:</p>
 <pre>
 sudo apt update
@@ -1766,7 +1766,7 @@ sudo apt install -y python3 curl git
 sudo apt install -y python3.12-venv
 </pre>
 
-<h2 id="3-install-the-meshcore-decoder-required-for-auth">3. Install the MeshCore Decoder (Required for Auth)</h2>
+<h2 id="3-install-the-meshcore-decoder-required-for-auth">3. Install the MeshCore Decoder (Required for Auth)<a class="headerlink" href="#3-install-the-meshcore-decoder-required-for-auth" title="Permanent link">&para;</a></h2>
 <p><strong>meshcore-decoder</strong> is required for authentication when publishing packets to the MeshCore Packet Analyzer.</p>
 <pre>
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
@@ -1781,7 +1781,7 @@ which meshcore-decoder
 </pre>
 
 <p>Once installed, proceed with running the MeshCore Packet Capture installer.</p>
-<h2 id="4-run-the-packet-capture-installer">4. Run the Packet Capture Installer</h2>
+<h2 id="4-run-the-packet-capture-installer">4. Run the Packet Capture Installer<a class="headerlink" href="#4-run-the-packet-capture-installer" title="Permanent link">&para;</a></h2>
 <p>Run the official installation script:</p>
 <pre>
 bash <(curl -fsSL https://raw.githubusercontent.com/agessaman/meshcore-packet-capture/main/install.sh)
@@ -1873,7 +1873,7 @@ Check your TCP or Serial connection and restart the service manually:</p>
 sudo systemctl restart meshcore-capture
 </pre>
 
-<h2 id="5-managing-the-system-service">5. Managing the System Service</h2>
+<h2 id="5-managing-the-system-service">5. Managing the System Service<a class="headerlink" href="#5-managing-the-system-service" title="Permanent link">&para;</a></h2>
 <p>The installer creates a <em>systemd</em> service named <strong>meshcore-capture</strong>.</p>
 <pre>
 sudo systemctl start meshcore-capture
@@ -1886,28 +1886,28 @@ sudo journalctl -u meshcore-capture -f
 * The companion node is powered and reachable<br />
 * The TCP or Serial settings in<br />
   <code>/home/&lt;user&gt;/.meshcore-packet-capture/.env.local</code> are correct</p>
-<h2 id="6-verifying-connection">6. Verifying Connection</h2>
+<h2 id="6-verifying-connection">6. Verifying Connection<a class="headerlink" href="#6-verifying-connection" title="Permanent link">&para;</a></h2>
 <p>Once running, you should see packets appear in the MeshCore Packet Analyzer dashboard:</p>
 <p><strong><a href="https://analyzer.letsme.sh/status/observers">https://analyzer.letsme.sh/status/observers</a></strong></p>
 <p>Open the link above and use the <strong>All Regions</strong> dropdown in the top right to select your IATA region (e.g., <strong>YOW</strong>).<br />
 This will filter the view to show packet activity from your region and confirm your listener is forwarding data correctly.</p>
-<h2 id="7-logs-and-troubleshooting">7. Logs and Troubleshooting</h2>
+<h2 id="7-logs-and-troubleshooting">7. Logs and Troubleshooting<a class="headerlink" href="#7-logs-and-troubleshooting" title="Permanent link">&para;</a></h2>
 <p>To view live logs:</p>
 <pre>
 sudo journalctl -u meshcore-capture -f
 </pre>
 
-<h3 id="common-issues">Common Issues</h3>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Connection refused:</strong> Check TCP host/port  </li>
 <li><strong>meshcore-decoder not found:</strong> Re-run Step 2  </li>
 <li><strong>No packets visible:</strong> Ensure the node is on the correct channel/frequency  </li>
 </ul>
-<h2 id="8-next-steps">8. Next Steps</h2>
+<h2 id="8-next-steps">8. Next Steps<a class="headerlink" href="#8-next-steps" title="Permanent link">&para;</a></h2>
 <p>Future documentation will include:
 * Packet capture for <strong>repeaters</strong><br />
 <em> Packet capture for </em><em>room servers</em>*  </p>
-<h2 id="9-example-configuration">9. Example Configuration</h2>
+<h2 id="9-example-configuration">9. Example Configuration<a class="headerlink" href="#9-example-configuration" title="Permanent link">&para;</a></h2>
 <p>A sample configuration file (<code>.env.local</code>) may look like this:</p>
 <pre>
 # MeshCore Packet Capture Configuration

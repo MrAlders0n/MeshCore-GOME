@@ -1656,10 +1656,10 @@
 
 
 
-<h1 id="meshcore-packet-capture-standalone-repeater-listener">MeshCore Packet Capture (Standalone Repeater Listener)</h1>
+<h1 id="meshcore-packet-capture-standalone-repeater-listener">MeshCore Packet Capture (Standalone Repeater Listener)<a class="headerlink" href="#meshcore-packet-capture-standalone-repeater-listener" title="Permanent link">&para;</a></h1>
 <p>This guide explains how to install and run a <strong>custom build of MeshCore repeater firmware</strong> on a <strong>HeltekV3</strong> to act as a standalone packet capture device that forwards logs directly to <a href="https://analyzer.letsme.sh">analyzer.letsme.sh</a>.<br />
 This setup does <strong>not</strong> require a Raspberry Pi, VM, or companion node.</p>
-<h2 id="overview">Overview</h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>This firmware was compiled from <a href="https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation-dev">agessaman/MeshCore (mqtt-bridge-implementation-dev)</a> to simplify setup for the community.</p>
 <ul>
 <li><strong>Default Frequency:</strong> USA/CAN recommended settings pre-configured  </li>
@@ -1668,17 +1668,17 @@ This setup does <strong>not</strong> require a Raspberry Pi, VM, or companion no
 <p>Each unit functions like a repeater that does not forward packets.<br />
 To avoid ID collisions, each device must have a unique private key.<br />
 Please share your assigned ID in the <strong>Ottawa Mesh Discord</strong> so we can track it.</p>
-<h2 id="scope">Scope</h2>
+<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
 <p>This setup covers packet capture from a standalone repeater node only.<br />
 If you wish to run a full repeater, simply skip the step where repeat is disabled.</p>
-<h2 id="requirements">Requirements</h2>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Heltek V3 board  </li>
 <li>USB-C cable  </li>
 <li>Wi-Fi network access  </li>
 <li>Basic familiarity with the <a href="https://flasher.meshcore.co.uk">MeshCore Flasher</a> tool  </li>
 </ul>
-<h2 id="firmware-installation">Firmware Installation</h2>
+<h2 id="firmware-installation">Firmware Installation<a class="headerlink" href="#firmware-installation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Download the HeltekV3 MQTT Repeater Firmware:</strong> <a href="https://drive.proton.me/urls/BAM30S5MJ0#u6tQH2mlsoZR">Link</a>  </p>
@@ -1717,7 +1717,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 <p>Wait for flashing to complete.  </p>
 </li>
 </ol>
-<h2 id="configure-device-identity">Configure Device Identity</h2>
+<h2 id="configure-device-identity">Configure Device Identity<a class="headerlink" href="#configure-device-identity" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Visit <a href="../repeaters-and-coverage/">Ottawa Repeater ID List</a> and choose an unused 2-digit ID.  </p>
@@ -1771,7 +1771,7 @@ set mqtt.owner <Companion-Public-Key>
 set mqtt.email <MeshCore-Fourm-Email-Address>
 </pre>
 
-<h2 id="configure-wi-fi-timezone">Configure Wi-Fi &amp; Timezone</h2>
+<h2 id="configure-wi-fi-timezone">Configure Wi-Fi &amp; Timezone<a class="headerlink" href="#configure-wi-fi-timezone" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Set Wi-Fi credentials:  </li>
 </ol>
@@ -1794,7 +1794,7 @@ set timezone America/Toronto
 reboot
 </pre>
 
-<h2 id="validation">Validation</h2>
+<h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
 <p>After the device reboots and connects to Wi-Fi, it should automatically start sending logs to the Analyzer MQTT broker.  </p>
 <ol>
 <li>
@@ -1807,7 +1807,7 @@ reboot
 <p>Confirm that it appears in the table and is highlighted in <strong>green</strong> — this means it is online and reporting correctly.  </p>
 </li>
 </ol>
-<h2 id="notes">Notes</h2>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>This firmware publishes logs directly to the Analyzer MQTT broker — no Raspberry Pi or VM is needed.  </li>
 <li>The node operates as a repeater with repeating disabled, meaning it listens and reports traffic but does not forward it.  </li>
