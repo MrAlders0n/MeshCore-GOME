@@ -37,3 +37,9 @@ theme:
   name: material
   palette:
     scheme: slate      # dark palette
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - toc:
+      permalink: true
