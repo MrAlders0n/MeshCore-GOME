@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../packet-capture-overview/">
+        <link rel="prev" href="../flash-companion/">
       
       
-        <link rel="next" href="../packet-capture-standalone-repeater/">
+        <link rel="next" href="../flash-room-server/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Packet Capture · Companion Listener - Ottawa Mesh</title>
+        <title>Flashing a Repeater - Ottawa Mesh</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#meshcore-packet-capture-companion-node-listener" class="md-skip">
+        <a href="#flashing-configuring-a-repeater-node" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Packet Capture · Companion Listener
+              Flashing a Repeater
             
           </span>
         </div>
@@ -859,18 +859,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -891,7 +893,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -934,10 +936,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../flash-repeater/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flashing a Repeater
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -953,6 +980,85 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#flashing-configuring-a-repeater-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing &amp; Configuring a Repeater Node
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flashing &amp; Configuring a Repeater Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rak-bootloader-update-skip-if-not-using-a-rak-based-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAK Bootloader update (Skip if not using a RAK based board)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flashing-meshcore-repeater-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing MeshCore Repeater Firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-meshcore-repeater" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring a MeshCore Repeater
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-required-due-to-a-duplicate-id-this-is-how-to-generate-a-new-repeater-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If required due to a duplicate ID, this is how to generate a new repeater ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1054,20 +1160,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
           <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
@@ -1088,7 +1192,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1131,37 +1235,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Packet Capture · Companion Listener
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../packet-capture-companion-listener/" class="md-nav__link">
         
   
   
@@ -1177,153 +1254,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-companion-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Companion Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-install-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Install Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-install-the-meshcore-decoder-required-for-auth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Install the MeshCore Decoder (Required for Auth)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-run-the-packet-capture-installer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Run the Packet Capture Installer
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-managing-the-system-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Managing the System Service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-verifying-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Verifying Connection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-logs-and-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Logs and Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Logs and Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-example-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Example Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1581,8 +1511,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1591,99 +1519,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#flashing-configuring-a-repeater-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        Flashing &amp; Configuring a Repeater Node
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-companion-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Companion Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-install-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Install Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-install-the-meshcore-decoder-required-for-auth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Install the MeshCore Decoder (Required for Auth)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-run-the-packet-capture-installer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Run the Packet Capture Installer
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-managing-the-system-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Managing the System Service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-verifying-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Verifying Connection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-logs-and-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Logs and Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Logs and Troubleshooting">
+    <nav class="md-nav" aria-label="Flashing &amp; Configuring a Repeater Node">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
+  <a href="#rak-bootloader-update-skip-if-not-using-a-rak-based-board" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Issues
+        RAK Bootloader update (Skip if not using a RAK based board)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flashing-meshcore-repeater-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing MeshCore Repeater Firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-meshcore-repeater" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring a MeshCore Repeater
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-required-due-to-a-duplicate-id-this-is-how-to-generate-a-new-repeater-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If required due to a duplicate ID, this is how to generate a new repeater ID
       
     </span>
   </a>
@@ -1692,28 +1576,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-example-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Example Configuration
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1734,230 +1596,143 @@
 
 
 
-<h1 id="meshcore-packet-capture-companion-node-listener">MeshCore Packet Capture (Companion Node Listener)</h1>
-<p><strong>Purpose:</strong><br />
-This guide explains how to install and run <a href="https://github.com/agessaman/meshcore-packet-capture">MeshCore Packet Capture</a> on a <strong>Debian-based system</strong> (such as Raspberry Pi OS or Ubuntu) to stream captured packets from a <strong>dedicated MeshCore companion node</strong> to the <a href="https://analyzer.letsme.sh/o">MeshCore Packet Analyzer</a>.</p>
-<p><strong>Scope:</strong><br />
-This setup covers <strong>packet capture from companion nodes only</strong>.<br />
-Packet capture for <strong>repeaters</strong> and <strong>room servers</strong> is supported by MeshCore but not yet documented on this page.</p>
-<h2 id="requirements">Requirements</h2>
-<ul>
-<li>A <strong>Debian-based operating system</strong> (Raspberry Pi OS, Ubuntu, or equivalent)  </li>
-<li>A <strong>dedicated MeshCore companion node</strong> connected via USB or TCP bridge  </li>
-<li><strong>Internet access</strong> for sending packet data to analyzer servers  </li>
-</ul>
-<h2 id="1-companion-configuration">1. Companion Configuration</h2>
-<p>Before installing, ensure your companion node is properly configured and named according to the Ottawa MeshCore naming standard.</p>
-<p>Each companion should follow the format:</p>
-<pre>
-YOW_<LOCATION>
-</pre>
+  <h1>Flashing a Repeater</h1>
 
-<p>For example:
-* <code>YOW_Barrhaven</code>
-* <code>YOW_Centretown</code>
-* <code>YOW_Orleans</code></p>
-<p>This helps the MeshCore Packet Analyzer identify which area each listener belongs to and keeps the Ottawa network consistent.</p>
-<h2 id="2-install-dependencies">2. Install Dependencies</h2>
-<p>Run the following commands to update your system and install required packages:</p>
-<pre>
-sudo apt update
-sudo apt install -y python3 curl git
-sudo apt install -y python3.12-venv
-</pre>
-
-<h2 id="3-install-the-meshcore-decoder-required-for-auth">3. Install the MeshCore Decoder (Required for Auth)</h2>
-<p><strong>meshcore-decoder</strong> is required for authentication when publishing packets to the MeshCore Packet Analyzer.</p>
-<pre>
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-source ~/.bashrc
-nvm install --lts
-npm install -g @michaelhart/meshcore-decoder
-</pre>
-
-<p>Verify installation:</p>
-<pre>
-which meshcore-decoder
-</pre>
-
-<p>Once installed, proceed with running the MeshCore Packet Capture installer.</p>
-<h2 id="4-run-the-packet-capture-installer">4. Run the Packet Capture Installer</h2>
-<p>Run the official installation script:</p>
-<pre>
-bash <(curl -fsSL https://raw.githubusercontent.com/agessaman/meshcore-packet-capture/main/install.sh)
-</pre>
-
-<p>In this example, a <strong>TCP connection</strong> was used.<br />
-When prompted, you will be asked how you want to connect to your MeshCore device.<br />
-Choose the option that matches your setup:</p>
-<p>;1) Bluetooth Low Energy (BLE)
-: • Recommended for T1000 devices<br />
-: • Wireless connection<br />
-: • Works with MeshCore T1000e and compatible devices  </p>
-<p>;2) Serial Connection
-: • For devices with USB or serial interface<br />
-: • Uses a direct USB/serial cable connection<br />
-: • Most reliable for continuous operation  </p>
-<p>;3) TCP Connection
-: • For network-connected devices<br />
-: • Connects to your node over the network<br />
-: • Works with ser2net or other TCP-to-serial bridges  </p>
-<p>The installer is interactive and runs through several stages with clear headers.<br />
-Below is an example of a successful run and what you should expect to see.</p>
-<pre>
-═══════════════════════════════════════════════════
-  MeshCore Packet Capture Installer v1.1.1
-═══════════════════════════════════════════════════
-
-This installer will help you set up MeshCore Packet Capture.
-
-Installation directory [/home/user/.meshcore-packet-capture]:
-ℹ Installation directory: /home/user/.meshcore-packet-capture
-
-═══════════════════════════════════════════════════
-  Installing Files
-═══════════════════════════════════════════════════
-ℹ Downloading from GitHub (agessaman/meshcore-packet-capture @ main)...
-✓ Files downloaded and verified
-
-═══════════════════════════════════════════════════
-  Checking Dependencies
-═══════════════════════════════════════════════════
-✓ Python 3 found: Python 3.12.3
-✓ Virtual environment created
-✓ Python dependencies installed
-✓ meshcore-decoder found: /home/user/.nvm/versions/node/v24.11.0/bin/meshcore-decoder
-
-═══════════════════════════════════════════════════
-  Device Connection Configuration
-═══════════════════════════════════════════════════
-Select connection type [1-3] [1]: 3
-ℹ Selected: TCP Connection
-TCP host/address [localhost]: 192.168.1.201
-TCP port [5000]:
-✓ TCP connection configured: 192.168.1.201:5000
-
-Enter your IATA code (3 letters): YOW
-✓ IATA code set to: YOW
-
-═══════════════════════════════════════════════════
-  MQTT Broker Configuration
-═══════════════════════════════════════════════════
-Enable the MeshCore Packet Analyzer (US + EU servers) for redundancy? [Y/n]: Y
-✓ MeshCore Packet Analyzer brokers enabled
-
-═══════════════════════════════════════════════════
-  Installation Method
-═══════════════════════════════════════════════════
-Choose installation method [1-3] [1]: 1
-ℹ Installing systemd service...
-✓ Service enabled
-✓ Systemd service installed
-
-═══════════════════════════════════════════════════
-  Installation Complete!
-═══════════════════════════════════════════════════
-Installation directory: /home/user/.meshcore-packet-capture
-Configuration file: /home/user/.meshcore-packet-capture/.env.local
-✓ Installation complete!
-</pre>
-
-<p>If you see:</p>
-<pre>
-✗ Service failed to start
-</pre>
-
-<p>it usually means the node wasn’t reachable during setup.<br />
-Check your TCP or Serial connection and restart the service manually:</p>
-<pre>
-sudo systemctl restart meshcore-capture
-</pre>
-
-<h2 id="5-managing-the-system-service">5. Managing the System Service</h2>
-<p>The installer creates a <em>systemd</em> service named <strong>meshcore-capture</strong>.</p>
-<pre>
-sudo systemctl start meshcore-capture
-sudo systemctl stop meshcore-capture
-sudo systemctl status meshcore-capture
-sudo journalctl -u meshcore-capture -f
-</pre>
-
-<p>If it fails to start, confirm:
-* The companion node is powered and reachable<br />
-* The TCP or Serial settings in<br />
-  <code>/home/&lt;user&gt;/.meshcore-packet-capture/.env.local</code> are correct</p>
-<h2 id="6-verifying-connection">6. Verifying Connection</h2>
-<p>Once running, you should see packets appear in the MeshCore Packet Analyzer dashboard:</p>
-<p><strong><a href="https://analyzer.letsme.sh/status/observers">https://analyzer.letsme.sh/status/observers</a></strong></p>
-<p>Open the link above and use the <strong>All Regions</strong> dropdown in the top right to select your IATA region (e.g., <strong>YOW</strong>).<br />
-This will filter the view to show packet activity from your region and confirm your listener is forwarding data correctly.</p>
-<h2 id="7-logs-and-troubleshooting">7. Logs and Troubleshooting</h2>
-<p>To view live logs:</p>
-<pre>
-sudo journalctl -u meshcore-capture -f
-</pre>
-
-<h3 id="common-issues">Common Issues</h3>
-<ul>
-<li><strong>Connection refused:</strong> Check TCP host/port  </li>
-<li><strong>meshcore-decoder not found:</strong> Re-run Step 2  </li>
-<li><strong>No packets visible:</strong> Ensure the node is on the correct channel/frequency  </li>
-</ul>
-<h2 id="8-next-steps">8. Next Steps</h2>
-<p>Future documentation will include:
-* Packet capture for <strong>repeaters</strong><br />
-<em> Packet capture for </em><em>room servers</em>*  </p>
-<h2 id="9-example-configuration">9. Example Configuration</h2>
-<p>A sample configuration file (<code>.env.local</code>) may look like this:</p>
-<pre>
-# MeshCore Packet Capture Configuration
-# This file contains your local overrides to the defaults in .env
-
-# Update source (configured by installer)
-PACKETCAPTURE_UPDATE_REPO=agessaman/meshcore-packet-capture
-PACKETCAPTURE_UPDATE_BRANCH=main
-
-# Connection Configuration
-PACKETCAPTURE_CONNECTION_TYPE=tcp
-
-# Companion Adverts
-PACKETCAPTURE_ADVERT_INTERVAL_HOURS=24
-PACKETCAPTURE_TCP_HOST=192.168.1.201
-PACKETCAPTURE_TCP_PORT=5000
-
-# Location Code
-PACKETCAPTURE_IATA=YOW
-
-# Advert Settings
-PACKETCAPTURE_ADVERT_INTERVAL_HOURS=11
-
-# Logging Settings
-PACKETCAPTURE_LOG_LEVEL=INFO
-
-# MQTT Broker 1 - MeshCore Packet Analyzer (US)
-PACKETCAPTURE_MQTT1_ENABLED=true
-PACKETCAPTURE_MQTT1_SERVER=mqtt-us-v1.letsmesh.net
-PACKETCAPTURE_MQTT1_PORT=443
-PACKETCAPTURE_MQTT1_TRANSPORT=websockets
-PACKETCAPTURE_MQTT1_USE_TLS=true
-PACKETCAPTURE_MQTT1_USE_AUTH_TOKEN=true
-PACKETCAPTURE_MQTT1_TOKEN_AUDIENCE=mqtt-us-v1.letsmesh.net
-PACKETCAPTURE_MQTT1_KEEPALIVE=120
-
-# MQTT Broker 2 - MeshCore Packet Analyzer (EU)
-PACKETCAPTURE_MQTT2_ENABLED=true
-PACKETCAPTURE_MQTT2_SERVER=mqtt-eu-v1.letsmesh.net
-PACKETCAPTURE_MQTT2_PORT=443
-PACKETCAPTURE_MQTT2_TRANSPORT=websockets
-PACKETCAPTURE_MQTT2_USE_TLS=true
-PACKETCAPTURE_MQTT2_USE_AUTH_TOKEN=true
-PACKETCAPTURE_MQTT2_TOKEN_AUDIENCE=mqtt-eu-v1.letsmesh.net
-PACKETCAPTURE_MQTT2_KEEPALIVE=120
-
-# MQTT Topics for Broker 1 - Default Pattern
-PACKETCAPTURE_MQTT1_TOPIC_STATUS=meshcore/{IATA}/{PUBLIC_KEY}/status
-PACKETCAPTURE_MQTT1_TOPIC_PACKETS=meshcore/{IATA}/{PUBLIC_KEY}/packets
-</pre>
+<p>← Home</p>
+<p>This guide will help you flash a node, configure it as a repeater.</p>
+<h2 id="flashing-configuring-a-repeater-node">Flashing &amp; Configuring a Repeater Node</h2>
+<h3 id="rak-bootloader-update-skip-if-not-using-a-rak-based-board">RAK Bootloader update (Skip if not using a RAK based board)</h3>
+<p><strong>Important:</strong> Before configuration, you must update the bootloader on RAK boards.<br />
+Without this fix, failed OTA updates can leave the repeater in an unusable state that requires physical recovery.</p>
+<ol>
+<li>
+<p>Download the OTA bootloader fix from <a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-otafix1/update-wiscore_rak4631_board_bootloader-0.9.2-otafix1_nosd.uf2">this link</a>.  </p>
+</li>
+<li>
+<p>Connect your repeater to your computer.  </p>
+</li>
+<li>
+<p>Double click the button on the RAK board beside the USB port, the green light should turn on indicating DFU mode is enabled.  </p>
+</li>
+<li>
+<p>It should appear in your file explorer as a <strong>USB Drive</strong>.  </p>
+</li>
+<li>
+<p>Drag the <strong>.uf2</strong> file into the mounted drive.  </p>
+</li>
+<li>
+<p>The file copy will appear to fail, and the device will restart and remount as a USB drive — this is expected and indicates a successful update.  </p>
+</li>
+<li>
+<p>To confirm, open the <strong>INFO.TXT</strong> file on the drive and check that it shows version <strong>0.9.2 bootloader firmware</strong>.  </p>
+</li>
+</ol>
+<h3 id="flashing-meshcore-repeater-firmware">Flashing MeshCore Repeater Firmware</h3>
+<ol>
+<li>
+<p>Plug your device into your computer via USB.  </p>
+</li>
+<li>
+<p>Open the <a href="https://flasher.meshcore.co.uk/">MeshCore Web Flasher</a>.  </p>
+</li>
+<li>
+<p>Select your device hardware.  </p>
+</li>
+<li>
+<p>Select the firmware choice <strong>Repeater</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Enter DFU Mode</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Erase Flash</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Flash</strong> to install the MeshCore firmware.  </p>
+</li>
+</ol>
+<p><strong>Note:</strong> Sometimes after erasing, the flash step may fail. If this happens, refresh the page, click <strong>Enter DFU Mode</strong> again, and then click <strong>Flash</strong> to retry.  </p>
+<h3 id="configuring-a-meshcore-repeater">Configuring a MeshCore Repeater</h3>
+<ol>
+<li>
+<p>Using Google Chrome, open the repeater configuration tool: <a href="https://config.meshcore.dev/">MeshCore Repeater Config</a>.  </p>
+</li>
+<li>
+<p>After connecting to the device, navigate to Ottawa Repeater IDs and make sure the first two characters of your public key are not already in use.  </p>
+</li>
+<li>MeshCore repeater IDs are based on the <strong>first two characters of the public key</strong>.  </li>
+<li>As the mesh has grown, duplicate IDs have caused routing conflicts — it’s important to avoid using an existing ID.  </li>
+<li>Developers are working on a long-term fix, but for now, each new repeater must use a unique ID.</li>
+</ol>
+<hr />
+<h3 id="if-required-due-to-a-duplicate-id-this-is-how-to-generate-a-new-repeater-id">If required due to a duplicate ID, this is how to generate a new repeater ID</h3>
+<p>There are <strong>two ways</strong> to assign a new repeater ID:</p>
+<p><strong>Option 1 – Reflash the repeater (automatic key generation)</strong></p>
+<ol>
+<li>
+<p>Reflash the repeater. Follow Flashing a Node from the beginning, and make sure to <strong>Flash Erase</strong> during the process.</p>
+</li>
+<li>
+<p>This will generate a new random private key and therefore a new public key and repeater ID. However, it could generate a duplicate again, so please verify afterwards that your new repeater ID is unique by checking it against the <a href="../repeaters-and-coverage/">Ottawa Repeater ID List</a>.</p>
+</li>
+</ol>
+<p><strong>Option 2 – Manually generate a private key (choose your own ID)</strong></p>
+<p>If you want to choose your repeater’s ID prefix manually:</p>
+<ol>
+<li>
+<p>Visit the <a href="../repeaters-and-coverage/">Ottawa Repeater ID List</a> and select an unused 2-digit ID.</p>
+</li>
+<li>
+<p>Go to <a href="https://gessaman.com/mc-keygen/">mc-keygen</a> and enter that 2-digit ID into the “Repeater ID” field, then click <strong>Generate Key</strong>.</p>
+</li>
+<li>
+<p>Scroll down and copy the value under <strong>Private Key</strong>.</p>
+</li>
+<li>
+<p>Open <a href="https://flasher.meshcore.co.uk/">MeshCore Flasher</a>, click <strong>Console</strong>, and select the serial device for your repeater.</p>
+</li>
+<li>
+<p>Run the following command, replacing <PRIVATE-KEY> with the key you copied:</p>
+</li>
+</ol>
+<p>set prv.key <PRIVATE-KEY></p>
+<ol>
+<li>Reboot the repeater.<br />
+It will now use the new private key, and the public key will reflect your chosen repeater ID.</li>
+</ol>
+<hr />
+<ol>
+<li>
+<p>Give the node a descriptive <strong>name</strong> (e.g. <strong>Callsign_R1</strong> or a location-based name).  </p>
+</li>
+<li>
+<p>Set an <strong>admin password</strong> for the repeater — this is required for remote management over MeshCore.  </p>
+</li>
+<li>
+<p>Apply the Ottawa frequency defaults: <strong>910.525 MHz / BW: 62.5 kHz / SF7 / CR5</strong>.  </p>
+</li>
+<li>
+<p>Click <strong>Save</strong> and reboot the node.  </p>
+</li>
+<li>
+<p>Reconnect to the device using the configuration tool and click <strong>Send Advert</strong>.  </p>
+</li>
+<li>If your repeater is running correctly, you should see the advert appear on nearby companion nodes.  </li>
+</ol>
+<p>After the repeater has been configured and discovered by your companion node, log into it via MeshCore Remote Administration and set the following advert intervals:  </p>
+<ol>
+<li>
+<p>Set <strong>Zero-hop adverts (direct)</strong> to every 1 hour.  </p>
+</li>
+<li>
+<p>Set <strong>Flood adverts (forwarded across repeaters)</strong> to every 12 hours.  </p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.  </p>
+</li>
+</ol>
+<p><strong>Tip:</strong> After every reboot, you must resync the repeater’s clock.<br />
+The repeater will still route messages without a clock, but its adverts will be ignored until the time is set.</p>
 
 
 
