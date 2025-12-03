@@ -10,7 +10,7 @@ Follow each step carefully for a reliable and weatherproof build.
 **WARNING: Always ensure a LoRa antenna and the Bluetooth antenna are attached to the RAK board before powering it on. Powering without antennas can permanently damage the board.**
 
 1. Unbox all components and place them aside.  
-   ```Tip: Try not to misplace the small screws and fittings — they’re easy to lose.```  
+   ```* Tip: Try not to misplace the small screws and fittings — they’re easy to lose.```  
 
 2. Mount the RAK backplate into the box with the four provided screws.  
 
@@ -38,17 +38,17 @@ Follow each step carefully for a reliable and weatherproof build.
 
 10. Connect the JST PHR-2 cable to the RAK19003 battery plug, **ensuring correct polarity** (many JST cables are wired incorrectly).  
 
-frameless  
+![](images/600px-RAK19003-Layout.png){ width="300" }
 
 11. Connect the other end of this cable to the **CHG** side of the VoltaicEnclosures Li-ion PCM.  
 
-frameless  
+![](images/600px-VoltaicEnclosures_Layout.png){ width="300" }
 
 12. Slide a piece of heat-shrink tubing over the cable large enough to cover the PCM before connecting the battery.  
 
 13. Connect the LiPo JST PHR-2 cable to the **BATT** side of the PCM, again **ensuring polarity is correct**.  
 
-frameless  
+![](images/600px-RAK19003-LayoutSolar.jpg){ width="300" }
 
 14. Heat-shrink the VoltaicEnclosures Li-ion PCM so the entire board is covered.  
 
@@ -56,21 +56,23 @@ frameless
 
 16. (Optional) Secure the battery to the backplate with double-sided tape or mounting hardware. It should look like the below image.
 
-frameless  
+![](images/600px-BuildRepeater1_Finished.jpeg){ width="300" }
 
 17. Fit the rubber seal into the groove around the edge of the front plate of the box.  
 
-18. Connect the solar panel wire from the front plate to the RAK19003.  
-   * Be careful not to let the seal fall out of place while connecting the solar panel wire.  
+18. Connect the solar panel wire from the front plate to the RAK19003.
 
-19. Join the front and back plates together and fasten them with the six screws.  
-   * Tighten securely to maintain the weatherproof seal.
+   ```* Be careful not to let the seal fall out of place while connecting the solar panel wire.```  
+
+19. Join the front and back plates together and fasten them with the six screws. 
+
+   ```* Tighten securely to maintain the weatherproof seal.```
 
 20. Wrap the entire N-type connector and the exposed metal part of the Alfa antenna with self-adhering silicone tape, or use two layers of heat-shrink tubing for protection.  
 
 21. Apply a bead of clear outdoor silicone caulk around the base of the N-type connector to prevent water from leaking into the box. 
 
-frameless  
-frameless   
+![](images/600px-BuildRepeater1_SelfFuseTape.jpeg){ width="300" }
+![](images/600px-BuildRepeater1_Heatshrink.jpg){ width="300" }
 
 22. (Optional) Add a bead of silicone caulk along the top edge of the box seal (between the two plates) and around the base of the antenna as extra waterproofing protection.
