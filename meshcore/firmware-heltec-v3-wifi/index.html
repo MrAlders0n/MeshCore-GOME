@@ -1114,21 +1114,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-the-firmware" class="md-nav__link">
+  <a href="#compile-and-prepare-firmware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Build the Firmware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rename-and-move-the-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rename and Move the Firmware
+        Compile and Prepare Firmware
       
     </span>
   </a>
@@ -1561,21 +1550,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-the-firmware" class="md-nav__link">
+  <a href="#compile-and-prepare-firmware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Build the Firmware
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rename-and-move-the-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rename and Move the Firmware
+        Compile and Prepare Firmware
       
     </span>
   </a>
@@ -1611,32 +1589,59 @@
 
 
 <h1 id="compiling-meshcore-firmware-with-wi-fi-enabled">Compiling MeshCore Firmware with Wi-Fi Enabled<a class="headerlink" href="#compiling-meshcore-firmware-with-wi-fi-enabled" title="Permanent link">&para;</a></h1>
-<p><strong>Device:</strong> These instructions are specifically for the <strong>Heltec V3</strong> device.<br />
-<strong>OS:</strong> This guide was completed on <strong>Red Hat 9.6</strong>.  </p>
-<p><strong>Note:</strong> Wi-Fi in MeshCore is an experimental feature. Your SSID and password are embedded at compile time. Do not share compiled binaries publicly if they contain your real credentials.</p>
+<p><strong>Device:</strong> Heltec V3<br />
+<strong>OS:</strong> Red Hat 9.6  </p>
+<p><strong>Note:</strong><br />
+Wi-Fi support in MeshCore is experimental.<br />
+Your SSID and password are embedded at compile time, so do <strong>not</strong> share compiled binaries that contain your real credentials.</p>
+<hr />
 <h2 id="install-platformio">Install PlatformIO<a class="headerlink" href="#install-platformio" title="Permanent link">&para;</a></h2>
-<pre>
-cd ~
-curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
-python3 get-platformio.py 
-export PATH=$PATH:/home/linuxuser/.platformio/penv/bin
-</pre>
-
+<ol>
+<li>
+<p>Change to your home directory:</p>
+<p><code>bash
+cd ~</code></p>
+</li>
+<li>
+<p>Download the PlatformIO installer:</p>
+<p><code>bash
+curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py</code></p>
+</li>
+<li>
+<p>Run the installer:</p>
+<p><code>bash
+python3 get-platformio.py</code></p>
+</li>
+<li>
+<p>Add PlatformIO to your PATH (adjust the path if your username is different):</p>
+<p><code>bash
+export PATH=$PATH:/home/linuxuser/.platformio/penv/bin</code></p>
+</li>
+</ol>
 <h2 id="clone-the-meshcore-repository">Clone the MeshCore Repository<a class="headerlink" href="#clone-the-meshcore-repository" title="Permanent link">&para;</a></h2>
-<pre>
-git pull https://github.com/ripplebiz/MeshCore.git
-git clone https://github.com/ripplebiz/MeshCore.git
-cd MeshCore/
-</pre>
-
+<ol>
+<li>
+<p>Clone the MeshCore repo:</p>
+<p><code>bash
+git clone https://github.com/ripplebiz/MeshCore.git</code></p>
+</li>
+<li>
+<p>Change into the project directory:</p>
+<p><code>bash
+cd MeshCore/</code></p>
+</li>
+</ol>
+<hr />
 <h2 id="configure-wi-fi-credentials">Configure Wi-Fi Credentials<a class="headerlink" href="#configure-wi-fi-credentials" title="Permanent link">&para;</a></h2>
-<p>Edit the PlatformIO configuration for the Heltec V3 Wi-Fi build:</p>
-<pre>
-vi variants/heltec_v3/platformio.ini
-</pre>
-
-<p>Find the following section and update with your SSID and password:</p>
-<pre>
+<ol>
+<li>
+<p>Open the PlatformIO configuration for the Heltec V3 Wi-Fi build:</p>
+<p><code>bash
+vi variants/heltec_v3/platformio.ini</code></p>
+</li>
+<li>
+<p>Locate the <code>env:Heltec_v3_companion_radio_wifi</code> section and update it with your SSID and password:</p>
+<p><code>ini
 [env:Heltec_v3_companion_radio_wifi]
 extends = Heltec_lora32_v3
 build_flags =
@@ -1645,30 +1650,69 @@ build_flags =
   -D MAX_GROUP_CHANNELS=8
   -D DISPLAY_CLASS=SSD1306Display
   -D WIFI_DEBUG_LOGGING=1
-  -D WIFI_SSID="<<SSID>>"
-  -D WIFI_PWD="<<WIFI-PASS>>"
-</pre>
-
-<h2 id="build-the-firmware">Build the Firmware<a class="headerlink" href="#build-the-firmware" title="Permanent link">&para;</a></h2>
-<pre>
-set FIRMWARE_VERSION=1.7.3
-./build.sh build-firmware Heltec_v3_companion_radio_wifi
-</pre>
-
-<h2 id="rename-and-move-the-firmware">Rename and Move the Firmware<a class="headerlink" href="#rename-and-move-the-firmware" title="Permanent link">&para;</a></h2>
-<pre>
-cd .pio/build/Heltec_v3_companion_radio_wifi/
+  -D WIFI_SSID="&lt;&lt;SSID&gt;&gt;"
+  -D WIFI_PWD="&lt;&lt;WIFI-PASS&gt;&gt;"</code></p>
+</li>
+<li>
+<p>Save and exit the editor.</p>
+</li>
+</ol>
+<h2 id="compile-and-prepare-firmware">Compile and Prepare Firmware<a class="headerlink" href="#compile-and-prepare-firmware" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Set the firmware version environment variable:</p>
+<p><code>bash
+set FIRMWARE_VERSION=1.7.3</code></p>
+<p><em>(Or use <code>export FIRMWARE_VERSION=1.7.3</code> if you are using a pure Linux shell and not a mixed environment.)</em></p>
+</li>
+<li>
+<p>Build the Wi-Fi firmware target:</p>
+<p><code>bash
+./build.sh build-firmware Heltec_v3_companion_radio_wifi</code></p>
+</li>
+<li>
+<p>Change into the build output directory:</p>
+<p><code>bash
+cd .pio/build/Heltec_v3_companion_radio_wifi/</code></p>
+</li>
+<li>
+<p>Rename the output binaries:</p>
+<p><code>bash
 mv firmware-merged.bin Heltec_v3_companion_radio_wifi_1.7.3-merged.bin
-mv firmware.bin Heltec_v3_companion_radio_wifi_1.7.3.bin
-mv Heltec_v3_companion_radio_wifi* /home/linuxuser/
-</pre>
-
+mv firmware.bin Heltec_v3_companion_radio_wifi_1.7.3.bin</code></p>
+</li>
+<li>
+<p>Move the generated firmware files to a convenient location (example):</p>
+<p><code>bash
+mv Heltec_v3_companion_radio_wifi* /home/linuxuser/</code></p>
+</li>
+</ol>
+<hr />
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Flash one of the compiled firmware files onto your Heltec V3:</p>
 <ul>
-<li>Flash the compiled firmware (<strong>Heltec_v3_companion_radio_wifi_1.7.3.bin</strong> or <strong>Heltec_v3_companion_radio_wifi_1.7.3-merged.bin</strong>) onto your Heltec V3 device using your preferred flashing tool.</li>
-<li>Monitor serial output to confirm Wi-Fi association and connectivity.</li>
-<li>Remember this is experimental — expect instability.</li>
+<li><code>Heltec_v3_companion_radio_wifi_1.7.3.bin</code>  </li>
+<li>or <code>Heltec_v3_companion_radio_wifi_1.7.3-merged.bin</code></li>
 </ul>
+</li>
+<li>
+<p>Connect to the device over serial and monitor logs to confirm:</p>
+<ul>
+<li>Wi-Fi is enabled  </li>
+<li>The device is attempting to associate with your SSID  </li>
+</ul>
+</li>
+<li>
+<p>Remember that Wi-Fi support in MeshCore is experimental:</p>
+<ul>
+<li>Expect instability  </li>
+<li>Features may be incomplete  </li>
+<li>Do not deploy this build as a critical node on the mesh  </li>
+</ul>
+</li>
+</ol>
 
 
 
