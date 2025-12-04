@@ -67,26 +67,26 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 6. Configure the repeater name using the Ottawa naming convention (```YOW_Location```):  
 
-    ```text
+    ```
     set name YOW_OldBarrhaven
      ```
 
 7. Configure the IATA Code for MQTT ingestion
 
-    ```text
+    ```
     set mqtt.iata YOW 
     ```
 
 8. Disable repeat:  
 
-    ```text
+    ```
     set repeat off
      ```
 
 9. (Optional) Configure ownership info for the Packet Analyzer:  
     You must have an account on [analyzer.letsme.sh](https://analyzer.letsme.sh/) (login uses MeshCore Forum authentication). 
 
-     ```text
+     ```
      set mqtt.owner <Companion-Public-Key>
      set mqtt.email <MeshCore-Fourm-Email-Address>
       ```
@@ -95,20 +95,20 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 1. Set Wi-Fi credentials: 
 
-    ```text
+    ```
     set wifi.ssid <WIFI-NETWORK-NAME>
     set wifi.pwd <WIFI-PASSWORD>
     ```
 
 2. Set timezone:  
 
-    ```text
+    ```
     set timezone America/Toronto
     ```
 
 3. Reboot the device: 
 
-    ```text
+    ```
     reboot
     ```
 
