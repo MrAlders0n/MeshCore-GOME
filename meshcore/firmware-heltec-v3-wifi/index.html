@@ -1641,8 +1641,9 @@ vi variants/heltec_v3/platformio.ini</code></p>
 </li>
 <li>
 <p>Locate the <code>env:Heltec_v3_companion_radio_wifi</code> section and update it with your SSID and password:</p>
-<p><code>yaml
-[env:Heltec_v3_companion_radio_wifi]
+</li>
+</ol>
+<pre><code class="language-ini">[env:Heltec_v3_companion_radio_wifi]
 extends = Heltec_lora32_v3
 build_flags =
     ${Heltec_lora32_v3.build_flags}
@@ -1650,12 +1651,11 @@ build_flags =
     -D MAX_GROUP_CHANNELS=8
     -D DISPLAY_CLASS=SSD1306Display
     -D WIFI_DEBUG_LOGGING=1
-    -D WIFI_SSID="&lt;&lt;SSID&gt;&gt;"
-    -D WIFI_PWD="&lt;&lt;WIFI-PASS&gt;&gt;"</code></p>
-</li>
-<li>
-<p>Save and exit the editor.</p>
-</li>
+    -D WIFI_SSID=&quot;&lt;&lt;SSID&gt;&gt;&quot;
+    -D WIFI_PWD=&quot;&lt;&lt;WIFI-PASS&gt;&gt;&quot;
+</code></pre>
+<ol>
+<li>Save and exit the editor.</li>
 </ol>
 <h2 id="compile-and-prepare-firmware">Compile and Prepare Firmware<a class="headerlink" href="#compile-and-prepare-firmware" title="Permanent link">&para;</a></h2>
 <ol>
