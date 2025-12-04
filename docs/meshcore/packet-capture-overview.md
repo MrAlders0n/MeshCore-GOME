@@ -34,7 +34,8 @@ Participating gateways (called **observers**) run the *meshcore-packet-capture*,
 Packets are aggregated by region (e.g., **YOW** for Ottawa) and displayed in near real time.
 
 You can:
-* Filter or search packets  
+
+* Filter or search packets
 * Inspect decoded fields and raw hex  
 * Compare paths across multiple hops  
 * Monitor reliability and propagation trends
