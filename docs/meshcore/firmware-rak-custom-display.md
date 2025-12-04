@@ -1,35 +1,66 @@
-
 # Compiling MeshCore Firmware for RAK4631 with MakerFocus 1.3" OLED (SH1106)
-**Device:** These instructions are specifically for the **RAK4631** with the **MakerFocus 1.3" SH1106 OLED**.  
-**OS:** This guide was completed on **Red Hat 9.6**.  
 
-**Note:** MeshCore does not natively support the MakerFocus SH1106 OLED out of the box on the RAK4631.  
+**Device:** RAK4631 with MakerFocus 1.3" SH1106 OLED  
+**OS:** Red Hat 9.6  
+
+**Note:**  
+MeshCore does not natively support the MakerFocus SH1106 OLED on the RAK4631.  
 The steps below modify the PlatformIO configuration to add SH1106 display support.
 
+---
+
 ## Install PlatformIO
-<pre>
-cd ~
-curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
-python3 get-platformio.py 
-export PATH=$PATH:/home/linuxuser/.platformio/penv/bin
-</pre>
+
+1. Change to your home directory:
+
+    ```bash
+    cd ~
+    ```
+
+2. Download the PlatformIO installer:
+
+    ```bash
+    curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
+    ```
+
+3. Run the installer:
+
+    ```bash
+    python3 get-platformio.py
+    ```
+
+4. Add PlatformIO to your PATH (adjust the path if your username is different):
+
+    ```bash
+    export PATH=$PATH:/home/linuxuser/.platformio/penv/bin
+    ```
 
 ## Clone the MeshCore Repository
-<pre>
-git pull https://github.com/ripplebiz/MeshCore.git
-git clone https://github.com/ripplebiz/MeshCore.git
-cd MeshCore/
-</pre>
 
-## Edit the PlatformIO Configuration
-<pre>
+1. Clone the MeshCore repo:
+
+    ```bash
+    git clone https://github.com/ripplebiz/MeshCore.git
+    ```
+
+2. Change into the project directory:
+
+    ```bash
+    cd MeshCore/
+    ```
+
+## 3. Edit the PlatformIO Configuration
+
+1. Open the RAK4631 PlatformIO configuration file:
+
+```bash
 vi variants/rak4631/platformio.ini
-</pre>
+```
 
-Replace the OLED-related lines as shown below.  
+1. Replace OLED-related lines as shown below.  
 Every line marked with “<============= CHANGED” is different from the default configuration.
 
-<pre>
+```ini
 [rak4631]
 extends = nrf52_base
 platform = https://github.com/maxgerhardt/platform-nordicnrf52.git#rak
@@ -54,16 +85,16 @@ build_flags = ${nrf52_base.build_flags}
 build_src_filter = ${nrf52_base.build_src_filter}
   +<../variants/rak4631>
   +<helpers/sensors>
-;  +<helpers/ui/SSD1306Display.cpp> <============= CHANGED 
-  +<helpers/ui/SH1106Display.cpp> <============= CHANGED 
+;  +<helpers/ui/SSD1306Display.cpp> <============= CHANGED
+  +<helpers/ui/SH1106Display.cpp>  <============= CHANGED
   +<helpers/ui/MomentaryButton.cpp>
 lib_deps =
   ${nrf52_base.lib_deps}
   ${sensor_base.lib_deps}
-;  adafruit/Adafruit SSD1306 @ ^2.5.13 <============= CHANGED 
+;  adafruit/Adafruit SSD1306 @ ^2.5.13 <============= CHANGED
   sparkfun/SparkFun u-blox GNSS Arduino Library@^2.2.27
-  adafruit/Adafruit SH110X @ ^2.1.13 <============= CHANGED 
-  adafruit/Adafruit GFX Library @ ^1.12.1 <============= CHANGED 
+  adafruit/Adafruit SH110X @ ^2.1.13 <============= CHANGED
+  adafruit/Adafruit GFX Library @ ^1.12.1 <============= CHANGED
 
 
 [env:RAK_4631_companion_radio_ble]
@@ -75,8 +106,8 @@ build_flags =
   -I examples/companion_radio/ui-new
   -D PIN_USER_BTN=9
   -D PIN_USER_BTN_ANA=31
-;  -D DISPLAY_CLASS=SSD1306Display <============= CHANGED 
-  -D DISPLAY_CLASS=SH1106Display <============= CHANGED 
+;  -D DISPLAY_CLASS=SSD1306Display <============= CHANGED
+  -D DISPLAY_CLASS=SH1106Display <============= CHANGED
   -D MAX_CONTACTS=350
   -D MAX_GROUP_CHANNELS=40
   -D BLE_PIN_CODE=123456
@@ -91,24 +122,56 @@ build_src_filter = ${rak4631.build_src_filter}
 lib_deps =
   ${rak4631.lib_deps}
   densaugeo/base64 @ ~1.4.0
-</pre>
+```
 
-## Build the Firmware
-<pre>
-set FIRMWARE_VERSION=1.9.0
-./build.sh build-firmware RAK_4631_companion_radio_ble
-</pre>
+## Compile and Prepare Firmware
 
-## Rename and Move the Firmware
-<pre>
-cd .pio/build/RAK_4631_companion_radio_ble/
-mv firmware-merged.bin RAK_4631_companion_radio_ble_1.9.0-merged.bin
-mv firmware.bin RAK_4631_companion_radio_ble_1.9.0.bin
-mv RAK_4631_companion_radio_ble* /home/linuxuser/
-</pre>
+1. Set the firmware version environment variable:
+
+    ```bash
+    set FIRMWARE_VERSION=1.7.3
+    ```
+
+    *(Or use `export FIRMWARE_VERSION=1.7.3` if you are using a pure Linux shell and not a mixed environment.)*
+
+2. Build the Wi-Fi firmware target:
+
+    ```bash
+    ./build.sh build-firmware RAK_4631_companion_radio_ble
+    ```
+
+3. Change into the build output directory:
+
+    ```bash
+    cd .pio/build/RAK_4631_companion_radio_ble/
+    ```
+
+4. Rename the output binaries:
+
+    ```bash
+    mv firmware-merged.bin RAK_4631_companion_radio_ble_1.9.0-merged.bin
+    mv firmware.bin RAK_4631_companion_radio_ble_1.9.0.bin
+    ```
+
+5. Move the generated firmware files to a convenient location (example):
+
+    ```bash
+    mv AK_4631_companion_radio_ble* /home/linuxuser/
+    ```
 
 ## Next Steps
-* Flash the compiled firmware (`RAK_4631_companion_radio_ble_1.7.3.bin` or `RAK_4631_companion_radio_ble_1.7.3-merged.bin`) to your RAK4631.
-* Connect your MakerFocus 1.3" OLED (SH1106) at I²C address **0x3C** (jumper on **0x7A** side).  
-* Power only with **3.3 V** — this module is **not 5 V tolerant**.
-* Once flashed, the SH1106 display should initialize normally on boot.
+
+1. Flash one of the compiled firmware files onto your Heltec V3:
+
+    - `RAK_4631_companion_radio_ble_1.9.0.bin`  
+    - or `...merged.bin`
+
+2. Connect the MakerFocus SH1106 OLED at **I²C address 0x3C**  
+
+    - Ensure the jumper is on the **0x7A** side  
+
+3. Power the display using **3.3 V only**  
+
+    - The module is **NOT** 5 V tolerant  
+  
+4. On boot, the SH1106 display should now initialize normally
