@@ -1347,10 +1347,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-change-your-frequency" class="md-nav__link">
+  <a href="#other-regional-presets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Change Your Frequency
+        Other Regional Presets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-frequency-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Frequency Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
       
     </span>
   </a>
@@ -1493,10 +1515,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-change-your-frequency" class="md-nav__link">
+  <a href="#other-regional-presets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Change Your Frequency
+        Other Regional Presets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-frequency-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Frequency Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
       
     </span>
   </a>
@@ -1520,157 +1564,194 @@
 
 
 
-<p>← Home</p>
 <h1 id="frequency-settings-for-meshtastic">Frequency Settings for Meshtastic<a class="headerlink" href="#frequency-settings-for-meshtastic" title="Permanent link">&para;</a></h1>
 <p>Meshtastic uses LoRa radios, which operate on different frequencies depending on regional regulations. 
 Using the correct preset is important to ensure you stay legal and compatible with the local mesh.</p>
 <h2 id="ottawa-canada-preset">Ottawa / Canada Preset<a class="headerlink" href="#ottawa-canada-preset" title="Permanent link">&para;</a></h2>
 <p>For Ottawa and the rest of North America, use the following setting:</p>
-<p><strong>US/LongFast – 906.875 MHz</strong></p>
+<p><code>US/LongFast – 906.875 MHz</code></p>
 <p>This is the community-agreed frequency band for our local mesh.<br />
 It ensures maximum compatibility between nodes in the region.</p>
-<h2 id="how-to-change-your-frequency">How to Change Your Frequency<a class="headerlink" href="#how-to-change-your-frequency" title="Permanent link">&para;</a></h2>
-<h1 id="open-the-meshtastic-app-or-web-ui">Open the Meshtastic app or Web UI.<a class="headerlink" href="#open-the-meshtastic-app-or-web-ui" title="Permanent link">&para;</a></h1>
-<h1 id="go-to-radio-configuration-lora">Go to <strong>Radio Configuration → LoRa</strong>.<a class="headerlink" href="#go-to-radio-configuration-lora" title="Permanent link">&para;</a></h1>
-<h1 id="select-the-correct-region-preset-united-states">Select the correct <strong>Region / Preset</strong> (United States).<a class="headerlink" href="#select-the-correct-region-preset-united-states" title="Permanent link">&para;</a></h1>
-<h1 id="save-and-reboot-your-device">Save and reboot your device.<a class="headerlink" href="#save-and-reboot-your-device" title="Permanent link">&para;</a></h1>
-<p>For detailed instructions, see the official docs:<br />
-[https://meshtastic.org/docs/configuration/radio/]</p>
+<ul>
+<li>
+<p>How to Change Your Frequency</p>
+</li>
+<li>
+<p>Open the Meshtastic app or Web UI</p>
+</li>
+<li>
+<p>Go to <strong>Radio Configuration → LoRa</strong></p>
+</li>
+<li>
+<p>Select the correct <strong>Region / Preset</strong> (United States)</p>
+</li>
+<li>
+<p>Save and reboot your device</p>
+</li>
+</ul>
+<p>For detailed instructions, see the <a href="[https://meshtastic.org/docs/configuration/radio/">official docs</a>.</p>
 <h2 id="other-regional-presets">Other Regional Presets<a class="headerlink" href="#other-regional-presets" title="Permanent link">&para;</a></h2>
 <p>Meshtastic includes several built-in presets depending on your location:</p>
-<p>{| class="wikitable"
-! Region Code
-! Description
-! Frequency Range (MHz)
-! Duty Cycle (%)
-! Power Limit (dBm)
-|-
-| UNSET
-| Unset
-| N/A
-| N/A
-| N/A
-|-
-| US
-| United States
-| 902.0 – 928.0
-| 100
-| 30
-|-
-| EU_433
-| European Union 433 MHz
-| 433.0 – 434.0
-| 10
-| 12
-|-
-| EU_868
-| European Union 868 MHz
-| 869.4 – 869.65
-| 10
-| 27
-|-
-| CN
-| China
-| 470.0 – 510.0
-| 100
-| 19
-|-
-| JP
-| Japan
-| 920.8 – 927.8
-| 100
-| 16
-|-
-| ANZ
-| Australia &amp; New Zealand
-| 915.0 – 928.0
-| 100
-| 30
-|-
-| ANZ_433
-| Australia &amp; New Zealand 433 MHz
-| 433.05 – 434.79
-| 100
-| 14
-|-
-| KR
-| Korea
-| 920.0 – 923.0
-| 100
-| —
-|-
-| TW
-| Taiwan
-| 920.0 – 925.0
-| 100
-| 27
-|-
-| RU
-| Russia
-| 868.7 – 869.2
-| 100
-| 20
-|-
-| IN
-| India
-| 865.0 – 867.0
-| 100
-| 30
-|-
-| NZ_865
-| New Zealand 865 MHz
-| 864.0 – 868.0
-| 100
-| 36
-|-
-| TH
-| Thailand
-| 920.0 – 925.0
-| 100
-| 16
-|-
-| UA_433
-| Ukraine 433 MHz
-| 433.0 – 434.7
-| 10
-| 10
-|-
-| UA_868
-| Ukraine 868 MHz
-| 868.0 – 868.6
-| 1
-| 14
-|-
-| MY_433
-| Malaysia 433 MHz
-| 433.0 – 435.0
-| 100
-| 20
-|-
-| MY_919
-| Malaysia 919 MHz
-| 919.0 – 924.0
-| 100
-| 27
-|-
-| SG_923
-| Singapore 923 MHz
-| 917.0 – 925.0
-| 100
-| 20
-|-
-| NP_865
-| Nepal 865 MHz
-| 865.0 – 868.0
-| 100
-| —
-|-
-| LORA_24
-| 2.4 GHz band worldwide
-| 2400.0 – 2483.5
-| 100
-| 10
-|}</p>
+<table>
+<thead>
+<tr>
+<th>Region Code</th>
+<th>Description</th>
+<th>Frequency Range (MHz)</th>
+<th>Duty Cycle (%)</th>
+<th>Power Limit (dBm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNSET</td>
+<td>Unset</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>US</td>
+<td>United States</td>
+<td>902.0 – 928.0</td>
+<td>100</td>
+<td>30</td>
+</tr>
+<tr>
+<td>EU_433</td>
+<td>European Union 433 MHz</td>
+<td>433.0 – 434.0</td>
+<td>10</td>
+<td>12</td>
+</tr>
+<tr>
+<td>EU_868</td>
+<td>European Union 868 MHz</td>
+<td>869.4 – 869.65</td>
+<td>10</td>
+<td>27</td>
+</tr>
+<tr>
+<td>CN</td>
+<td>China</td>
+<td>470.0 – 510.0</td>
+<td>100</td>
+<td>19</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>Japan</td>
+<td>920.8 – 927.8</td>
+<td>100</td>
+<td>16</td>
+</tr>
+<tr>
+<td>ANZ</td>
+<td>Australia &amp; New Zealand</td>
+<td>915.0 – 928.0</td>
+<td>100</td>
+<td>30</td>
+</tr>
+<tr>
+<td>ANZ_433</td>
+<td>Australia &amp; New Zealand 433 MHz</td>
+<td>433.05 – 434.79</td>
+<td>100</td>
+<td>14</td>
+</tr>
+<tr>
+<td>KR</td>
+<td>Korea</td>
+<td>920.0 – 923.0</td>
+<td>100</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TW</td>
+<td>Taiwan</td>
+<td>920.0 – 925.0</td>
+<td>100</td>
+<td>27</td>
+</tr>
+<tr>
+<td>RU</td>
+<td>Russia</td>
+<td>868.7 – 869.2</td>
+<td>100</td>
+<td>20</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>India</td>
+<td>865.0 – 867.0</td>
+<td>100</td>
+<td>30</td>
+</tr>
+<tr>
+<td>NZ_865</td>
+<td>New Zealand 865 MHz</td>
+<td>864.0 – 868.0</td>
+<td>100</td>
+<td>36</td>
+</tr>
+<tr>
+<td>TH</td>
+<td>Thailand</td>
+<td>920.0 – 925.0</td>
+<td>100</td>
+<td>16</td>
+</tr>
+<tr>
+<td>UA_433</td>
+<td>Ukraine 433 MHz</td>
+<td>433.0 – 434.7</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>UA_868</td>
+<td>Ukraine 868 MHz</td>
+<td>868.0 – 868.6</td>
+<td>1</td>
+<td>14</td>
+</tr>
+<tr>
+<td>MY_433</td>
+<td>Malaysia 433 MHz</td>
+<td>433.0 – 435.0</td>
+<td>100</td>
+<td>20</td>
+</tr>
+<tr>
+<td>MY_919</td>
+<td>Malaysia 919 MHz</td>
+<td>919.0 – 924.0</td>
+<td>100</td>
+<td>27</td>
+</tr>
+<tr>
+<td>SG_923</td>
+<td>Singapore 923 MHz</td>
+<td>917.0 – 925.0</td>
+<td>100</td>
+<td>20</td>
+</tr>
+<tr>
+<td>NP_865</td>
+<td>Nepal 865 MHz</td>
+<td>865.0 – 868.0</td>
+<td>100</td>
+<td>—</td>
+</tr>
+<tr>
+<td>LORA_24</td>
+<td>2.4 GHz band worldwide</td>
+<td>2400.0 – 2483.5</td>
+<td>100</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
 <p><em>Note:</em> Your node must use the same preset as the rest of your mesh.<br />
 If you’re travelling, you may need to reconfigure your frequency to join a different region’s network.</p>
 <h2 id="why-frequency-matters">Why Frequency Matters<a class="headerlink" href="#why-frequency-matters" title="Permanent link">&para;</a></h2>
