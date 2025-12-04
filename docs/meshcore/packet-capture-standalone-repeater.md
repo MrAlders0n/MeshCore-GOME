@@ -1,117 +1,148 @@
 # MeshCore Packet Capture (Standalone Repeater Listener)
-This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **HeltekV3** to act as a standalone packet capture device that forwards logs directly to [analyzer.letsme.sh](https://analyzer.letsme.sh).  
+
+This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **Heltek V3** to act as a standalone packet capture device that forwards logs directly to **[analyzer.letsme.sh](https://analyzer.letsme.sh)**.  
 This setup does **not** require a Raspberry Pi, VM, or companion node.
 
 ## Overview
-This firmware was compiled from [agessaman/MeshCore (mqtt-bridge-implementation-dev)](https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation-dev) to simplify setup for the community.
 
-* **Default Frequency:** USA/CAN recommended settings pre-configured  
-* **Role:** Repeater with repeat disabled (acts as a “silent repeater” for packet capture)
+This firmware was compiled from  
+**[agessaman/MeshCore – mqtt-bridge-implementation-dev](https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation-dev)**  
+to simplify setup for the Ottawa Mesh community.
 
-Each unit functions like a repeater that does not forward packets.  
-To avoid ID collisions, each device must have a unique private key.  
-Please share your assigned ID in the **Ottawa Mesh Discord** so we can track it.
+Key characteristics:
+
+- **Default Frequency:** USA/CAN recommended settings preconfigured  
+- **Role:** Repeater with repeating disabled (a “silent repeater”)  
+- **Purpose:** Capture all packets in range and forward them to the Ottawa Packet Analyzer  
+
+Each unit must use a **unique repeater ID** (derived from its private key).  
+Please share your ID in the **Ottawa Mesh Discord** so we can track assignments.
+
 
 ## Scope
-This setup covers packet capture from a standalone repeater node only.  
-If you wish to run a full repeater, simply skip the step where repeat is disabled.
+
+This guide covers packet capture from a **standalone repeater node** only.  
+To run a *normal* repeater instead, simply skip the step where repeat is disabled.
+
 
 ## Requirements
-* Heltek V3 board  
-* USB-C cable  
-* Wi-Fi network access  
-* Basic familiarity with the [MeshCore Flasher](https://flasher.meshcore.co.uk) tool  
+
+- Heltek V3 board  
+- USB-C cable  
+- Wi-Fi network access  
+- Basic familiarity with the **[MeshCore Flasher](https://flasher.meshcore.co.uk)** tool  
+
 
 ## Firmware Installation
-1. **Download the HeltekV3 MQTT Repeater Firmware:** [Link](https://drive.proton.me/urls/BAM30S5MJ0#u6tQH2mlsoZR)  
 
-2. Go to [MeshCore Flasher](https://flasher.meshcore.co.uk/) and click **HeltekV3**  
+1. **Download the HeltekV3 MQTT Repeater Firmware:**  
+   [Download Link](https://drive.proton.me/urls/BAM30S5MJ0#u6tQH2mlsoZR)
 
-3. Select **Repeater**  
+2. Open the **MeshCore Flasher**:  
+   https://flasher.meshcore.co.uk/
 
-4. Click **Erase Device**  
+3. Select **HeltekV3**.
 
-5. Click **Flash**  
+4. Select **Repeater** firmware.
 
-6. Flashing will take a minute; if it fails, restart at step 2 and try again.  
+5. Click **Erase Device**.
 
-7. Return to [MeshCore Flasher](https://flasher.meshcore.co.uk/) and scroll to the bottom.  
+6. Click **Flash**.  
+   If it fails, restart at step 2 and try again.
 
-8. Click **Custom Firmware**  
+7. Go back to the **MeshCore Flasher** home page and scroll to the bottom.
 
-9. Select the HeltekV3 MQTT Repeater firmware you downloaded in step 1.  
+8. Click **Custom Firmware**.
 
-10. **Do NOT click Erase Device** — if you erase here, the firmware will not boot.  
+9. Select the firmware file downloaded in step 1.
 
-11. Click **Flash** again.  
+10. **Do NOT click Erase Device.**  
+    Erasing at this stage will prevent the firmware from booting.
 
-12. Wait for flashing to complete.  
+11. Click **Flash**.
+
+12. Wait for flashing to complete.
 
 ## Configure Device Identity
-1. Visit [Ottawa Repeater ID List](./repeaters-and-coverage.md) and choose an unused 2-digit ID.  
 
-2. Open [mc-keygen](https://gessaman.com/mc-keygen/) and enter that ID into the **Repeater ID** field, then click **Generate Key**.  
+1. Visit **[Ottawa Repeater ID List](./repeaters-and-coverage.md)** and choose an unused 2-digit ID.
 
-3. Scroll down and copy the value under **Private Key**.  
+2. Open **[mc-keygen](https://gessaman.com/mc-keygen/)** and enter that ID into the **Repeater ID** field.  
+   Click **Generate Key**.
 
-4. Open [MeshCore Flasher](https://flasher.meshcore.co.uk/), click **Console**, and select the serial device for your repeater.  
+3. Scroll down and copy the generated **Private Key**.
 
-5. Run the following command, replacing <code>&lt;PRIVATE-KEY&gt;</code> with your generated key:  
-<pre>
-set prv.key <PRIVATE-KEY>
-</pre>
+4. Open **MeshCore Flasher**, click **Console**, and connect to your repeater.
 
-6. Configure the repeater name using the Ottawa naming convention (<code>YOW_&lt;Location&gt;</code>):  
-<pre>
-set name YOW_OldBarrhaven
-</pre>
+5. Set the private key:
 
-7. Configure the IATA Code for MQTT ingestion
-<pre>
-set mqtt.iata YOW
-</pre>
+    ```bash
+    set prv.key <PRIVATE-KEY>
+    ```
 
-8. Disable repeat:  
-<pre>
-set repeat off
-</pre>
+6. Set the repeater name (Ottawa naming convention):
 
-9. (Optional) Configure ownership info for the Packet Analyzer:  
-<div style="margin-left:1em;">
-You must have an account on [analyzer.letsme.sh](https://analyzer.letsme.sh/) (login uses MeshCore Forum authentication).  
-</div>
-<pre>
-set mqtt.owner <Companion-Public-Key>
-set mqtt.email <MeshCore-Fourm-Email-Address>
-</pre>
+    ```bash
+    set name YOW_OldBarrhaven
+    ```
+
+7. Set the IATA code for MQTT ingestion:
+
+    ```bash
+    set mqtt.iata YOW
+    ```
+
+8. Disable repeat (turns the device into a silent observer):
+
+    ```bash
+    set repeat off
+    ```
+
+9. *(Optional)* Assign ownership info so the Analyzer UI can attribute your observer:
+
+    - You must have an account on **analyzer.letsme.sh**  
+    - Login uses MeshCore Forum authentication
+
+    ```bash
+    set mqtt.owner <Companion-Public-Key>
+    set mqtt.email <MeshCore-Forum-Email>
+    ```
+
 
 ## Configure Wi-Fi & Timezone
-1. Set Wi-Fi credentials:  
-<pre>
-set wifi.ssid <WIFI-NETWORK-NAME>
-set wifi.pwd <WIFI-PASSWORD>
-</pre>
 
-2. Set timezone:  
-<pre>
-set timezone America/Toronto
-</pre>
+1. Set Wi-Fi credentials:
 
-3. Reboot the device:  
-<pre>
-reboot
-</pre>
+    ```bash
+    set wifi.ssid <WIFI-NETWORK-NAME>
+    set wifi.pwd <WIFI-PASSWORD>
+    ```
+
+2. Set timezone:
+
+    ```bash
+    set timezone America/Toronto
+    ```
+
+3. Reboot:
+
+    ```bash
+    reboot
+    ```
 
 ## Validation
-After the device reboots and connects to Wi-Fi, it should automatically start sending logs to the Analyzer MQTT broker.  
 
-1. Go to [analyzer.letsme.sh/status/observers](https://analyzer.letsme.sh/status/observers)  
+After rebooting and connecting to Wi-Fi, the device will automatically send logs to the Analyzer MQTT broker.
 
-2. Locate your node name (for example <code>YOW_OldBarrhaven</code>) in the list.  
+1. Go to:  
+   **https://analyzer.letsme.sh/status/observers**
 
-3. Confirm that it appears in the table and is highlighted in **green** — this means it is online and reporting correctly.  
+2. Locate your node name (e.g., `YOW_OldBarrhaven`).
+
+3. If it appears and is highlighted in **green**, your observer is online and reporting correctly.
 
 ## Notes
-* This firmware publishes logs directly to the Analyzer MQTT broker — no Raspberry Pi or VM is needed.  
-* The node operates as a repeater with repeating disabled, meaning it listens and reports traffic but does not forward it.  
-* Make sure to report your assigned repeater ID in the Ottawa Mesh Discord to avoid overlap.
+
+- This firmware publishes logs directly to the Analyzer backend — no Raspberry Pi, no VM.  
+- The node behaves like a repeater with repeating disabled.  
+- Make sure your repeater ID is registered in the Ottawa Mesh Discord to avoid conflicts.

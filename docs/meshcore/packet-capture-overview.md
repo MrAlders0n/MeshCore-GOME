@@ -1,41 +1,49 @@
-# MeshCore-Packet/Overview
+# MeshCore Packet Analyzer – Overview
 
-The **MeshCore Packet Analyzer** provides real-time visibility into MeshCore network activity — allowing anyone to inspect, decode(only public unencrypted messages), and understand how packets move across the Ottawa mesh.
+The **MeshCore Packet Analyzer** provides real-time visibility into MeshCore network activity — allowing anyone to inspect, decode (only public unencrypted messages), and understand how packets move across the Ottawa mesh.
 
 ## Live Analyzer (Ottawa Region)
 
-View the live packet feed here:  
+View the live packet feed here:
 
-[MeshCore Packet Analyzer – Ottawa (YOW)](https://analyzer.letsme.sh/packets?region=YOW)
+**[MeshCore Packet Analyzer – Ottawa (YOW)](https://analyzer.letsme.sh/packets?region=YOW)**
 
-### What you'll see on the page
+## What You'll See on the Page
 
-* **Auto-refreshing packet table** – each row is a single on-air packet captured by an observer in the YOW region.
-* **Common columns:**
-** **Time (UTC)** – when the packet was heard  
-  * **Type** – e.g., Advert, Message, AnonRequest/AnonReply, etc.  
-  * **Channel / Hash** – public channel or hash value (e.g., ch0)  
-  * **Observer** – which station heard the packet  
-  * **RSSI / SNR** – signal strength and quality reported by the observer  
-  * **Path / PathLen** – hop count and hop bytes (first byte of each repeater’s public key)  
-  * **From / Node** – sender public key and name (if present)  
-  * **Flags / Coords** – app flags and latitude/longitude (if present in the payload)
-  * **Row actions / details:**
-  * **Decoded view** – expands header, path, and payload fields (header bitfield, timestamp, flags, etc.)  
-  * **Raw hex** – shows the original packet bytes for verification or offline parsing
-* **Filtering & utilities:**
-  * Region is preset to **YOW** by the link  
-  * Filter text, sort columns, or change page size  
-  * Toggle auto-refresh to pause the stream while inspecting packets
+### Packet Table
+An **auto-refreshing packet table** where each row represents a single on-air packet captured by an observer in the YOW region.
+
+### Common Columns
+- **Time (UTC)** – when the packet was heard  
+- **Type** – Advert, Message, AnonRequest, AnonReply, etc.  
+- **Channel / Hash** – public channel or hash value (e.g., `ch0`)  
+- **Observer** – which station heard the packet  
+- **RSSI / SNR** – signal strength and quality reported by the observer  
+- **Path / PathLen** – hop count and hop bytes (each byte = first byte of a repeater’s public key)  
+- **From / Node** – sender public key and name (if present)  
+- **Flags / Coords** – app flags and coordinates if included in the payload  
+
+### Row Actions / Detail View
+- **Decoded view** – expands:
+    - Header bitfield  
+    - Path bytes  
+    - Payload fields (timestamp, flags, coords, signature, etc.)  
+- **Raw hex** – shows the original packet bytes for verification or offline parsing
+
+### Filtering & Utilities
+- Region preset to **YOW**  
+- Filter text, sort columns, or adjust page size  
+- Toggle **auto-refresh** to pause the stream for deeper inspection  
 
 ## How the Analyzer Works
 
-Participating gateways (called **observers**) run the *meshcore-packet-capture*, which listens for LoRa traffic and forwards decoded packets to the analyzer.  
-Packets are aggregated by region (e.g., **YOW** for Ottawa) and displayed in near real time.
+Participating gateways (called **observers**) run `meshcore-packet-capture`, which listens for LoRa traffic and forwards decoded packet data to the analyzer backend.  
+Packets are grouped by region (e.g., **YOW** for Ottawa) and displayed in near real time.
 
-You can:
+You can use the analyzer to:
 
-* Filter or search packets
-* Inspect decoded fields and raw hex  
-* Compare paths across multiple hops  
-* Monitor reliability and propagation trends
+- Filter or search packet history  
+- Inspect decoded fields and raw hex  
+- Compare routes across multiple hops  
+- Monitor stability, coverage, and mesh propagation patterns  
+
