@@ -141,8 +141,8 @@ These are estimates only — actual coverage may vary depending on terrain, buil
 
 CAN to Ground (@2.0M)
 
-![](images/800px-CAN_to_Groundnode_2M.png){ width="300" }
+![](images/CAN_to_Groundnode_2M.png){ width="300" }
 
 CAN to Roof (@7.5M)
 
-![](images/731px-CAN_To_Roofnode.png){ width="300" }
+![](images/CAN_To_Roofnode.png){ width="300" }

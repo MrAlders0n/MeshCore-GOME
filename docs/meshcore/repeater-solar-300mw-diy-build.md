@@ -34,21 +34,21 @@ Follow each step carefully for a reliable and weatherproof build.
 
 9. Mount the RAK unit onto the backplate, see picture below for what it should look like at this step.  
 
-      ![](images/600px-BuildRepeater1_MountedAll.jpeg){ width="300" }
+      ![](images/BuildRepeater1_MountedAll.jpeg){ width="300" }
 
 10. Connect the JST PHR-2 cable to the RAK19003 battery plug, **ensuring correct polarity** (many JST cables are wired incorrectly).  
 
-      ![](images/600px-RAK19003-Layout.png){ width="300" }
+      ![](images/RAK19003-Layout.png){ width="300" }
 
 11. Connect the other end of this cable to the **CHG** side of the VoltaicEnclosures Li-ion PCM.  
 
-      ![](images/600px-VoltaicEnclosures_Layout.png){ width="300" }
+      ![](images/VoltaicEnclosures_Layout.png){ width="300" }
 
 12. Slide a piece of heat-shrink tubing over the cable large enough to cover the PCM before connecting the battery.  
 
 13. Connect the LiPo JST PHR-2 cable to the **BATT** side of the PCM, again **ensuring polarity is correct**.  
 
-      ![](images/600px-RAK19003-LayoutSolar.jpg){ width="300" }
+      ![](images/RAK19003-LayoutSolar.jpg){ width="300" }
 
 14. Heat-shrink the VoltaicEnclosures Li-ion PCM so the entire board is covered.  
 
@@ -56,7 +56,7 @@ Follow each step carefully for a reliable and weatherproof build.
 
 16. (Optional) Secure the battery to the backplate with double-sided tape or mounting hardware. It should look like the below image.
 
-      ![](images/600px-BuildRepeater1_Finished.jpeg){ width="300" }
+      ![](images/BuildRepeater1_Finished.jpeg){ width="300" }
 
 17. Fit the rubber seal into the groove around the edge of the front plate of the box.  
 
@@ -72,7 +72,7 @@ Follow each step carefully for a reliable and weatherproof build.
 
 21. Apply a bead of clear outdoor silicone caulk around the base of the N-type connector to prevent water from leaking into the box.
 
-      ![](images/600px-BuildRepeater1_SelfFuseTape.jpeg){ width="300" }
-      ![](images/600px-BuildRepeater1_Heatshrink.jpg){ width="300" }
+      ![](images/BuildRepeater1_SelfFuseTape.jpeg){ width="300" }
+      ![](images/BuildRepeater1_Heatshrink.jpg){ width="300" }
 
 22. (Optional) Add a bead of silicone caulk along the top edge of the box seal (between the two plates) and around the base of the antenna as extra waterproofing protection.
