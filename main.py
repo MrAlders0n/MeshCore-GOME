@@ -6,7 +6,7 @@ def define_env(env):
     project_dir = pathlib.Path(env.project_dir)
 
     # Load repeater list from YAML
-    data_path = project_dir / "data" / "repeaters.yml"
+    data_path = project_dir / "data" / "meshcore" / "repeaters.yml"
     data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
     repeaters = data.get("repeaters", [])
 
