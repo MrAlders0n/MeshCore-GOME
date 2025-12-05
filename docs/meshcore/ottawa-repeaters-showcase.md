@@ -120,7 +120,7 @@ Photos, technical notes, and installation details are provided for each site.
 - Often acts as a relay point for new west-end installs  
 
 *Photo:*  
-![e7her.nod3](./images/repeater-showcase-e7her.nod3.png)
+![e7her.nod3](./images/repeater-showcase-e7her.nod3_cropped.png)
 
 ---
 
