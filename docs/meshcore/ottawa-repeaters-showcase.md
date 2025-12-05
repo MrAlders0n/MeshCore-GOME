@@ -8,6 +8,7 @@ Photos, technical notes, and installation details are provided for each site.
 ---
 
 ## MAY_SOLAR_R  
+
 **Location:** Old Ottawa South  
 **Type:** Solar-powered repeater  
 **Role:** Old Ottawa South Regional Repeater  
@@ -18,6 +19,7 @@ Photos, technical notes, and installation details are provided for each site.
 <!-- ![MAY_SOLAR_R](./images/too_solar_r_placeholder.jpg) -->
 
 **Notes:**  
+
 - Serves Old Ottawa South, Carleton University, Riverside, and parts of downtown  
 - One of the earliest long-term solar installs in Ottawa  
 - Mounted on the roof of the historic Mayfair Theatre  
@@ -25,6 +27,7 @@ Photos, technical notes, and installation details are provided for each site.
 ---
 
 ## TOO_SOLAR_R  
+
 **Location:** Ashton  
 **Type:** Solar-powered high-elevation repeater  
 **Role:** Western Wide Area Repeater  
@@ -35,12 +38,14 @@ Photos, technical notes, and installation details are provided for each site.
 <!-- ![TOO_SOLAR_R](./images/too_solar_r_placeholder.jpg)-->
 
 **Notes:**  
+
 - Extends the mesh into Ashton, Beckwith, Munster, Kemptville, Carleton Place, and nearby rural areas  
 - Provides exceptional long-range coverage due to elevation and antenna gain  
 
 ---
 
 ## CAN_SOLAR_R  
+
 **Location:** Valley View Grain Silo  
 **Type:** Solar-powered high-elevation repeater  
 **Role:** Western Wide Area Repeater  
@@ -48,16 +53,18 @@ Photos, technical notes, and installation details are provided for each site.
 **Height:** ~45 m  
 
 **Notes:**  
+
 - One of the most far-reaching repeaters in the region  
 - Provides interlinks to Stittsville, Richmond, Barrhaven, Orleans, Kanata, and much of the city  
 - Among the highest repeater installations in Ottawa  
 
 *Photo:*  
-![CAN](./images/repeater-showcase-CAN_1.jpg)
+![CAN](./images/repeater-showcase-CAN_1.jpg){ width="300" }
 
 ---
 
 ## phr5  
+
 **Location:** Kemptville region  
 **Type:** Solar-powered elevated home-mounted repeater  
 **Role:** Southern Wide Area Repeater  
@@ -67,7 +74,8 @@ Photos, technical notes, and installation details are provided for each site.
 *Photo:*  
 <!-- ![phr5](./images/phr5_placeholder.jpg)-->
 
-**Notes:**  
+**Notes:** 
+
 - Extends mesh coverage south from Barrhaven into rural Kemptville  
 - Plays a key role in bridging Ottawa’s southern and rural networks  
 
@@ -135,10 +143,10 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photos:*  
 
-![VA3TEC](./images/repeater-showcase-VA3TEC_1.jpg)
-![VA3TEC](./images/repeater-showcase-VA3TEC_2.jpg)
-![VA3TEC](./images/repeater-showcase-VA3TEC_3.jpg)
-![VA3TEC](./images/repeater-showcase-VA3TEC_4.jpg)
+![VA3TEC](./images/repeater-showcase-VA3TEC_1.jpg){ width="300" }
+![VA3TEC](./images/repeater-showcase-VA3TEC_2.jpg){ width="300" }
+![VA3TEC](./images/repeater-showcase-VA3TEC_3.jpg){ width="300" }
+![VA3TEC](./images/repeater-showcase-VA3TEC_4.jpg){ width="300" }
 
 ---
 
