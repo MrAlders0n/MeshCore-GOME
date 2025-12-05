@@ -39,7 +39,7 @@ Photos, technical notes, and installation details are provided for each site.
 **Notes:**  
 
 - Extends the mesh into Ashton, Beckwith, Munster, Kemptville, Carleton Place, and nearby rural areas  
-- Provides exceptional long-range coverage due to elevation and antenna gain 
+- Provides exceptional long-range coverage due to elevation and antenna gain
 
 *Photos:*  
 
@@ -79,7 +79,7 @@ Photos, technical notes, and installation details are provided for each site.
 *Photo:*  
 <!-- ![phr5](./images/phr5_placeholder.jpg)-->
 
-**Notes:** 
+**Notes:**
 
 - Extends mesh coverage south from Barrhaven into rural Kemptville  
 - Plays a key role in bridging Ottawa’s southern and rural networks  
@@ -97,7 +97,7 @@ Photos, technical notes, and installation details are provided for each site.
 **Notes:**  
 
 - Links into CAN and TOO, providing strong regional coverage  
-- Serves as a backbone connection between high-elevation western repeaters and central Ottawa 
+- Serves as a backbone connection between high-elevation western repeaters and central Ottawa
 
 *Photo:*  
 ![CGD-MrA_R3](./images/repeater-showcase-GD-MrA_R3.jpg){ width="200" }
