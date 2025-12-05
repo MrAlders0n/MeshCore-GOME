@@ -1,4 +1,25 @@
-q
+# Getting Started with Meshtastic
+
+!!! warning "Meshtastic Documentation Status"
+    The Meshtastic documentation is still a work in progress and isn’t being actively maintained.  
+    If you’re interested in helping write or update it, please contact **MrAlders0n**.
+
+Meshtastic is a peer-to-peer LoRa mesh where every node can forward packets.
+This guide will help you flash Meshtastic firmware onto your device and configure it for use in the local Ottawa mesh.
+
+## Before You Start
+
+To set up your first node, you’ll need:
+
+* A supported LoRa device
+* A USB cable for flashing
+* Google Chrome browser (required for the Web Flasher)
+* (Optional) The Meshtastic mobile app for iOS or Android
+
+## Flashing a Node
+
+The easiest way to flash a Meshtastic node is by using the official web flasher tool in Google Chrome:
+
 [Meshtastic Web Flasher](https://flasher.meshtastic.org/)
 
 Only **Google Chrome** supports the serial connection required for flashing.

@@ -1,5 +1,8 @@
-
 # Frequency Settings for Meshtastic
+
+!!! warning "Meshtastic Documentation Status"
+    The Meshtastic documentation is still a work in progress and isn’t being actively maintained.  
+    If you’re interested in helping write or update it, please contact **MrAlders0n**.
 
 Meshtastic uses LoRa radios, which operate on different frequencies depending on regional regulations. 
 Using the correct preset is important to ensure you stay legal and compatible with the local mesh.
