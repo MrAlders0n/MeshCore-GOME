@@ -129,15 +129,16 @@ Photos, technical notes, and installation details are provided for each site.
 **Antenna:** Alfa 5.8 dBi  
 **Height:** ~12 m  
 
-*Photos:*  
-![](images/VA3TEC-1.jpg){ width="300" }
-![](images/VA3TEC-2.jpg){ width="300" }
-![](images/VA3TEC-3.jpg){ width="300" }
-![](images/VA3TEC-4.jpg){ width="300" }
-
 **Notes:**  
 - Links to the Alx cluster while providing coverage into Orleans, Buckingham, and nearby regions  
 - Common relay point for new east-end installs  
+
+*Photos:*  
+
+![VA3TEC](./images/repeater-showcase-VA3TEC_1.jpg)
+![VA3TEC](./images/repeater-showcase-VA3TEC_2.jpg)
+![VA3TEC](./images/repeater-showcase-VA3TEC_3.jpg)
+![VA3TEC](./images/repeater-showcase-VA3TEC_4.jpg)
 
 ---
 
