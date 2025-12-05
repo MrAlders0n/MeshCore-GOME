@@ -129,8 +129,11 @@ Photos, technical notes, and installation details are provided for each site.
 **Antenna:** Alfa 5.8 dBi  
 **Height:** ~12 m  
 
-*Photo:*  
-<!-- ![NEW_SOLAR_R](./images/new_solar_r_placeholder.jpg)-->
+*Photos:*  
+![](images/VA3TEC-1.jpg){ width="300" }
+![](images/VA3TEC-2.jpg){ width="300" }
+![](images/VA3TEC-3.jpg){ width="300" }
+![](images/VA3TEC-4.jpg){ width="300" }
 
 **Notes:**  
 - Links to the Alx cluster while providing coverage into Orleans, Buckingham, and nearby regions  
