@@ -448,6 +448,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ble-companions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BLE Companions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BLE Companions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#pre-built" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -457,8 +469,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#build-your-own" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -467,8 +479,7 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Build Your Own">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#example-diy-build" class="md-nav__link">
@@ -1526,6 +1537,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ble-companions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BLE Companions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BLE Companions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#pre-built" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1535,8 +1558,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#build-your-own" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1545,8 +1568,7 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Build Your Own">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#example-diy-build" class="md-nav__link">
@@ -1610,15 +1632,15 @@
 
 
 <h1 id="companion-nodes">Companion Nodes<a class="headerlink" href="#companion-nodes" title="Permanent link">&para;</a></h1>
-<p>Companion nodes run dedicated companion firmware and operate as user endpoints on the MeshCore network.<br />
-Most companion nodes pair with your smartphone over BLE to provide access to the public channel, send and receive messages, and discover nearby repeaters.  </p>
-<p>There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints, not routers.  </p>
-<p>Companion nodes never perform routing — that role is reserved for repeaters.</p>
-<h2 id="pre-built">Pre-Built<a class="headerlink" href="#pre-built" title="Permanent link">&para;</a></h2>
-<p>The easiest way to get started is to buy a companion node, flash it with MeshCore, and join the mesh.</p>
+<p>Companion nodes run dedicated companion firmware and operate as user endpoints on the MeshCore/Meshtastic network.<br />
+Most companion nodes pair with your smartphone over BLE to provide access to the mesh.</p>
+<p>There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints.  </p>
+<h2 id="ble-companions">BLE Companions<a class="headerlink" href="#ble-companions" title="Permanent link">&para;</a></h2>
+<p>These devices require a smartphone and the MeshCore or Meshtastic app. They connect to your phone over BLE, and you use the app to interact with the mesh. In this setup, the companion acts only as the radio, linking your phone to the mesh network.</p>
+<h3 id="pre-built">Pre-Built<a class="headerlink" href="#pre-built" title="Permanent link">&para;</a></h3>
+<p>The easiest way to get started is to buy a companion node, flash it with MeshCore/Meshtastic, and join the mesh.</p>
 <p>We still recommend choosing one of the recommended antennas, since most devices ship with poorly tuned stock antennas.</p>
-<p>This is a <strong>companion node</strong> role and requires a smartphone.<br />
-The MeshCore app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.</p>
+<p>The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.</p>
 <p>The following pre-built companion nodes are popular and widely available:</p>
 <table>
 <thead>
@@ -1636,7 +1658,7 @@ The MeshCore app connects to the node over Bluetooth (BLE) and is used to send a
 </tr>
 <tr>
 <td><strong>LilyGO T-Echo</strong></td>
-<td>Compact device with onboard display and GPS. A solid ready-to-use option with minimal setup required. <strong>Note:</strong> Buy the non-flashed version; it’s cheaper and easy to flash MeshCore using the web flasher.</td>
+<td>Compact device with onboard display and GPS. A solid ready-to-use option with minimal setup required. <strong>Note:</strong> Buy the non-flashed version; it’s cheaper and easy to flash MeshCore/Meshtastic using the web flasher.</td>
 <td><a href="https://lilygo.cc/products/t-echo-lilygo">LilyGO Store</a></td>
 </tr>
 <tr>
@@ -1652,11 +1674,11 @@ The MeshCore app connects to the node over Bluetooth (BLE) and is used to send a
 </tbody>
 </table>
 <hr />
-<h2 id="build-your-own">Build Your Own<a class="headerlink" href="#build-your-own" title="Permanent link">&para;</a></h2>
+<h3 id="build-your-own">Build Your Own<a class="headerlink" href="#build-your-own" title="Permanent link">&para;</a></h3>
 <p>For hobbyists who like to source parts and assemble their own node, here is an Ottawa-friendly example build (antenna not included; see recommendations above).</p>
 <p>We still recommend choosing one of the antennas listed above, since most devices ship with poorly tuned stock antennas.</p>
 <p>This is a <strong>companion node</strong> role and requires a smartphone.<br />
-The MeshCore app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.</p>
+The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.</p>
 <h3 id="example-diy-build">Example DIY Build<a class="headerlink" href="#example-diy-build" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1706,7 +1728,7 @@ Standalone units tend to be more expensive, the UI is not as smooth as the mobil
 </tr>
 <tr>
 <td><strong>LilyGO T-Deck Plus</strong></td>
-<td>Updated version of the T-Deck with improved specs and refinements. Built with Meshtastic/MeshCore in mind.<br><strong>However:</strong> the built-in trackball is a major downside and many users dislike it.</td>
+<td>Updated version of the T-Deck with improved specs and refinements. Built with Meshtastic/MeshCore/Meshtastic in mind.<br><strong>However:</strong> the built-in trackball is a major downside and many users dislike it.</td>
 <td><a href="https://lilygo.cc/products/t-deck-plus-meshtastic">LilyGO Store</a></td>
 </tr>
 </tbody>
