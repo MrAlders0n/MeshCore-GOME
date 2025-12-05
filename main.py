@@ -5,8 +5,9 @@ def define_env(env):
     """Hook for mkdocs-macros-plugin."""
     project_dir = pathlib.Path(env.project_dir)
 
+
     # Load repeater list from YAML
-    data_path = project_dir / "meshcore" / "data" / "repeaters.yml"
+    data_path = project_dir / "docs" / "meshcore" / "data" / "repeaters.yml"
     data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
     repeaters = data.get("repeaters", [])
 
