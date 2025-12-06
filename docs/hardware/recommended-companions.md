@@ -5,7 +5,7 @@ Most companion nodes pair with your smartphone over BLE to provide access to the
 
 There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints.  
 
-## BLE Companions
+## Bluetooth Low Energy (BLE) Companions
 
 These devices require a smartphone and the MeshCore or Meshtastic app. They connect to your phone over BLE, and you use the app to interact with the mesh. In this setup, the companion acts only as the radio, linking your phone to the mesh network.
 

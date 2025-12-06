@@ -2,7 +2,7 @@
 
 If you’re interested in playing an active role in the community, we’re always looking for volunteers.
 
-Reach out to **MrAlders0n** with what you’d like to help with.
+Reach out to **MrAlders0n** on the Greater Ottawa Mesh Enthusiasts Discord with what you’d like to help with.
 
 Below are some common roles we have in the community.
 
