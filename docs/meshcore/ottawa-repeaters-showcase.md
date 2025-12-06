@@ -79,12 +79,32 @@ Photos, technical notes, and installation details are provided for each site.
 **Height:** ~18 m  
 
 *Photo:*  
-<!-- ![phr5](./images/phr5_placeholder.jpg)-->
+![phr5](./images/repeater-showcase-PHR.webp){ height="200" }
 
 **Notes:**
 
 - Extends mesh coverage south from Barrhaven into rural Kemptville  
 - Plays a key role in bridging Ottawa’s southern and rural networks  
+
+---
+
+## e7her.nod3  
+
+**Location:** Katimavik  
+**Type:** Solar-powered elevated tree-mounted repeater  
+**Role:** Kanata Regional Repeater  
+**Antenna:** Alfa 5.8 dBi  
+**Height:** ~15 m  
+
+**Notes:**  
+
+- Connects to CAN and TOO while strengthening Kanata and Stittsville coverage  
+- Often acts as a relay point for new west-end installs
+- [Installation Walkthrough](https://github.com/n1x1um/decentralized-wireless/blob/main/mounts/tree-one/README.md)
+
+*Photo:*  
+![e7her.nod3](./images/repeater-showcase-e7her.nod3.png){ height="200" }
+
 
 ---
 
@@ -103,24 +123,6 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photo:*  
 ![CGD-MrA_R3](./images/repeater-showcase-GD-MrA_R3.jpg){ width="300" }
-
----
-
-## e7her.nod3  
-
-**Location:** Katimavik  
-**Type:** Solar-powered elevated tree-mounted repeater  
-**Role:** Kanata Regional Repeater  
-**Antenna:** Alfa 5.8 dBi  
-**Height:** ~15 m  
-
-**Notes:**  
-
-- Connects to CAN and TOO while strengthening Kanata and Stittsville coverage  
-- Often acts as a relay point for new west-end installs  
-
-*Photo:*  
-![e7her.nod3](./images/repeater-showcase-e7her.nod3_cropped.png)
 
 ---
 
