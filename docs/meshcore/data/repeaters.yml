@@ -216,7 +216,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Inured%20Repeater%201&public_key=07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A24687BDEC02DF7&type=2"
 
   - id: "5d"
-    name: "Inured Repeater 1"
+    name: "Inured Repeater 2"
     antenna: "TBD"
     location: "Central Park"
     contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5df532ee2f959a100cb5e3bbd42cd3495acaeb0b94ec7cb23a5f2bd4e1b0d81f&type=2"
