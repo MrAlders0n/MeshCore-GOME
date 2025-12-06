@@ -217,7 +217,7 @@ repeaters:
 
   - id: "5d"
     name: "Inured Repeater 2"
-    antenna: "TBD"
+    antenna: "Seeed Studio RF Explorer 902–928 MHz 8 dBi (1300 mm) "
     location: "Central Park"
     contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5df532ee2f959a100cb5e3bbd42cd3495acaeb0b94ec7cb23a5f2bd4e1b0d81f&type=2"
 
