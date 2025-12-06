@@ -217,7 +217,7 @@ repeaters:
 
   - id: "5d"
     name: "Inured Repeater 2"
-    antenna: "Seeed Studio RF Explorer 902–928 MHz 8 dBi (1300 mm) "
+    antenna: "Seeed Studio RF Explorer 902-928 MHz 8 dBi (1300 mm) "
     location: "Central Park"
     contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5df532ee2f959a100cb5e3bbd42cd3495acaeb0b94ec7cb23a5f2bd4e1b0d81f&type=2"
 
@@ -467,11 +467,11 @@ repeaters:
     location: "North Barrhaven (~7.5 m)"
     contact: "meshcore://110292d21040747c34499517bee7341ec289cdfa4cb026acb70eae4533be122087fe4beabb19ac682e3a62949ee9ec391da05e1fd578bf2701cd8da2f1c8b12eecdedc8c393be5b7bdf778bc24b21e222167cf2b69d07acb3233df36035d8a1f7b306aaf3edaf8099225ffb202d46d7cfb54656b6b69655f526570656174"
 
-  - id: "a4"
+  - id: "6b"
     name: "Tekkie_Rpt_HV4"
     antenna: "Alfa Omni 5.8dBi"
     location: "North Barrhaven (~7.5 m)"
-    contact: "meshcore://1100a44ed7ba72f48a5b645dfaba07bbde7a5b22d756aa8986e50ac74cbda0c2c90d4ab507690571d8f471157aaf4668d869dd0e904cba4260c54155fe1083c290b3c898ea4a0c67517a462fd5de5d7a874b0bdcffe01d6bdd3c3b214344d81ed74304dd180c9232ffb202ca6d7cfb54656b6b69655f5270745f4856344"
+    contact: "meshcore://contact/add?name=Tek_HV4_Repeater&public_key=6b41c274442917a9d0a257b3d65ba92661e7e9298ee9e2d0eb1b7366da51c974&type=2"
 
   - id: "1f"
     name: "TOO_Solar_Rep"
