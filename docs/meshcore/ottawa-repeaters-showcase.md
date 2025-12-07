@@ -65,10 +65,13 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photos:*
 
-{: .no-sort}
+<div class="no-sort">
+
 | | |
 |---|---|
-| ![CAN_5](./images/repeater-showcase-CAN_5.jpg){width=300} | ![CAN_4](./images/repeater-showcase-CAN_4.jpg){width=300} |
+| ![CAN_5](images/repeater-showcase-CAN_5.jpg){width=300} | ![CAN_4](images/repeater-showcase-CAN_4.jpg){width=300} |
+
+</div>
 
 ---
 
