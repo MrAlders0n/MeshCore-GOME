@@ -70,8 +70,11 @@ These instructions use the MeshCore mobile app and apply to both new and experie
     - Re-open the add menu and choose the **return path**
     - Or manually enter IDs:  
        - Example: `d3, f3, d3` 
-7. Confirm both forward and return paths, then tap **Trace**.  
-8. View the results.  
+![](images/MeshCore_TraceRoute2Hop1.png){ width="300" }
+7. Confirm both forward and return paths, then tap **Trace**.
+![](images/MeshCore_TraceRoute2Hop2.png){ width="300" }
+8. View the results.
+![](images/MeshCore_TraceRoute2Hop3.png){ width="300" }
 
 ---
 
