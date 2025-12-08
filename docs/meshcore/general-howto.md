@@ -83,25 +83,25 @@ These instructions use the MeshCore mobile app and apply to both new and experie
 
 ## Heard Repeats
 
-In the MeshCore app you can generally see if a repeater heard you message you sent in a channel.
+In the MeshCore app you can generally see if a repeater heard your message you sent in a channel.
 
-When you send a message out, the packet travels through the airwaves, hits a nearby repeater and it then repeats your packet out. If your companion is within receiving range and receives the repeated packet it will be counted as a "heard repeat". There are cases where your companion could miss the heard repeat. Examples of this are:
+When you send a message out, the packet travels through the airwaves, hits a nearby repeater and it then repeats your packet out. If your companion is within receiving range and receives the repeated packet, it will be counted as a "heard repeat". There are cases where your companion could miss the heard repeat. Examples of this are:
 
-- Your packet makes it to the repeater, but the repeated packet dosnt make it back to your companion.
+- Your packet makes it to the repeater, but the repeated packet dosn't make it back to your companion.
 
-- If you're using a 1w companion, and the repeater that hears you is a 0.3w. You can send further then it. so while your packet may make it to the repeater, when it repeats your packet its possible youre too far away to receive it.
+- If you're using a 1w companion, and the repeater that hears you is a 0.3w. You can send further than it - so while your packet may make it to the repeater, when it repeats your packet it's possible you're too far away to receive it.
 
 ## How to Check Heard Repeats
 
 1. Send a message in the public channel.
 
-2. When the app shows **Heard X repeats** under your message, press and hold the message.   
+2. When the app shows **Heard X repeats** under your message, press and hold the message.
    ![](images/MeshCore_HeardRepeats_Step1.png){ width="300" }
 
-3. Tap **Heard Repeats**.   
+3. Tap **Heard Repeats**.
    ![](images/MeshCore_HeardRepeats_Step2.png){ width="300" }
 
-4. You’ll see a list of every repeater your companion heard repeating that packet.   
+4. You’ll see a list of every repeater your companion heard repeating that packet.
    ![](images/MeshCore_HeardRepeats_Step3.png){ width="300" }
 
 5. Tap a repeater in the list to view the path the repeated packet took to get back to you. See Below for the types of repeats you will see.
@@ -129,4 +129,3 @@ Below is an example of what it looks like when one repeater hears your message, 
    ![Diagram Explanation](images/MeshCore_HeardRepeats_MultiHop.png){ width="300" }
 
    ![Companion View](images/MeshCore_HeardRepeats_Step4_2Repeat.png){ width="300" }
-
