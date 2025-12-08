@@ -1669,13 +1669,19 @@ Keep in mind that having a neighbour listed doesn’t guarantee a <strong>bidire
 It’s common for a repeater to transmit down a path that it can’t reliably receive from.<br>
 This is one of the reasons MeshCore allows repeaters to route messages through the entire mesh rather than relying only on direct neighbours.</p>
 <p><strong>Example:</strong></p>
-<p>Repeater 1 Neighbours:
-  - Repeater 2
-  - Repeater 3</p>
-<p>Repeater 2 Neighbours:
-  - Repeater 3</p>
-<p>Repeater 3 Neighbours:
-  - Repeater 1</p>
+<p>Repeater 1 Neighbours:</p>
+<ul>
+<li>Repeater 2</li>
+<li>Repeater 3</li>
+</ul>
+<p>Repeater 2 Neighbours:</p>
+<ul>
+<li>Repeater 3</li>
+</ul>
+<p>Repeater 3 Neighbours:</p>
+<ul>
+<li>Repeater 1</li>
+</ul>
 <hr>
 <h2 id="the-public-channel">The Public Channel<a class="headerlink" href="#the-public-channel" title="Permanent link">¶</a></h2>
 <p>All Ottawa MeshCore nodes have access to the <strong>public channel</strong>.</p>
