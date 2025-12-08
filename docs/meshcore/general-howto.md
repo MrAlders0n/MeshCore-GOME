@@ -57,15 +57,19 @@ These instructions use the MeshCore mobile app and apply to both new and experie
 
 1. Open the app and connect.
 2. Tap the **three dots**.
+![](./images/MeshCore_TraceRoute1.png){ width="300" }
 3. Tap **Tools**.
+![](./images/MeshCore_TraceRoute2.png){ width="300" }
 4. Tap **Trace Path - Manual**.
+![](./images/MeshCore_TraceRoute3.png){ width="300" }
 5. Tap the **plus button**.
+![](./images/MeshCore_TraceRoute4.png){ width="300" }
 6. Select repeaters **in order**:
     - Choose the **forward path**
     - Confirm
     - Re-open the add menu and choose the **return path**
     - Or manually enter IDs:  
-       - Example: `d3, f3, d3`  
+       - Example: `d3, f3, d3` 
 7. Confirm both forward and return paths, then tap **Trace**.  
 8. View the results.  
 
