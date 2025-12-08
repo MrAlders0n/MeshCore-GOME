@@ -9,7 +9,7 @@ This guide will help you flash a node and configure it to operate as a companion
 The easiest way to flash a MeshCore-supported node is by using the official web flasher tool in **Google Chrome**:
 
 **[MeshCore Web Flasher](https://flasher.meshcore.co.uk/)**  
-(Only Chrome supports the serial connection required for flashing.)
+(Only Chromium-based browsers (e.g., Google Chrome, Microsoft Edge) support the serial connection required for flashing.)
 
 ### Steps
 

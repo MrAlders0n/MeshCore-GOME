@@ -43,7 +43,7 @@ If flashing fails after erasing, refresh the page, click **Enter DFU Mode** agai
 
 ## Configuring a MeshCore Repeater
 
-1. Using Google Chrome, open the repeater configuration tool:  
+1. Using a Chromium-based Browser (e.g., Google Chrome, Microsoft Edge), open the repeater configuration tool:  
    **<https://config.meshcore.dev>**
 2. After connecting, check the **[Ottawa Repeater ID List](./ottawa-repeaters.md)** to ensure your repeater ID is unique.
    - Repeater IDs come from the **first two characters of the public key**.  
