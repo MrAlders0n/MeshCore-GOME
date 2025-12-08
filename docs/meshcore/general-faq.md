@@ -10,7 +10,7 @@ Each section provides quick guidance for common tasks.
 MeshCore uses a **repeater-driven advert system** for discovery (not a prerequisite to transmit).
 
 - **You do not need to receive an advert from a repeater to send a message.**  
-  You can transmit at any time; any repeater that hears your packet will forward it.
+  - You can transmit at any time; any repeater that hears your packet will forward it.
 
 - Adverts allow your node to **discover repeaters** (their ID and info). This enables:
   - Tracing paths to confirm connectivity  
@@ -48,6 +48,7 @@ Repeater 3 Neighbours:
 - Repeater 1
 
 ---
+
 ## The Public Channel
 
 All Ottawa MeshCore nodes have access to the **public channel**.
