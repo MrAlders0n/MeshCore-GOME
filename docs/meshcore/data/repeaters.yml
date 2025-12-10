@@ -381,7 +381,7 @@ repeaters:
     name: "Quinterra"
     antenna: "TBD"
     location: "TBD"
-    contact: "meshcore://contact/add?name=Quinterra&public_key=dada483f48fd3ea65dc0b7b531d09e4b814d32d42a601bc3193527eaf745c014&type=2"
+    contact: "meshcore://contact/add?name=Quinterra&public_key=DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0A9E7A28C826767&type=2"
 
   - id: "0f"
     name: "Rax-Basement-R1"
