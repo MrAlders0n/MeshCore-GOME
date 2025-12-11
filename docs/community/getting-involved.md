@@ -24,7 +24,7 @@ Below are some common roles we have in the community.
 
 ## Knowledge Curators
 
-- Maintain and update wiki content
+- Maintain and update NCR Mesh Website Content
 
 ## Tower Tech
 
