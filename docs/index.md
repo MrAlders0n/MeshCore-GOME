@@ -1,16 +1,15 @@
-# Welcome to Greater Ottawa Mesh Enthusiasts
+# Welcome to National Capital Region Mesh
 
 [**Join us on Discord**](https://discord.gg/WSyNd8SfNr)
 
 ## About the Community
 
-Welcome to the Ottawa mesh group!  
 We’re a community of hobbyists, builders, and experimenters working together to create a decentralized long-range communications network across the National Capital Region.
 
-Both **MeshCore** and **Meshtastic** run on top of LoRa radios.  
+**MeshCore** runs on top of LoRa radios.  
 LoRa (Long Range) is a low-power, long-distance radio modulation ideal for community networks, sensors, emergency use, and experimentation.
 
-Across Ottawa and the surrounding area we currently operate over **50 static MeshCore repeaters**
+Across the NCR and the surrounding area we currently operate over **50 static MeshCore repeaters**
 
 Whether you want to experiment, build hardware, climb towers, or just connect with other enthusiasts — you’re welcome here.
 
@@ -73,4 +72,4 @@ This wiki is maintained by the **Greater Ottawa Mesh Enthusiasts** and contains 
 
 If you’d like to contribute or help improve the wiki, reach out to **MrAlders0n** on Discord — or submit changes directly on GitHub:
 
-**GitHub:** [Greater Ottawa Mesh Enthusiasts Wiki](https://github.com/MrAlders0n/MeshCore-Ottawa)
+**GitHub:** [Greater Ottawa Mesh Enthusiasts Wiki](https://github.com/MrAlders0n/MeshCore-NCR)
