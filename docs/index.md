@@ -72,4 +72,4 @@ This wiki is maintained by the **Greater Ottawa Mesh Enthusiasts** and contains 
 
 If you’d like to contribute or help improve the wiki, reach out to **MrAlders0n** on Discord — or submit changes directly on GitHub:
 
-**GitHub:** [Greater Ottawa Mesh Enthusiasts Wiki](https://github.com/MrAlders0n/MeshCore-NCR)
+**GitHub:** [National Capital Region Mesh Repo](https://github.com/MrAlders0n/MeshCore-NCR)
