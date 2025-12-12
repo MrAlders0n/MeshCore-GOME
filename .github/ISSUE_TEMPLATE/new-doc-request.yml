@@ -1,0 +1,46 @@
+
+name: 📝 New Documentation Request
+description: Propose new pages or sections to improve coverage (guide, reference, FAQ, deployment patterns).
+title: "[Docs] Request: <topic>"
+labels:
+  - area:docs
+  - needs-triage
+  - enhancement
+assignees: []
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic / working title
+      placeholder: "Troubleshooting: node onboarding failures"
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience
+    attributes:
+      label: Audience / who is this for?
+      description: Operators, contributors, newcomers, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and key points
+      description: Bullet the essential sections or questions this doc should answer.
+      placeholder: |
+        - Prereqs
+        - Step-by-step setup
+        - Common pitfalls
+        - Validation checks
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References / sources
+      description: Links to upstream docs (e.g., NCRI/MeshCore), community posts, vendor manuals.
+    validations:
+      required: false
