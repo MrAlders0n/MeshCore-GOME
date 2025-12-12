@@ -55,7 +55,7 @@ If we need more information, we’ll comment on the ticket.
 If you know GitHub and want to edit the markdown files directly:
 
 1. Fork the repo  
-2. Edit the relevant file in `docs/deployment/`  
+2. Edit the relevant file in `docs/`  
 3. Open a pull request  
 
 ---
