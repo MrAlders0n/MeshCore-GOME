@@ -41,4 +41,4 @@ body:
       description: Provide references, logs, outputs, or authoritative sources.
       placeholder: "Meshcore spec sheet, config dump, or upstream docs link."
     validations:
-      required: true
+      required: false
