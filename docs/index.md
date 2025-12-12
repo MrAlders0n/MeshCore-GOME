@@ -70,7 +70,7 @@ It's the easiest way to get started before moving on to repeaters or solar build
 
 This wiki is maintained by the Greater Ottawa Mesh Enthusiasts and contains guides, hardware information, deployment notes, and community resources.
 
-If you’d like to contribute or help improve the site, please visit our **[Contributing](community/contributing.md)**:
+If you’d like to contribute or help improve the site, please visit **[Contributing](community/contributing.md)**
 
 Thank you for helping keep Ottawa Mesh accurate and up to date!
 
