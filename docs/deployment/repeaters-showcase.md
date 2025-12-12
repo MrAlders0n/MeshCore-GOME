@@ -23,8 +23,12 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photos:*
 
-![MAY_1](./images/repeater-showcase-MAY_1.jpg){ height="220" style="object-fit: cover; aspect-ratio: 3 / 4;" }
-![MAY_2](./images/repeater-showcase-MAY_2.jpg){ height="220" style="object-fit: cover; aspect-ratio: 3 / 4;" }
+<table>
+  <tr>
+    <td><img src="../images/repeater-showcase-MAY_1.jpg" width="300"></td>
+    <td><img src="../images/repeater-showcase-MAY_2.jpg" width="300"></td>
+  </tr>
+</table>
 
 ---
 
