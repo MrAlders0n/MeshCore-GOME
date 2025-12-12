@@ -1,6 +1,7 @@
 # Building a Solar Node – Rak Unify Box
 
-**WARNING: THIS IS A WORK IN PROGRESS AND IS NOT FINAL. DO NOT FOLLOW THIS UNTIL THIS MESSAGE IS REMOVED.**
+!!! warning "Work In Progress"
+    THIS IS A WORK IN PROGRESS AND IS NOT FINAL, please contact **MrAlders0n** for questions related to the build.
 
 This guide walks through assembling a solar-powered MeshCore repeater using the **RAK Unify Box** enclosure.  
 Follow each step carefully for a reliable and weatherproof build.
