@@ -17,7 +17,7 @@ You do not need to know Git, GitHub, or how to edit the website. Just follow the
 
 Visit the Ottawa Mesh GitHub repository and click **Issues**.
 
-Link: <https://github.com/MrAlders0n/MeshCore-NCR/issues>
+Link: <https://github.com/MrAlders0n/MeshCore-GOME/issues>
 
 ---
 
