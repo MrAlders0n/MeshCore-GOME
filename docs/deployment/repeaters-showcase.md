@@ -23,8 +23,8 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photos:*
 
-!MAY_1{ height="220" style="object-fit: cover; aspect-ratio: 4 / 3;" }
-!MAY_2{ height="220" style="object-fit: cover; aspect-ratio: 4 / 3;" }
+![MAY_1](./images/repeater-showcase-MAY_1.jpg){ height="220" style="object-fit: cover; aspect-ratio: 4 / 3;" }
+![MAY_2](./images/repeater-showcase-MAY_2.jpg){ height="220" style="object-fit: cover; aspect-ratio: 4 / 3;" }
 
 ---
 
