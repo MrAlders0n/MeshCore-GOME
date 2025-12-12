@@ -6,6 +6,7 @@ nav:
   - Home: index.md
   - Community:
       - Getting Involved: community/getting-involved.md
+      - Contributing: community/contributing.md
   - Deployment:
       - Coverage: deployment/coverage.md
       - Repeaters: deployment/repeaters.md
