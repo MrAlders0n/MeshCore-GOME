@@ -25,7 +25,7 @@ The following pre-built companion nodes are popular and widely available:
 
 | Product            | Notes | Link |
 |--------------------|-------|------|
-| **ThinkNode M1** | Compact device powered by the nRF52840 with a 1.54" screen and GPS support. Designed as a ready-to-use companion node for reliable messaging and tracking. | [Elecrow](https://www.elecrow.com/thinknode-m1-meshtastic-lora-signal-transceiver-powered-by-nrf52840-with-154-screen-support-gps.html) |
+| **ThinkNode M1** | Compact device powered by the nRF52840 with a 1.54" screen and GPS support. Designed as a ready-to-use companion node for reliable messaging and tracking. **Note:** Has RP-SMA connector - See SMA vs. RP-SMA warning above. | [Elecrow](https://www.elecrow.com/thinknode-m1-meshtastic-lora-signal-transceiver-powered-by-nrf52840-with-154-screen-support-gps.html) |
 | **LilyGO T-Echo** | Compact device with onboard display and GPS. A solid ready-to-use option with minimal setup required. **Note:** Buy the non-flashed version; it’s cheaper and easy to flash MeshCore/Meshtastic using the web flasher. | [LilyGO Store](https://lilygo.cc/products/t-echo-lilygo) |
 | **SenseCAP T1000-E** | Slim card-style tracker device from SeeedStudio. Portable and IP65-rated. **Note:** Range is more limited due to internal antennas. | [SeeedStudio](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html) |
 | **RAK WisMesh Tag** | Rugged device with GPS, integrated antennas, 1000mAh battery, and IP66 enclosure. Pre-flashed firmware for instant use. **Note:** Range is more limited due to internal antennas. | [AliExpress](https://www.aliexpress.com/item/1005009754254701.html) |
