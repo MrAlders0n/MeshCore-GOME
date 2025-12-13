@@ -1396,6 +1396,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#firmware-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Download
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#firmware-installation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1418,10 +1429,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-wi-fi-timezone" class="md-nav__link">
+  <a href="#configure-remaining-things" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Wi-Fi &amp; Timezone
+        Configure Remaining Things
       
     </span>
   </a>
@@ -1726,6 +1737,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#firmware-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Download
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#firmware-installation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1748,10 +1770,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-wi-fi-timezone" class="md-nav__link">
+  <a href="#configure-remaining-things" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Wi-Fi &amp; Timezone
+        Configure Remaining Things
       
     </span>
   </a>
@@ -1804,7 +1826,7 @@
 <p>This guide explains how to install and run a <strong>custom build of MeshCore repeater firmware</strong> on a <strong>HeltekV3</strong> to act as a standalone packet capture device that forwards logs directly to <a href="https://analyzer.letsme.sh">analyzer.letsme.sh</a>.<br>
 This setup does <strong>not</strong> require a Raspberry Pi, VM, or companion node.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
-<p>This firmware was compiled from <a href="https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation-dev">agessaman/MeshCore (mqtt-bridge-implementation-dev)</a> to simplify setup for the community.</p>
+<p>This firmware was compiled from <a href="https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation">agessaman/MeshCore (mqtt-bridge-implementation)</a> to simplify setup for the community.</p>
 <ul>
 <li><strong>Default Frequency:</strong> USA/CAN recommended settings pre-configured  </li>
 <li><strong>Role:</strong> Repeater with repeat disabled (acts as a “silent repeater” for packet capture)</li>
@@ -1822,10 +1844,12 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 <li>Wi-Fi network access  </li>
 <li>Basic familiarity with the <a href="https://flasher.meshcore.co.uk">MeshCore Flasher</a> tool  </li>
 </ul>
+<h2 id="firmware-download">Firmware Download<a class="headerlink" href="#firmware-download" title="Permanent link">¶</a></h2>
+<p><strong>HeltekV3 MQTT Repeater Firmware 1.11.0</strong> <a href="../firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0.bin">Download Link</a> <strong>Tested on: 2025-12-13</strong>&amp;</p>
 <h2 id="firmware-installation">Firmware Installation<a class="headerlink" href="#firmware-installation" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p><strong>Download the HeltekV3 MQTT Repeater Firmware:</strong> <a href="https://drive.proton.me/urls/BAM30S5MJ0#u6tQH2mlsoZR">Download Link</a>  </p>
+<p>Download the HeltekV3 MQTT Repeater Firmware you wish to use</p>
 </li>
 <li>
 <p>Go to <a href="https://flasher.meshcore.co.uk/">MeshCore Flasher</a> and click <strong>HeltekV3</strong>  </p>
@@ -1881,37 +1905,69 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 </li>
 <li>
 <p>Configure the repeater name using the Ottawa naming convention (<code>YOW_Location</code>):  </p>
-<p><code>set name YOW_OldBarrhaven</code></p>
+<p><code>bash
+set name YOW_OldBarrhaven</code></p>
 </li>
 <li>
 <p>Configure the IATA Code for MQTT ingestion</p>
-<p><code>set mqtt.iata YOW</code></p>
+<p><code>bash
+set mqtt.iata YOW</code></p>
 </li>
 <li>
 <p>Disable repeat:  </p>
-<p><code>set repeat off</code></p>
+<p><code>bash
+set repeat off</code></p>
 </li>
 <li>
 <p>(Optional) Configure ownership info for the Packet Analyzer:<br>
-    You must have an account on <a href="https://analyzer.letsme.sh/">analyzer.letsme.sh</a> (login uses MeshCore Forum authentication). </p>
-<p><code>set mqtt.owner &lt;Companion-Public-Key&gt;
+    You must have an account on <a href="https://analyzer.letsme.sh/">analyzer.letsme.sh</a> (login uses MeshCore Forum authentication).</p>
+<p><code>bash
+ set mqtt.owner &lt;Companion-Public-Key&gt;
  set mqtt.email &lt;MeshCore-Fourm-Email-Address&gt;</code></p>
 </li>
 </ol>
-<h2 id="configure-wi-fi-timezone">Configure Wi-Fi &amp; Timezone<a class="headerlink" href="#configure-wi-fi-timezone" title="Permanent link">¶</a></h2>
+<h2 id="configure-remaining-things">Configure Remaining Things<a class="headerlink" href="#configure-remaining-things" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>Set Wi-Fi credentials: </p>
-<p><code>set wifi.ssid &lt;WIFI-NETWORK-NAME&gt;
+<p>Set Wi-Fi credentials:</p>
+<p><code>bash
+set wifi.ssid &lt;WIFI-NETWORK-NAME&gt;
 set wifi.pwd &lt;WIFI-PASSWORD&gt;</code></p>
 </li>
 <li>
 <p>Set timezone:  </p>
-<p><code>set timezone America/Toronto</code></p>
+<p><code>bash
+set timezone America/Toronto</code></p>
 </li>
 <li>
-<p>Reboot the device: </p>
-<p><code>reboot</code></p>
+<p>Configure the radio settings</p>
+<p><code>bash
+   set radio 510.525,62.5,7,5</code></p>
+</li>
+<li>
+<p>Set the admin password</p>
+<p><code>bash
+   set password &lt;Admin Password&gt;</code></p>
+</li>
+<li>
+<p>Set the guest password</p>
+<p><code>bash
+   set password.guest &lt;Guest Password&gt;</code></p>
+</li>
+<li>
+<p>Set the device latitude</p>
+<p><code>bash
+   set lat &lt;Latitude&gt;</code></p>
+</li>
+<li>
+<p>Set the device longitude</p>
+<p><code>bash
+   set long &lt;Longitude&gt;</code></p>
+</li>
+<li>
+<p>Reboot the device:</p>
+<p><code>bash
+reboot</code></p>
 </li>
 </ol>
 <h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">¶</a></h2>
