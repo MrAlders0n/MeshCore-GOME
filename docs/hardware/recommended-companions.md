@@ -9,6 +9,10 @@ There are also standalone companion nodes with built-in screens and input device
 
 These devices require a smartphone and the MeshCore or Meshtastic app. They connect to your phone over BLE, and you use the app to interact with the mesh. In this setup, the companion acts only as the radio, linking your phone to the mesh network.
 
+!!! warning "SMA vs. RP-SMA"
+    Pay close attention to what connection type a Companion/Repeater has since some come with Reverse Polarity SMA (RP-SMA). You will need an adapter to connect your SMA antenna or you will need to buy a RP-SMA antenna.
+    [More information on the differences between these connections.](https://blog.linitx.com/what-are-sma-rp-sma-connectors-and-whats-the-difference/)
+
 ### Pre-Built
 
 The easiest way to get started is to buy a companion node, flash it with MeshCore/Meshtastic, and join the mesh.
