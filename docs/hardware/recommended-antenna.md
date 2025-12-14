@@ -17,7 +17,7 @@ These are SMA antennas and are more compact, yet they’ve consistently shown ex
 | LINX ANT-916-CW-HW-SMA      | SMA       | $14.65     | [DigiKey](https://www.digikey.ca/en/products/detail/te-connectivity-linx/ANT-916-CW-HW-SMA/2694126?s=N4IgTCBcDaIDIEkByANABAQSQFQLQE4BGANlwGEB1XACSoGUBZDEAXQF8g) |
 | Taoglas TI.09.A.0111        | SMA       | $17.47     | [DigiKey](https://www.digikey.ca/en/products/detail/taoglas-limited/TI-09-A-0111/2332695?s=N4IgTCBcDaICoEMD2BzANggzgAjgSQDoAGATgIEFiBGGkAXQF8g) |
 
-## Repeater Antennas
+## Repeater Omni Antennas
 
 These are N-Type antennas and are best suited for repeaters. At an absolute minimum, all repeaters should use the Alfa antenna — it’s a major reason the Ottawa mesh performs as well as it does. MrAlders0n has made a link between a repeater and a companion at 110KM distance with an Alfa on both ends.
 
@@ -28,3 +28,10 @@ If you want something larger and higher-performing, we’ve tested the Seeed 130
 | Alfa AOA-915-5ACM           | N-Type    | $34.99     | [Amazon](https://a.co/d/ieEIQpy) |
 | Seeed Studio RF Explorer 902-928MHz 8dBi; 1300mm | N-Type | $110 | [Mouser](https://www.mouser.ca/ProductDetail/Seeed-Studio/318020693?qs=By6Nw2ByBD0kjpJjgHd0aQ%3D%3D) |
 
+## Repeater Directional Antennas
+
+Directional antennas are intended for fixed repeaters and long-distance point-to-point or point-to-multipoint links. All antennas listed here use N-Type connectors and are suitable for permanent outdoor installations.
+
+| Product                | Connector | Cost (CAD) | Link |
+|------------------------|-----------|------------|------|
+| TBD       | N-Type    | $TBD     | [TBD](https://TBD) |
