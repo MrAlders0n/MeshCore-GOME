@@ -26,18 +26,44 @@ If you want to explore the map in a full window, you can open it directly here:
 
 ## How MeshMapper Works
 
-MeshMapper is simple to use and works with any MeshCore companion:
+MeshMapper is simple to use and works with any MeshCore companion. The goal is to collect real world signal reports and build an accurate picture of how the mesh performs across the region.
 
 1. The app generates a block of text that includes:
    - The MeshMapper Bot tag  
    - Your current GPS coordinates  
-   - The signal strength your device is reporting  
-2. This text is automatically copied to your clipboard when the user clicks **Copy Coordinates**.
-3. You paste it into the **#testing** channel on the MeshCore app.
-4. If a repeater hears your packet, the MeshMapper Bot replies and confirms it’s been added to the coverage map.
+   - The companion transmit power you selected in the app  
+2. When you tap **Copy Coordinates**, this text is automatically copied to your clipboard.
+3. You paste it into the **#testing** channel in the MeshCore app.
+4. If a repeater hears your packet, the MeshMapper Bot replies and confirms the point has been added to the map.
 
-Every point on the map comes from someone driving, biking, or walking around with a node and sending a MeshMapper ping.
-
-The more the community participates, the better and more accurate the live coverage map becomes.
+Each point on the map represents someone driving, walking, or biking with a companion and sending a MeshMapper ping. More participation results in better accuracy and a more complete view of Ottawa’s coverage.
 
 If you want to help improve this map, hop into the Ottawa MeshCore Discord and ask how to get started with MeshMapper.
+
+### How Data Is Stored
+
+- MeshMapper will overwrite an existing pin if the same user submits a new pin within roughly 100 meters. This keeps the map clean and prevents duplicates from the same area.
+- Each pin stores the recorded GPS coordinates and the **user-selected companion power level**.
+- Supported power options:
+  - Unspecified  
+  - 0.3 W (Heltec T114)  
+  - 0.6 W (Heltec V4)  
+  - 1.0 W (Ikoka)  
+
+### MeshMapper Map Layers
+
+The MeshMapper web map includes four layers that can be enabled or disabled depending on what you want to view.
+
+#### Coverage Points
+These are the actual GPS pins submitted by users. They represent confirmed locations where a MeshCore packet was heard by at least one repeater.
+
+#### Repeaters
+A list of all known repeaters that MeshMapper has data for. These give context for coverage points and help visualize the mesh.
+
+#### Companion Potential Coverage
+A simple 100 meter radius around each coverage point. This provides a rough visual of possible companion-level reach in all directions from that location.
+
+#### Repeater Potential Coverage
+This layer uses the companion’s submitted GPS location and the first repeater in the path to the MeshMapper Bot. MeshMapper calculates the distance between those two points and draws a circle with that radius to estimate the repeater’s potential coverage area.
+
+This is only an approximation. For example, a repeater on the 15th floor of an apartment building might be reachable from several kilometers away if line of sight is clear. That same repeater might be unreachable only a few hundred meters away if something blocks the signal. Treat this layer as an estimate, not exact RF modeling.
