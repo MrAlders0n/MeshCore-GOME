@@ -22,7 +22,7 @@ MeshMapper gives us real world data points instead of simulations, letting us bu
 </div>
 
 If you want to explore the map in a full window, you can open it directly here:  
-[https://yow.meshmapper.net](https://yow.meshmapper.net)
+[MeshMapper](https://yow.meshmapper.net)
 
 ## How MeshMapper Works
 
