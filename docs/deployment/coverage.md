@@ -29,9 +29,9 @@ If you want to explore the map in a full window, you can open it directly here:
 MeshMapper is simple to use and works with any MeshCore companion. The goal is to collect real world signal reports and build an accurate picture of how the mesh performs across the region.
 
 1. The app generates a block of text that includes:
-   - The MeshMapper Bot tag  
-   - Your current GPS coordinates  
-   - The companion transmit power you selected in the app  
+    - The MeshMapper Bot tag  
+    - Your current GPS coordinates  
+    - The companion transmit power you selected in the app  
 2. When you tap **Copy Coordinates**, this text is automatically copied to your clipboard.
 3. You paste it into the **#testing** channel in the MeshCore app.
 4. If a repeater hears your packet, the MeshMapper Bot replies and confirms the point has been added to the map.
