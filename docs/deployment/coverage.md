@@ -24,21 +24,33 @@ MeshMapper gives us real world data points instead of simulations, letting us bu
 If you want to explore the map in a full window, you can open it directly here:  
 [MeshMapper](https://yow.meshmapper.net)
 
+
 ## How MeshMapper Works
 
-MeshMapper is simple to use and works with any MeshCore companion. The goal is to collect real world signal reports and build an accurate picture of how the mesh performs across the region.
+MeshMapper is simple to use and works with any MeshCore companion. Its goal is to collect real-world signal reports and build an accurate picture of how the mesh performs across the region.
 
-1. The app generates a block of text that includes:
-    - The MeshMapper Bot tag  
-    - Your current GPS coordinates  
-    - The companion transmit power you selected in the app  
-2. When you tap **Copy Coordinates**, this text is automatically copied to your clipboard.
-3. You paste it into the **#testing** channel in the MeshCore app.
-4. If the message is received by the MeshMapper Bot, it replies and confirms that the point has been added to the map.
+### Steps to Get Started
 
-Each point on the map represents someone driving, walking, or biking with a companion and sending a MeshMapper ping. More participation results in better accuracy and a more complete view of Ottawa’s coverage.
+1. **Browse to:** [https://meshmapper.net](https://meshmapper.net)
 
-If you want to help improve this map, hop into the Ottawa MeshCore Discord and ask how to get started with MeshMapper.
+2. **Pick your options:**
+   - **Mask exact location** (moves your position randomly by 100m)  
+   - **Refresh every 5s**  
+   - **Attach transmitter strength?**  
+
+3. The app generates a block of text that includes:
+   - The **MeshMapper Bot** tag  
+   - Your current **GPS coordinates**  
+   - The **companion transmit power** you selected in the app  
+
+4. When you tap **Copy Coordinates**, this text is automatically copied to your clipboard.
+
+5. **Paste the text** into one of the following MeshCore hashtag channels:
+   - `#testing` (Light use)  
+   - `#mapper` (Moderate use)  
+   - `#wardriving` (Heavy use)  
+
+6. If the message is received by the MeshMapper Bot, it replies and confirms that the point has been added to the map.
 
 ### How Data Is Stored
 
