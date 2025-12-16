@@ -45,6 +45,7 @@ If you want to help improve this map, hop into the Ottawa MeshCore Discord and a
 - MeshMapper will overwrite an existing pin if the same user submits a new pin within roughly 100 meters. This keeps the map clean and prevents duplicates from the same area.
 - Each pin stores the recorded GPS coordinates and the **user-selected companion power level**.
 - Supported power options:
+
   - Unspecified  
   - 0.3 W (Heltec T114)  
   - 0.6 W (Heltec V4)  
