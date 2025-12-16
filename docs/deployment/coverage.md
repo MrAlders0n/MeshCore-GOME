@@ -46,10 +46,10 @@ If you want to help improve this map, hop into the Ottawa MeshCore Discord and a
 - Each pin stores the recorded GPS coordinates and the **user-selected companion power level**.
 - Supported power options:
 
-  - Unspecified  
-  - 0.3 W (Heltec T114)  
-  - 0.6 W (Heltec V4)  
-  - 1.0 W (Ikoka)  
+    - Unspecified  
+    - 0.3 W (Heltec T114)  
+    - 0.6 W (Heltec V4)  
+    - 1.0 W (Ikoka)  
 
 ### MeshMapper Map Layers
 
