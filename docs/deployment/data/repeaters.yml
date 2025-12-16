@@ -509,7 +509,7 @@ repeaters:
     location: "Kemptville (11m)"
     contact: null
 
-   - id: "b5"
+  - id: "b5"
     name: "UH_R1"
     antenna: "TBD"
     location: "Gatineau"
