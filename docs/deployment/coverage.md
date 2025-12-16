@@ -34,7 +34,7 @@ MeshMapper is simple to use and works with any MeshCore companion. The goal is t
     - The companion transmit power you selected in the app  
 2. When you tap **Copy Coordinates**, this text is automatically copied to your clipboard.
 3. You paste it into the **#testing** channel in the MeshCore app.
-4. If a repeater hears your packet, the MeshMapper Bot replies and confirms the point has been added to the map.
+4. If the message is received by the MeshMapper Bot, it replies and confirms that the point has been added to the map.
 
 Each point on the map represents someone driving, walking, or biking with a companion and sending a MeshMapper ping. More participation results in better accuracy and a more complete view of Ottawa’s coverage.
 
