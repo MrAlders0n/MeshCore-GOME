@@ -34,23 +34,26 @@ MeshMapper is simple to use and works with any MeshCore companion. Its goal is t
 1. **Browse to:** [https://meshmapper.net](https://meshmapper.net)
 
 2. **Pick your options:**
+
         - **Mask exact location** (moves your position randomly by 100m)  
         - **Refresh every 5s**  
         - **Attach transmitter strength?**  
 
-3. The app generates a block of text that includes:
+4. The app generates a block of text that includes:
+
         - The **MeshMapper Bot** tag  
         - Your current **GPS coordinates**  
         - The **companion transmit power** you selected in the app  
 
-4. When you tap **Copy Coordinates**, this text is automatically copied to your clipboard.
+6. When you tap **Copy Coordinates**, this text is automatically copied to your clipboard.
 
-5. **Paste the text** into one of the following MeshCore hashtag channels:
+7. **Paste the text** into one of the following MeshCore hashtag channels
+
         - `#testing` (Light use)  
         - `#mapper` (Moderate use)  
         - `#wardriving` (Heavy use)  
 
-6. If the message is received by the MeshMapper Bot, it replies and confirms that the point has been added to the map.
+9. If the message is received by the MeshMapper Bot, it replies and confirms that the point has been added to the map.
 
 ### How Data Is Stored
 
