@@ -198,7 +198,7 @@ repeaters:
     contact: "meshcore://110292f42deb5c1040db0243a0b298cc4fd0b96ce24c2e44acfebb62306a629521ec3e801ba81e68309cf499c9d4530fd4564a2c912af9fbc5bbf07ebb3aa868c980665aac76adca50462ce415f8782c1b2a99d4a6203a4d638c3cd8dbe8df0d0f48dbbce9dfb20292c002b3022a337afb48617070795231"
 
   - id: "a9"
-    name: "HX_TEST_R1"
+    name: "Hull heritage"
     antenna: "TBD"
     location: "Gatineau (~X.X m)"
     contact: "meshcore://contact/add?name=HX_TEST_R1&public_key=a9b25d7d85c60d149c403ab474b48332e5514cd8b57d6b3a93eb62c51944a803&type=2"
