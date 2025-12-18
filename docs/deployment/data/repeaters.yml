@@ -479,12 +479,6 @@ repeaters:
     location: "TBD"
     contact: null
 
-  - id: "10"
-    name: "Tekkie_Repeat"
-    antenna: "Alfa Omni 5.8dBi"
-    location: "North Barrhaven (~7.5 m)"
-    contact: "meshcore://110292d21040747c34499517bee7341ec289cdfa4cb026acb70eae4533be122087fe4beabb19ac682e3a62949ee9ec391da05e1fd578bf2701cd8da2f1c8b12eecdedc8c393be5b7bdf778bc24b21e222167cf2b69d07acb3233df36035d8a1f7b306aaf3edaf8099225ffb202d46d7cfb54656b6b69655f526570656174"
-
   - id: "6b"
     name: "Tekkie_Rpt_HV4"
     antenna: "Alfa Omni 5.8dBi"
