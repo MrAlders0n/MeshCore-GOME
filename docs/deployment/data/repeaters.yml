@@ -215,11 +215,11 @@ repeaters:
     location: "TBD"
     contact: "meshcore://contact/add?name=HH-R1&public_key=37bdcfdbb6d4b873d6cc70660ec5c6554ac4ba280e2f60f44f895f9f6e5dc53e&type=2"
 
-  - id: "c3"
+  - id: "46"
     name: "High in the Sky"
     antenna: "TBD"
     location: "Westboro (~X.X m)"
-    contact: null
+    contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46322f039e3fbc63c3c810af4fa4589de360c4349d642f78c485ad182887a51c&type=2"
 
   - id: "a8"
     name: "IndigoPlateau_R1"
