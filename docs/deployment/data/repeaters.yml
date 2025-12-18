@@ -199,9 +199,9 @@ repeaters:
 
   - id: "a9"
     name: "Hull heritage"
-    antenna: "TBD"
+    antenna: "Yagi Pointing NW"
     location: "Gatineau (~X.X m)"
-    contact: "meshcore://contact/add?name=HX_TEST_R1&public_key=a9b25d7d85c60d149c403ab474b48332e5514cd8b57d6b3a93eb62c51944a803&type=2"
+    contact: "meshcore://contact/add?name=Hull%20heritage&public_key=a9b25d7d85c60d149c403ab474b48332e5514cd8b57d6b3a93eb62c51944a803&type=2"
 
   - id: "3d"
     name: "HX_R2"
