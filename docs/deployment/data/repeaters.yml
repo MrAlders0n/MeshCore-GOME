@@ -480,10 +480,10 @@ repeaters:
     contact: null
 
   - id: "6b"
-    name: "Tekkie_Rpt_HV4"
+    name: "Tek_HV4_Repeater"
     antenna: "Alfa Omni 5.8dBi"
     location: "North Barrhaven (~7.5 m)"
-    contact: "meshcore://contact/add?name=Tek_HV4_Repeater&public_key=6b41c274442917a9d0a257b3d65ba92661e7e9298ee9e2d0eb1b7366da51c974&type=2"
+    contact: "meshcore://11006b41c274442917a9d0a257b3d65ba92661e7e9298ee9e2d0eb1b7366da51c97435f44369121e679275df98c697076730e9bbb6924bd73e39fbfa421d14f1d428323e038d4c3587d26ba51b331b5074e90c3c7b0a9660236e1932eacb8dada796318b9605922fffb202c86d7cfb54656b5f4856345f5265706561746572"
 
   - id: "1f"
     name: "TOO_Solar_Rep"
