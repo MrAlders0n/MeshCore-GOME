@@ -59,6 +59,12 @@ repeaters:
     location: "Old Ottawa South"
     contact: "meshcore://contact/add?name=AUS_SOLAR_R&public_key=66d030e0a6d66998a39c6dd3df95c735cf54d87d675417f887e1952589e0f66c&type=2"
 
+  - id: "88"
+    name: "Aylmer_R1"
+    antenna: "TBD"
+    location: "Aylmer"
+    contact: "meshcore://contact/add?name=Aylmer_R1&public_key=88a724a7e0bac3b59dc9a4fcc6b939da1782046bbef1945a89ce0bc2d7c2d84f&type=2"
+
   - id: "99"
     name: "BUN_Solar_Rep"
     antenna: "TBD"
@@ -70,6 +76,12 @@ repeaters:
     antenna: "Alfa Omni 5.8dBi"
     location: "Twin Elm – mounted on top of grain silo (~45 m)"
     contact: "meshcore://1101f4921578e08537de98b655a37b025370aa15ec53995b41fa1fcf1c8038157c81b477f01568fa111ae6c97fc30d506f43c4b934d2b6fa697b36f0fd962e738315a842e0c37899b8287fd2d8f068a952b19fbb2fd8d57cb65fdf035fd738b824079643cd170c92dab4b2025b3c7bfb43414e"
+
+  - id: "bf"
+    name: "CarletonHeightsSolarRep"
+    antenna: "TBD"
+    location: "Carleton Heights"
+    contact: "meshcore://contact/add?name=CarletonHeightsSolarRep&public_key=bf31359be4d2466dd857364f0ee5d1fe1a31aa3de4e0dbd5008be21ee4bda816&type=2"
 
   - id: "20"
     name: "Centretown Alfa"
@@ -186,10 +198,10 @@ repeaters:
     contact: "meshcore://110292f42deb5c1040db0243a0b298cc4fd0b96ce24c2e44acfebb62306a629521ec3e801ba81e68309cf499c9d4530fd4564a2c912af9fbc5bbf07ebb3aa868c980665aac76adca50462ce415f8782c1b2a99d4a6203a4d638c3cd8dbe8df0d0f48dbbce9dfb20292c002b3022a337afb48617070795231"
 
   - id: "a9"
-    name: "HX_TEST_R1"
-    antenna: "TBD"
+    name: "Hull heritage"
+    antenna: "Yagi Pointing NW"
     location: "Gatineau (~X.X m)"
-    contact: "meshcore://contact/add?name=HX_TEST_R1&public_key=a9b25d7d85c60d149c403ab474b48332e5514cd8b57d6b3a93eb62c51944a803&type=2"
+    contact: "meshcore://contact/add?name=Hull%20heritage&public_key=a9b25d7d85c60d149c403ab474b48332e5514cd8b57d6b3a93eb62c51944a803&type=2"
 
   - id: "3d"
     name: "HX_R2"
@@ -203,11 +215,11 @@ repeaters:
     location: "TBD"
     contact: "meshcore://contact/add?name=HH-R1&public_key=37bdcfdbb6d4b873d6cc70660ec5c6554ac4ba280e2f60f44f895f9f6e5dc53e&type=2"
 
-  - id: "c3"
+  - id: "46"
     name: "High in the Sky"
     antenna: "TBD"
     location: "Westboro (~X.X m)"
-    contact: null
+    contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46322f039e3fbc63c3c810af4fa4589de360c4349d642f78c485ad182887a51c&type=2"
 
   - id: "a8"
     name: "IndigoPlateau_R1"
@@ -467,17 +479,11 @@ repeaters:
     location: "TBD"
     contact: null
 
-  - id: "10"
-    name: "Tekkie_Repeat"
-    antenna: "Alfa Omni 5.8dBi"
-    location: "North Barrhaven (~7.5 m)"
-    contact: "meshcore://110292d21040747c34499517bee7341ec289cdfa4cb026acb70eae4533be122087fe4beabb19ac682e3a62949ee9ec391da05e1fd578bf2701cd8da2f1c8b12eecdedc8c393be5b7bdf778bc24b21e222167cf2b69d07acb3233df36035d8a1f7b306aaf3edaf8099225ffb202d46d7cfb54656b6b69655f526570656174"
-
   - id: "6b"
-    name: "Tekkie_Rpt_HV4"
+    name: "Tek_HV4_Repeater"
     antenna: "Alfa Omni 5.8dBi"
     location: "North Barrhaven (~7.5 m)"
-    contact: "meshcore://contact/add?name=Tek_HV4_Repeater&public_key=6b41c274442917a9d0a257b3d65ba92661e7e9298ee9e2d0eb1b7366da51c974&type=2"
+    contact: "meshcore://11006b41c274442917a9d0a257b3d65ba92661e7e9298ee9e2d0eb1b7366da51c97435f44369121e679275df98c697076730e9bbb6924bd73e39fbfa421d14f1d428323e038d4c3587d26ba51b331b5074e90c3c7b0a9660236e1932eacb8dada796318b9605922fffb202c86d7cfb54656b5f4856345f5265706561746572"
 
   - id: "1f"
     name: "TOO_Solar_Rep"
@@ -496,6 +502,12 @@ repeaters:
     antenna: "TBD"
     location: "Kemptville (11m)"
     contact: null
+
+  - id: "b5"
+    name: "UH_R1"
+    antenna: "TBD"
+    location: "Gatineau"
+    contact: "meshcore://contact/add?name=UH_R1&public_key=b5c38db5e0fe55f13c9a8e3a65a6844fb65a7591fe97bfa62bf78f73328cfb09&type=2"   
 
   - id: "59"
     name: "Unimatrix-01"
@@ -568,6 +580,12 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: "meshcore://contact/add?name=WTE5%20TRASH&public_key=50af4c9149fbcd89b3d4aa3d63f0522cd05ea413caf54ce48c5fa7113dd74bd7&type=2"
+
+  - id: "8c"
+    name: "WW-RPT-02"
+    antenna: "TBD"
+    location: "TBD"
+    contact: "TBD"
 
   - id: "90"
     name: "YOW_BarrhavenEast"
