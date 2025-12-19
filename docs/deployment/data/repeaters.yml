@@ -439,9 +439,9 @@ repeaters:
 
   - id: "81"
     name: "Starsolar_R2"
-    antenna: "TBD"
-    location: "Beckwith (~8.0m)"
-    contact: null
+    antenna: "Alfa 5.8 dBi"
+    location: "Beckwith (~4.0m)"
+    contact: "meshcore://1100e4317228a008d9c166900ee4c341947886d86fa57ac69306543c98882f13814660a24569eb4d39714d9158ed9811ba290334857865ad9614ea23199cad081e7418700b2a1d2600b13507d3a2c90a60ce85464bacb47548a5b7d6532401c56977e5b2850481537461726c6971756964"
 
   - id: "cf"
     name: "SVIL_R1"
