@@ -36,8 +36,12 @@ Below are some common roles we have in the community.
 
 ## Community Outreach
 
-- Spread the word on social media (Reddit, Facebook, TikTok, etc.)
-- Put posters up around the community
+- Reach out to building owners, venue managers, and other locals to find rooftops/high spots and permissions.
+- Keep a simple one-pager with a short project summary, a few photos, and contact info to share.
+- Arrange site visits, coordinate access and timing, and save any written permissions.
+- Team up with local groups (radio clubs, neighbours, outdoor groups) to spread the word and recruit helpers.
+- Handle public posts and flyers
+- Track outreach, permissions, and follow-ups.
 
 ## Repeater Operators
 
