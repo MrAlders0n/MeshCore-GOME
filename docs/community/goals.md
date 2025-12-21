@@ -55,6 +55,6 @@ Ottawa Mesh grows through community participation. You can help by:
 
 Every contribution, large or small, helps move the network forward. To learn more, please visit our subpages:
 
-- [Getting involved](community/getting-involved.md)
-- [Contributing](community/contributing.md)
-- [Wanted Repeater Locations](deployment/repeater-wanted-locations.md)
+- [Getting involved](../community/getting-involved.md)
+- [Contributing](../community/contributing.md)
+- [Wanted Repeater Locations](../deployment/repeater-wanted-locations.md)
