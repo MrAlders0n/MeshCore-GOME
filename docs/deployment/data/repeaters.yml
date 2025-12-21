@@ -53,11 +53,11 @@ repeaters:
     location: "TBD (~X.X m)"
     contact: null
 
-  - id: "66"
+  - id: "68"
     name: "AUS_SOLAR_R"
     antenna: "TBD"
     location: "Old Ottawa South"
-    contact: "meshcore://contact/add?name=AUS_SOLAR_R&public_key=66d030e0a6d66998a39c6dd3df95c735cf54d87d675417f887e1952589e0f66c&type=2"
+    contact: "meshcore://contact/add?name=AUS_SOLAR_R&public_key=68756615112ceffb49fac95f4b4eea01365543093a774dfff955af0eb8f2e114&type=2"
 
   - id: "88"
     name: "Aylmer_R1"

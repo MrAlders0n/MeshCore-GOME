@@ -5,9 +5,9 @@ repo_url: https://github.com/MrAlders0n/MeshCore-NCR  # update this
 nav:
   - Home: index.md
   - Community:
-      - Getting Involved: community/getting-involved.md
-      - Contributing: community/contributing.md
       - Goals: community/goals.md
+      - Getting Involved: community/getting-involved.md
+      - Contributing: community/contributing.md      
   - Deployment:
       - Coverage: deployment/coverage.md
       - Repeaters: deployment/repeaters.md
