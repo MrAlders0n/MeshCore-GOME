@@ -7,6 +7,7 @@ nav:
   - Community:
       - Getting Involved: community/getting-involved.md
       - Contributing: community/contributing.md
+      - Goals: community/goals.md
   - Deployment:
       - Coverage: deployment/coverage.md
       - Repeaters: deployment/repeaters.md
