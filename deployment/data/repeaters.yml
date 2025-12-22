@@ -281,6 +281,12 @@ repeaters:
     location: "Riverside South (~7.5 m)"
     contact: "meshcore://1100d2a95aeb77ae251340e41c88f791f6aca96c5494f8290fc447cefaff156556344f34aa689cf89cab5b724f14e8d59a41d570f726f2999c023286043d859e9192165ee22803758881858d7ec0bc839dca9088849178700ae931482c30cbd1871e22c0c4009265e2b202261c7dfb4d41435f526570656174"
 
+  - id: "ec"
+    name: "Mag101"
+    antenna: "TBD"
+    location: "Barrhaven"
+    contact: "meshcore://contact/add?name=Mag101&public_key=ec0aaa805c4541c70bc4e63d6a9bcde59aae22738774783d6a96b568a61c32fd&type=2"
+
   - id: "f4"
     name: "MAY_SOLAR_R"
     antenna: "Alfa Omni 5.8dBi"
