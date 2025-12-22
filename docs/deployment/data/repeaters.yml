@@ -197,11 +197,17 @@ repeaters:
     location: "Kanata (~X.X m)"
     contact: "meshcore://110292f42deb5c1040db0243a0b298cc4fd0b96ce24c2e44acfebb62306a629521ec3e801ba81e68309cf499c9d4530fd4564a2c912af9fbc5bbf07ebb3aa868c980665aac76adca50462ce415f8782c1b2a99d4a6203a4d638c3cd8dbe8df0d0f48dbbce9dfb20292c002b3022a337afb48617070795231"
 
-  - id: "a9"
+  - id: "b5"
     name: "Hull heritage"
     antenna: "Yagi Pointing NW"
     location: "Gatineau (~X.X m)"
-    contact: "meshcore://contact/add?name=Hull%20heritage&public_key=a9b25d7d85c60d149c403ab474b48332e5514cd8b57d6b3a93eb62c51944a803&type=2"
+    contact: "meshcore://contact/add?name=Hull%20Heritage&public_key=B5C38DB5E0FE55F13C9A8E3A65A6844FB65A7591FE97BFA62BF78F73328CFB09&type=2"
+
+  - id: "a9"
+    name: "HX_R1"
+    antenna: "Alfa Omni 5.8dBi"
+    location: "Gatineau (~X.X m)"
+    contact: "meshcore://contact/add?name=HX_R1&public_key=A9529B65C9670464791B4BF6A8B9D60D94D4EE1FEC6DA4FDB7F759162D7B55EE&type=2"
 
   - id: "3d"
     name: "HX_R2"
