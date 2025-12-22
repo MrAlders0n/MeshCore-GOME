@@ -257,12 +257,6 @@ repeaters:
     location: "TBD (~X.X m)"
     contact: null
 
-  - id: "d6"
-    name: "llm-repeater1"
-    antenna: "Fibreglass 12dBi"
-    location: "Orleans (~9.5 m)"
-    contact: "meshcore://1100d6b21e3667f3fd7e5929fafad7c364ba3224f85c453014fde9a43857efbab161d6077b68943a2460336eb0031f4fe7a1e6e2b89b268f3cf93f4ca55af38e1f7d90bee711b02544b9368b45626ca670ae2cc914b9cda000e40884afe9b28e22fd78fb13059200d9b50280b97ffb6c6c6d2d726570656174657231"
-
   - id: "17"
     name: "llm-repeater2"
     antenna: "TBD"
