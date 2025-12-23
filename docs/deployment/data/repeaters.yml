@@ -587,8 +587,20 @@ repeaters:
     location: "TBD"
     contact: "meshcore://contact/add?name=WTE5%20TRASH&public_key=50af4c9149fbcd89b3d4aa3d63f0522cd05ea413caf54ce48c5fa7113dd74bd7&type=2"
 
+  - id: "fa"
+    name: "WW.RPT01"
+    antenna: "TBD"
+    location: "TBD"
+    contact: "TBD"
+
   - id: "8c"
     name: "WW-RPT-02"
+    antenna: "TBD"
+    location: "TBD"
+    contact: "TBD"
+
+  - id: "6f"
+    name: "WW.RPT-03"
     antenna: "TBD"
     location: "TBD"
     contact: "TBD"
