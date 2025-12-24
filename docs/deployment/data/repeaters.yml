@@ -257,6 +257,12 @@ repeaters:
     location: "TBD (~X.X m)"
     contact: null
 
+  - id: "28"
+    name: "Juno_REP"
+    antenna: "TBD"
+    location: "Barrhaven (~X.X m)"
+    contact: "meshcore://contact/add?name=Juno_REP&public_key=283AF70DBE2D62CFC8281C64ECC48ABF5748F773CB69B47A7F1A8E18D0FF179A&type=2"
+
   - id: "04"
     name: "Kevrex_R1"
     antenna: "TBD"
