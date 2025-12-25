@@ -461,6 +461,12 @@ repeaters:
     location: "New Stittsville (~X.X m)"
     contact: null
 
+  - id: "a1"
+    name: "Tabarnak repeater"
+    antenna: "TBD"
+    location: "Alfred"
+    contact: "TBD"
+
   - id: "01"
     name: "TBRG_POCKET_R"
     antenna: "LPDA"
