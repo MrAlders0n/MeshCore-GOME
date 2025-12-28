@@ -60,4 +60,4 @@ Community member **Aussiemandias** designed a specialized 3D printable gutter mo
 
 * Regardless of mount type, always ensure the mount and fasteners are weather-rated and can handle local wind conditions.  
 * Periodically inspect mounts for wear, corrosion, or loosening.  
-* These options are specifically for the recommended solar repeater build, linked here: Solar Node – Recommended Enclosure.
+* These options are specifically for the recommended solar repeater build, linked here: [Building a Solar Node – Rak Unify Box](repeater-solar-300mw-diy-build.md).
