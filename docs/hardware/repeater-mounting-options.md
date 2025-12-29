@@ -33,6 +33,7 @@ Examples of poles:
 
 Stéphane P created this 3D print to allow pole mounting of the Alfa 5.8 dBI Antenna
 ![](images/PoleMount.jpg){ width="300" }
+
 * [Download STL](https://drive.google.com/file/d/1wIU9kLxolzM9vPUB35ETY1sCPLGvtfFu/view?usp=share_link)
 
 **Pole mount on chimney**
