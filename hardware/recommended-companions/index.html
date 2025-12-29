@@ -1837,18 +1837,23 @@
 <h1 id="companion-nodes">Companion Nodes<a class="headerlink" href="#companion-nodes" title="Permanent link">¶</a></h1>
 <p>Companion nodes run dedicated companion firmware and operate as user endpoints on the MeshCore/Meshtastic network.<br>
 Most companion nodes pair with your smartphone over BLE to provide access to the mesh.</p>
-<p>There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints.  </p>
+<p>There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints.</p>
+<div class="admonition warning">
+<p class="admonition-title">Upgrade the companion antenna</p>
+<p>The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the Gizont.
+See: <a href="../recommended-antenna/">Recommended Antennas</a></p>
+</div>
 <h2 id="bluetooth-low-energy-ble-companions">Bluetooth Low Energy (BLE) Companions<a class="headerlink" href="#bluetooth-low-energy-ble-companions" title="Permanent link">¶</a></h2>
 <p>These devices require a smartphone and the MeshCore or Meshtastic app. They connect to your phone over BLE, and you use the app to interact with the mesh. In this setup, the companion acts only as the radio, linking your phone to the mesh network.</p>
-<div class="admonition warning">
-<p class="admonition-title">SMA vs. RP-SMA</p>
-<p>Pay close attention to what connection type a Companion/Repeater has since some come with Reverse Polarity SMA (RP-SMA). You will need an adapter to connect your SMA antenna or you will need to buy a RP-SMA antenna.
-<a href="https://blog.linitx.com/what-are-sma-rp-sma-connectors-and-whats-the-difference/">More information on the differences between these connections.</a></p>
-</div>
 <h3 id="pre-built">Pre-Built<a class="headerlink" href="#pre-built" title="Permanent link">¶</a></h3>
 <p>The easiest way to get started is to buy a companion node, flash it with MeshCore/Meshtastic, and join the mesh.</p>
-<p>We still recommend choosing one of the recommended antennas, since most devices ship with poorly tuned stock antennas.</p>
 <p>The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important ThinkNode M1 Note</p>
+<p>Make sure to order an <strong>RP-SMA Antenna</strong> with the device.<br>
+<strong>Do not accidentally buy SMA — you specifically need RP-SMA.</strong><br>
+ThinkNode uses RP-SMA for the ThinkNode M1 for some reason</p>
+</div>
 <p>The following pre-built companion nodes are popular and widely available:</p>
 <table>
 <thead>
@@ -1884,7 +1889,6 @@ Most companion nodes pair with your smartphone over BLE to provide access to the
 <hr>
 <h3 id="build-your-own">Build Your Own<a class="headerlink" href="#build-your-own" title="Permanent link">¶</a></h3>
 <p>For hobbyists who like to source parts and assemble their own node, here is an Ottawa-friendly example build (antenna not included; see recommendations above).</p>
-<p>We still recommend choosing one of the antennas listed above, since most devices ship with poorly tuned stock antennas.</p>
 <p>This is a <strong>companion node</strong> role and requires a smartphone.<br>
 The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.</p>
 <h3 id="example-diy-build">Example DIY Build<a class="headerlink" href="#example-diy-build" title="Permanent link">¶</a></h3>
@@ -1918,7 +1922,6 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 <h2 id="standalone-nodes">Standalone Nodes<a class="headerlink" href="#standalone-nodes" title="Permanent link">¶</a></h2>
 <p>There are standalone devices such as the <strong>T-Deck</strong>, but we recommend starting with a companion node instead.<br>
 Standalone units tend to be more expensive, the UI is not as smooth as the mobile app, and they still have quirks and firmware limitations that can make them challenging for beginners.</p>
-<p>We still recommend choosing one of the recommended antennas, since most devices ship with poorly tuned stock antennas.</p>
 <h3 id="available-standalone-devices">Available Standalone Devices<a class="headerlink" href="#available-standalone-devices" title="Permanent link">¶</a></h3>
 <table>
 <thead>
