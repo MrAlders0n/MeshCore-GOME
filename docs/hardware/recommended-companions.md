@@ -6,7 +6,7 @@ Most companion nodes pair with your smartphone over BLE to provide access to the
 There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints.
 
 !!! warning "Upgrade the companion antenna"
-    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the Gizont.
+    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the Gizont on companions that support changing the antenna.
     See: [Recommended Antennas](recommended-antenna.md)
 
 ## Bluetooth Low Energy (BLE) Companions
