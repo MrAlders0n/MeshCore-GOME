@@ -9,8 +9,8 @@ Start here to grab a companion and connect to the mesh:
 
 These companions have been tried and tested by the Ottawa community and other meshes around the world. No need to reinvent the wheel, we have already done the testing.
 
-!!! info
-    Plan on replacing the stock antenna. The antennas that ship with most companions have consistently tested poorly.  
+!!! warning "Upgrade the companion antenna"
+    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the Gizont.
     See: [Recommended Antennas](recommended-antenna.md)
 
 ---
@@ -22,6 +22,6 @@ Repeaters are how we extend reach, fill dead zones, and make the network more re
 
 These repeaters have been tried and tested by the Ottawa community and other meshes around the world. No need to reinvent the wheel, we have already done the testing.
 
-!!! info
-    Plan on replacing the stock antenna. The antennas that ship with most companions have consistently tested poorly.  
+!!! warning "Upgrade the repeater antenna"
+    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the ALFA 5.8 dBi.
     See: [Recommended Antennas](recommended-antenna.md)
