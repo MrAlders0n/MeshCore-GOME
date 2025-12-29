@@ -17,6 +17,28 @@ Download the OTAFIX firmware:
 
 ---
 
+## Pre-Built
+
+These options come fully assembled; simply flash MeshCore and mount them in a high location to expand the mesh.
+
+!!! warning "Upgrade the repeater antenna"
+    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the ALFA 5.8 dBi.
+
+### Pre-Built Repeater Options
+
+!!! warning "Important SenseCAP Solar Node P1 Pro Note"
+    Make sure to order an **RP-SMA → N-Type coax cable** with the device.  
+    **Do not accidentally buy SMA — you specifically need RP-SMA.**  
+    Seeed uses RP-SMA for the P1 for some reason, and the wrong connector will not fit.  
+    With the correct cable, you can upgrade to a much better performing antenna.
+
+| Product | Notes | Link |
+|---------|--------|------|
+| **SenseCAP Solar Node P1 Pro** | Solar-powered communication node using the XIAO nRF52840 Plus + Wio-SX1262 LoRa module. Includes a 5W solar panel, IPX5 waterproofing, four 18650 cells (3350 mAh each), and a 2 dBi rubber antenna. Includes GPS (XIAO L76K). | [SeeedStudio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html) |
+| **WisMesh Solar Repeater Mini** | Compact outdoor repeater built around the RAK4631 (nRF52840 + SX1262) with a WisBlock mini base. Housed in an IP67 Unify enclosure with integrated solar panel, 3200 mAh Li-ion battery, and a WisMesh blade antenna (902–928 MHz). | [RAK Store](https://store.rakwireless.com/products/wishmesh-meshtastic-solar-repeater-mini) |
+
+---
+
 ## Build Your Own
 
 A robust build using a purpose-built weatherproof enclosure.
@@ -39,25 +61,3 @@ A robust build using a purpose-built weatherproof enclosure.
 
 ---
 
-## Pre-Built
-
-These options come fully assembled; simply flash MeshCore and mount them in a high location to expand the mesh.
-
-We recommend upgrading the antenna for best performance. Ideally, use an **N-Type connector** and upgrade to at least the **ALFA AOA-915-5ACM**.
-
-**Note:** These pre-built repeaters have not been thoroughly tested by the Ottawa community, though we have seen other communities report good results.
-
-### Pre-Built Repeater Options
-
-!!! warning "Important SenseCAP Solar Node P1 Pro Note"
-    Make sure to order an **RP-SMA → N-Type coax cable** with the device.  
-    **Do not accidentally buy SMA — you specifically need RP-SMA.**  
-    Seeed uses RP-SMA for the P1 for some reason, and the wrong connector will not fit.  
-    With the correct cable, you can upgrade to a proper **Alfa antenna**, which performs significantly better than the included one.
-
-| Product | Notes | Link |
-|---------|--------|------|
-| **SenseCAP Solar Node P1 Pro** | Solar-powered communication node using the XIAO nRF52840 Plus + Wio-SX1262 LoRa module. Includes a 5W solar panel, IPX5 waterproofing, four 18650 cells (3350 mAh each), and a 2 dBi rubber antenna. Includes GPS (XIAO L76K).<br><br>**⚠️ Note:** The included antenna performs poorly; upgrade to the ALFA 5.8dBi. | [SeeedStudio](https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html) |
-| **WisMesh Solar Repeater Mini** | Compact outdoor repeater built around the RAK4631 (nRF52840 + SX1262) with a WisBlock mini base. Housed in an IP67 Unify enclosure with integrated solar panel, 3200 mAh Li-ion battery, and a WisMesh blade antenna (902–928 MHz). | [RAK Store](https://store.rakwireless.com/products/wishmesh-meshtastic-solar-repeater-mini) |
-
----
