@@ -1,4 +1,4 @@
-# Hardware (Start Here)
+# Hardware Overview
 
 Welcome! This section helps you pick the right hardware for MeshCore, whether you’re just joining the mesh or you’re ready to help it grow.
 
