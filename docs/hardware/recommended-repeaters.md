@@ -5,6 +5,9 @@ You can choose between **pre-built repeaters** or **DIY builds**, and both are g
 
 Pre-built units have improved a lot in reliability and price, while DIY builds remain popular for those who like full control over their hardware.
 
+!!! warning "Upgrade the repeater antenna"
+    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the ALFA 5.8 dBi.
+    
 ---
 
 ## Important Note for RAK-Based Repeaters
@@ -20,9 +23,6 @@ Download the OTAFIX firmware:
 ## Pre-Built
 
 These options come fully assembled; simply flash MeshCore and mount them in a high location to expand the mesh.
-
-!!! warning "Upgrade the repeater antenna"
-    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the ALFA 5.8 dBi.
 
 ### Pre-Built Repeater Options
 
