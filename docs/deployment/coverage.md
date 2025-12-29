@@ -9,12 +9,12 @@ For a live view of deployed nodes, check the [MeshCore Map](https://analyzer.let
 
 ## Live Coverage (MeshMapper)
 
-The map below is powered by **MeshMapper**, a community-driven coverage tracking app created by **CSP-Tom**.  
+The map below is powered by **MeshMapper**, a community-driven coverage tracking app created by **CSP-Tom** & **MrAlders0n**.  
 MeshMapper gives us real world data points instead of simulations, letting us build an accurate picture of how the network actually performs across the region.
 
 <div style="width: 100%; max-width: 100%; aspect-ratio: 16 / 9;">
   <iframe
-    src="https://yow.meshmapper.net/embed.php?points=0&repeaters=0&comp_coverage=1"
+    src="https://yow.meshmapper.net/embed.php?cov_grid=1&fail_grid=1&repeaters=0&lat=45.42150&lon=-75.69720&meters=130000"
     style="border: 0; width: 100%; height: 100%;"
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"
