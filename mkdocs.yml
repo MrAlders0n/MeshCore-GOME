@@ -15,10 +15,11 @@ nav:
       - Wanted Repeater Locations: deployment/repeater-wanted-locations.md
       - Frequency Settings: deployment/frequency-settings.md
   - Hardware:
+      - Overview: hardware/overview.md
       - Antenna: hardware/recommended-antenna.md
       - Companion Nodes: hardware/recommended-companions.md
       - Repeater Nodes:
-          - Overview: hardware/recommended-repeaters.md
+          - Repeater Nodes: hardware/recommended-repeaters.md
           - Repeater Mounting Options: hardware/repeater-mounting-options.md
           - 300mW Solar Repeater Build Guide: hardware/repeater-solar-300mw-diy-build.md
   - MeshCore:
