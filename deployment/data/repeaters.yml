@@ -563,6 +563,12 @@ repeaters:
     location: "Vanier (~45 m) - Indoor window facing W"
     contact: "meshcore://contact/add?name=Vanier%20East%20R2&public_key=89538efae2030a850073824287cd86cc62ed8af9c6f3bc41279a08c080bddbab&type=2"
 
+  - id: "e4"
+    name: "Vanier East R3"
+    antenna: "TBD"
+    location: "TBD"
+    contact: "meshcore://contact/add?name=Vanier%20East%20R3&public_key=e4c361f1d3a5bd94a7c914f8a02f4abe1adcd1a12ee67f9037174069bf5adcd2&type=2"
+
   - id: "35"
     name: "WAG"
     antenna: "TBD"
