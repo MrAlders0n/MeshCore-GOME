@@ -3,23 +3,26 @@
 Companion nodes run dedicated companion firmware and operate as user endpoints on the MeshCore/Meshtastic network.  
 Most companion nodes pair with your smartphone over BLE to provide access to the mesh.
 
-There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints.  
+There are also standalone companion nodes with built-in screens and input devices. These operate without a smartphone but still function as endpoints.
+
+!!! warning "Upgrade the companion antenna"
+    The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the Gizont.
+    See: [Recommended Antennas](recommended-antenna.md)
 
 ## Bluetooth Low Energy (BLE) Companions
 
 These devices require a smartphone and the MeshCore or Meshtastic app. They connect to your phone over BLE, and you use the app to interact with the mesh. In this setup, the companion acts only as the radio, linking your phone to the mesh network.
 
-!!! warning "SMA vs. RP-SMA"
-    Pay close attention to what connection type a Companion/Repeater has since some come with Reverse Polarity SMA (RP-SMA). You will need an adapter to connect your SMA antenna or you will need to buy a RP-SMA antenna.
-    [More information on the differences between these connections.](https://blog.linitx.com/what-are-sma-rp-sma-connectors-and-whats-the-difference/)
-
 ### Pre-Built
 
 The easiest way to get started is to buy a companion node, flash it with MeshCore/Meshtastic, and join the mesh.
 
-We still recommend choosing one of the recommended antennas, since most devices ship with poorly tuned stock antennas.
-
 The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.
+
+!!! warning "Important ThinkNode M1 Note"
+    Make sure to order an **RP-SMA Antenna** with the device.  
+    **Do not accidentally buy SMA — you specifically need RP-SMA.**  
+    ThinkNode uses RP-SMA for the ThinkNode M1 for some reason
 
 The following pre-built companion nodes are popular and widely available:
 
@@ -35,8 +38,6 @@ The following pre-built companion nodes are popular and widely available:
 ### Build Your Own
 
 For hobbyists who like to source parts and assemble their own node, here is an Ottawa-friendly example build (antenna not included; see recommendations above).
-
-We still recommend choosing one of the antennas listed above, since most devices ship with poorly tuned stock antennas.
 
 This is a **companion node** role and requires a smartphone.  
 The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.
@@ -58,8 +59,6 @@ For 3D-printable cases, check out **[Alley Cat’s models](https://www.printable
 
 There are standalone devices such as the **T-Deck**, but we recommend starting with a companion node instead.  
 Standalone units tend to be more expensive, the UI is not as smooth as the mobile app, and they still have quirks and firmware limitations that can make them challenging for beginners.
-
-We still recommend choosing one of the recommended antennas, since most devices ship with poorly tuned stock antennas.
 
 ### Available Standalone Devices
 
