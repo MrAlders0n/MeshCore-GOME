@@ -6,8 +6,10 @@ The goal is always to place the antenna as high as possible with clear line-of-s
 
 **Remember: Height is might — the higher the node, the better connection you will get to the mesh.**
 
+---
+
 ## Mounting Options
-### 1. Pole Mount
+### Pole Mount
 The most common method is using a standard pole and clamp system.  
 
 * Simple to set up with widely available hardware.  
@@ -27,17 +29,19 @@ Examples of poles:
 ** Can be linked together to increase pole length (ensure proper anchoring)
 * [3/4 x 36-inch steel tube](https://www.homedepot.ca/product/paulin-3-4-x-36-inch-round-steel-tube/1000126774)
 
-Pole mount Alfa 5.8dBi Antenna:
+**Pole mount Alfa 5.8dBi Antenna**
 
-* Stéphane P created this 3D print to allow pole mounting of the Alfa 5.8 dBI Antenna
+Stéphane P created this 3D print to allow pole mounting of the Alfa 5.8 dBI Antenna
 ![](images/PoleMount.jpg){ width="300" }
 * [Download STL](https://drive.google.com/file/d/1wIU9kLxolzM9vPUB35ETY1sCPLGvtfFu/view?usp=share_link)
 
-Pole mount on chimney:
+**Pole mount on chimney**
 
 ![](images/ChimneyMount.jpg){ width="300" }
 
-### 2. Gutter Mount
+---
+
+### Gutter Mount
 
 Community member **Aussiemandias** designed a specialized 3D printable gutter mount for quick and discreet repeater installation.  
 
@@ -49,7 +53,9 @@ Community member **Aussiemandias** designed a specialized 3D printable gutter mo
 
 * [Download STL](https://drive.proton.me/urls/A0P57SRHT0#voPRasptRVbW)
 
-### 3. Vent Pipe Extension Mount
+---
+
+### Vent Pipe Extension Mount
 
 * Standard 3 foot ABS pipe from Home Depot, 3" in diameter.
 * ABS cement on the one side attached to the extension and on the side attached to the house two self-tapping screws in both sides as a safety measure, which allows removal in the future.
