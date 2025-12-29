@@ -63,6 +63,8 @@ Community member **Aussiemandias** designed a specialized 3D printable gutter mo
 
 ![](images/VentPipeExtension.jpg){ width="300" }
 
+---
+
 ## Notes
 
 * Regardless of mount type, always ensure the mount and fasteners are weather-rated and can handle local wind conditions.  
