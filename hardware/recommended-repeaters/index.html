@@ -847,34 +847,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-your-own" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Build Your Own
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Build Your Own">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recommended-parts-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Parts List
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pre-built" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -891,6 +863,34 @@
     <span class="md-ellipsis">
       
         Pre-Built Repeater Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Your Own
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Your Own">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-parts-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Parts List
       
     </span>
   </a>
@@ -1739,34 +1739,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-your-own" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Build Your Own
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Build Your Own">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recommended-parts-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Parts List
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pre-built" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1783,6 +1755,34 @@
     <span class="md-ellipsis">
       
         Pre-Built Repeater Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Your Own
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Your Own">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-parts-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Parts List
       
     </span>
   </a>
@@ -1824,6 +1824,42 @@ You can choose between <strong>pre-built repeaters</strong> or <strong>DIY build
 Without this fix, if an OTA update fails over BLE, the repeater will enter an unusable state and require physical access to recover.</p>
 <p>Download the OTAFIX firmware:<br>
 <strong><a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-otafix1/update-wiscore_rak4631_board_bootloader-0.9.2-otafix1_nosd.uf2">OTAFIX Bootloader UF2 File</a></strong></p>
+<hr>
+<h2 id="pre-built">Pre-Built<a class="headerlink" href="#pre-built" title="Permanent link">¶</a></h2>
+<p>These options come fully assembled; simply flash MeshCore and mount them in a high location to expand the mesh.</p>
+<div class="admonition warning">
+<p class="admonition-title">Upgrade the repeater antenna</p>
+<p>The included antenna performs poorly on all of these models. Plan to replace it, and upgrade to at least the ALFA 5.8 dBi.</p>
+</div>
+<h3 id="pre-built-repeater-options">Pre-Built Repeater Options<a class="headerlink" href="#pre-built-repeater-options" title="Permanent link">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Important SenseCAP Solar Node P1 Pro Note</p>
+<p>Make sure to order an <strong>RP-SMA → N-Type coax cable</strong> with the device.<br>
+<strong>Do not accidentally buy SMA — you specifically need RP-SMA.</strong><br>
+Seeed uses RP-SMA for the P1 for some reason, and the wrong connector will not fit.<br>
+With the correct cable, you can upgrade to a much better performing antenna.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Notes</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SenseCAP Solar Node P1 Pro</strong></td>
+<td>Solar-powered communication node using the XIAO nRF52840 Plus + Wio-SX1262 LoRa module. Includes a 5W solar panel, IPX5 waterproofing, four 18650 cells (3350 mAh each), and a 2 dBi rubber antenna. Includes GPS (XIAO L76K).</td>
+<td><a href="https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html">SeeedStudio</a></td>
+</tr>
+<tr>
+<td><strong>WisMesh Solar Repeater Mini</strong></td>
+<td>Compact outdoor repeater built around the RAK4631 (nRF52840 + SX1262) with a WisBlock mini base. Housed in an IP67 Unify enclosure with integrated solar panel, 3200 mAh Li-ion battery, and a WisMesh blade antenna (902–928 MHz).</td>
+<td><a href="https://store.rakwireless.com/products/wishmesh-meshtastic-solar-repeater-mini">RAK Store</a></td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="build-your-own">Build Your Own<a class="headerlink" href="#build-your-own" title="Permanent link">¶</a></h2>
 <p>A robust build using a purpose-built weatherproof enclosure.</p>
@@ -1884,40 +1920,6 @@ Without this fix, if an OTA update fails over BLE, the repeater will enter an un
 </table>
 <p><strong>Approximate total cost: $180 CAD</strong></p>
 <p><strong>Build Instructions:</strong> <a href="../repeater-solar-300mw-diy-build/">300mW Solar Repeater Build Guide</a></p>
-<hr>
-<h2 id="pre-built">Pre-Built<a class="headerlink" href="#pre-built" title="Permanent link">¶</a></h2>
-<p>These options come fully assembled; simply flash MeshCore and mount them in a high location to expand the mesh.</p>
-<p>We recommend upgrading the antenna for best performance. Ideally, use an <strong>N-Type connector</strong> and upgrade to at least the <strong>ALFA AOA-915-5ACM</strong>.</p>
-<p><strong>Note:</strong> These pre-built repeaters have not been thoroughly tested by the Ottawa community, though we have seen other communities report good results.</p>
-<h3 id="pre-built-repeater-options">Pre-Built Repeater Options<a class="headerlink" href="#pre-built-repeater-options" title="Permanent link">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Important SenseCAP Solar Node P1 Pro Note</p>
-<p>Make sure to order an <strong>RP-SMA → N-Type coax cable</strong> with the device.<br>
-<strong>Do not accidentally buy SMA — you specifically need RP-SMA.</strong><br>
-Seeed uses RP-SMA for the P1 for some reason, and the wrong connector will not fit.<br>
-With the correct cable, you can upgrade to a proper <strong>Alfa antenna</strong>, which performs significantly better than the included one.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Product</th>
-<th>Notes</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>SenseCAP Solar Node P1 Pro</strong></td>
-<td>Solar-powered communication node using the XIAO nRF52840 Plus + Wio-SX1262 LoRa module. Includes a 5W solar panel, IPX5 waterproofing, four 18650 cells (3350 mAh each), and a 2 dBi rubber antenna. Includes GPS (XIAO L76K).<br><br><strong>⚠️ Note:</strong> The included antenna performs poorly; upgrade to the ALFA 5.8dBi.</td>
-<td><a href="https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html">SeeedStudio</a></td>
-</tr>
-<tr>
-<td><strong>WisMesh Solar Repeater Mini</strong></td>
-<td>Compact outdoor repeater built around the RAK4631 (nRF52840 + SX1262) with a WisBlock mini base. Housed in an IP67 Unify enclosure with integrated solar panel, 3200 mAh Li-ion battery, and a WisMesh blade antenna (902–928 MHz).</td>
-<td><a href="https://store.rakwireless.com/products/wishmesh-meshtastic-solar-repeater-mini">RAK Store</a></td>
-</tr>
-</tbody>
-</table>
 <hr>
 
 
