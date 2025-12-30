@@ -34,9 +34,9 @@ nav:
           - RAK4631 Custom Display Firmware: meshcore/firmware-rak-custom-display.md
           - Heltec V3 Wi-Fi Firmware: meshcore/firmware-heltec-v3-wifi.md
       - Packet Capture:
-          - Packet Capture · Overview: meshcore/packet-capture-overview.md
-          - Packet Capture · Companion Listener: meshcore/packet-capture-companion-listener.md
-          - Packet Capture · Standalone Repeater Listener: meshcore/packet-capture-standalone-repeater.md
+          - Overview: meshcore/packet-capture-overview.md
+          - Companion Observer: meshcore/packet-capture-companion-listener.md
+          - Repeater Observer: meshcore/packet-capture-standalone-repeater.md
   - Meshtastic:
       - Getting Started: meshtastic/getting-started.md
       - Frequency Settings: meshtastic/frequency-settings.md
