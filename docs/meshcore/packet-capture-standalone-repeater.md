@@ -69,12 +69,12 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 4. Open [MeshCore Flasher](https://flasher.meshcore.co.uk/), click **Console**, and select the serial device for your repeater.  
 
 5. Run the following command, replacing ```PRIVATE-KEY``` with your generated key:
-    ```set prv.key <PRIVATE-KEY>```
+    ```set prv.key {{ PRIVATE-KEY }}```
 
-6. Configure the repeater name using the Ottawa naming convention (```YOW_Location```):  
+6. Configure the repeater name
 
     ```
-    set name YOW_OldBarrhaven
+    set name {{ Repeater-Name }}
      ```
 
 7. Configure the IATA Code for MQTT ingestion
@@ -93,8 +93,8 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
     You must have an account on [analyzer.letsme.sh](https://analyzer.letsme.sh/) (login uses MeshCore Forum authentication).
 
      ```
-     set mqtt.owner <Companion-Public-Key>
-     set mqtt.email <MeshCore-Fourm-Email-Address>
+     set mqtt.owner {{ Companion-Public-Key }}
+     set mqtt.email {{ MeshCore-Fourm-Email-Address }}
       ```
 
 ## Configure Remaining Things
@@ -102,8 +102,8 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 1. Set Wi-Fi credentials:
 
     ```
-    set wifi.ssid <WIFI-NETWORK-NAME>
-    set wifi.pwd <WIFI-PASSWORD>
+    set wifi.ssid {{ WIFI-NETWORK-NAME }}
+    set wifi.pwd {{ WIFI-PASSWORD }}
     ```
 
 2. Set timezone:  
@@ -121,25 +121,25 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 4. Set the admin password
 
     ```
-   set password <Admin Password>
+   set password {{ Admin Password }}
     ```
 
 5. Set the guest password
 
     ```
-   set password.guest <Guest Password>
+   set password.guest {{ Guest Password }}
     ```
 
 6. Set the device latitude
 
     ```
-   set lat <Latitude>
+   set lat {{ Latitude }}
     ```
 
 7. Set the device longitude
 
     ```
-   set long <Longitude>
+   set long {{ Longitude }}
     ```
 
 8. Reboot the device:
