@@ -69,27 +69,28 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 4. Open [MeshCore Flasher](https://flasher.meshcore.co.uk/), click **Console**, and select the serial device for your repeater.  
 
 5. Run the following command, replacing ```PRIVATE-KEY``` with your generated key:
+
     ```set prv.key <PRIVATE-KEY>```
 
-6. Configure the repeater name
+7. Configure the repeater name
 
     ```
     set name <Repeater-Name>
      ```
 
-7. Configure the IATA Code for MQTT ingestion
+8. Configure the IATA Code for MQTT ingestion
 
     ```
     set mqtt.iata YOW 
     ```
 
-8. Disable repeat:  
+9. Disable repeat:  
 
     ```
     set repeat off
      ```
 
-9. (Optional) Configure ownership info for the Packet Analyzer:  
+10. (Optional) Configure ownership info for the Packet Analyzer:  
     You must have an account on [analyzer.letsme.sh](https://analyzer.letsme.sh/) (login uses MeshCore Forum authentication).
 
      ```
