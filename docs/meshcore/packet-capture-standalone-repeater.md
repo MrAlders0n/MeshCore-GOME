@@ -94,6 +94,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
      ```
      set mqtt.owner <Companion-Public-Key>
+     
      set mqtt.email <MeshCore-Fourm-Email-Address>
       ```
 
@@ -103,6 +104,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
     ```
     set wifi.ssid <WIFI-NETWORK-NAME>
+    
     set wifi.pwd <WIFI-PASSWORD>
     ```
 
