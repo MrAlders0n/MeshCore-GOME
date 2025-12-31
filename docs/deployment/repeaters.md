@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Overview
 
 <!-- The repeater tables and ID list on this page are automatically generated from meshcore/data/repeaters.yml. 
