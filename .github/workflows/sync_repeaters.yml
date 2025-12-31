@@ -1,23 +1,23 @@
 name: Sync Repeaters from MeshMapper API
 
 on:
-  schedule:  
+  schedule:   
     # Runs every hour at the top of the hour
     - cron: '0 * * * *'
   workflow_dispatch:  # Allows manual triggering
 
 permissions:
-  contents: write
+  contents:  write
   pull-requests: write
 
 jobs:  
   sync-repeaters:   
-    runs-on: ubuntu-latest
-    steps:
+    runs-on:  ubuntu-latest
+    steps: 
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name:  Set up Python
         uses: actions/setup-python@v5
         with:  
           python-version:  '3.x'
@@ -35,7 +35,7 @@ jobs:
           from datetime import datetime
 
           # Fetch repeaters from API
-          api_url = 'https://yow.meshmapper.net/repeaters.json'
+          api_url = 'https://yow.meshmapper.net/repeaters. json'
           print(f"Fetching repeaters from {api_url}...")
           response = requests.get(api_url)
           response.raise_for_status()
@@ -49,30 +49,39 @@ jobs:
 
           # Create a map of hex_id to repeater for quick lookup
           existing_hex_id_map = {}
+          existing_hex_ids = set()
           for r in existing_data.get('repeaters', []):
-              hex_id = r.get('hex_id', '').upper()
-              if hex_id:
-                  existing_hex_id_map[hex_id] = r
+              hex_id = r.get('hex_id')
+              if hex_id:   # Only add if hex_id exists and is not None
+                  hex_id_upper = str(hex_id).upper()
+                  existing_hex_id_map[hex_id_upper] = r
+                  existing_hex_ids.add(hex_id_upper)
           
-          existing_ids = {r.get('id', '').upper() for r in existing_data.get('repeaters', [])}
+          existing_ids = set()
+          for r in existing_data.get('repeaters', []):
+              rep_id = r.get('id')
+              if rep_id:  
+                  existing_ids. add(str(rep_id).upper())
           
-          print(f"Existing YAML has {len(existing_hex_id_map)} unique hex_ids and {len(existing_ids)} unique ids")
+          print(f"Existing YAML has {len(existing_hex_ids)} unique hex_ids and {len(existing_ids)} unique ids")
 
           # Track changes
           new_repeaters = []
           updated_repeaters = []
           
-          for repeater in api_repeaters: 
+          for repeater in api_repeaters:  
               hex_id = repeater.get('hex_id')
-              repeater_id = repeater.get('id', '').upper()
+              repeater_id = repeater.get('id')
               api_name = repeater.get('name', 'Unknown')
               
               # Skip if no hex_id
               if not hex_id:
+                  print(f"  Skipping repeater '{api_name}' - no hex_id in API")
                   continue
               
-              # Normalize hex_id to uppercase for comparison
-              hex_id_upper = hex_id.upper()
+              # Normalize hex_id and id to uppercase for comparison
+              hex_id_upper = str(hex_id).upper()
+              repeater_id_upper = str(repeater_id).upper() if repeater_id else ''
               
               # Check if this hex_id already exists
               if hex_id_upper in existing_hex_id_map: 
@@ -92,7 +101,7 @@ jobs:
                           'hex_id': hex_id_upper,
                           'old_name': old_name,
                           'new_name': api_name,
-                          'id': existing_repeater.get('id', '')
+                          'id':  existing_repeater.get('id', '')
                       })
                       print(f"  Updated repeater: '{old_name}' → '{api_name}' (hex_id: {hex_id_upper[: 16]}... )")
                   
@@ -103,9 +112,14 @@ jobs:
                   
                   continue
               
-              # This is a new repeater
-              # Determine state:  "duplicate" if id exists, "new" otherwise
-              state = "duplicate" if repeater_id in existing_ids else "new"
+              # This is a new repeater (new hex_id)
+              # Determine state:  "duplicate" if EITHER hex_id OR id already exists
+              # Since hex_id is new (we checked above), check if id exists
+              is_duplicate = repeater_id_upper in existing_ids
+              state = "duplicate" if is_duplicate else "new"
+              
+              if is_duplicate:
+                  print(f"  ⚠️  New hex_id but duplicate ID: {api_name} (id: {repeater_id_upper}, hex_id: {hex_id_upper[:16]}...)")
               
               # Generate contact URL with URL-encoded name
               encoded_name = quote(api_name)
@@ -115,8 +129,8 @@ jobs:
               last_heard = repeater.get('last_heard')
               
               new_entry = {
-                  'id':  repeater_id. upper(),
-                  'name':  api_name,
+                  'id':  repeater_id_upper,
+                  'name': api_name,
                   'antenna': 'TBD',
                   'location': 'TBD (~X.X m)',
                   'contact': contact,
@@ -126,14 +140,14 @@ jobs:
               }
               
               new_repeaters.append(new_entry)
-              print(f"  New repeater: {api_name} (id: {repeater_id}, hex_id: {hex_id_upper[: 16]}.. ., state: {state})")
+              print(f"  New repeater: {api_name} (id: {repeater_id_upper}, hex_id:  {hex_id_upper[:16]}.. ., state: {state})")
 
           # Check if there are any changes
           has_changes = len(new_repeaters) > 0 or len(updated_repeaters) > 0
           
           if has_changes:
               # Add new repeaters to existing list
-              if new_repeaters:
+              if new_repeaters: 
                   existing_data['repeaters'].extend(new_repeaters)
               
               # Write updated YAML with custom formatting
@@ -141,29 +155,34 @@ jobs:
                   # Custom YAML dump to maintain formatting
                   f.write("repeaters:\n")
                   for repeater in existing_data['repeaters']: 
-                      f.write(f'  - id: "{repeater. get("id", "")}"\n')
+                      rep_id = repeater.get("id", "")
+                      f.write(f'  - id: "{rep_id}"\n')
                       f.write(f'    name: "{repeater.get("name", "")}"\n')
-                      f.write(f'    antenna: "{repeater.get("antenna", "TBD")}"\n')
+                      f.write(f'    antenna: "{repeater. get("antenna", "TBD")}"\n')
                       f.write(f'    location: "{repeater.get("location", "TBD")}"\n')
                       
                       contact = repeater.get('contact')
-                      if contact:
+                      if contact: 
                           f.write(f'    contact: "{contact}"\n')
                       else:  
                           f.write(f'    contact: null\n')
                       
                       # Add state field if it exists
-                      if 'state' in repeater:
+                      if 'state' in repeater: 
                           f.write(f'    state: "{repeater["state"]}"\n')
                       
                       # Add hex_id field if it exists
                       if 'hex_id' in repeater:
-                          f.write(f'    hex_id: "{repeater["hex_id"]}"\n')
+                          hex_id_val = repeater["hex_id"]
+                          if hex_id_val:
+                              f.write(f'    hex_id: "{hex_id_val}"\n')
+                          else:
+                              f. write(f'    hex_id:  null\n')
                       
                       # Add last_heard field if it exists
                       if 'last_heard' in repeater: 
                           last_heard = repeater['last_heard']
-                          if last_heard:
+                          if last_heard:  
                               f. write(f'    last_heard: {last_heard}\n')
                           else: 
                               f.write(f'    last_heard: null\n')
@@ -178,7 +197,7 @@ jobs:
               
               # Write to GitHub output
               with open('/tmp/workflow_output.txt', 'w') as f:
-                  f.write(f"new_count={len(new_repeaters)}\n")
+                  f. write(f"new_count={len(new_repeaters)}\n")
                   f.write(f"updated_count={len(updated_repeaters)}\n")
                   f.write("has_changes=true\n")
                   
@@ -186,8 +205,8 @@ jobs:
                   summary_lines = []
                   if new_repeaters:
                       summary_lines.append("**New Repeaters:**")
-                      for r in new_repeaters:
-                          summary_lines. append(f"- **{r['name']}** (id:  `{r['id']}`, state: `{r['state']}`)")
+                      for r in new_repeaters: 
+                          summary_lines.append(f"- **{r['name']}** (id:  `{r['id']}`, state: `{r['state']}`)")
                   
                   if updated_repeaters:
                       if summary_lines:
@@ -221,15 +240,15 @@ jobs:
             This PR was automatically generated by the repeater sync workflow.
             
             **Changes:**
-            - Added **${{ steps.sync.outputs.new_count }}** new repeater(s)
-            - Updated **${{ steps.sync.outputs.updated_count }}** repeater name(s)
+            - Added **${{ steps.sync.outputs. new_count }}** new repeater(s)
+            - Updated **${{ steps.sync.outputs. updated_count }}** repeater name(s)
             
             ${{ steps.sync.outputs.summary }}
             
             **Notes:**
             - The JSON API (https://yow.meshmapper.net/repeaters.json) is the authoritative source
             - Repeaters marked as `state: new` are completely new entries
-            - Repeaters marked as `state: duplicate` have a duplicate `id` field but different `hex_id`
+            - Repeaters marked as `state: duplicate` have a duplicate `id` field (even with new `hex_id`)
             - Name updates are applied automatically when the API has a different name for an existing `hex_id`
             - Contact URLs are automatically updated when names change
             - All new entries have `antenna: TBD` and `location: TBD (~X.X m)` set by default
