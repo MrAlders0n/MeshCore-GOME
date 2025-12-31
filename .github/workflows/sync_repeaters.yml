@@ -1,33 +1,35 @@
 name: Sync Repeaters from MeshMapper API
 
 on:
-  schedule:   
+  schedule:    
     # Runs every hour at the top of the hour
     - cron: '0 * * * *'
   workflow_dispatch:  # Allows manual triggering
 
 permissions:
-  contents: write
+  contents:   write
   pull-requests: write
 
-jobs:   
-  sync-repeaters:    
+jobs:    
+  sync-repeaters:     
     runs-on: ubuntu-latest
     steps:  
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name:   Checkout repository
+        uses:  actions/checkout@v4
         with:  
-          python-version:  '3.x'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
+      - name:  Set up Python
+        uses: actions/setup-python@v5
+        with:   
+          python-version:   '3.x'
+
+      - name:  Install dependencies
         run:  pip install pyyaml requests urllib3
 
       - name: Fetch and sync repeaters
-        id: sync
-        run:  |
+        id:  sync
+        run: |
           python << 'EOF'
           import yaml
           import requests
@@ -41,7 +43,7 @@ jobs:
           print(f"Fetching repeaters from {api_url}...")
           response = requests.get(api_url)
           response.raise_for_status()
-          api_repeaters = response.json()
+          api_repeaters = response. json()
           print(f"Found {len(api_repeaters)} repeaters in API")
 
           # Load existing YAML file
@@ -52,7 +54,7 @@ jobs:
           # Create a map of hex_id to repeater for quick lookup
           existing_hex_id_map = {}
           existing_hex_ids = set()
-          for r in existing_data. get('repeaters', []):
+          for r in existing_data.get('repeaters', []):
               hex_id = r.get('hex_id')
               if hex_id:  # Only add if hex_id exists and is not None
                   hex_id_upper = str(hex_id).upper()
@@ -69,15 +71,16 @@ jobs:
 
           # Track changes
           new_repeaters = []
+          duplicate_repeaters = []
           updated_repeaters = []
           
-          for repeater in api_repeaters:   
+          for repeater in api_repeaters:    
               hex_id = repeater.get('hex_id')
               repeater_id = repeater.get('id')
               api_name = repeater.get('name', 'Unknown')
               
               # Skip if no hex_id
-              if not hex_id: 
+              if not hex_id:  
                   print(f"  Skipping repeater '{api_name}' - no hex_id in API")
                   continue
               
@@ -100,28 +103,24 @@ jobs:
                       existing_repeater['contact'] = f"meshcore://contact/add?name={encoded_name}&public_key={hex_id_upper}&type=2"
                       
                       updated_repeaters.append({
-                          'hex_id':  hex_id_upper,
+                          'hex_id':   hex_id_upper,
                           'old_name': old_name,
-                          'new_name':  api_name,
-                          'id': existing_repeater. get('id', '')
+                          'new_name': api_name,
+                          'id':  existing_repeater. get('id', '')
                       })
-                      print(f"  Updated repeater: '{old_name}' → '{api_name}' (hex_id: {hex_id_upper[:16]}...)")
+                      print(f"  Updated repeater:  '{old_name}' → '{api_name}' (hex_id:   {hex_id_upper[: 16]}...)")
                   
                   # Update last_heard timestamp
-                  last_heard = repeater. get('last_heard')
-                  if last_heard: 
+                  last_heard = repeater.get('last_heard')
+                  if last_heard:  
                       existing_repeater['last_heard'] = last_heard
                   
                   continue
               
               # This is a new repeater (new hex_id)
-              # Determine state:  "duplicate" if EITHER hex_id OR id already exists
-              # Since hex_id is new (we checked above), check if id exists
+              # Determine state:   "duplicate" if id already exists, "new" otherwise
               is_duplicate = repeater_id_upper in existing_ids
               state = "duplicate" if is_duplicate else "new"
-              
-              if is_duplicate: 
-                  print(f"  ⚠️  New hex_id but duplicate ID: {api_name} (id: {repeater_id_upper}, hex_id: {hex_id_upper[:16]}...)")
               
               # Generate contact URL with URL-encoded name
               encoded_name = quote(api_name)
@@ -131,7 +130,7 @@ jobs:
               last_heard = repeater.get('last_heard')
               
               new_entry = {
-                  'id': repeater_id_upper,
+                  'id':  repeater_id_upper,
                   'name': api_name,
                   'antenna': 'TBD',
                   'location': 'TBD (~X.X m)',
@@ -141,16 +140,21 @@ jobs:
                   'last_heard': last_heard
               }
               
-              new_repeaters.append(new_entry)
-              print(f"  New repeater: {api_name} (id: {repeater_id_upper}, hex_id: {hex_id_upper[:16]}.. ., state: {state})")
+              if is_duplicate:
+                  duplicate_repeaters.append(new_entry)
+                  print(f"  ⚠️  Duplicate ID: {api_name} (id: {repeater_id_upper}, hex_id: {hex_id_upper[:16]}...)")
+              else:
+                  new_repeaters.append(new_entry)
+                  print(f"  New repeater: {api_name} (id: {repeater_id_upper}, hex_id:   {hex_id_upper[: 16]}...)")
 
           # Check if there are any changes
-          has_changes = len(new_repeaters) > 0 or len(updated_repeaters) > 0
+          all_new = new_repeaters + duplicate_repeaters
+          has_changes = len(all_new) > 0 or len(updated_repeaters) > 0
           
           if has_changes:
-              # Add new repeaters to existing list
-              if new_repeaters:  
-                  existing_data['repeaters'].extend(new_repeaters)
+              # Add ALL new repeaters (including duplicates) to existing list
+              if all_new:  
+                  existing_data['repeaters'].extend(all_new)
               
               # Write updated YAML with custom formatting
               with open(yml_path, 'w') as f:
@@ -158,23 +162,23 @@ jobs:
                   f.write("repeaters:\n")
                   for repeater in existing_data['repeaters']: 
                       rep_id = repeater.get("id", "")
-                      f.write(f'  - id: "{rep_id}"\n')
+                      f.write(f'  - id:  "{rep_id}"\n')
                       f.write(f'    name: "{repeater. get("name", "")}"\n')
                       f.write(f'    antenna: "{repeater.get("antenna", "TBD")}"\n')
-                      f.write(f'    location: "{repeater.get("location", "TBD")}"\n')
+                      f.write(f'    location: "{repeater. get("location", "TBD")}"\n')
                       
                       contact = repeater.get('contact')
-                      if contact:   
+                      if contact:      
                           f.write(f'    contact: "{contact}"\n')
-                      else:   
+                      else:     
                           f.write(f'    contact: null\n')
                       
                       # Add state field if it exists
                       if 'state' in repeater:  
-                          f. write(f'    state: "{repeater["state"]}"\n')
+                          f.write(f'    state: "{repeater["state"]}"\n')
                       
                       # Add hex_id field if it exists
-                      if 'hex_id' in repeater: 
+                      if 'hex_id' in repeater:  
                           hex_id_val = repeater["hex_id"]
                           if hex_id_val:
                               f.write(f'    hex_id: "{hex_id_val}"\n')
@@ -185,7 +189,7 @@ jobs:
                       if 'last_heard' in repeater:  
                           last_heard = repeater['last_heard']
                           if last_heard:  
-                              f.write(f'    last_heard:  {last_heard}\n')
+                              f.write(f'    last_heard: {last_heard}\n')
                           else:  
                               f.write(f'    last_heard: null\n')
                       
@@ -194,7 +198,9 @@ jobs:
               # Output summary
               if new_repeaters:
                   print(f"\n✅ Added {len(new_repeaters)} new repeater(s)")
-              if updated_repeaters:
+              if duplicate_repeaters:
+                  print(f"⚠️  Added {len(duplicate_repeaters)} duplicate repeater(s)")
+              if updated_repeaters: 
                   print(f"✅ Updated {len(updated_repeaters)} repeater name(s)")
               
               # Write to GitHub output using GITHUB_OUTPUT env var
@@ -202,60 +208,119 @@ jobs:
               if output_file:
                   with open(output_file, 'a') as f:
                       f.write(f"new_count={len(new_repeaters)}\n")
+                      f.write(f"duplicate_count={len(duplicate_repeaters)}\n")
                       f.write(f"updated_count={len(updated_repeaters)}\n")
-                      f. write("has_changes=true\n")
+                      f.write("has_changes=true\n")
                       
-                      # Create summary as single line with separator
-                      summary_parts = []
-                      if new_repeaters:
-                          new_list = ", ".join([f"{r['name']} (id:  {r['id']}, state: {r['state']})" for r in new_repeaters])
-                          summary_parts.append(f"New:  {new_list}")
+                      # Create formatted table for new repeaters
+                      new_table_rows = []
+                      for r in new_repeaters:
+                          new_table_rows.append(f"🆕|{r['name']}|`{r['id']}`|`{r['hex_id'][:16]}...`")
+                      new_table = "%0A".join(new_table_rows) if new_table_rows else ""
+                      f. write(f"new_table={new_table}\n")
                       
-                      if updated_repeaters: 
-                          upd_list = ", ".join([f"{r['id']}: {r['old_name']} → {r['new_name']}" for r in updated_repeaters])
-                          summary_parts.append(f"Updated: {upd_list}")
+                      # Create formatted table for duplicate repeaters
+                      dup_table_rows = []
+                      for r in duplicate_repeaters:
+                          dup_table_rows.append(f"⚠️|{r['name']}|`{r['id']}`|`{r['hex_id'][:16]}... `")
+                      dup_table = "%0A".join(dup_table_rows) if dup_table_rows else ""
+                      f.write(f"dup_table={dup_table}\n")
                       
-                      summary = " | ".join(summary_parts)
-                      f.write(f"summary={summary}\n")
+                      # Create formatted table for updated repeaters
+                      upd_table_rows = []
+                      for r in updated_repeaters:
+                          upd_table_rows.append(f"`{r['id']}`|{r['old_name']}|{r['new_name']}|`{r['hex_id'][:16]}...`")
+                      upd_table = "%0A".join(upd_table_rows) if upd_table_rows else ""
+                      f.write(f"upd_table={upd_table}\n")
           else:
               print("\nℹ️ No changes needed")
-              output_file = os. environ.get('GITHUB_OUTPUT')
+              output_file = os.environ.get('GITHUB_OUTPUT')
               if output_file:
                   with open(output_file, 'a') as f:
                       f.write("new_count=0\n")
+                      f.write("duplicate_count=0\n")
                       f.write("updated_count=0\n")
                       f.write("has_changes=false\n")
-                      f.write("summary=No changes needed\n")
+                      f.write("new_table=\n")
+                      f.write("dup_table=\n")
+                      f. write("upd_table=\n")
           EOF
 
-      - name: Create Pull Request
+      - name:   Create Pull Request
         if: steps.sync. outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "Sync repeaters from MeshMapper API (${{ steps.sync.outputs.new_count }} new, ${{ steps. sync.outputs.updated_count }} updated)"
-          title: "🔄 Sync: Add ${{ steps.sync.outputs.new_count }} new repeater(s) from MeshMapper"
+        with: 
+          token: ${{ secrets. GITHUB_TOKEN }}
+          commit-message:   "Sync repeaters from MeshMapper API (${{ steps.sync.outputs.new_count }} new, ${{ steps.sync. outputs.duplicate_count }} duplicate, ${{ steps.sync.outputs. updated_count }} updated)"
+          title: "🔄 Sync:  ${{ steps.sync.outputs.new_count }} new, ${{ steps.sync.outputs.duplicate_count }} duplicate, ${{ steps.sync.outputs.updated_count }} updated"
           body: |
-            This PR was automatically generated by the repeater sync workflow.
+            ## 🤖 Automated Repeater Sync
             
-            **Changes:**
-            - Added **${{ steps.sync.outputs.new_count }}** new repeater(s)
-            - Updated **${{ steps.sync.outputs.updated_count }}** repeater name(s)
+            This PR was automatically generated by syncing with the [MeshMapper API](https://yow.meshmapper.net/repeaters.json).
             
-            **Summary:** ${{ steps.sync.outputs. summary }}
+            ### 📊 Summary
             
-            **Notes:**
-            - The JSON API (https://yow.meshmapper.net/repeaters.json) is the authoritative source
-            - Repeaters marked as `state: new` are completely new entries
-            - Repeaters marked as `state: duplicate` have a duplicate `id` field (even with new `hex_id`)
-            - Name updates are applied automatically when the API has a different name for an existing `hex_id`
-            - Contact URLs are automatically updated when names change
-            - All new entries have `antenna: TBD` and `location: TBD (~X.X m)` set by default
-            
-            Please review and update the antenna and location information before merging.
+            | Type | Count |
+            |------|-------|
+            | 🆕 New Repeaters | **${{ steps.sync.outputs. new_count }}** |
+            | ⚠️ Duplicate ID Repeaters | **${{ steps.sync.outputs.duplicate_count }}** |
+            | 📝 Updated Names | **${{ steps.sync. outputs.updated_count }}** |
             
             ---
-            *Sync performed at:  ${{ github.event.head_commit.timestamp || github.run_id }}*
-          branch: sync-repeaters-${{ github. run_number }}
+            
+            ${{ steps.sync.outputs.new_count != '0' && '### 🆕 New Repeaters Added' || '' }}
+            ${{ steps.sync.outputs.new_count != '0' && format('
+            | Status | Name | ID | Hex ID |
+            |--------|------|----|----- ---|
+            | {0} |
+            ', steps.sync.outputs.new_table) || '' }}
+            
+            ${{ steps.sync.outputs.duplicate_count != '0' && '### ⚠️ Duplicate ID Repeaters Added' || '' }}
+            ${{ steps.sync. outputs.duplicate_count != '0' && format('
+            These repeaters have a duplicate `id` field but a new `hex_id`. This typically indicates hardware was replaced or reconfigured.
+            
+            | Status | Name | ID (Duplicate) | Hex ID (New) |
+            |--------|------|----------------|--------------|
+            | {0} |
+            ', steps.sync.outputs. dup_table) || '' }}
+            
+            ${{ steps. sync.outputs.updated_count != '0' && '### 📝 Updated Repeater Names' || '' }}
+            ${{ steps.sync.outputs.updated_count != '0' && format('
+            | ID | Old Name | New Name | Hex ID |
+            |----|----------|----------|--------|
+            | {0} |
+            ', steps.sync.outputs.upd_table) || '' }}
+            
+            ---
+            
+            ### 📋 Legend
+            
+            - 🆕 **New** - Completely new repeater entry with unique `id` and `hex_id`
+            - ⚠️ **Duplicate** - New `hex_id` but duplicate `id` field (marked as `state: duplicate` in YAML)
+              - This usually means the hardware changed but kept the same ID
+              - Both entries are kept for tracking purposes
+              - Review to determine if old entry should be removed
+            
+            ### ℹ️ Notes
+            
+            - The [MeshMapper JSON API](https://yow.meshmapper.net/repeaters.json) is the authoritative source
+            - All new entries have `antenna:  TBD` and `location: TBD (~X.X m)` by default
+            - Contact URLs are automatically generated from the repeater name and hex_id
+            - Name updates are applied automatically when the API has different names
+            - Duplicate repeaters are added to YAML with `state: duplicate` for manual review
+            
+            ### ✅ Next Steps
+            
+            1. Review the changes in the **Files changed** tab
+            2. **For duplicate entries (⚠️)**: Determine if the old entry should be removed or kept
+            3. Update `antenna` and `location` fields for new repeaters
+            4. Verify all changes are correct
+            5. Merge when ready
+            
+            ---
+            
+            <sub>🕐 Synced at: `${{ github.event.repository.updated_at }}` | Run:  [#${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})</sub>
+          branch: sync-repeaters-${{ github.run_number }}
           delete-branch: true
           labels: |
             automated
