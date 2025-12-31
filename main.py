@@ -1,27 +1,41 @@
 import pathlib
 import yaml
+from datetime import datetime
 
 def define_env(env):
     """Hook for mkdocs-macros-plugin."""
     project_dir = pathlib.Path(env.project_dir)
 
-
     # Load repeater list from YAML
     data_path = project_dir / "docs" / "deployment" / "data" / "repeaters.yml"
     data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
-    repeaters = data.get("repeaters", [])
+    repeaters = data. get("repeaters", [])
 
     # Compute used IDs (lowercase for consistency)
     used_ids = {r["id"].lower() for r in repeaters if "id" in r}
 
     # All possible 1 byte IDs 00 - ff
-    all_ids = [f"{i:02x}" for i in range(256)]
+    all_ids = [f"{i: 02x}" for i in range(256)]
 
     # Unused IDs are everything not in used_ids
     unused_ids = [i for i in all_ids if i not in used_ids]
 
     # Sort for nice output
     unused_ids.sort(key=lambda x: int(x, 16))
+
+    # Define a filter to convert epoch to YYYY-MM-DD
+    @env.filter
+    def epoch_to_date(epoch_time):
+        """Convert epoch timestamp to YYYY-MM-DD format."""
+        if not epoch_time:
+            return "N/A"
+        
+        try: 
+            # Convert epoch to datetime and format as YYYY-MM-DD
+            dt = datetime.fromtimestamp(int(epoch_time))
+            return dt.strftime("%Y-%m-%d")
+        except (ValueError, TypeError):
+            return "Invalid date"
 
     # Expose variables to Jinja
     env.variables["repeaters"] = repeaters
