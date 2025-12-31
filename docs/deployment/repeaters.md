@@ -16,10 +16,10 @@ The following MeshCore node identifiers are currently **unused** and available f
 
 ## Deployed Repeater IDs
 
-| Identifier | Repeater Name   | Antenna   | Location / Height   | MeshCore Contact URL |
-|-----------:|-----------------|-----------|---------------------|----------------------|
+| Identifier | State | Repeater Name   | Antenna   | Location / Height   | Last Heard | MeshCore Contact URL |
+|-----------:|-------|-----------------|-----------|---------------------|------------|----------------------|
 {% for r in repeaters -%}
-| {{ r.id }} | {{ r.name }} | {{ r.antenna }} | {{ r.location }} | {%- if r.contact %} [Contact]({{ r.contact }}) {%- else %} TBD {%- endif %} |
+| {{ r.id }} | {%- if r.state %} {{ r.state }} {%- else %} Unknown {%- endif %} | {{ r.name }} | {{ r. antenna }} | {{ r.location }} | {%- if r.last_heard %} {{ r.last_heard }} {%- else %} N/A {%- endif %} | {%- if r.contact %} [Contact]({{ r.contact }}) {%- else %} TBD {%- endif %} |
 {% endfor %}
 
 *If you spot an error in this repeater list or would like to add your own, please contact MrAlders0n on the Greater Ottawa Mesh Enthusiasts Discord.*
