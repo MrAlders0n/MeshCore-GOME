@@ -35,7 +35,7 @@ jobs:
           from datetime import datetime
 
           # Fetch repeaters from API
-          api_url = 'https://yow.meshmapper.net/repeaters. json'
+          api_url = 'https://yow.meshmapper.net/repeaters.json'
           print(f"Fetching repeaters from {api_url}...")
           response = requests.get(api_url)
           response.raise_for_status()
