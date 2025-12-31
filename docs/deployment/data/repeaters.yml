@@ -288,7 +288,7 @@ repeaters:
     last_heard: 1767183511
 
   - id: "4E"
-    name: "MrAlders0n_R1"
+    name: "MrAlders0n_R11"
     antenna: "Alfa Omni 5.8dBi"
     location: "Eaves in Old Barrhaven (~7.5 m)"
     contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7&type=2"
