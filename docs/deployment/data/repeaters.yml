@@ -838,10 +838,10 @@ repeaters:
 
   - id: "75"
     name: "VA3TEC_R1"
-    antenna: "TBD"
-    location: "TBD (~X.X m)"
+    antenna: "Patch Antenna"
+    location: "Orleans (~9.0 m)"
     contact: "meshcore://contact/add?name=VA3TEC_R1&public_key=75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93&type=2"
-    state: "new"
+    state: "Active"
     hex_id: "75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93"
     last_heard: 1767033549
 
