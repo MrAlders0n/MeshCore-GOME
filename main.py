@@ -21,7 +21,7 @@ def define_env(env):
             return "Invalid date"
 
     # Load repeater list from YAML
-    data_path = project_dir / "docs" / "deployment" / "data" / "repeaters. yml"
+    data_path = project_dir / "docs" / "deployment" / "data" / "repeaters.yml"
     data = yaml. safe_load(data_path. read_text(encoding="utf-8"))
     repeaters = data.get("repeaters", [])
 
