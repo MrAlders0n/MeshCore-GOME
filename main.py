@@ -6,9 +6,23 @@ def define_env(env):
     """Hook for mkdocs-macros-plugin."""
     project_dir = pathlib.Path(env.project_dir)
 
+    # Define a filter to convert epoch to YYYY-MM-DD
+    @env. filter
+    def epoch_to_date(epoch_time):
+        """Convert epoch timestamp to YYYY-MM-DD format."""
+        if not epoch_time:
+            return "N/A"
+        
+        try: 
+            # Convert epoch to datetime and format as YYYY-MM-DD
+            dt = datetime.fromtimestamp(int(epoch_time))
+            return dt.strftime("%Y-%m-%d")
+        except (ValueError, TypeError):
+            return "Invalid date"
+
     # Load repeater list from YAML
-    data_path = project_dir / "docs" / "deployment" / "data" / "repeaters.yml"
-    data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
+    data_path = project_dir / "docs" / "deployment" / "data" / "repeaters. yml"
+    data = yaml. safe_load(data_path. read_text(encoding="utf-8"))
     repeaters = data.get("repeaters", [])
 
     # Compute used IDs (lowercase for consistency)
@@ -23,20 +37,6 @@ def define_env(env):
     # Sort for nice output
     unused_ids.sort(key=lambda x: int(x, 16))
 
-    # Define a filter to convert epoch to YYYY-MM-DD
-    @env.filter
-    def epoch_to_date(epoch_time):
-        """Convert epoch timestamp to YYYY-MM-DD format."""
-        if not epoch_time:
-            return "N/A"
-        
-        try: 
-            # Convert epoch to datetime and format as YYYY-MM-DD
-            dt = datetime.fromtimestamp(int(epoch_time))
-            return dt.strftime("%Y-%m-%d")
-        except (ValueError, TypeError):
-            return "Invalid date"
-
     # Expose variables to Jinja
     env.variables["repeaters"] = repeaters
-    env. variables["unused_ids"] = unused_ids
+    env.variables["unused_ids"] = unused_ids
