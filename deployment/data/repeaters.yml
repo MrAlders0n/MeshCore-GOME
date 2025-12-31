@@ -5,8 +5,8 @@ repeaters:
     location: "Ashton (~3.5 m)"
     contact: null
     state: "reserved"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "03"
     name: "AlxR4"
@@ -23,8 +23,8 @@ repeaters:
     location: "Centretown (~10 m)"
     contact: null
     state: "reserved"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "05"
     name: "YOW_OldBarrhaven"
@@ -51,7 +51,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Inured%20Repeater%201&public_key=07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A24687BDEC02DF7&type=2"
     state: "active"
     hex_id: "07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A"
-    last_heard: 1767190706
+    last_heard: 1767201505
 
   - id: "08"
     name: "NPQ-00"
@@ -59,8 +59,8 @@ repeaters:
     location: "Buckingham (~X m)"
     contact: "meshcore://contact/add?name=NPQ-00&public_key=085BA7CE428EF87042D45F8D274C0A555E6F43A20B8E7A53BD9256FF11B6AB9D&type=2"
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "0A"
     name: "SSHO_R1"
@@ -69,7 +69,7 @@ repeaters:
     contact: "meshcore://contact/add?name=SSHO_R1&public_key=0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651B&type=2"
     state: "active"
     hex_id: "0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651B"
-    last_heard: 1767164044
+    last_heard: 1767207244
 
   - id: "0B"
     name: "NPQ-SOLAR"
@@ -114,7 +114,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Centretown%20Alfa&public_key=201c2398856e855bf7d46538eb0c58867373e996c2fcf76ae1199605ae93659c&type=2"
     state: "active"
     hex_id: "201C2398856E855BF7D46538EB0C58867373E996C2FCF76AE1"
-    last_heard: 1767160991
+    last_heard: 1767204194
 
   - id: "22"
     name: "TOO_SOLAR_R"
@@ -158,8 +158,8 @@ repeaters:
     location: "Baseline & Greenbank (~18 m)"
     contact: null
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "30"
     name: "MrAlders0n_R4"
@@ -167,8 +167,8 @@ repeaters:
     location: "Parkdale (~20 m)"
     contact: null
     state: "active"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "35"
     name: "WAG_SOLAR_R"
@@ -204,7 +204,7 @@ repeaters:
     contact: "meshcore://contact/add?name=funkymonkey&public_key=394192EB8139264051606C15421CF5127BDC22100067238CA6&type=2"
     state: "active"
     hex_id: "394192EB8139264051606C15421CF5127BDC22100067238CA6"
-    last_heard: 1767155553
+    last_heard: 1767202354
 
   - id: "3B"
     name: "NEW_SOLAR_R"
@@ -288,13 +288,13 @@ repeaters:
     last_heard: 1767183511
 
   - id: "4E"
-    name: "MrAlders0n_R11"
+    name: "MrAlders0n_R1"
     antenna: "Alfa Omni 5.8dBi"
     location: "Eaves in Old Barrhaven (~7.5 m)"
     contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7&type=2"
     state: "active"
     hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7"
-    last_heard: 1767164570
+    last_heard: 1767207772
 
   - id: "4F"
     name: "ElDoc_Temp_R"
@@ -302,8 +302,8 @@ repeaters:
     location: "Cumberland (~7 m) - Indoors"
     contact: "meshcore://contact/add?name=ElDoc_Temp_R&public_key=4FCDB1CF17476A0F6E2F3564925BDE7269F71F7B80544152CFA08DCE9CAC3865&type=2"
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "50"
     name: "WTE5 TRASH"
@@ -311,8 +311,8 @@ repeaters:
     location: "TBD"
     contact: "meshcore://contact/add?name=WTE5%20TRASH&public_key=50af4c9149fbcd89b3d4aa3d63f0522cd05ea413caf54ce48c5fa7113dd74bd7&type=2"
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "51"
     name: "AlxR5b"
@@ -321,7 +321,7 @@ repeaters:
     contact: "meshcore://contact/add?name=AlxR5b&public_key=510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3&type=2"
     state: "active"
     hex_id: "510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3"
-    last_heard: 1767154508
+    last_heard: 1767197708
 
   - id: "59"
     name: "Unimatrix-01"
@@ -338,8 +338,8 @@ repeaters:
     location: "Old Ottawa South (N/A)"
     contact: null
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "5D"
     name: "Inured Repeater 2"
@@ -384,7 +384,7 @@ repeaters:
     contact: "meshcore://contact/add?name=AUS_SOLAR_R&public_key=68756615112ceffb49fac95f4b4eea01365543093a774dfff955af0eb8f2e114&type=2"
     state: "active"
     hex_id: "68756615112CEFFB49FAC95F4B4EEA01365543093A774DFFF9"
-    last_heard: 1767163386
+    last_heard: 1767206590
 
   - id: "6A"
     name: "Zaffman_R1"
@@ -401,8 +401,8 @@ repeaters:
     location: "Cumberland (~70 m)"
     contact: null
     state: "active"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "76"
     name: "GFS-HB"
@@ -446,8 +446,8 @@ repeaters:
     location: "Centretown (~10.5 m)"
     contact: null
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "7D"
     name: "phr4"
@@ -456,7 +456,7 @@ repeaters:
     contact: "meshcore://contact/add?name=phr4&public_key=7d4db5943b01b52e8a409f57a9457e497b6020be6fc0872b482665b4786ee99f&type=2"
     state: "active"
     hex_id: "7D4DB5943B01B52E8A409F57A9457E497B6020BE6FC0872B48"
-    last_heard: 1767159502
+    last_heard: 1767202704
 
   - id: "80"
     name: "lw-r1"
@@ -464,8 +464,8 @@ repeaters:
     location: "Kemptville (~X.X m)"
     contact: null
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "81"
     name: "Starsolar_R2"
@@ -473,8 +473,8 @@ repeaters:
     location: "Beckwith (~4.0m)"
     contact: null
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "83"
     name: "YOW_Plateau"
@@ -482,8 +482,8 @@ repeaters:
     location: "Orleans"
     contact: "meshcore://contact/add?name=YOW_Plateau&public_key=834569EC3D4B9E1A4B301FB41EE8C7CA5380DE5B68100FE2B4B388010EA57D40&type=2"
     state: "observer"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "86"
     name: "AlxR5"
@@ -491,8 +491,8 @@ repeaters:
     location: "Orleans (~X.X m)"
     contact: "meshcore://contact/add?name=AlxR5&public_key=86138d742a47f16dea8f929333489a7f5d2e3003d549059fc7ec239d5b49e7ad&type=2"
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "89"
     name: "Vanier East R2"
@@ -519,7 +519,7 @@ repeaters:
     contact: "meshcore://contact/add?name=ZabRepeater1&public_key=8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC&type=2"
     state: "active"
     hex_id: "8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC"
-    last_heard: 1767193107
+    last_heard: 1767203908
 
   - id: "90"
     name: "YOW_BarrhavenEast"
@@ -545,8 +545,8 @@ repeaters:
     location: "Old Ottawa South (~7.0 m)"
     contact: null
     state: "unknown"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "A1"
     name: "Tabarnak repeater"
@@ -554,9 +554,9 @@ repeaters:
     location: "Alfred"
     contact: null
     state: "active"
-    hex_id: ""
-    last_heard: ""
-    
+    hex_id: null
+    last_heard: null
+
   - id: "A7"
     name: "MrAlders0n_R6"
     antenna: "Alfa Omni 5.8dBi"
@@ -572,8 +572,8 @@ repeaters:
     location: "Plateau, QC (~X m)"
     contact: null
     state: "active"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "A9"
     name: "HX_R1"
@@ -591,7 +591,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Rideau_Blaster&public_key=af80c36b81e290a3993ccdc7295aa435e10213006d9181076161eeed0dbbde70&type=2"
     state: "active"
     hex_id: "AF80C36B81E290A3993CCDC7295AA435E10213006D91810761"
-    last_heard: 1767193954
+    last_heard: 1767204753
 
   - id: "B1"
     name: "e7her.nod3"
@@ -627,7 +627,7 @@ repeaters:
     contact: "meshcore://contact/add?name=MrAlders0n_R5&public_key=B76B620CD8DAF554C675C75615CCE76E59A091CCE4A9083874&type=2"
     state: "active"
     hex_id: "B76B620CD8DAF554C675C75615CCE76E59A091CCE4A9083874"
-    last_heard: 1767161867
+    last_heard: 1767205070
 
   - id: "BF"
     name: "CarletonHeightsSolarRep"
@@ -645,7 +645,7 @@ repeaters:
     contact: "meshcore://contact/add?name=YOW_Orleans_AR1&public_key=C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92FF037CCE7BF06AD&type=2"
     state: "observer"
     hex_id: "C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92F"
-    last_heard: 1767154512
+    last_heard: 1767197711
 
   - id: "C9"
     name: "MrAlders0n_Drone"
@@ -653,8 +653,8 @@ repeaters:
     location: "Everywhere"
     contact: null
     state: "active"
-    hex_id: ""
-    last_heard: ""
+    hex_id: null
+    last_heard: null
 
   - id: "CC"
     name: "Vanier East R1"
@@ -672,7 +672,7 @@ repeaters:
     contact: "meshcore://contact/add?name=SVIL_R1&public_key=CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A&type=2"
     state: "active"
     hex_id: "CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A"
-    last_heard: 1767187026
+    last_heard: 1767197826
 
   - id: "D0"
     name: "Gatineau_R1"
@@ -753,7 +753,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R1&public_key=F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7&type=2"
     state: "active"
     hex_id: "F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7"
-    last_heard: 1767185283
+    last_heard: 1767199686
 
   - id: "F3"
     name: "AlxR2"
@@ -789,7 +789,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R2&public_key=FE653F47E232ADAB960C273221C693D9709439AA0D811424ED&type=2"
     state: "active"
     hex_id: "FE653F47E232ADAB960C273221C693D9709439AA0D811424ED"
-    last_heard: 1767162637
+    last_heard: 1767205838
 
   - id: "FF"
     name: "YOW_Stittsville"
@@ -799,3 +799,94 @@ repeaters:
     state: "observer"
     hex_id: "ffca1e2ceeb8"
     last_heard: 1766348440
+
+  - id: "1B"
+    name: "Inured Repeater 3"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=Inured%20Repeater%203&public_key=1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714&type=2"
+    state: "new"
+    hex_id: "1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714"
+    last_heard: 1767083051
+
+  - id: "5B"
+    name: "Tabarnak Repeater"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=Tabarnak%20Repeater&public_key=5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3&type=2"
+    state: "new"
+    hex_id: "5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3"
+    last_heard: 1767136740
+
+  - id: "69"
+    name: "YOW_Orleans_N1"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=YOW_Orleans_N1&public_key=69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C&type=2"
+    state: "new"
+    hex_id: "69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C"
+    last_heard: 1767183072
+
+  - id: "70"
+    name: "VA3NFA_R1"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=VA3NFA_R1&public_key=70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33&type=2"
+    state: "new"
+    hex_id: "70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33"
+    last_heard: 1767204888
+
+  - id: "75"
+    name: "VA3TEC_R1"
+    antenna: "Patch Antenna"
+    location: "Orleans (~9.0 m)"
+    contact: "meshcore://contact/add?name=VA3TEC_R1&public_key=75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93&type=2"
+    state: "Active"
+    hex_id: "75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93"
+    last_heard: 1767033549
+
+  - id: "77"
+    name: "MrAlders0n_Ikoka_R1"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=MrAlders0n_Ikoka_R1&public_key=7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7&type=2"
+    state: "new"
+    hex_id: "7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7"
+    last_heard: 1767169730
+
+  - id: "8A"
+    name: "VE3RIM-R1"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=VE3RIM-R1&public_key=8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C&type=2"
+    state: "new"
+    hex_id: "8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C"
+    last_heard: 1767139293
+
+  - id: "8E"
+    name: "HX_R1"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=HX_R1&public_key=8E656408D1C7&type=2"
+    state: "new"
+    hex_id: "8E656408D1C7"
+    last_heard: 1766092908
+
+  - id: "B2"
+    name: "BUN_SOLAR_R"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=BUN_SOLAR_R&public_key=B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE&type=2"
+    state: "new"
+    hex_id: "B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE"
+    last_heard: 1767168405
+
+  - id: "D6"
+    name: "llm-repeater1"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=llm-repeater1&public_key=D6B21E3667F3&type=2"
+    state: "new"
+    hex_id: "D6B21E3667F3"
+    last_heard: 1766628046
+
