@@ -404,15 +404,6 @@ repeaters:
     hex_id: ""
     last_heard: ""
 
-  - id: "75"
-    name: "VA3TEC_R1"
-    antenna: "Patch Antenna"
-    location: "Orleans (~9.0 m)"
-    contact: "meshcore://contact/add?name=VA3TEC_R1&public_key=75861a6ce4ed63aa3d754fe97f47b40c20f3c49b3f02d7bb9379796eebc0087c&type=2"
-    state: "active"
-    hex_id: "75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB9"
-    last_heard: 1767033549
-
   - id: "76"
     name: "GFS-HB"
     antenna: "Alfa Omni 5.8dBi"
