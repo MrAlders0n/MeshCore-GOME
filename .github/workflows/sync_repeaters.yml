@@ -228,7 +228,7 @@ jobs:
       - name: Read workflow output
         id:  sync
         run: |
-          cat /tmp/workflow_output. txt >> $GITHUB_OUTPUT
+          cat /tmp/workflow_output.txt >> $GITHUB_OUTPUT
 
       - name: Create Pull Request
         if: steps.sync.outputs.has_changes == 'true'
