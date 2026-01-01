@@ -113,6 +113,25 @@ function showReservedInfo() {
     modal.style.display = 'block';
 }
 
+function showBackboneInfo() {
+    const modal = document.getElementById('hex-modal');
+    const modalBody = document.getElementById('hex-modal-body');
+    
+    modalBody.innerHTML = `
+        <div class="hex-info-card">
+            <div class="hex-info-header">
+                <span class="hex-id-badge hex-backbone-badge">Backbone Reserved</span>
+            </div>
+            <h2 class="hex-info-title">Backbone Link Reserved</h2>
+            <p class="hex-reserved-text">
+                GOME has reserved these IDs for backbone links between major cities. 
+            </p>
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+}
+
 // Close modal when X is clicked
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('hex-modal');
