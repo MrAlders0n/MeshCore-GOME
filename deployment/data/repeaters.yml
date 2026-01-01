@@ -296,6 +296,15 @@ repeaters:
     hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7"
     last_heard: 1767207772
 
+  - id: "4E"
+    name: "MrAlders0n_R1_DUP"
+    antenna: "Alfa Omni 5.8dBi"
+    location: "TEST"
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+
   - id: "4F"
     name: "ElDoc_Temp_R"
     antenna: "Log Periodic"
