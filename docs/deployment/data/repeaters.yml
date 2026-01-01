@@ -899,3 +899,11 @@ repeaters:
     hex_id: "02953DA68B20727D4DD4335596055FEC348280A596910114D5"
     last_heard: 1767219440
 
+  - id: "E0"
+    name: "Limoges"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
