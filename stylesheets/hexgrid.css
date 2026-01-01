@@ -35,7 +35,7 @@
 }
 
 /* Cell type styles with ID selector */
-#repeater-hex-grid td. hex-free {
+#repeater-hex-grid td.hex-free {
   background-color: #2d5016 !important;
   color: #a8d68c !important;
 }
@@ -46,13 +46,13 @@
   cursor: pointer;
 }
 
-#repeater-hex-grid td. hex-reserved {
+#repeater-hex-grid td.hex-reserved {
   background-color: #3a3a3a !important;
   color:  #888 !important;
   cursor: pointer;
 }
 
-#repeater-hex-grid td. hex-duplicate {
+#repeater-hex-grid td.hex-duplicate {
   background-color:  #1a3a5c ! important;
   color: #99ccff !important;
   cursor:   pointer;
@@ -68,7 +68,7 @@
   transition: transform 0.1s ease;
 }
 
-#repeater-hex-grid td. hex-used:hover .hex-clickable,
+#repeater-hex-grid td.hex-used:hover .hex-clickable,
 #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
 #repeater-hex-grid td.hex-reserved:hover . hex-clickable {
   transform: scale(1.2);
@@ -493,7 +493,7 @@
   color: #a8d68c !important;
 }
 
-.md-typeset #repeater-hex-grid td. hex-used {
+.md-typeset #repeater-hex-grid td.hex-used {
   background-color: #5c1a1a !important;
   color:  #ff9999 !important;
 }
@@ -503,7 +503,7 @@
   color: #888 !important;
 }
 
-.md-typeset #repeater-hex-grid td. hex-duplicate {
+.md-typeset #repeater-hex-grid td.hex-duplicate {
   background-color:   #1a3a5c !  important;
   color: #99ccff !important;
 }
@@ -512,6 +512,6 @@
   color: #a8d68c !important;
 }
 
-.md-typeset #repeater-hex-grid td. hex-free a:hover {
+.md-typeset #repeater-hex-grid td.hex-free a:hover {
   color: #ffffff !important;
 }
