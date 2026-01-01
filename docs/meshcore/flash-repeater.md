@@ -15,7 +15,7 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 ### Steps
 
 1. Download the OTA bootloader fix:  
-   **[OTAFIX Bootloader UF2 File](https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-otafix1/update-wiscore_rak4631_board_bootloader-0.9.2-otafix1_nosd.uf2)**
+   **[OTAFIX Bootloader UF2 File](https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-OTAFIX2.1-BP1.2/update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2)**
 2. Connect your repeater to your computer via USB.  
 3. Double-click the button beside the USB port on the RAK board.  
    - The green LED should turn on, indicating DFU mode.  
