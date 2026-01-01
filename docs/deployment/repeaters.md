@@ -8,20 +8,20 @@ hide:
 <!-- The repeater tables and ID list on this page are automatically generated from meshcore/data/repeaters.yml.  
      To add a new repeater, simply append it to that YAML file — MkDocs will populate the tables automatically. -->
 
-This page lists all deployed and reserved repeater IDs in Ottawa, along with their current configurations.
+This page tracks Ottawa repeater IDs (00–FF), showing which are deployed, reserved, or available, along with current configs.
 
-!!! note "If you notice anything that should be updated"
-    Please see our **[Contributing Guide](../community/contributing.md)**.  You can also reach out to MrAlders0n on GOME Discord or MeshCore, or contact any of the Knowledge Curators on the GOME Discord server.
+!!! note "See something that needs updating?"
+    Check the **[Contributing Guide](../community/contributing.md)**, or reach out to MrAlders0n or a Knowledge Curator on the GOME Discord / MeshCore.
 
-The table below provides a **visual overview of all 256 possible repeater IDs** (00-FF). Each cell is color-coded to show its current status:
+The table below shows all **256 repeater IDs**. Colors indicate status:
 
-- 🟢 **Dark Green** — Available IDs (click to generate a new keypair with this ID)
-- 🔴 **Dark Red** — Deployed repeaters (click to view details)
-- 🔵 **Dark Blue** — Duplicate/conflicting IDs (click to see all conflicts)
-- ⬜ **Light Grey** — Backbone reserved IDs (reserved for major city links)
-- ⬛ **Dark Grey** — MeshCore reserved IDs (00 and FF)
+- 🟢 **Available** — click to generate a keypair
+- 🔴 **Deployed** — click for repeater details
+- 🔵 **Duplicate/Conflict** — click to view conflicts
+- ⬜ **Backbone Reserved** — held for major links
+- ⬛ **MeshCore Reserved** — IDs 00 and FF
 
-**Click any cell** to interact with it.  Available IDs link directly to the key generator, while used IDs display detailed repeater information including antenna type, location, and contact details.
+Click any cell to view details or take action.
 
 {{ hex_table }}
 
