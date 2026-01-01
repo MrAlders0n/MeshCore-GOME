@@ -54,6 +54,8 @@ If flashing fails after erasing, refresh the page, click **Enter DFU Mode** agai
    - If it’s unique, continue configuring the rest of the repeater settings as normal.
    - If it’s already in use, follow the steps below to assign a new ID.
 
+---
+
 ### Assigning a New Repeater ID (if your ID is already in use)
 
 1. Go to the **[Ottawa Repeater ID List](../deployment/repeaters.md)** and choose an unused **2-digit ID**.  
