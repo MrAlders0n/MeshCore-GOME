@@ -1,6 +1,7 @@
 import pathlib
 import yaml
 from datetime import datetime
+from collections import Counter
 
 def define_env(env):
     """Hook for mkdocs-macros-plugin."""
@@ -25,10 +26,17 @@ def define_env(env):
     data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
     repeaters = data.get("repeaters", [])
 
-    # Compute used IDs (uppercase for consistency with hex display)
-    used_ids = {str(r["id"]).upper() for r in repeaters if "id" in r}
+    # Count occurrences of each ID (uppercase for consistency)
+    id_list = [str(r["id"]).upper() for r in repeaters if "id" in r]
+    id_counts = Counter(id_list)
+    
+    # Find duplicates
+    duplicate_ids = {id_val for id_val, count in id_counts. items() if count > 1}
+    
+    # Used IDs (all IDs from YAML)
+    used_ids = set(id_list)
 
-    # Reserved IDs by MeshCore
+    # Reserved IDs by MeshCore (always reserved, regardless of YAML)
     reserved_ids = {"00", "FF"}
 
     # All possible 1 byte IDs 00 - FF
@@ -55,16 +63,20 @@ def define_env(env):
         for col in range(16):
             cell_id = f"{row:X}{col:X}"
             
-            # Determine cell type
+            # Check in priority order: reserved > duplicate > used > free
             if cell_id in reserved_ids:
                 css_class = "hex-reserved"
                 html_table += f'    <td class="{css_class}" title="MeshCore&#10;Reserved">{cell_id}</td>\n'
-            elif cell_id in free_ids:
-                css_class = "hex-free"
-                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/?prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
-            else:
+            elif cell_id in duplicate_ids: 
+                css_class = "hex-duplicate"
+                html_table += f'    <td class="{css_class}" title="Duplicate ID&#10;Conflict Detected">{cell_id}</td>\n'
+            elif cell_id in used_ids:
                 css_class = "hex-used"
                 html_table += f'    <td class="{css_class}">{cell_id}</td>\n'
+            else:
+                # Must be free
+                css_class = "hex-free"
+                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/? prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
         html_table += '  </tr>\n'
 
     html_table += '</table>'
