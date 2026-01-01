@@ -216,8 +216,8 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  margin-bottom: 4px;
-  flex-wrap:  wrap;
+  margin-bottom: 0;
+  flex-wrap: wrap;
 }
 
 .hex-id-badge {
@@ -320,14 +320,14 @@
 .hex-info-title {
   font-size: 20px;
   font-weight: 700;
-  margin:  4px 0 10px 0;
-  color: #fff;
+  margin: 8px 0 10px 0;
+  color:  #fff;
 }
 
 @media (max-width: 768px) {
   .hex-info-title {
     font-size: 18px;
-    margin: 4px 0 8px 0;
+    margin: 6px 0 8px 0;
   }
 }
 
