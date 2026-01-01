@@ -1,77 +1,90 @@
+# Site Information
 site_name: Greater Ottawa Mesh Enthusiasts
 site_url: https://ottawamesh.ca
 repo_name: MeshCore NCR
-repo_url: https://github.com/MrAlders0n/MeshCore-NCR  # update this
+repo_url:  https://github.com/MrAlders0n/MeshCore-NCR
+
+# Navigation Structure
 nav:
-  - Home: index.md
+  - Home:  index.md
+  
   - Community:
       - Goals: community/goals.md
       - Getting Involved: community/getting-involved.md
-      - Contributing: community/contributing.md      
+      - Contributing: community/contributing.md
+  
   - Deployment:
       - Coverage: deployment/coverage.md
       - Repeaters: deployment/repeaters.md
       - Repeater Showcase: deployment/repeaters-showcase.md
       - Wanted Repeater Locations: deployment/repeater-wanted-locations.md
-      - Frequency Settings: deployment/frequency-settings.md
-  - Hardware:
+      - Frequency Settings: deployment/frequency-settings. md
+  
+  - Hardware: 
       - Overview: hardware/overview.md
       - Antenna: hardware/recommended-antenna.md
       - Companion Nodes: hardware/recommended-companions.md
-      - Repeater Nodes:
-          - Repeater Nodes: hardware/recommended-repeaters.md
+      - Repeater Nodes: 
+          - Repeater Nodes:  hardware/recommended-repeaters.md
           - Repeater Mounting Options: hardware/repeater-mounting-options.md
           - 300mW Solar Repeater Build Guide: hardware/repeater-solar-300mw-diy-build.md
+  
   - MeshCore:
       - General:
           - MeshCore FAQ: meshcore/general-faq.md
           - MeshCore How-To: meshcore/general-howto.md
-          - MeshCore Roles: meshcore/general-meshcore-roles.md
+          - MeshCore Roles: meshcore/general-meshcore-roles. md
       - Configuration:
-          - Flashing a Companion: meshcore/flash-companion.md
+          - Flashing a Companion:  meshcore/flash-companion.md
           - Flashing a Repeater: meshcore/flash-repeater.md
           - Generating a Repeater ID: meshcore/generate-repeater-id.md
           - Flashing a Room Server: meshcore/flash-room-server.md
           - RAK4631 Custom Display Firmware: meshcore/firmware-rak-custom-display.md
-          - Heltec V3 Wi-Fi Firmware: meshcore/firmware-heltec-v3-wifi.md
-      - Packet Capture:
+          - Heltec V3 Wi-Fi Firmware:  meshcore/firmware-heltec-v3-wifi.md
+      - Packet Capture: 
           - Overview: meshcore/packet-capture-overview.md
-          - Companion Observer: meshcore/packet-capture-companion-listener.md
+          - Companion Observer: meshcore/packet-capture-companion-listener. md
           - Repeater Observer: meshcore/packet-capture-standalone-repeater.md
-  - Meshtastic:
+  
+  - Meshtastic: 
       - Getting Started: meshtastic/getting-started.md
       - Frequency Settings: meshtastic/frequency-settings.md
+  
   - Resources:
       - Useful Links: resources/useful-links.md
 
-markdown_extensions:
-  - attr_list
-  - admonition
-  - toc:
-      permalink: true
-  - md_in_html
-  - pymdownx.blocks.caption
-
-plugins:
-  - search
-  - macros
-  - glightbox:
-      touchNavigation: true
-
+# Theme Configuration
 theme:
-  name: material
+  name:  material
   logo: assets/logo-GOME-mkdocs.png
   favicon: assets/favicon-GOME-mkdocs.png
   palette:
     scheme: slate
 
+# Markdown Extensions
+markdown_extensions:
+  - attr_list
+  - admonition
+  - md_in_html
+  - pymdownx.blocks.caption
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search
+  - macros: 
+      module_name: docs. extra.python.repeater_hex_grid
+  - glightbox:
+      touchNavigation: true
+
+# Extra JavaScript
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - https://cdn.jsdelivr.net/npm/@noble/ed25519@2.1.0/+esm
-  - javascripts/tablesort.js
-  - javascripts/hexgrid.js
+  - extra/javascript/tablesort.js
+  - extra/javascript/hexgrid.js
 
-extra_css:
-  - stylesheets/hexgrid.css
-extra_css:
-  - stylesheets/hexgrid.css
+# Extra CSS
+extra_css: 
+  - extra/css/hexgrid.css
