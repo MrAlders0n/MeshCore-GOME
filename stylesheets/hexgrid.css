@@ -1,7 +1,11 @@
-.hex-table {
+. hex-table {
   border-collapse: collapse;
-  margin: 20px 0;
-  font-family:  'Courier New', monospace;
+  margin: 20px auto;
+  font-family: 'Courier New', monospace;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 .hex-table td, .hex-table th {
@@ -9,13 +13,13 @@
   height: 40px;
   text-align: center;
   border: 1px solid #1a1a1a ! important;
-  font-size:  13px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight:  500;
   padding: 8px ! important;
 }
 
 .hex-table th {
-  background:  #1a1a1a ! important;
+  background:  #1a1a1a !important;
   color: #999 !important;
   font-weight: 600;
 }
@@ -31,7 +35,7 @@
   cursor: pointer;
 }
 
-. hex-table td.hex-reserved {
+.hex-table td.hex-reserved {
   background-color: #3a3a3a !important;
   color: #888 !important;
   cursor: pointer;
@@ -48,49 +52,38 @@
   transition: transform 0.1s ease;
 }
 
-.hex-table td.hex-used:hover .hex-clickable,
+.hex-table td.hex-used:hover . hex-clickable,
 .hex-table td.hex-duplicate:hover .hex-clickable,
 .hex-table td.hex-reserved:hover .hex-clickable {
   transform: scale(1.2);
 }
 
 /* Style links in free cells */
-. hex-table td.hex-free a {
+.hex-table td.hex-free a {
   color: #a8d68c !important;
-  text-decoration: none ! important;
+  text-decoration: none !important;
   display: block;
   width: 100%;
   height: 100%;
   transition: transform 0.1s ease;
 }
 
-.hex-table td. hex-free a:hover {
+.hex-table td.hex-free a:hover {
   color: #ffffff !important;
   transform: scale(1.2);
 }
 
-/* Responsive wrapper for mobile */
-.hex-table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .hex-table-wrapper {
-    margin: 20px -15px;
-    padding: 0 15px;
-  }
-  
   .hex-table td, .hex-table th {
     width: 32px;
     height: 32px;
-    font-size:  11px;
-    padding:  4px ! important;
+    font-size: 11px;
+    padding: 4px !important;
     min-width: 32px;
   }
   
-  . hex-table {
+  .hex-table {
     margin: 10px 0;
   }
 }
@@ -139,21 +132,20 @@
   }
 }
 
-/* Mobile modal adjustments */
 @media (max-width: 768px) {
   .hex-modal-content {
-    width: 95%;
+    width:  95%;
     max-width: none;
     margin: 5vh auto;
   }
 }
 
-. hex-modal-close {
+.hex-modal-close {
   color: #aaa;
   position: absolute;
   right: 15px;
   top: 10px;
-  font-size: 28px;
+  font-size:  28px;
   font-weight: bold;
   line-height: 1;
   cursor: pointer;
@@ -162,14 +154,11 @@
   background: transparent;
   border: none;
   padding: 0;
-  width: auto;
-  height: auto;
 }
 
 .hex-modal-close:hover,
 .hex-modal-close:focus {
   color: #fff;
-  text-decoration: none;
 }
 
 #hex-modal-body {
@@ -182,7 +171,7 @@
   }
 }
 
-. hex-info-card {
+.hex-info-card {
   color: #e0e0e0;
 }
 
@@ -199,7 +188,7 @@
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size:  16px;
 }
 
 @media (max-width: 768px) {
@@ -209,8 +198,8 @@
   }
 }
 
-.hex-used-badge {
-  background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
+. hex-used-badge {
+  background:  linear-gradient(135deg, #7a2a2a, #5c1a1a);
   color: #ff9999;
   border: 2px solid #ff9999;
 }
@@ -229,8 +218,8 @@
 
 .hex-state-badge {
   padding: 4px 10px;
-  border-radius: 4px;
-  font-size:  11px;
+  border-radius:  4px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -242,7 +231,7 @@
   }
 }
 
-. hex-state-active {
+.hex-state-active {
   background: #2d5016;
   color:  #a8d68c;
 }
@@ -273,13 +262,13 @@
   font-size: 20px;
   font-weight:  700;
   margin:  0 0 15px 0;
-  color: #fff;
+  color:  #fff;
 }
 
 @media (max-width: 768px) {
   .hex-info-title {
     font-size: 18px;
-    margin: 0 0 12px 0;
+    margin:  0 0 12px 0;
   }
 }
 
@@ -287,11 +276,11 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom:  15px;
 }
 
 .hex-info-item {
-  background: rgba(255, 255, 255, 0.05);
+  background:  rgba(255, 255, 255, 0.05);
   padding: 10px 12px;
   border-radius:  6px;
   border-left: 3px solid #5c1a1a;
@@ -312,7 +301,7 @@
   word-break: break-word;
 }
 
-@media (max-width:  768px) {
+@media (max-width: 768px) {
   .hex-info-value {
     font-size: 12px;
   }
@@ -359,37 +348,37 @@
   background: rgba(255, 204, 153, 0.1);
   border-left: 4px solid #ffcc99;
   padding: 10px;
-  margin: 12px 0;
+  margin:  12px 0;
   border-radius: 4px;
   color: #ffcc99;
   font-size: 13px;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   .hex-duplicate-warning {
     font-size: 12px;
     padding: 8px;
   }
 }
 
-. hex-duplicates-container {
+.hex-duplicates-container {
   display: flex;
   flex-direction: column;
   gap: 12px;
   max-height: 50vh;
-  overflow-y: auto;
+  overflow-y:  auto;
 }
 
 .hex-duplicate-entry {
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
   border-radius:  8px;
-  border:  1px solid rgba(153, 204, 255, 0.2);
+  border: 1px solid rgba(153, 204, 255, 0.2);
 }
 
 @media (max-width: 768px) {
   .hex-duplicate-entry {
-    padding:  10px;
+    padding: 10px;
   }
 }
 
@@ -397,12 +386,12 @@
   font-size: 11px;
   color: #99ccff;
   font-weight: 600;
-  padding: 3px 8px;
+  padding:  3px 8px;
   background: rgba(153, 204, 255, 0.1);
   border-radius: 4px;
 }
 
-.hex-duplicate-name {
+. hex-duplicate-name {
   font-size: 16px;
   margin:  8px 0;
   color:  #fff;
@@ -445,7 +434,7 @@
 }
 
 .hex-contact-btn-small:hover {
-  background: #3d6026;
+  background:  #3d6026;
 }
 
 .hex-no-contact-small {
@@ -467,54 +456,32 @@
   }
 }
 
-/* Override Material theme with maximum specificity */
-.md-typeset table.hex-table td {
-  background-color: transparent !important;
-  border-color: #1a1a1a !important;
+/* Override Material theme */
+.md-typeset . hex-table td {
+  background-color: transparent;
+  border-color: #1a1a1a ! important;
 }
 
-.md-typeset table.hex-table td. hex-free {
-  background-color: #2d5016 !important;
-  color: #a8d68c !important;
-}
-
-.md-typeset table.hex-table td.hex-used {
-  background-color: #5c1a1a !important;
-  color: #ff9999 !important;
-}
-
-.md-typeset table. hex-table td.hex-reserved {
-  background-color: #3a3a3a !important;
-  color: #888 !important;
-}
-
-.md-typeset table.hex-table td.hex-duplicate {
-  background-color: #1a3a5c !important;
-  color: #99ccff !important;
-}
-
-.md-typeset table.hex-table td. hex-free a {
-  color: #a8d68c !important;
-  text-decoration: none !important;
-}
-
-.md-typeset table.hex-table td.hex-free a:hover {
-  color: #ffffff !important;
-}
-
-/* Additional Material overrides - even more specific */
-.md-typeset . hex-table-wrapper table.hex-table tbody tr td. hex-free {
+.md-typeset .hex-table td. hex-free {
   background-color: #2d5016 !important;
 }
 
-.md-typeset .hex-table-wrapper table.hex-table tbody tr td.hex-used {
+.md-typeset .hex-table td.hex-used {
   background-color: #5c1a1a !important;
 }
 
-.md-typeset .hex-table-wrapper table.hex-table tbody tr td. hex-reserved {
-  background-color: #3a3a3a !important;
+.md-typeset .hex-table td.hex-reserved {
+  background-color:  #3a3a3a ! important;
 }
 
-. md-typeset .hex-table-wrapper table.hex-table tbody tr td.hex-duplicate {
+.md-typeset .hex-table td. hex-duplicate {
   background-color: #1a3a5c !important;
+}
+
+. md-typeset .hex-table td.hex-free a {
+  color: #a8d68c !important;
+}
+
+.md-typeset . hex-table td.hex-free a:hover {
+  color:  #ffffff !important;
 }
