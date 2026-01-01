@@ -18,7 +18,7 @@ nav:
       - Repeaters: deployment/repeaters.md
       - Repeater Showcase: deployment/repeaters-showcase.md
       - Wanted Repeater Locations: deployment/repeater-wanted-locations.md
-      - Frequency Settings: deployment/frequency-settings. md
+      - Frequency Settings: deployment/frequency-settings.md
   
   - Hardware: 
       - Overview: hardware/overview.md
@@ -33,7 +33,7 @@ nav:
       - General:
           - MeshCore FAQ: meshcore/general-faq.md
           - MeshCore How-To: meshcore/general-howto.md
-          - MeshCore Roles: meshcore/general-meshcore-roles. md
+          - MeshCore Roles: meshcore/general-meshcore-roles.md
       - Configuration:
           - Flashing a Companion:  meshcore/flash-companion.md
           - Flashing a Repeater: meshcore/flash-repeater.md
@@ -43,7 +43,7 @@ nav:
           - Heltec V3 Wi-Fi Firmware:  meshcore/firmware-heltec-v3-wifi.md
       - Packet Capture: 
           - Overview: meshcore/packet-capture-overview.md
-          - Companion Observer: meshcore/packet-capture-companion-listener. md
+          - Companion Observer: meshcore/packet-capture-companion-listener.md
           - Repeater Observer: meshcore/packet-capture-standalone-repeater.md
   
   - Meshtastic: 
