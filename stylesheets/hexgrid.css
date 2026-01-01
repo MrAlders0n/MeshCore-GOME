@@ -654,16 +654,106 @@
   border-left:  3px solid #2d5016;
   text-align: center;
 }
+/* Keygen ID chip */
+.hex-id-chip {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+@media (max-width: 768px) {
+  .hex-id-chip {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+/* Condensed keygen layout */
+.hex-keygen-description {
+  line-height: 1.3;
+  color: #ccc;
+  font-size: 13px;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.hex-keygen-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hex-key-section {
+  background:  rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  border-radius: 4px;
+  border-left: 3px solid #2d5016;
+}
+
+.hex-key-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.hex-key-header .hex-info-label {
+  margin-bottom: 0;
+  font-size: 10px;
+}
+
+.copy-btn-inline {
+  padding: 3px 8px;
+  background: #3a3a3a;
+  color: #aaa;
+  border: 1px solid #555;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.2s ease;
+}
+
+.copy-btn-inline:hover {
+  background: #4a4a4a;
+  color: #fff;
+}
+
+.key-output-compact {
+  width: 100%;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 3px;
+  padding: 6px;
+  resize: none;
+  box-sizing: border-box;
+  line-height: 1.3;
+}
+
+.hex-key-stats-inline {
+  text-align: center;
+  padding: 8px;
+  margin-top: 8px;
+  background: rgba(45, 80, 22, 0.2);
+  border-radius: 4px;
+  font-size: 11px;
+  color: #a8d68c;
+  font-family: 'Courier New', monospace;
+}
 
 .hex-keygen-footer {
-  margin-top: 15px;
-  padding-top: 15px;
+  margin-top: 12px;
+  padding-top:  12px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
 .hex-keygen-credit {
-  font-size: 11px;
+  font-size: 10px;
   color: #888;
   font-style: italic;
 }
@@ -682,9 +772,9 @@
   color: #a8d68c;
   text-align: center;
   font-family: 'Courier New', monospace;
-  font-size: 12px;
+  font-size:  11px;
   margin:  0;
-  padding: 8px;
+  padding: 6px;
   background: rgba(45, 80, 22, 0.2);
   border-radius: 4px;
 }
@@ -695,10 +785,19 @@
   }
   
   .hex-keygen-credit {
-    font-size: 10px;
+    font-size: 9px;
   }
   
   #keygen-progress {
-    font-size: 11px;
+    font-size: 10px;
+  }
+  
+  .key-output-compact {
+    font-size: 9px;
+    padding: 5px;
+  }
+  
+  .hex-key-stats-inline {
+    font-size: 10px;
   }
 }

@@ -1,19 +1,19 @@
 // Modal functions for hex grid
 function showRepeaterInfo(hexId, info) {
     const modal = document.getElementById('hex-modal');
-    const modalBody = document. getElementById('hex-modal-body');
+    const modalBody = document.getElementById('hex-modal-body');
     
     const contactLink = info.contact_url 
         ? `<a href="${info.contact_url}" class="hex-contact-btn">Add Contact</a>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
-    const stateClass = info. state. toLowerCase().replace(/\s+/g, '-');
+    const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
     
     modalBody.innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-used-badge">${hexId}</span>
-                <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
+                <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
             </div>
             <h2 class="hex-info-title">${info.name}</h2>
             <div class="hex-info-grid">
@@ -49,13 +49,13 @@ function showDuplicateInfo(hexId, infoArray) {
             ? `<a href="${info.contact_url}" class="hex-contact-btn-small">Add Contact</a>` 
             : '<span class="hex-no-contact-small">No Contact</span>';
         
-        const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
+        const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
         
         entriesHtml += `
             <div class="hex-duplicate-entry">
                 <div class="hex-info-header">
                     <span class="hex-entry-number">Entry ${idx + 1}</span>
-                    <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
+                    <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
                 </div>
                 <h3 class="hex-duplicate-name">${info.name}</h3>
                 <div class="hex-info-grid-small">
@@ -139,7 +139,7 @@ async function generateKeyForPrefix(prefix) {
     // Convert bytes to hex
     const toHex = (bytes) => {
         return Array.from(bytes)
-            .map(b => b. toString(16).padStart(2, '0'))
+            .map(b => b.toString(16).padStart(2, '0'))
             .join('')
             .toUpperCase();
     };
@@ -152,7 +152,7 @@ async function generateKeyForPrefix(prefix) {
         
         try {
             // Generate Ed25519 keypair using Web Crypto
-            const keypair = await crypto.subtle. generateKey(
+            const keypair = await crypto.subtle.generateKey(
                 { name: 'Ed25519' },
                 true,
                 ['sign', 'verify']
@@ -160,7 +160,7 @@ async function generateKeyForPrefix(prefix) {
             
             // Export public key
             const publicKeyJwk = await crypto.subtle. exportKey('jwk', keypair.publicKey);
-            const publicKeyBytes = Uint8Array. from(
+            const publicKeyBytes = Uint8Array.from(
                 atob(publicKeyJwk. x.replace(/-/g, '+').replace(/_/g, '/')), 
                 c => c.charCodeAt(0)
             );
@@ -186,8 +186,8 @@ async function generateKeyForPrefix(prefix) {
                 return {
                     publicKey: publicKeyHex,
                     privateKey: privateKeyHex,
-                    attempts: attempts,
-                    timeSeconds: elapsedTime
+                    attempts:  attempts,
+                    timeSeconds:  elapsedTime
                 };
             }
             
@@ -230,27 +230,30 @@ function showKeygenModal(hexId) {
             <div class="hex-info-contact">
                 <button id="generate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
             </div>
-            <div id="keygen-status" style="margin-top: 15px; display: none;">
+            <div id="keygen-status" style="margin-top: 12px; display: none;">
                 <p id="keygen-progress"></p>
             </div>
-            <div id="keygen-result" style="display: none; margin-top: 15px;">
+            <div id="keygen-result" style="display: none; margin-top: 12px;">
                 <div class="hex-keygen-results">
                     <div class="hex-key-section">
-                        <span class="hex-info-label">🔑 Public Key</span>
-                        <textarea readonly id="public-key-output" class="key-output" rows="2"></textarea>
-                        <button onclick="copyToClipboard('public-key-output')" class="copy-btn">📋 Copy</button>
+                        <div class="hex-key-header">
+                            <span class="hex-info-label">🔑 Public Key</span>
+                            <button onclick="copyToClipboard('public-key-output')" class="copy-btn-inline">📋 Copy</button>
+                        </div>
+                        <textarea readonly id="public-key-output" class="key-output-compact" rows="1"></textarea>
                     </div>
                     <div class="hex-key-section">
-                        <span class="hex-info-label">🔐 Private Key</span>
-                        <textarea readonly id="private-key-output" class="key-output" rows="2"></textarea>
-                        <button onclick="copyToClipboard('private-key-output')" class="copy-btn">📋 Copy</button>
-                    </div>
-                    <div class="hex-key-stats">
-                        <span class="hex-info-label">📊 Generation Stats</span>
-                        <span id="keygen-stats" class="hex-info-value"></span>
+                        <div class="hex-key-header">
+                            <span class="hex-info-label">🔐 Private Key</span>
+                            <button onclick="copyToClipboard('private-key-output')" class="copy-btn-inline">📋 Copy</button>
+                        </div>
+                        <textarea readonly id="private-key-output" class="key-output-compact" rows="1"></textarea>
                     </div>
                 </div>
-                <div class="hex-info-contact">
+                <div class="hex-key-stats-inline">
+                    <span id="keygen-stats"></span>
+                </div>
+                <div class="hex-info-contact" style="margin-top: 12px;">
                     <button onclick="downloadKeyJSON('${hexId}')" class="hex-contact-btn">💾 Download JSON</button>
                 </div>
             </div>
@@ -276,10 +279,10 @@ function showKeygenModal(hexId) {
             // Show results
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
-            document.getElementById('public-key-output').value = result.publicKey;
-            document.getElementById('private-key-output').value = result.privateKey;
+            document. getElementById('public-key-output').value = result.publicKey;
+            document. getElementById('private-key-output').value = result.privateKey;
             document.getElementById('keygen-stats').textContent = 
-                `Generated in ${result.timeSeconds}s after ${result.attempts. toLocaleString()} attempts`;
+                `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
             
             // Store for download
             window.generatedKey = result;
