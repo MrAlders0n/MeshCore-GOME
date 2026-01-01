@@ -801,3 +801,7 @@
     font-size: 10px;
   }
 }
+.hex-state-available {
+  background:  #2d5016;
+  color: #a8d68c;
+}
