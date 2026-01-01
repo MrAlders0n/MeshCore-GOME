@@ -30,6 +30,7 @@ nav:
       - Configuration:
           - Flashing a Companion: meshcore/flash-companion.md
           - Flashing a Repeater: meshcore/flash-repeater.md
+          - Generating a Repeater ID: meshcore/generate-repeater-id.md
           - Flashing a Room Server: meshcore/flash-room-server.md
           - RAK4631 Custom Display Firmware: meshcore/firmware-rak-custom-display.md
           - Heltec V3 Wi-Fi Firmware: meshcore/firmware-heltec-v3-wifi.md

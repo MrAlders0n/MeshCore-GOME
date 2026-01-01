@@ -43,51 +43,41 @@ If flashing fails after erasing, refresh the page, click **Enter DFU Mode** agai
 
 ## Configuring a MeshCore Repeater
 
-1. Using a Chromium-based Browser that supports the [required serial connection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility) (e.g., Google Chrome, Microsoft Edge), open the repeater configuration tool:  
-   **<https://config.meshcore.dev>**
-2. After connecting, check the **[Ottawa Repeater ID List](../deployment/repeaters.md)** to ensure your repeater ID is unique.
-   - Repeater IDs come from the **first two characters of the public key**.  
-   - Duplicate IDs cause conflicts.  
-   - Developers are working on a long-term fix, but for now each repeater should use a unique ID.
+1. Using a Chromium-based browser that supports the [required serial connection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility) (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:  
+   <https://config.meshcore.dev>
 
----
+2. Connect to your repeater and note the **Repeater ID** shown in the tool.
+   - The Repeater ID is derived from the keypair (it corresponds to the **first byte / first two hex characters** of the repeater’s key).  
+   - Because there are only **256 possible IDs**, overlaps become more likely as the network grows—especially when keys are generated automatically during flashing.
 
-## Generating a New Repeater ID (If Required)
+3. Check the **[Ottawa Repeater ID List](../deployment/repeaters.md)** to confirm your repeater ID is **not already in use**.
+   - If it’s unique, continue configuring the rest of the repeater settings as normal.
+   - If it’s already in use, follow the steps below to assign a new ID.
 
-There are **two ways** to assign a new repeater ID, we recommend option 1 as it guarantees you will get a unique ID
+### Assigning a New Repeater ID (if your ID is already in use)
 
-### Option 1 — Manually Generate a Private Key (choose your own ID)
+1. Go to the **[Ottawa Repeater ID List](../deployment/repeaters.md)** and choose an unused **2-digit ID**.  
+2. Click the unused ID to open its key generator page.  
+3. Click **Generate Key**.  
+4. Copy the **Private Key** value.  
+5. In the repeater console, set the private key (replace `<PRIVATE-KEY>` with what you copied):  
+   `set prv.key <PRIVATE-KEY>`  
+6. Reboot the repeater.  
 
-1. Go to the **[Ottawa Repeater ID List](../deployment/repeaters.md)** and pick an unused 2-digit ID.  
-2. Visit **mc-keygen**: <https://gessaman.com/mc-keygen/>  
-3. Enter your chosen 2-digit ID, then click **Generate Key**.  
-4. Copy the **Private Key** from the output.  
-5. Open the **MeshCore Flasher**, click **Console**, and select your repeater.  
-6. Run: set prv.key <PRIVATE-KEY>
-7. Reboot the repeater.  
-It will now use this private key, and the public key will match your chosen ID.
-
----
-
-### Option 2 — Reflash (automatic key generation)
-
-1. Reflash the repeater and ensure **Erase Flash** is used.  
-2. A new private/public keypair will be generated.  
-3. After flashing, verify that the new ID is not in use by checking:  
-   **[Ottawa Repeater ID List](../deployment/repeaters.md)**
+After reboot, the repeater will use the new private key and the public key will correspond to the ID you selected.
 
 ---
 
 ## Final Configuration Steps
 
-1. Give the repeater a descriptive **name** (e.g., `Callsign_R1`, `Downtown_R1`).  
-2. Set an **admin password** — this is required for MeshCore Remote Administration.  
+1. Set a descriptive repeater **name** (e.g., `Callsign_R1`, `Downtown_R1`).  
+2. Set an **admin password** (required for MeshCore Remote Administration).  
 3. Apply the Ottawa defaults:  
-**910.525 MHz / BW 62.5 kHz / SF7 / CR5**  
-4. Click **Save** and reboot.  
-5. Reconnect using the configuration tool and click **Send Advert**.  
+   **910.525 MHz / BW 62.5 kHz / SF7 / CR5**  
+4. Click **Save** and reboot the repeater.  
+5. Reconnect with the configuration tool and click **Send Advert**.
 
-- If everything is working, nearby companion nodes will receive it.
+If everything is working, nearby companion nodes should receive the advert.
 
 ---
 
