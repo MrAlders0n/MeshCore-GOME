@@ -1,13 +1,4 @@
 repeaters:
-  - id: "01"
-    name: "TBRG_POCKET_R"
-    antenna: "LPDA"
-    location: "Ashton (~3.5 m)"
-    contact: null
-    state: "Reserved"
-    hex_id: null
-    last_heard: null
-
   - id: "03"
     name: "AlxR4"
     antenna: "TBD"
@@ -249,7 +240,7 @@ repeaters:
     contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46322f039e3fbc63c3c810af4fa4589de360c4349d642f78c485ad182887a51c&type=2"
     state: "Active"
     hex_id: "46322F039E3FBC63C3C810AF4FA4589DE360C4349D642F78C4"
-    last_heard: 1767294608
+    last_heard: 1767305409
 
   - id: "47"
     name: "VA3HUP_DowsLake"
@@ -375,7 +366,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R3&public_key=649D120810863F3ADE5682832842E5523B4286F8253C658ABA&type=2"
     state: "Active"
     hex_id: "649D120810863F3ADE5682832842E5523B4286F8253C658ABA"
-    last_heard: 1767262435
+    last_heard: 1767305638
 
   - id: "67"
     name: "Tek_HV4_Repeater"
@@ -429,7 +420,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Peter%20Heltec%20Repeater&public_key=78cc71e4f633ffd7ccecd5526335b130886bf984efa5ec7b2aaee2226cb84da5&type=2"
     state: "Active"
     hex_id: "78CC71E4F633FFD7CCECD5526335B130886BF984EFA5EC7B2A"
-    last_heard: 1767248088
+    last_heard: 1767305685
 
   - id: "79"
     name: "CSP-RPTR1"
@@ -681,7 +672,7 @@ repeaters:
     contact: "meshcore://contact/add?name=SVIL_R1&public_key=CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A&type=2"
     state: "Active"
     hex_id: "CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A"
-    last_heard: 1767295026
+    last_heard: 1767305826
 
   - id: "D0"
     name: "Gatineau_R1"
@@ -906,7 +897,7 @@ repeaters:
     contact: "meshcore://contact/add?name=AlxR3&public_key=02953DA68B20727D4DD4335596055FEC348280A596910114D5&type=2"
     state: "New"
     hex_id: "02953DA68B20727D4DD4335596055FEC348280A596910114D5"
-    last_heard: 1767296292
+    last_heard: 1767307093
 
   - id: "E0"
     name: "Limoges"
@@ -1096,4 +1087,13 @@ repeaters:
     state: "Duplicate"
     hex_id: "D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E"
     last_heard: 1767294024
+
+  - id: "F7"
+    name: "YOW_Alx_Mob_Observer"
+    antenna: "TBD"
+    location: "TBD (~X.X m)"
+    contact: "meshcore://contact/add?name=YOW_Alx_Mob_Observer&public_key=F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA&type=2"
+    state: "New"
+    hex_id: "F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA"
+    last_heard: 1767307691
 
