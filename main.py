@@ -52,12 +52,17 @@ def define_env(env):
         for col in range(16):
             cell_id = f"{row:X}{col:X}"
             css_class = "hex-free" if cell_id in free_ids else "hex-used"
-            html_table += f'    <td class="{css_class}">{cell_id}</td>\n'
+            
+            # If free, wrap in anchor tag linking to keygen
+            if cell_id in free_ids:
+                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/?prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
+            else:
+                html_table += f'    <td class="{css_class}">{cell_id}</td>\n'
         html_table += '  </tr>\n'
 
     html_table += '</table>'
 
     # Expose variables to Jinja
     env.variables["repeaters"] = repeaters
-    env.variables["unused_ids"] = free_ids  # Now using free_ids instead of unused_ids
+    env.variables["unused_ids"] = free_ids
     env.variables["hex_table"] = html_table
