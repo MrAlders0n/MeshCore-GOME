@@ -2,6 +2,7 @@ import pathlib
 import yaml
 from datetime import datetime
 from collections import Counter
+import html
 
 def define_env(env):
     """Hook for mkdocs-macros-plugin."""
@@ -36,6 +37,26 @@ def define_env(env):
     # Used IDs (all IDs from YAML)
     used_ids = set(id_list)
 
+    # Create a lookup dictionary for repeater info by ID
+    repeater_info = {}
+    for r in repeaters:
+        if "id" in r:
+            rid = str(r["id"]).upper()
+            state = r.get("state", "Unknown")
+            name = r. get("name", "N/A")
+            antenna = r.get("antenna", "N/A")
+            location = r. get("location", "N/A")
+            last_heard = epoch_to_date(r.get("last_heard"))
+            contact = "Yes" if r.get("contact") else "No"
+            
+            # Build tooltip text
+            tooltip = f"Name: {name}&#10;State: {state}&#10;Antenna: {antenna}&#10;Location: {location}&#10;Last Heard: {last_heard}&#10;Contact: {contact}"
+            
+            # If duplicate, store in a list
+            if rid not in repeater_info:
+                repeater_info[rid] = []
+            repeater_info[rid].append(tooltip)
+
     # Reserved IDs by MeshCore (always reserved, regardless of YAML)
     reserved_ids = {"00", "FF"}
 
@@ -64,15 +85,18 @@ def define_env(env):
             cell_id = f"{row:X}{col:X}"
             
             # Check in priority order: reserved > duplicate > used > free
-            if cell_id in reserved_ids:
+            if cell_id in reserved_ids: 
                 css_class = "hex-reserved"
                 html_table += f'    <td class="{css_class}" title="MeshCore&#10;Reserved">{cell_id}</td>\n'
-            elif cell_id in duplicate_ids: 
+            elif cell_id in duplicate_ids:
                 css_class = "hex-duplicate"
-                html_table += f'    <td class="{css_class}" title="Duplicate ID&#10;Conflict Detected">{cell_id}</td>\n'
+                # Combine all duplicate entries
+                duplicate_tooltip = "DUPLICATE ENTRIES: &#10;&#10;" + "&#10;&#10;".join(repeater_info[cell_id])
+                html_table += f'    <td class="{css_class}" title="{duplicate_tooltip}">{cell_id}</td>\n'
             elif cell_id in used_ids:
                 css_class = "hex-used"
-                html_table += f'    <td class="{css_class}">{cell_id}</td>\n'
+                tooltip = repeater_info[cell_id][0]  # Get first (and should be only) entry
+                html_table += f'    <td class="{css_class}" title="{tooltip}">{cell_id}</td>\n'
             else:
                 # Must be free
                 css_class = "hex-free"
