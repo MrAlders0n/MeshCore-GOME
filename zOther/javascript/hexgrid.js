@@ -26,12 +26,12 @@ function showRepeaterInfo(hexId, info) {
                     <span class="hex-info-value">${info.location}</span>
                 </div>
                 <div class="hex-info-item">
-                    <span class="hex-info-label">🕐 Last Heard</span>
-                    <span class="hex-info-value">${info.last_heard}</span>
-                </div>
-                <div class="hex-info-item">
                     <span class="hex-info-label">⚡ Power</span>
                     <span class="hex-info-value">${info.power || 'N/A'}</span>
+                </div>
+                <div class="hex-info-item">
+                    <span class="hex-info-label">🕐 Last Heard</span>
+                    <span class="hex-info-value">${info.last_heard}</span>
                 </div>
             </div>
             <div class="hex-info-contact">
