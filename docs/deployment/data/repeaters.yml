@@ -1,13 +1,4 @@
 repeaters:
-  - id: "01"
-    name: "TBRG_POCKET_R"
-    antenna: "LPDA"
-    location: "Ashton (~3.5 m)"
-    contact: null
-    state: "Reserved"
-    hex_id: null
-    last_heard: null
-
   - id: "03"
     name: "AlxR4"
     antenna: "TBD"
