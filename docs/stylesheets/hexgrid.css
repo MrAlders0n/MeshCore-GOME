@@ -1,0 +1,30 @@
+. hex-table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: 'Courier New', monospace;
+}
+
+.hex-table td, .hex-table th {
+  width: 40px;
+  height: 40px;
+  text-align:  center;
+  border: 1px solid #1a1a1a;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.hex-table th {
+  background:  #1a1a1a;
+  color: #999;
+  font-weight: 600;
+}
+
+. hex-free {
+  background: #2d5016 !important;  /* Dark green for available */
+  color: #a8d68c !important;
+}
+
+.hex-used {
+  background: #5c1a1a !important;  /* Dark red for used */
+  color: #ff9999 !important;
+}
