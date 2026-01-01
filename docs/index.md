@@ -17,7 +17,7 @@ Whether you want to experiment, build hardware, climb towers, or just connect wi
 
 <div style="height: 600px; border: 1px solid #444;">
   <iframe
-    src="https://analyzer.letsme.sh/map?region=YOW&lat=45.41826&long=-75.74306&zoom=10"
+    src="https://analyzer.letsmesh.net/map?region=YOW&lat=45.41826&long=-75.74306&zoom=10"
     width="100%"
     height="100%"
     style="border:0;"
