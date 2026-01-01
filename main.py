@@ -110,7 +110,9 @@ def define_env(env):
                 html_table += f'    <td class="{css_class}" onclick=\'showDuplicateInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
             elif cell_id in backbone_reserved_ids:
                 css_class = "hex-backbone"
-                html_table += f'    <td class="{css_class}" onclick="showBackboneInfo()"><span class="hex-clickable">{cell_id}</span></td>\n'
+                info = repeater_info[cell_id][0]
+                info_json = json.dumps(info).replace('"', '&quot;')
+                html_table += f'    <td class="{css_class}" onclick=\'showBackboneInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
             elif cell_id in used_ids: 
                 css_class = "hex-used"
                 info = repeater_info[cell_id][0]
