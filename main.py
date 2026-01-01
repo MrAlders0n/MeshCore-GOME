@@ -12,13 +12,13 @@ def define_env(env):
     @env.filter
     def epoch_to_date(epoch_time):
         """Convert epoch timestamp to YYYY-MM-DD format."""
-        if not epoch_time: 
+        if not epoch_time:
             return "N/A"
         
         try:  
             # Convert epoch to datetime and format as YYYY-MM-DD
-            dt = datetime. fromtimestamp(int(epoch_time))
-            return dt. strftime("%Y-%m-%d")
+            dt = datetime.fromtimestamp(int(epoch_time))
+            return dt.strftime("%Y-%m-%d")
         except (ValueError, TypeError):
             return "Invalid date"
 
@@ -32,7 +32,7 @@ def define_env(env):
     id_counts = Counter(id_list)
     
     # Find duplicates
-    duplicate_ids = {id_val for id_val, count in id_counts. items() if count > 1}
+    duplicate_ids = {id_val for id_val, count in id_counts.items() if count > 1}
     
     # Used IDs (all IDs from YAML)
     used_ids = set(id_list)
@@ -43,7 +43,7 @@ def define_env(env):
         if "id" in r:
             rid = str(r["id"]).upper()
             state = r.get("state", "Unknown")
-            name = r. get("name", "N/A")
+            name = r.get("name", "N/A")
             antenna = r.get("antenna", "N/A")
             location = r.get("location", "N/A")
             last_heard = epoch_to_date(r.get("last_heard"))
@@ -55,9 +55,9 @@ def define_env(env):
             repeater_info[rid].append({
                 "name": name,
                 "state": state,
-                "antenna": antenna,
+                "antenna":  antenna,
                 "location": location,
-                "last_heard": last_heard,
+                "last_heard":  last_heard,
                 "contact_url": contact_url
             })
 
@@ -65,7 +65,7 @@ def define_env(env):
     reserved_ids = {"00", "FF"}
 
     # All possible 1 byte IDs 00 - FF
-    all_ids = [f"{i: 02X}" for i in range(256)]
+    all_ids = [f"{i:02X}" for i in range(256)]
 
     # Free IDs are everything not in used_ids or reserved_ids
     free_ids = [i for i in all_ids if i not in used_ids and i not in reserved_ids]
@@ -75,7 +75,9 @@ def define_env(env):
 
     # Generate HTML hex table
     html_table = '<div id="hex-modal" class="hex-modal"><div class="hex-modal-content"><span class="hex-modal-close">&times;</span><div id="hex-modal-body"></div></div></div>\n'
+    html_table += '<div class="hex-table-wrapper">\n'
     html_table += '<table class="hex-table">\n'
+    
     # Header row
     html_table += '  <tr>\n    <th></th>\n'
     for col in range(16):
@@ -93,23 +95,24 @@ def define_env(env):
             if cell_id in reserved_ids: 
                 css_class = "hex-reserved"
                 html_table += f'    <td class="{css_class}" onclick="showReservedInfo()"><span class="hex-clickable">{cell_id}</span></td>\n'
-            elif cell_id in duplicate_ids:
+            elif cell_id in duplicate_ids: 
                 css_class = "hex-duplicate"
                 # Escape quotes in JSON data
                 info_json = json.dumps(repeater_info[cell_id]).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showDuplicateInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
-            elif cell_id in used_ids: 
+            elif cell_id in used_ids:
                 css_class = "hex-used"
                 info = repeater_info[cell_id][0]
                 info_json = json.dumps(info).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showRepeaterInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
             else:
-                # Must be free
+                # Must be free - no wrapper span, just the link
                 css_class = "hex-free"
-                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/?prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
+                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/? prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
         html_table += '  </tr>\n'
 
-    html_table += '</table>'
+    html_table += '</table>\n'
+    html_table += '</div>\n'
 
     # Expose variables to Jinja
     env.variables["repeaters"] = repeaters
