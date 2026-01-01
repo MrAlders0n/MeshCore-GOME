@@ -106,7 +106,7 @@ def define_env(env):
             else:
                 # Must be free
                 css_class = "hex-free"
-                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/? prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
+                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/?prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
         html_table += '  </tr>\n'
 
     html_table += '</table>'
