@@ -230,10 +230,17 @@ function showKeygenModal(hexId) {
             <div class="hex-info-contact">
                 <button id="generate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
             </div>
-            <div id="keygen-status" style="margin-top: 12px; display: none;">
+            <div id="keygen-status" style="margin-top: 12px; display:  none;">
                 <p id="keygen-progress"></p>
             </div>
             <div id="keygen-result" style="display: none; margin-top: 12px;">
+                <div class="hex-keygen-actions">
+                    <button id="regenerate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
+                    <button onclick="downloadKeyJSON('${hexId}')" class="hex-download-btn" title="Download JSON">💾</button>
+                </div>
+                <div class="hex-key-stats-inline">
+                    <span id="keygen-stats"></span>
+                </div>
                 <div class="hex-keygen-results">
                     <div class="hex-key-section">
                         <div class="hex-key-header">
@@ -250,13 +257,6 @@ function showKeygenModal(hexId) {
                         <textarea readonly id="private-key-output" class="key-output-compact" rows="1"></textarea>
                     </div>
                 </div>
-                <div class="hex-key-stats-inline">
-                    <span id="keygen-stats"></span>
-                </div>
-                <div class="hex-keygen-actions">
-                    <button id="regenerate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
-                    <button onclick="downloadKeyJSON('${hexId}')" class="hex-download-btn" title="Download JSON">💾</button>
-                </div>
             </div>
             <div class="hex-keygen-footer">
                 <span class="hex-keygen-credit">Based on <a href="https://github.com/agessaman/meshcore-web-keygen" target="_blank">github.com/agessaman/meshcore-web-keygen</a></span>
@@ -269,13 +269,13 @@ function showKeygenModal(hexId) {
     // Function to handle key generation
     async function generateKey() {
         const btn = document.getElementById('generate-key-btn');
-        const regenBtn = document.getElementById('regenerate-key-btn');
-        const activeBtn = btn && btn.offsetParent !== null ?  btn :  regenBtn;
+        const regenBtn = document. getElementById('regenerate-key-btn');
+        const activeBtn = btn && btn.offsetParent !== null ?  btn : regenBtn;
         
         activeBtn.disabled = true;
         activeBtn.textContent = '⏳ Generating...';
         
-        document.getElementById('keygen-status').style.display = 'block';
+        document. getElementById('keygen-status').style.display = 'block';
         
         try {
             const result = await generateKeyForPrefix(hexId);
@@ -284,9 +284,9 @@ function showKeygenModal(hexId) {
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
             document.getElementById('public-key-output').value = result.publicKey;
-            document. getElementById('private-key-output').value = result.privateKey;
+            document.getElementById('private-key-output').value = result.privateKey;
             document.getElementById('keygen-stats').textContent = 
-                `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
+                `✓ Generated in ${result. timeSeconds}s (${result. attempts. toLocaleString()} attempts)`;
             
             // Hide initial generate button
             if (btn) btn.parentElement.style.display = 'none';
@@ -294,7 +294,7 @@ function showKeygenModal(hexId) {
             // Reset regenerate button
             if (regenBtn) {
                 regenBtn.disabled = false;
-                regenBtn. textContent = '🔑 Generate Key';
+                regenBtn.textContent = '🔑 Generate Key';
             }
             
             // Store for download
@@ -308,10 +308,15 @@ function showKeygenModal(hexId) {
     }
     
     // Attach event listener to initial generate button
-    document.getElementById('generate-key-btn').addEventListener('click', generateKey);
+    document. getElementById('generate-key-btn').addEventListener('click', generateKey);
     
     // Attach event listener to regenerate button (for after first generation)
-    document.getElementById('regenerate-key-btn').addEventListener('click', generateKey);
+    setTimeout(() => {
+        const regenBtn = document.getElementById('regenerate-key-btn');
+        if (regenBtn) {
+            regenBtn.addEventListener('click', generateKey);
+        }
+    }, 0);
 }
 
 function copyToClipboard(elementId) {
