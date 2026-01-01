@@ -999,7 +999,7 @@ repeaters:
     last_heard: null
 
   - id: "C9"
-    name: "Backbone to Montreal"
+    name: "Backbone to Toronto"
     antenna: "TBD"
     location: "TBD"
     state: "BackboneReserved"
