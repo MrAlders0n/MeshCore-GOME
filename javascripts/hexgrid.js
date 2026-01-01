@@ -149,9 +149,6 @@ function showBackboneInfo(hexId, info) {
                 <span class="hex-state-badge hex-state-${stateClass}">Backbone Reserved</span>
             </div>
             <h2 class="hex-info-title">${info.name}</h2>
-            <p class="hex-reserved-text">
-                GOME has reserved this ID for backbone links between major cities. 
-            </p>
             <div class="hex-info-grid">
                 <div class="hex-info-item">
                     <span class="hex-info-label">📡 Antenna</span>
