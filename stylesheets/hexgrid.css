@@ -1,9 +1,9 @@
 /* Container for responsive scrolling */
 .hex-grid-container {
-  width:  100%;
+  width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin:   20px 0;
+  margin: 20px 0;
 }
 
 /* Table base styles - using ID for maximum specificity */
@@ -22,22 +22,24 @@
   min-height: 40px;
   text-align: center;
   border: 1px solid #1a1a1a ! important;
-  font-size:   13px;
-  font-weight:   500;
+  font-size:  13px;
+  font-weight: 500;
   padding: 0 !important;
   box-sizing: border-box;
+  line-height: 40px;
 }
 
 #repeater-hex-grid th {
-  background:  #1a1a1a !important;
-  color: #999 ! important;
-  font-weight:  600;
+  background:  #1a1a1a ! important;
+  color: #999 !important;
+  font-weight: 600;
 }
 
 /* Cell type styles with ID selector */
 #repeater-hex-grid td.hex-free {
   background-color: #2d5016 !important;
   color: #a8d68c !important;
+  line-height: 1;
 }
 
 #repeater-hex-grid td.hex-used {
@@ -48,79 +50,91 @@
 
 #repeater-hex-grid td.hex-reserved {
   background-color: #3a3a3a !important;
-  color:  #888 !important;
+  color: #888 !important;
   cursor: pointer;
 }
 
 #repeater-hex-grid td.hex-duplicate {
-  background-color:  #1a3a5c ! important;
+  background-color: #1a3a5c !important;
   color: #99ccff !important;
-  cursor:   pointer;
+  cursor:  pointer;
 }
 
-/* Style clickable spans to match links */
-. hex-clickable {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.1s ease;
+/* Style clickable spans - simple inline with hover */
+.hex-clickable {
+  display: inline;
+  transition: all 0.1s ease;
 }
 
 #repeater-hex-grid td.hex-used:hover .hex-clickable,
 #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
 #repeater-hex-grid td.hex-reserved:hover . hex-clickable {
-  transform: scale(1.2);
+  font-size: 16px;
+  font-weight: 700;
 }
 
 /* Style links in free cells */
 #repeater-hex-grid td.hex-free a {
   color: #a8d68c !important;
-  text-decoration: none !important;
+  text-decoration: none ! important;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  transition: transform 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 #repeater-hex-grid td.hex-free a:hover {
-  color:  #ffffff !important;
-  transform: scale(1.2);
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 /* Mobile responsive */
-@media (max-width:   768px) {
+@media (max-width:  768px) {
   #repeater-hex-grid td,
   #repeater-hex-grid th {
     width: 32px;
     height: 32px;
-    min-width:   32px;
+    min-width: 32px;
     min-height: 32px;
-    max-width:  32px;
+    max-width: 32px;
     max-height: 32px;
-    font-size:  10px;
+    font-size: 10px;
     padding: 0 !important;
+    line-height: 32px;
   }
   
-  . hex-clickable {
-    font-size: 10px;
+  #repeater-hex-grid td.hex-free {
+    line-height: 1;
   }
   
   #repeater-hex-grid td.hex-free a {
+    font-size:  10px;
+  }
+  
+  /* Disable hover effects on mobile */
+  #repeater-hex-grid td.hex-used:hover . hex-clickable,
+  #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
+  #repeater-hex-grid td.hex-reserved:hover .hex-clickable {
     font-size: 10px;
+    font-weight: 500;
+  }
+  
+  #repeater-hex-grid td.hex-free a:hover {
+    font-size: 10px;
+    font-weight: 500;
   }
 }
 
 /* Modal Styling */
-. hex-modal {
-  display:  none;
+.hex-modal {
+  display: none;
   position: fixed;
   z-index: 99999 !important;
   left: 0;
-  top:   0;
+  top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -135,14 +149,15 @@
 }
 
 .hex-modal-content {
-  background:   linear-gradient(145deg, #2a2a2a, #1e1e1e);
+  background:  linear-gradient(145deg, #2a2a2a, #1e1e1e);
   margin: 10vh auto;
   padding: 0;
-  border:   1px solid #444;
+  border:  1px solid #444;
   border-radius: 12px;
   width: 85%;
-  max-width:   450px;
-  box-shadow:  0 8px 32px rgba(0, 0, 0, 0.5);
+  max-width: 450px;
+  min-height: 100px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   animation: slideDown 0.3s ease;
   position: relative;
 }
@@ -158,9 +173,9 @@
   }
 }
 
-@media (max-width:  768px) {
+@media (max-width: 768px) {
   .hex-modal-content {
-    width:   95%;
+    width: 95%;
     max-width: none;
     margin: 5vh auto;
   }
@@ -172,14 +187,14 @@
   right: 15px;
   top: 10px;
   font-size:  28px;
-  font-weight: bold;
+  font-weight:  bold;
   line-height: 1;
   cursor: pointer;
-  transition:   color 0.2s ease;
+  transition:  color 0.2s ease;
   z-index: 1;
   background: transparent;
-  border:   none;
-  padding:  0;
+  border: none;
+  padding: 0;
 }
 
 .hex-modal-close:hover,
@@ -197,46 +212,46 @@
   }
 }
 
-. hex-info-card {
+.hex-info-card {
   color: #e0e0e0;
 }
 
 .hex-info-header {
   display: flex;
   gap: 10px;
-  align-items: center;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
+  align-items:  center;
+  margin-bottom:  12px;
+  flex-wrap:  wrap;
 }
 
 .hex-id-badge {
   font-family: 'Courier New', monospace;
-  font-weight:  bold;
+  font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size:   16px;
+  font-size:  16px;
 }
 
-@media (max-width:   768px) {
+@media (max-width: 768px) {
   .hex-id-badge {
     font-size: 14px;
     padding: 5px 10px;
   }
 }
 
-. hex-used-badge {
-  background:   linear-gradient(135deg, #7a2a2a, #5c1a1a);
+.hex-used-badge {
+  background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
   color: #ff9999;
-  border:  2px solid #ff9999;
+  border: 2px solid #ff9999;
 }
 
 .hex-duplicate-badge {
-  background:  linear-gradient(135deg, #2a4a7a, #1a3a5c);
+  background: linear-gradient(135deg, #2a4a7a, #1a3a5c);
   color: #99ccff;
   border: 2px solid #99ccff;
 }
 
-.hex-reserved-badge {
+. hex-reserved-badge {
   background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
   color: #aaa;
   border: 2px solid #888;
@@ -244,8 +259,8 @@
 
 .hex-state-badge {
   padding: 4px 10px;
-  border-radius:   4px;
-  font-size:  11px;
+  border-radius:  4px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -259,7 +274,7 @@
 
 .hex-state-active {
   background: #2d5016;
-  color: #a8d68c;
+  color:  #a8d68c;
 }
 
 .hex-state-reserved,
@@ -277,18 +292,18 @@
 
 .hex-warning-badge {
   padding: 4px 10px;
-  border-radius:  4px;
+  border-radius: 4px;
   background: #7a4a2a;
-  color:   #ffcc99;
+  color:  #ffcc99;
   font-size: 11px;
   font-weight: 600;
 }
 
 . hex-info-title {
   font-size: 20px;
-  font-weight:  700;
-  margin:   0 0 15px 0;
-  color:   #fff;
+  font-weight: 700;
+  margin:  0 0 15px 0;
+  color:  #fff;
 }
 
 @media (max-width: 768px) {
@@ -308,7 +323,7 @@
 .hex-info-item {
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 12px;
-  border-radius:   6px;
+  border-radius: 6px;
   border-left: 3px solid #5c1a1a;
 }
 
@@ -342,8 +357,8 @@
   display: inline-block;
   padding: 10px 24px;
   background: linear-gradient(135deg, #2d5016, #3d6026);
-  color: #a8d68c !  important;
-  text-decoration:   none !important;
+  color: #a8d68c ! important;
+  text-decoration:  none !important;
   border-radius: 6px;
   font-weight: 600;
   font-size: 14px;
@@ -352,7 +367,7 @@
 }
 
 .hex-contact-btn:hover {
-  background:  linear-gradient(135deg, #3d6026, #4d7036);
+  background: linear-gradient(135deg, #3d6026, #4d7036);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(168, 214, 140, 0.3);
 }
@@ -360,7 +375,7 @@
 @media (max-width: 768px) {
   .hex-contact-btn {
     padding: 8px 20px;
-    font-size: 13px;
+    font-size:  13px;
   }
 }
 
@@ -374,7 +389,7 @@
   background: rgba(255, 204, 153, 0.1);
   border-left: 4px solid #ffcc99;
   padding: 10px;
-  margin:   12px 0;
+  margin: 12px 0;
   border-radius: 4px;
   color: #ffcc99;
   font-size: 13px;
@@ -387,18 +402,18 @@
   }
 }
 
-. hex-duplicates-container {
+.hex-duplicates-container {
   display: flex;
   flex-direction: column;
   gap: 12px;
   max-height: 50vh;
-  overflow-y:   auto;
+  overflow-y:  auto;
 }
 
 .hex-duplicate-entry {
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
-  border-radius:   8px;
+  border-radius:  8px;
   border: 1px solid rgba(153, 204, 255, 0.2);
 }
 
@@ -417,10 +432,10 @@
   border-radius: 4px;
 }
 
-.hex-duplicate-name {
+. hex-duplicate-name {
   font-size: 16px;
-  margin:   8px 0;
-  color:   #fff;
+  margin:  8px 0;
+  color:  #fff;
 }
 
 @media (max-width: 768px) {
@@ -432,13 +447,13 @@
 .hex-info-grid-small {
   display: grid;
   gap: 6px;
-  margin:   8px 0;
+  margin:  8px 0;
 }
 
 . hex-info-item-small {
   display: flex;
   gap: 8px;
-  font-size: 12px;
+  font-size:  12px;
   color: #ccc;
 }
 
@@ -452,15 +467,15 @@
   display: inline-block;
   padding: 5px 10px;
   background: #2d5016;
-  color: #a8d68c !  important;
-  text-decoration:   none !important;
+  color:  #a8d68c ! important;
+  text-decoration:  none !important;
   border-radius: 4px;
   font-size: 11px;
   margin-top: 6px;
 }
 
-.hex-contact-btn-small:hover {
-  background:   #3d6026;
+. hex-contact-btn-small: hover {
+  background: #3d6026;
 }
 
 .hex-no-contact-small {
@@ -473,7 +488,7 @@
   line-height: 1.6;
   color: #ccc;
   font-size:  14px;
-  margin:  10px 0;
+  margin: 10px 0;
 }
 
 @media (max-width: 768px) {
@@ -485,7 +500,7 @@
 /* Material theme overrides using ID selector (highest specificity) */
 .md-typeset #repeater-hex-grid td {
   background-color: transparent;
-  border-color: #1a1a1a !  important;
+  border-color: #1a1a1a ! important;
 }
 
 .md-typeset #repeater-hex-grid td.hex-free {
@@ -504,8 +519,8 @@
 }
 
 .md-typeset #repeater-hex-grid td.hex-duplicate {
-  background-color:   #1a3a5c !  important;
-  color: #99ccff !important;
+  background-color: #1a3a5c !important;
+  color:  #99ccff !important;
 }
 
 .md-typeset #repeater-hex-grid td.hex-free a {
