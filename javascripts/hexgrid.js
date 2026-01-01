@@ -217,7 +217,7 @@ function showKeygenModal(hexId) {
     const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
-    modalBody.innerHTML = `
+    modalBody. innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-free-badge">${hexId}</span>
@@ -247,14 +247,18 @@ function showKeygenModal(hexId) {
                             <span class="hex-info-label">🔑 Public Key</span>
                             <button onclick="copyToClipboard('public-key-output')" class="copy-btn-inline">📋 Copy</button>
                         </div>
-                        <textarea readonly id="public-key-output" class="key-output-compact" rows="1"></textarea>
+                        <div class="key-preview" id="public-key-preview"></div>
+                        <textarea readonly id="public-key-output" class="key-output-compact" rows="3" style="display: none;"></textarea>
+                        <button onclick="toggleKey('public')" class="key-toggle-btn" id="public-toggle">Show Full Key</button>
                     </div>
                     <div class="hex-key-section">
                         <div class="hex-key-header">
                             <span class="hex-info-label">🔐 Private Key</span>
                             <button onclick="copyToClipboard('private-key-output')" class="copy-btn-inline">📋 Copy</button>
                         </div>
-                        <textarea readonly id="private-key-output" class="key-output-compact" rows="1"></textarea>
+                        <div class="key-preview" id="private-key-preview"></div>
+                        <textarea readonly id="private-key-output" class="key-output-compact" rows="3" style="display: none;"></textarea>
+                        <button onclick="toggleKey('private')" class="key-toggle-btn" id="private-toggle">Show Full Key</button>
                     </div>
                 </div>
             </div>
@@ -283,24 +287,34 @@ function showKeygenModal(hexId) {
             // Show results
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
+            
+            // Set full keys
             document.getElementById('public-key-output').value = result.publicKey;
             document.getElementById('private-key-output').value = result.privateKey;
+            
+            // Set preview keys (first 8 + ...  + last 10 characters)
+            const publicPreview = result.publicKey.substring(0, 8) + '...' + result.publicKey.substring(result.publicKey.length - 10);
+            const privatePreview = result.privateKey.substring(0, 8) + '...' + result.privateKey.substring(result.privateKey.length - 10);
+            
+            document. getElementById('public-key-preview').textContent = publicPreview;
+            document.getElementById('private-key-preview').textContent = privatePreview;
+            
             document.getElementById('keygen-stats').textContent = 
-                `✓ Generated in ${result. timeSeconds}s (${result. attempts. toLocaleString()} attempts)`;
+                `✓ Generated in ${result.timeSeconds}s (${result.attempts.toLocaleString()} attempts)`;
             
             // Hide initial generate button
-            if (btn) btn.parentElement.style.display = 'none';
+            if (btn) btn.parentElement.style. display = 'none';
             
             // Reset regenerate button
             if (regenBtn) {
                 regenBtn.disabled = false;
-                regenBtn.textContent = '🔑 Generate Key';
+                regenBtn. textContent = '🔑 Generate Key';
             }
             
             // Store for download
             window.generatedKey = result;
         } catch (error) {
-            alert('Error generating key: ' + error.message);
+            alert('Error generating key:  ' + error.message);
             activeBtn.disabled = false;
             activeBtn.textContent = '🔑 Generate Key';
             document.getElementById('keygen-status').style.display = 'none';
@@ -308,7 +322,7 @@ function showKeygenModal(hexId) {
     }
     
     // Attach event listener to initial generate button
-    document. getElementById('generate-key-btn').addEventListener('click', generateKey);
+    document.getElementById('generate-key-btn').addEventListener('click', generateKey);
     
     // Attach event listener to regenerate button (for after first generation)
     setTimeout(() => {
@@ -319,6 +333,24 @@ function showKeygenModal(hexId) {
     }, 0);
 }
 
+// Toggle key visibility
+function toggleKey(type) {
+    const preview = document.getElementById(`${type}-key-preview`);
+    const textarea = document.getElementById(`${type}-key-output`);
+    const toggleBtn = document.getElementById(`${type}-toggle`);
+    
+    if (textarea.style.display === 'none') {
+        // Show full key
+        preview.style.display = 'none';
+        textarea.style.display = 'block';
+        toggleBtn.textContent = 'Hide Full Key';
+    } else {
+        // Show preview
+        preview.style.display = 'block';
+        textarea. style.display = 'none';
+        toggleBtn.textContent = 'Show Full Key';
+    }
+}
 function copyToClipboard(elementId) {
     const element = document.getElementById(elementId);
     element.select();

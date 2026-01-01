@@ -748,3 +748,62 @@ h2.hex-info-title {
     flex-direction: column;
     gap: 8px;
 }
+/* Key preview styling */
+.key-preview {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 3px;
+    padding: 8px;
+    margin-top:  6px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.key-toggle-btn {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #a8d68c;
+    border: 1px solid rgba(168, 214, 140, 0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.2s ease;
+}
+
+.key-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #a8d68c;
+}
+
+.key-output-compact {
+    width: 100%;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 3px;
+    padding: 6px;
+    margin-top:  6px;
+    resize: none;
+    box-sizing: border-box;
+    line-height: 1.3;
+    word-break: break-all;
+}
+
+@media (max-width: 768px) {
+    .key-preview {
+        font-size: 10px;
+        padding: 6px;
+    }
+    
+    .key-toggle-btn {
+        font-size: 9px;
+    }
+}
