@@ -18,10 +18,10 @@
 #repeater-hex-grid th {
   width: 40px;
   height: 40px;
-  min-width:  40px;
+  min-width: 40px;
   min-height: 40px;
   text-align: center;
-  border: 1px solid #1a1a1a !  important;
+  border: 1px solid #1a1a1a ! important;
   font-size: 13px;
   font-weight: 500;
   padding: 0 !important;
@@ -93,17 +93,17 @@
 }
 
 /* Mobile responsive */
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   #repeater-hex-grid td,
   #repeater-hex-grid th {
     width: 32px;
     height: 32px;
-    min-width: 32px;
+    min-width:  32px;
     min-height: 32px;
     max-width: 32px;
     max-height: 32px;
-    font-size:  10px;
-    padding:  0 !important;
+    font-size: 10px;
+    padding: 0 !important;
     line-height: 32px;
   }
   
@@ -128,7 +128,7 @@
   position: fixed;
   z-index: 99999 !important;
   left: 0;
-  top: 0;
+  top:  0;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -146,13 +146,13 @@
   background:  linear-gradient(145deg, #2a2a2a, #1e1e1e);
   margin: 10vh auto;
   padding: 0;
-  border: 1px solid #444;
+  border:  1px solid #444;
   border-radius: 12px;
   width: 85%;
   max-width: 450px;
   min-height: 100px;
   max-height: 80vh;
-  overflow-y: auto;
+  overflow-y:  auto;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   animation: slideDown 0.3s ease;
   position: relative;
@@ -182,14 +182,14 @@
   position: absolute;
   right: 15px;
   top: 10px;
-  font-size:  28px;
+  font-size: 28px;
   font-weight: bold;
   line-height: 1;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition:  color 0.2s ease;
   z-index: 1;
   background: transparent;
-  border:  none;
+  border: none;
   padding: 0;
 }
 
@@ -204,7 +204,7 @@
 
 @media (max-width: 768px) {
   #hex-modal-body {
-    padding: 15px 18px 18px 18px;
+    padding:  15px 18px 18px 18px;
   }
 }
 
@@ -216,20 +216,19 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
+  margin-bottom: 4px;
+  flex-wrap:  wrap;
 }
 
-
 .hex-id-badge {
-  font-family:  'Courier New', monospace;
+  font-family: 'Courier New', monospace;
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size:  16px;
 }
 
-@media (max-width:  768px) {
+@media (max-width: 768px) {
   .hex-id-badge {
     font-size: 14px;
     padding: 5px 10px;
@@ -237,7 +236,7 @@
 }
 
 .hex-used-badge {
-  background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
+  background:  linear-gradient(135deg, #7a2a2a, #5c1a1a);
   color: #ff9999;
   border: 2px solid #ff9999;
 }
@@ -263,14 +262,14 @@
 .hex-free-badge {
   background: linear-gradient(135deg, #3d6026, #2d5016);
   color: #a8d68c;
-  border: 2px solid #a8d68c;
+  border:  2px solid #a8d68c;
 }
 
 .hex-state-badge {
   padding: 4px 10px;
-  border-radius: 4px;
+  border-radius:  4px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight:  600;
   text-transform: uppercase;
 }
 
@@ -287,7 +286,7 @@
 }
 
 .hex-state-available {
-  background:  #2d5016;
+  background: #2d5016;
   color:  #a8d68c;
 }
 
@@ -300,7 +299,7 @@
 
 .hex-state-backbonereserved {
   background: #4a4a4a;
-  color: #bbb;
+  color:  #bbb;
 }
 
 .hex-state-unknown,
@@ -320,15 +319,15 @@
 
 .hex-info-title {
   font-size: 20px;
-  font-weight:  700;
-  margin: 0 0 10px 0;
-  color:  #fff;
+  font-weight: 700;
+  margin:  4px 0 10px 0;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
   .hex-info-title {
     font-size: 18px;
-    margin: 0 0 8px 0;
+    margin: 4px 0 8px 0;
   }
 }
 
@@ -343,7 +342,7 @@
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 12px;
   border-radius:  6px;
-  border-left:  3px solid #5c1a1a;
+  border-left: 3px solid #5c1a1a;
 }
 
 .hex-info-label {
@@ -361,7 +360,7 @@
   word-break: break-word;
 }
 
-@media (max-width:  768px) {
+@media (max-width: 768px) {
   .hex-info-value {
     font-size: 12px;
   }
@@ -376,9 +375,9 @@
   display: inline-block;
   padding: 10px 24px;
   background: linear-gradient(135deg, #2d5016, #3d6026);
-  color: #a8d68c !  important;
-  text-decoration: none !  important;
-  border-radius: 6px;
+  color: #a8d68c ! important;
+  text-decoration:  none ! important;
+  border-radius:  6px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
@@ -401,7 +400,7 @@
 @media (max-width: 768px) {
   .hex-contact-btn {
     padding: 8px 20px;
-    font-size: 13px;
+    font-size:  13px;
   }
 }
 
@@ -416,7 +415,7 @@
   border-left: 4px solid #ffcc99;
   padding: 10px;
   margin: 12px 0;
-  border-radius:  4px;
+  border-radius: 4px;
   color: #ffcc99;
   font-size: 13px;
 }
@@ -440,7 +439,7 @@
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
   border-radius:  8px;
-  border:  1px solid rgba(153, 204, 255, 0.2);
+  border: 1px solid rgba(153, 204, 255, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -461,7 +460,7 @@
 .hex-duplicate-name {
   font-size: 16px;
   margin:  8px 0;
-  color:  #fff;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -493,9 +492,9 @@
   display: inline-block;
   padding: 5px 10px;
   background: #2d5016;
-  color: #a8d68c !  important;
-  text-decoration:  none ! important;
-  border-radius:  4px;
+  color: #a8d68c ! important;
+  text-decoration:  none !important;
+  border-radius: 4px;
   font-size: 11px;
   margin-top: 6px;
 }
@@ -513,7 +512,7 @@
 .hex-reserved-text {
   line-height: 1.6;
   color: #ccc;
-  font-size: 14px;
+  font-size:  14px;
   margin:  10px 0;
 }
 
@@ -524,163 +523,10 @@
 }
 
 /* Keygen specific styles */
-.key-output {
-  width: 100%;
-  font-family: 'Courier New', monospace;
-  font-size: 11px;
-  background: rgba(0, 0, 0, 0.3);
-  color: #e0e0e0;
-  border: 1px solid #444;
-  border-radius: 4px;
-  padding: 8px;
-  resize: vertical;
-  margin-top: 8px;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .key-output {
-    font-size:  10px;
-    padding:  6px;
-  }
-}
-
-.copy-btn {
-  margin-top: 8px;
-  padding: 6px 12px;
-  background: #3a3a3a;
-  color: #aaa;
-  border: 1px solid #555;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  transition: all 0.2s ease;
-  width: 100%;
-}
-
-.copy-btn:hover {
-  background: #4a4a4a;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .copy-btn {
-    font-size:  11px;
-    padding:  5px 10px;
-  }
-}
-
-#keygen-progress {
-  color: #a8d68c;
-  text-align: center;
-  font-family: 'Courier New', monospace;
-  font-size:  13px;
-  margin:  0;
-}
-
-@media (max-width:  768px) {
-  #keygen-progress {
-    font-size: 11px;
-  }
-}
-
-/* Material theme overrides using ID selector (highest specificity) */
-.md-typeset #repeater-hex-grid td {
-  background-color: transparent;
-  border-color: #1a1a1a !  important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-free {
-  background-color: #2d5016 ! important;
-  color: #a8d68c !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-used {
-  background-color: #5c1a1a !important;
-  color: #ff9999 !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-reserved {
-  background-color: #3a3a3a !important;
-  color: #888 !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-backbone {
-  background-color: #4a4a4a !important;
-  color: #aaa !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-duplicate {
-  background-color: #1a3a5c !important;
-  color: #99ccff !important;
-}
-
-/* Keygen ID chip */
-.hex-id-chip {
-  background:  rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
-  border:  1px solid rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-  padding: 5px 10px;
-}
-
-@media (max-width: 768px) {
-  .hex-id-chip {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-}
-
-/* Condensed keygen layout */
-.hex-keygen-description {
-  line-height: 1.4;
-  color: #ccc;
-  font-size: 13px;
-  margin:  10px 0;
-  text-align: center;
-}
-
-.hex-keygen-results {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.hex-key-section {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 6px;
-  border-left: 3px solid #2d5016;
-}
-
-.hex-key-stats {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 6px;
-  border-left:  3px solid #2d5016;
-  text-align: center;
-}
-/* Keygen ID chip */
-.hex-id-chip {
-  background: rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-  padding: 5px 10px;
-}
-
-@media (max-width: 768px) {
-  .hex-id-chip {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-}
-
-/* Condensed keygen layout */
 .hex-keygen-description {
   line-height: 1.3;
   color: #ccc;
-  font-size: 13px;
+  font-size:  13px;
   margin: 8px 0;
   text-align: center;
 }
@@ -692,9 +538,9 @@
 }
 
 .hex-key-section {
-  background:  rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   padding: 8px;
-  border-radius: 4px;
+  border-radius:  4px;
   border-left: 3px solid #2d5016;
 }
 
@@ -714,7 +560,7 @@
   padding: 3px 8px;
   background: #3a3a3a;
   color: #aaa;
-  border: 1px solid #555;
+  border:  1px solid #555;
   border-radius: 3px;
   cursor: pointer;
   font-size: 10px;
@@ -729,7 +575,7 @@
 .key-output-compact {
   width: 100%;
   font-family: 'Courier New', monospace;
-  font-size: 10px;
+  font-size:  10px;
   background: rgba(0, 0, 0, 0.3);
   color: #e0e0e0;
   border: 1px solid #444;
@@ -753,7 +599,7 @@
 
 .hex-keygen-footer {
   margin-top: 12px;
-  padding-top:  12px;
+  padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
@@ -785,7 +631,7 @@
   border-radius: 4px;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   .hex-keygen-description {
     font-size: 12px;
   }
@@ -806,4 +652,35 @@
   .hex-key-stats-inline {
     font-size: 10px;
   }
+}
+
+/* Material theme overrides using ID selector (highest specificity) */
+.md-typeset #repeater-hex-grid td {
+  background-color: transparent;
+  border-color: #1a1a1a ! important;
+}
+
+.md-typeset #repeater-hex-grid td.hex-free {
+  background-color: #2d5016 !important;
+  color: #a8d68c !important;
+}
+
+.md-typeset #repeater-hex-grid td.hex-used {
+  background-color: #5c1a1a !important;
+  color: #ff9999 !important;
+}
+
+.md-typeset #repeater-hex-grid td.hex-reserved {
+  background-color: #3a3a3a !important;
+  color: #888 !important;
+}
+
+.md-typeset #repeater-hex-grid td.hex-backbone {
+  background-color: #4a4a4a !important;
+  color: #aaa !important;
+}
+
+.md-typeset #repeater-hex-grid td.hex-duplicate {
+  background-color: #1a3a5c !important;
+  color: #99ccff !important;
 }
