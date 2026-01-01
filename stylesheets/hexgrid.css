@@ -3,7 +3,7 @@
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin:  20px 0;
+  margin: 20px 0;
 }
 
 /* Table base styles - using ID for maximum specificity */
@@ -18,19 +18,19 @@
 #repeater-hex-grid th {
   width: 40px;
   height: 40px;
-  min-width: 40px;
+  min-width:  40px;
   min-height: 40px;
   text-align: center;
-  border: 1px solid #1a1a1a ! important;
+  border: 1px solid #1a1a1a !  important;
   font-size: 13px;
-  font-weight:  500;
+  font-weight: 500;
   padding: 0 !important;
   box-sizing: border-box;
   line-height: 40px;
 }
 
 #repeater-hex-grid th {
-  background: #1a1a1a ! important;
+  background:  #1a1a1a ! important;
   color: #999 !important;
   font-weight: 600;
 }
@@ -39,8 +39,18 @@
 #repeater-hex-grid td.hex-free {
   background-color: #2d5016 !important;
   color: #a8d68c !important;
-  line-height: 1;
   cursor: pointer;
+  padding: 0 !important;
+}
+
+/* Free cell clickable span acts like the cell content */
+#repeater-hex-grid td.hex-free .hex-clickable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
 }
 
 #repeater-hex-grid td.hex-used {
@@ -58,13 +68,13 @@
 #repeater-hex-grid td.hex-backbone {
   background-color: #4a4a4a !important;
   color: #aaa !important;
-  cursor:  pointer;
+  cursor: pointer;
 }
 
 #repeater-hex-grid td.hex-duplicate {
   background-color: #1a3a5c !important;
-  color: #99ccff !important;
-  cursor:  pointer;
+  color:  #99ccff !important;
+  cursor: pointer;
 }
 
 /* Style clickable spans - simple inline with hover */
@@ -79,26 +89,26 @@
 #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
 #repeater-hex-grid td.hex-backbone:hover .hex-clickable {
   font-size: 16px;
-  font-weight:  700;
+  font-weight: 700;
 }
 
 /* Mobile responsive */
-@media (max-width:  768px) {
+@media (max-width: 768px) {
   #repeater-hex-grid td,
   #repeater-hex-grid th {
     width: 32px;
     height: 32px;
-    min-width:  32px;
+    min-width: 32px;
     min-height: 32px;
     max-width: 32px;
     max-height: 32px;
-    font-size: 10px;
-    padding: 0 !important;
+    font-size:  10px;
+    padding:  0 !important;
     line-height: 32px;
   }
   
-  #repeater-hex-grid td.hex-free {
-    line-height: 1;
+  #repeater-hex-grid td.hex-free .hex-clickable {
+    font-size: 10px;
   }
   
   /* Disable hover effects on mobile */
@@ -136,13 +146,13 @@
   background:  linear-gradient(145deg, #2a2a2a, #1e1e1e);
   margin: 10vh auto;
   padding: 0;
-  border:  1px solid #444;
+  border: 1px solid #444;
   border-radius: 12px;
   width: 85%;
   max-width: 450px;
   min-height: 100px;
-  max-height:  80vh;
-  overflow-y:  auto;
+  max-height: 80vh;
+  overflow-y: auto;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   animation: slideDown 0.3s ease;
   position: relative;
@@ -161,7 +171,7 @@
 
 @media (max-width: 768px) {
   .hex-modal-content {
-    width: 95%;
+    width:  95%;
     max-width: none;
     margin: 5vh auto;
   }
@@ -176,10 +186,10 @@
   font-weight: bold;
   line-height: 1;
   cursor: pointer;
-  transition:  color 0.2s ease;
+  transition: color 0.2s ease;
   z-index: 1;
   background: transparent;
-  border: none;
+  border:  none;
   padding: 0;
 }
 
@@ -211,14 +221,14 @@
 }
 
 .hex-id-badge {
-  font-family: 'Courier New', monospace;
+  font-family:  'Courier New', monospace;
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 16px;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   .hex-id-badge {
     font-size: 14px;
     padding: 5px 10px;
@@ -257,7 +267,7 @@
 
 .hex-state-badge {
   padding: 4px 10px;
-  border-radius:  4px;
+  border-radius: 4px;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -327,7 +337,7 @@
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 12px;
   border-radius:  6px;
-  border-left: 3px solid #5c1a1a;
+  border-left:  3px solid #5c1a1a;
 }
 
 .hex-info-label {
@@ -345,7 +355,7 @@
   word-break: break-word;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   .hex-info-value {
     font-size: 12px;
   }
@@ -360,9 +370,9 @@
   display: inline-block;
   padding: 10px 24px;
   background: linear-gradient(135deg, #2d5016, #3d6026);
-  color: #a8d68c ! important;
-  text-decoration: none ! important;
-  border-radius:  6px;
+  color: #a8d68c !  important;
+  text-decoration: none !  important;
+  border-radius: 6px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
@@ -385,7 +395,7 @@
 @media (max-width: 768px) {
   .hex-contact-btn {
     padding: 8px 20px;
-    font-size:  13px;
+    font-size: 13px;
   }
 }
 
@@ -399,8 +409,8 @@
   background: rgba(255, 204, 153, 0.1);
   border-left: 4px solid #ffcc99;
   padding: 10px;
-  margin:  12px 0;
-  border-radius: 4px;
+  margin: 12px 0;
+  border-radius:  4px;
   color: #ffcc99;
   font-size: 13px;
 }
@@ -424,7 +434,7 @@
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
   border-radius:  8px;
-  border: 1px solid rgba(153, 204, 255, 0.2);
+  border:  1px solid rgba(153, 204, 255, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -477,9 +487,9 @@
   display: inline-block;
   padding: 5px 10px;
   background: #2d5016;
-  color: #a8d68c ! important;
-  text-decoration:  none !important;
-  border-radius: 4px;
+  color: #a8d68c !  important;
+  text-decoration:  none ! important;
+  border-radius:  4px;
   font-size: 11px;
   margin-top: 6px;
 }
@@ -497,7 +507,7 @@
 .hex-reserved-text {
   line-height: 1.6;
   color: #ccc;
-  font-size:  14px;
+  font-size: 14px;
   margin:  10px 0;
 }
 
@@ -562,7 +572,7 @@
   margin:  0;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   #keygen-progress {
     font-size: 11px;
   }
@@ -571,11 +581,11 @@
 /* Material theme overrides using ID selector (highest specificity) */
 .md-typeset #repeater-hex-grid td {
   background-color: transparent;
-  border-color: #1a1a1a ! important;
+  border-color: #1a1a1a !  important;
 }
 
 .md-typeset #repeater-hex-grid td.hex-free {
-  background-color: #2d5016 !important;
+  background-color: #2d5016 ! important;
   color: #a8d68c !important;
 }
 
