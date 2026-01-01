@@ -607,7 +607,7 @@ repeaters:
     state: "Active"
     hex_id: "921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF"
     last_heard: 1767283218
-    power: null
+    power: "0.3w"
 
   - id: "99"
     name: "BUN_Solar_Rep"
