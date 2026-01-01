@@ -6,7 +6,7 @@ import json
 
 def define_env(env):
     """Hook for mkdocs-macros-plugin."""
-    project_dir = pathlib.Path(env.project_dir)
+    project_dir = pathlib.Path(env. project_dir)
 
     # Define a filter to convert epoch to YYYY-MM-DD
     @env.filter
@@ -52,7 +52,7 @@ def define_env(env):
             # If duplicate, store in a list
             if rid not in repeater_info:
                 repeater_info[rid] = []
-            repeater_info[rid].append({
+            repeater_info[rid]. append({
                 "name": name,
                 "state": state,
                 "antenna":  antenna,
@@ -73,9 +73,8 @@ def define_env(env):
     # Sort for nice output
     free_ids.sort(key=lambda x: int(x, 16))
 
-    # Generate HTML hex table
+    # Generate HTML hex table (NO WRAPPER)
     html_table = '<div id="hex-modal" class="hex-modal"><div class="hex-modal-content"><span class="hex-modal-close">&times;</span><div id="hex-modal-body"></div></div></div>\n'
-    html_table += '<div class="hex-table-wrapper">\n'
     html_table += '<table class="hex-table">\n'
     
     # Header row
@@ -91,8 +90,8 @@ def define_env(env):
         for col in range(16):
             cell_id = f"{row:X}{col:X}"
             
-            # Check in priority order: reserved > duplicate > used > free
-            if cell_id in reserved_ids: 
+            # Check in priority order:  reserved > duplicate > used > free
+            if cell_id in reserved_ids:
                 css_class = "hex-reserved"
                 html_table += f'    <td class="{css_class}" onclick="showReservedInfo()"><span class="hex-clickable">{cell_id}</span></td>\n'
             elif cell_id in duplicate_ids: 
@@ -100,7 +99,7 @@ def define_env(env):
                 # Escape quotes in JSON data
                 info_json = json.dumps(repeater_info[cell_id]).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showDuplicateInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
-            elif cell_id in used_ids:
+            elif cell_id in used_ids: 
                 css_class = "hex-used"
                 info = repeater_info[cell_id][0]
                 info_json = json.dumps(info).replace('"', '&quot;')
@@ -112,9 +111,8 @@ def define_env(env):
         html_table += '  </tr>\n'
 
     html_table += '</table>\n'
-    html_table += '</div>\n'
 
     # Expose variables to Jinja
     env.variables["repeaters"] = repeaters
-    env.variables["unused_ids"] = free_ids
+    env. variables["unused_ids"] = free_ids
     env.variables["hex_table"] = html_table
