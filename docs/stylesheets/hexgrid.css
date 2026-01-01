@@ -74,7 +74,7 @@ hex-clickable {
 
 #repeater-hex-grid td.hex-used:hover .hex-clickable,
 #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
-#repeater-hex-grid td.hex-reserved:hover hex-clickable,
+#repeater-hex-grid td.hex-reserved:hover .hex-clickable,
 #repeater-hex-grid td.hex-backbone:hover .hex-clickable {
   font-size:  16px;
   font-weight: 700;
@@ -124,7 +124,7 @@ hex-clickable {
   /* Disable hover effects on mobile */
   #repeater-hex-grid td.hex-used:hover .hex-clickable,
   #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
-  #repeater-hex-grid td.hex-reserved:hover hex-clickable,
+  #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
   #repeater-hex-grid td.hex-backbone:hover .hex-clickable {
     font-size: 10px;
     font-weight: 500;
