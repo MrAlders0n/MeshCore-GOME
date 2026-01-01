@@ -15,23 +15,16 @@ This page lists all deployed and reserved repeater IDs in Ottawa, along with the
 
 ## Repeater ID Visualization
 
-The following table shows all possible repeater IDs (00-FF). **Dark green** cells indicate available IDs, while **dark red** cells indicate IDs that are currently in use. 
+The table below provides a **visual overview of all 256 possible repeater IDs** (00-FF). Each cell is color-coded to show its current status:
+
+- 🟢 **Dark Green** — Available IDs (click to generate a new keypair with this ID)
+- 🔴 **Dark Red** — Deployed repeaters (click to view details)
+- 🔵 **Dark Blue** — Duplicate/conflicting IDs (click to see all conflicts)
+- ⚫ **Grey** — MeshCore reserved IDs (00 and FF)
+
+**Click any cell** to interact with it.  Available IDs link directly to the key generator, while used IDs display detailed repeater information including antenna type, location, and contact details.
 
 {{ hex_table }}
 
 *({{ unused_ids | length }} available IDs)*
 
-## Available Repeater IDs
-
-The following MeshCore node identifiers are currently **unused** and available for future Ottawa repeaters:  
-```{{ unused_ids | join(', ') }}```
-
-## Deployed Repeater IDs
-
-| Identifier | State | Repeater Name   | Antenna   | Location / Height   | Last Heard | MeshCore Contact URL |
-|-----------:|-------|-----------------|-----------|---------------------|------------|----------------------|
-{% for r in repeaters -%}
-| {{ r. id }} | {%- if r.state %} {{ r.state }} {%- else %} Unknown {%- endif %} | {{ r.name }} | {{ r.antenna }} | {{ r.location }} | {{ r.last_heard | epoch_to_date }} | {%- if r.contact %} [Contact]({{ r.contact }}) {%- else %} N/A {%- endif %} |
-{% endfor %}
-
-*If you spot an error in this repeater list or would like to add your own, please contact MrAlders0n on the Greater Ottawa Mesh Enthusiasts Discord.*
