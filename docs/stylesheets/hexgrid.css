@@ -1,7 +1,7 @@
 .hex-table {
   border-collapse: collapse;
   margin: 20px 0;
-  font-family: 'Courier New', monospace;
+  font-family:  'Courier New', monospace;
 }
 
 .hex-table td, .hex-table th {
@@ -15,7 +15,7 @@
 }
 
 .hex-table th {
-  background:  #1a1a1a !important;
+  background:  #1a1a1a ! important;
   color: #999 !important;
   font-weight: 600;
 }
@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 
-.hex-table td.hex-reserved {
+. hex-table td.hex-reserved {
   background-color: #3a3a3a !important;
   color: #888 !important;
   cursor: pointer;
@@ -48,14 +48,14 @@
   transition: transform 0.1s ease;
 }
 
-.hex-table td.hex-used:hover . hex-clickable,
+.hex-table td.hex-used:hover .hex-clickable,
 .hex-table td.hex-duplicate:hover .hex-clickable,
 .hex-table td.hex-reserved:hover .hex-clickable {
   transform: scale(1.2);
 }
 
 /* Style links in free cells */
-.hex-table td.hex-free a {
+. hex-table td.hex-free a {
   color: #a8d68c !important;
   text-decoration: none ! important;
   display: block;
@@ -85,8 +85,8 @@
   .hex-table td, .hex-table th {
     width: 32px;
     height: 32px;
-    font-size: 11px;
-    padding: 4px ! important;
+    font-size:  11px;
+    padding:  4px ! important;
     min-width: 32px;
   }
   
@@ -153,16 +153,23 @@
   position: absolute;
   right: 15px;
   top: 10px;
-  font-size:  28px;
+  font-size: 28px;
   font-weight: bold;
+  line-height: 1;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition:  color 0.2s ease;
   z-index: 1;
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: auto;
+  height: auto;
 }
 
 .hex-modal-close:hover,
 .hex-modal-close:focus {
   color: #fff;
+  text-decoration: none;
 }
 
 #hex-modal-body {
@@ -202,7 +209,7 @@
   }
 }
 
-. hex-used-badge {
+.hex-used-badge {
   background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
   color: #ff9999;
   border: 2px solid #ff9999;
@@ -222,8 +229,8 @@
 
 .hex-state-badge {
   padding: 4px 10px;
-  border-radius:  4px;
-  font-size: 11px;
+  border-radius: 4px;
+  font-size:  11px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -235,7 +242,7 @@
   }
 }
 
-.hex-state-active {
+. hex-state-active {
   background: #2d5016;
   color:  #a8d68c;
 }
@@ -257,16 +264,16 @@
   padding: 4px 10px;
   border-radius: 4px;
   background: #7a4a2a;
-  color:  #ffcc99;
+  color: #ffcc99;
   font-size: 11px;
   font-weight: 600;
 }
 
 .hex-info-title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight:  700;
   margin:  0 0 15px 0;
-  color:  #fff;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -280,13 +287,13 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  margin-bottom:  15px;
+  margin-bottom: 15px;
 }
 
-. hex-info-item {
+.hex-info-item {
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 12px;
-  border-radius: 6px;
+  border-radius:  6px;
   border-left: 3px solid #5c1a1a;
 }
 
@@ -305,7 +312,7 @@
   word-break: break-word;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   .hex-info-value {
     font-size: 12px;
   }
@@ -321,8 +328,8 @@
   padding: 10px 24px;
   background: linear-gradient(135deg, #2d5016, #3d6026);
   color: #a8d68c ! important;
-  text-decoration:  none ! important;
-  border-radius:  6px;
+  text-decoration:  none !important;
+  border-radius: 6px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
@@ -344,7 +351,7 @@
 
 .hex-no-contact {
   color: #888;
-  font-style:  italic;
+  font-style: italic;
   font-size: 13px;
 }
 
@@ -365,24 +372,24 @@
   }
 }
 
-.hex-duplicates-container {
-  display:  flex;
-  flex-direction:  column;
+. hex-duplicates-container {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   max-height: 50vh;
-  overflow-y:  auto;
+  overflow-y: auto;
 }
 
 .hex-duplicate-entry {
-  background:  rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.03);
   padding: 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(153, 204, 255, 0.2);
+  border-radius:  8px;
+  border:  1px solid rgba(153, 204, 255, 0.2);
 }
 
 @media (max-width: 768px) {
   .hex-duplicate-entry {
-    padding: 10px;
+    padding:  10px;
   }
 }
 
@@ -398,7 +405,7 @@
 .hex-duplicate-name {
   font-size: 16px;
   margin:  8px 0;
-  color: #fff;
+  color:  #fff;
 }
 
 @media (max-width: 768px) {
@@ -430,7 +437,7 @@
   display: inline-block;
   padding: 5px 10px;
   background: #2d5016;
-  color: #a8d68c ! important;
+  color:  #a8d68c ! important;
   text-decoration:  none !important;
   border-radius: 4px;
   font-size: 11px;
@@ -438,7 +445,7 @@
 }
 
 .hex-contact-btn-small:hover {
-  background:  #3d6026;
+  background: #3d6026;
 }
 
 .hex-no-contact-small {
@@ -451,7 +458,7 @@
   line-height: 1.6;
   color: #ccc;
   font-size: 14px;
-  margin: 10px 0;
+  margin:  10px 0;
 }
 
 @media (max-width: 768px) {
@@ -460,32 +467,54 @@
   }
 }
 
-/* Override Material theme - MOST SPECIFIC RULES */
-.md-typeset .hex-table-wrapper . hex-table td {
-  background-color: transparent;
+/* Override Material theme with maximum specificity */
+.md-typeset table.hex-table td {
+  background-color: transparent !important;
   border-color: #1a1a1a !important;
 }
 
-.md-typeset .hex-table-wrapper . hex-table td.hex-free {
+.md-typeset table.hex-table td. hex-free {
   background-color: #2d5016 !important;
-}
-
-.md-typeset .hex-table-wrapper .hex-table td.hex-used {
-  background-color: #5c1a1a !important;
-}
-
-.md-typeset .hex-table-wrapper .hex-table td.hex-reserved {
-  background-color: #3a3a3a !important;
-}
-
-.md-typeset .hex-table-wrapper .hex-table td.hex-duplicate {
-  background-color: #1a3a5c !important;
-}
-
-.md-typeset .hex-table-wrapper .hex-table td.hex-free a {
   color: #a8d68c !important;
 }
 
-.md-typeset . hex-table-wrapper .hex-table td.hex-free a:hover {
+.md-typeset table.hex-table td.hex-used {
+  background-color: #5c1a1a !important;
+  color: #ff9999 !important;
+}
+
+.md-typeset table. hex-table td.hex-reserved {
+  background-color: #3a3a3a !important;
+  color: #888 !important;
+}
+
+.md-typeset table.hex-table td.hex-duplicate {
+  background-color: #1a3a5c !important;
+  color: #99ccff !important;
+}
+
+.md-typeset table.hex-table td. hex-free a {
+  color: #a8d68c !important;
+  text-decoration: none !important;
+}
+
+.md-typeset table.hex-table td.hex-free a:hover {
   color: #ffffff !important;
+}
+
+/* Additional Material overrides - even more specific */
+.md-typeset . hex-table-wrapper table.hex-table tbody tr td. hex-free {
+  background-color: #2d5016 !important;
+}
+
+.md-typeset .hex-table-wrapper table.hex-table tbody tr td.hex-used {
+  background-color: #5c1a1a !important;
+}
+
+.md-typeset .hex-table-wrapper table.hex-table tbody tr td. hex-reserved {
+  background-color: #3a3a3a !important;
+}
+
+. md-typeset .hex-table-wrapper table.hex-table tbody tr td.hex-duplicate {
+  background-color: #1a3a5c !important;
 }
