@@ -18,8 +18,7 @@ The table below shows all **256 repeater IDs**. Colors indicate status:
 - 🟢 **Available** — click to generate a keypair
 - 🔴 **Deployed** — click for repeater details
 - 🔵 **Duplicate/Conflict** — click to view conflicts
-- ⬜ **Backbone Reserved** — held for major links
-- ⬛ **MeshCore Reserved** — IDs 00 and FF
+- ⚫ **Backbone Reserved** — held for major links
 
 Click any cell to view details or take action.
 
