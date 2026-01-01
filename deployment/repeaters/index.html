@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/hexgrid.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -537,6 +539,17 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repeater-id-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeater ID Visualization
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#available-repeater-ids" class="md-nav__link">
@@ -1685,6 +1698,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#repeater-id-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeater ID Visualization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#available-repeater-ids" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1729,18 +1753,344 @@
 
 
 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h1>
-<!-- The repeater tables and ID list on this page are automatically generated from meshcore/data/repeaters.yml. 
+<!-- The repeater tables and ID list on this page are automatically generated from meshcore/data/repeaters.yml.  
      To add a new repeater, simply append it to that YAML file — MkDocs will populate the tables automatically. -->
 
 <p>This page lists all deployed and reserved repeater IDs in Ottawa, along with their current configurations.</p>
-<div class="admonition note">
-<p class="admonition-title">If you notice anything that should be updated</p>
-<p>Please see our <strong><a href="../../community/contributing/">Contributing Guide</a></strong>. You can also reach out to MrAlders0n on Discord or MeshCore, or contact any of the Knowledge Curators on the Discord server for assistance.</p>
-</div>
+<p>! !! note "If you notice anything that should be updated"
+    Please see our <strong><a href="../../community/contributing/">Contributing Guide</a></strong>.  You can also reach out to MrAlders0n on Discord or MeshCore, or contact any of the Knowledge Curators on the Discord server.</p>
+<h2 id="repeater-id-visualization">Repeater ID Visualization<a class="headerlink" href="#repeater-id-visualization" title="Permanent link">¶</a></h2>
+<p>The following table shows all possible repeater IDs (00-FF). <strong>Dark green</strong> cells indicate available IDs, while <strong>dark red</strong> cells indicate IDs that are currently in use. </p>
+<table class="hex-table">
+  <tbody><tr>
+    <th></th>
+    <th> 0</th>
+    <th> 1</th>
+    <th> 2</th>
+    <th> 3</th>
+    <th> 4</th>
+    <th> 5</th>
+    <th> 6</th>
+    <th> 7</th>
+    <th> 8</th>
+    <th> 9</th>
+    <th> A</th>
+    <th> B</th>
+    <th> C</th>
+    <th> D</th>
+    <th> E</th>
+    <th> F</th>
+  </tr>
+  <tr>
+    <th>0</th>
+    <td class="hex-free">00</td>
+    <td class="hex-used">01</td>
+    <td class="hex-used">02</td>
+    <td class="hex-used">03</td>
+    <td class="hex-used">04</td>
+    <td class="hex-used">05</td>
+    <td class="hex-used">06</td>
+    <td class="hex-used">07</td>
+    <td class="hex-used">08</td>
+    <td class="hex-free">09</td>
+    <td class="hex-used">0A</td>
+    <td class="hex-used">0B</td>
+    <td class="hex-used">0C</td>
+    <td class="hex-free">0D</td>
+    <td class="hex-free">0E</td>
+    <td class="hex-free">0F</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td class="hex-free">10</td>
+    <td class="hex-free">11</td>
+    <td class="hex-free">12</td>
+    <td class="hex-free">13</td>
+    <td class="hex-used">14</td>
+    <td class="hex-free">15</td>
+    <td class="hex-free">16</td>
+    <td class="hex-used">17</td>
+    <td class="hex-free">18</td>
+    <td class="hex-free">19</td>
+    <td class="hex-free">1A</td>
+    <td class="hex-used">1B</td>
+    <td class="hex-free">1C</td>
+    <td class="hex-free">1D</td>
+    <td class="hex-free">1E</td>
+    <td class="hex-free">1F</td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td class="hex-used">20</td>
+    <td class="hex-free">21</td>
+    <td class="hex-used">22</td>
+    <td class="hex-free">23</td>
+    <td class="hex-free">24</td>
+    <td class="hex-free">25</td>
+    <td class="hex-free">26</td>
+    <td class="hex-used">27</td>
+    <td class="hex-used">28</td>
+    <td class="hex-free">29</td>
+    <td class="hex-free">2A</td>
+    <td class="hex-free">2B</td>
+    <td class="hex-free">2C</td>
+    <td class="hex-used">2D</td>
+    <td class="hex-used">2E</td>
+    <td class="hex-free">2F</td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td class="hex-used">30</td>
+    <td class="hex-free">31</td>
+    <td class="hex-free">32</td>
+    <td class="hex-free">33</td>
+    <td class="hex-free">34</td>
+    <td class="hex-used">35</td>
+    <td class="hex-free">36</td>
+    <td class="hex-used">37</td>
+    <td class="hex-used">38</td>
+    <td class="hex-used">39</td>
+    <td class="hex-free">3A</td>
+    <td class="hex-used">3B</td>
+    <td class="hex-free">3C</td>
+    <td class="hex-used">3D</td>
+    <td class="hex-used">3E</td>
+    <td class="hex-free">3F</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td class="hex-free">40</td>
+    <td class="hex-free">41</td>
+    <td class="hex-used">42</td>
+    <td class="hex-free">43</td>
+    <td class="hex-free">44</td>
+    <td class="hex-free">45</td>
+    <td class="hex-used">46</td>
+    <td class="hex-used">47</td>
+    <td class="hex-used">48</td>
+    <td class="hex-free">49</td>
+    <td class="hex-free">4A</td>
+    <td class="hex-used">4B</td>
+    <td class="hex-free">4C</td>
+    <td class="hex-used">4D</td>
+    <td class="hex-used">4E</td>
+    <td class="hex-used">4F</td>
+  </tr>
+  <tr>
+    <th>5</th>
+    <td class="hex-used">50</td>
+    <td class="hex-used">51</td>
+    <td class="hex-free">52</td>
+    <td class="hex-free">53</td>
+    <td class="hex-free">54</td>
+    <td class="hex-free">55</td>
+    <td class="hex-free">56</td>
+    <td class="hex-free">57</td>
+    <td class="hex-free">58</td>
+    <td class="hex-used">59</td>
+    <td class="hex-free">5A</td>
+    <td class="hex-used">5B</td>
+    <td class="hex-used">5C</td>
+    <td class="hex-used">5D</td>
+    <td class="hex-free">5E</td>
+    <td class="hex-free">5F</td>
+  </tr>
+  <tr>
+    <th>6</th>
+    <td class="hex-free">60</td>
+    <td class="hex-used">61</td>
+    <td class="hex-free">62</td>
+    <td class="hex-free">63</td>
+    <td class="hex-used">64</td>
+    <td class="hex-free">65</td>
+    <td class="hex-free">66</td>
+    <td class="hex-used">67</td>
+    <td class="hex-used">68</td>
+    <td class="hex-used">69</td>
+    <td class="hex-used">6A</td>
+    <td class="hex-free">6B</td>
+    <td class="hex-free">6C</td>
+    <td class="hex-free">6D</td>
+    <td class="hex-free">6E</td>
+    <td class="hex-free">6F</td>
+  </tr>
+  <tr>
+    <th>7</th>
+    <td class="hex-used">70</td>
+    <td class="hex-free">71</td>
+    <td class="hex-free">72</td>
+    <td class="hex-free">73</td>
+    <td class="hex-used">74</td>
+    <td class="hex-used">75</td>
+    <td class="hex-used">76</td>
+    <td class="hex-used">77</td>
+    <td class="hex-used">78</td>
+    <td class="hex-used">79</td>
+    <td class="hex-free">7A</td>
+    <td class="hex-used">7B</td>
+    <td class="hex-used">7C</td>
+    <td class="hex-used">7D</td>
+    <td class="hex-free">7E</td>
+    <td class="hex-free">7F</td>
+  </tr>
+  <tr>
+    <th>8</th>
+    <td class="hex-used">80</td>
+    <td class="hex-used">81</td>
+    <td class="hex-free">82</td>
+    <td class="hex-used">83</td>
+    <td class="hex-free">84</td>
+    <td class="hex-free">85</td>
+    <td class="hex-used">86</td>
+    <td class="hex-free">87</td>
+    <td class="hex-free">88</td>
+    <td class="hex-used">89</td>
+    <td class="hex-used">8A</td>
+    <td class="hex-used">8B</td>
+    <td class="hex-free">8C</td>
+    <td class="hex-free">8D</td>
+    <td class="hex-used">8E</td>
+    <td class="hex-used">8F</td>
+  </tr>
+  <tr>
+    <th>9</th>
+    <td class="hex-used">90</td>
+    <td class="hex-free">91</td>
+    <td class="hex-used">92</td>
+    <td class="hex-free">93</td>
+    <td class="hex-free">94</td>
+    <td class="hex-free">95</td>
+    <td class="hex-free">96</td>
+    <td class="hex-free">97</td>
+    <td class="hex-free">98</td>
+    <td class="hex-used">99</td>
+    <td class="hex-free">9A</td>
+    <td class="hex-free">9B</td>
+    <td class="hex-free">9C</td>
+    <td class="hex-free">9D</td>
+    <td class="hex-free">9E</td>
+    <td class="hex-free">9F</td>
+  </tr>
+  <tr>
+    <th>A</th>
+    <td class="hex-free">A0</td>
+    <td class="hex-used">A1</td>
+    <td class="hex-free">A2</td>
+    <td class="hex-free">A3</td>
+    <td class="hex-free">A4</td>
+    <td class="hex-free">A5</td>
+    <td class="hex-free">A6</td>
+    <td class="hex-used">A7</td>
+    <td class="hex-used">A8</td>
+    <td class="hex-used">A9</td>
+    <td class="hex-free">AA</td>
+    <td class="hex-free">AB</td>
+    <td class="hex-free">AC</td>
+    <td class="hex-free">AD</td>
+    <td class="hex-free">AE</td>
+    <td class="hex-used">AF</td>
+  </tr>
+  <tr>
+    <th>B</th>
+    <td class="hex-free">B0</td>
+    <td class="hex-used">B1</td>
+    <td class="hex-used">B2</td>
+    <td class="hex-used">B3</td>
+    <td class="hex-free">B4</td>
+    <td class="hex-used">B5</td>
+    <td class="hex-free">B6</td>
+    <td class="hex-used">B7</td>
+    <td class="hex-free">B8</td>
+    <td class="hex-free">B9</td>
+    <td class="hex-free">BA</td>
+    <td class="hex-free">BB</td>
+    <td class="hex-free">BC</td>
+    <td class="hex-free">BD</td>
+    <td class="hex-free">BE</td>
+    <td class="hex-used">BF</td>
+  </tr>
+  <tr>
+    <th>C</th>
+    <td class="hex-free">C0</td>
+    <td class="hex-free">C1</td>
+    <td class="hex-free">C2</td>
+    <td class="hex-free">C3</td>
+    <td class="hex-used">C4</td>
+    <td class="hex-free">C5</td>
+    <td class="hex-free">C6</td>
+    <td class="hex-free">C7</td>
+    <td class="hex-free">C8</td>
+    <td class="hex-used">C9</td>
+    <td class="hex-free">CA</td>
+    <td class="hex-free">CB</td>
+    <td class="hex-used">CC</td>
+    <td class="hex-free">CD</td>
+    <td class="hex-free">CE</td>
+    <td class="hex-used">CF</td>
+  </tr>
+  <tr>
+    <th>D</th>
+    <td class="hex-used">D0</td>
+    <td class="hex-used">D1</td>
+    <td class="hex-used">D2</td>
+    <td class="hex-used">D3</td>
+    <td class="hex-free">D4</td>
+    <td class="hex-free">D5</td>
+    <td class="hex-used">D6</td>
+    <td class="hex-free">D7</td>
+    <td class="hex-free">D8</td>
+    <td class="hex-free">D9</td>
+    <td class="hex-used">DA</td>
+    <td class="hex-free">DB</td>
+    <td class="hex-free">DC</td>
+    <td class="hex-free">DD</td>
+    <td class="hex-free">DE</td>
+    <td class="hex-free">DF</td>
+  </tr>
+  <tr>
+    <th>E</th>
+    <td class="hex-used">E0</td>
+    <td class="hex-used">E1</td>
+    <td class="hex-free">E2</td>
+    <td class="hex-free">E3</td>
+    <td class="hex-used">E4</td>
+    <td class="hex-free">E5</td>
+    <td class="hex-free">E6</td>
+    <td class="hex-free">E7</td>
+    <td class="hex-free">E8</td>
+    <td class="hex-free">E9</td>
+    <td class="hex-free">EA</td>
+    <td class="hex-free">EB</td>
+    <td class="hex-used">EC</td>
+    <td class="hex-free">ED</td>
+    <td class="hex-free">EE</td>
+    <td class="hex-free">EF</td>
+  </tr>
+  <tr>
+    <th>F</th>
+    <td class="hex-free">F0</td>
+    <td class="hex-free">F1</td>
+    <td class="hex-used">F2</td>
+    <td class="hex-used">F3</td>
+    <td class="hex-used">F4</td>
+    <td class="hex-free">F5</td>
+    <td class="hex-free">F6</td>
+    <td class="hex-free">F7</td>
+    <td class="hex-free">F8</td>
+    <td class="hex-free">F9</td>
+    <td class="hex-free">FA</td>
+    <td class="hex-free">FB</td>
+    <td class="hex-used">FC</td>
+    <td class="hex-free">FD</td>
+    <td class="hex-used">FE</td>
+    <td class="hex-used">FF</td>
+  </tr>
+</tbody></table>
+
+<p><em>(155 available IDs)</em></p>
 <h2 id="available-repeater-ids">Available Repeater IDs<a class="headerlink" href="#available-repeater-ids" title="Permanent link">¶</a></h2>
 <p>The following MeshCore node identifiers are currently <strong>unused</strong> and available for future Ottawa repeaters:<br>
-<code>00,09,0d,0e,0f,10,11,12,13,15,16,18,19,1a,1c,1d,1e,1f,21,23,24,25,26,29,2a,2b,2c,2f,31,32,33,34,36,3a,3c,3f,40,41,43,44,45,49,4a,4c,52,53,54,55,56,57,58,5a,5e,5f,60,62,63,65,66,6b,6c,6d,6e,6f,71,72,73,7a,7e,7f,82,84,85,87,88,8c,8d,91,93,94,95,96,97,98,9a,9b,9c,9d,9e,9f,a0,a2,a3,a4,a5,a6,aa,ab,ac,ad,ae,b0,b4,b6,b8,b9,ba,bb,bc,bd,be,c0,c1,c2,c3,c5,c6,c7,c8,ca,cb,cd,ce,d4,d5,d7,d8,d9,db,dc,dd,de,df,e2,e3,e5,e6,e7,e8,e9,ea,eb,ed,ee,ef,f0,f1,f5,f6,f7,f8,f9,fa,fb,fd</code>
-<em>(155 remaining IDs)</em></p>
+<code>00, 09, 0D, 0E, 0F, 10, 11, 12, 13, 15, 16, 18, 19, 1A, 1C, 1D, 1E, 1F, 21, 23, 24, 25, 26, 29, 2A, 2B, 2C, 2F, 31, 32, 33, 34, 36, 3A, 3C, 3F, 40, 41, 43, 44, 45, 49, 4A, 4C, 52, 53, 54, 55, 56, 57, 58, 5A, 5E, 5F, 60, 62, 63, 65, 66, 6B, 6C, 6D, 6E, 6F, 71, 72, 73, 7A, 7E, 7F, 82, 84, 85, 87, 88, 8C, 8D, 91, 93, 94, 95, 96, 97, 98, 9A, 9B, 9C, 9D, 9E, 9F, A0, A2, A3, A4, A5, A6, AA, AB, AC, AD, AE, B0, B4, B6, B8, B9, BA, BB, BC, BD, BE, C0, C1, C2, C3, C5, C6, C7, C8, CA, CB, CD, CE, D4, D5, D7, D8, D9, DB, DC, DD, DE, DF, E2, E3, E5, E6, E7, E8, E9, EA, EB, ED, EE, EF, F0, F1, F5, F6, F7, F8, F9, FA, FB, FD</code></p>
 <h2 id="deployed-repeater-ids">Deployed Repeater IDs<a class="headerlink" href="#deployed-repeater-ids" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -1762,7 +2112,7 @@
 <td>LPDA</td>
 <td>Ashton (~3.5 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">03</td>
@@ -1780,7 +2130,7 @@
 <td>Alfa 5.8dbi</td>
 <td>Centretown (~10 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">05</td>
@@ -1915,7 +2265,7 @@
 <td>Alfa Omni 5.8dBi</td>
 <td>Baseline &amp; Greenbank (~18 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">30</td>
@@ -1924,7 +2274,7 @@
 <td>Alfa Omni 5.8dBi</td>
 <td>Parkdale (~20 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">35</td>
@@ -2095,7 +2445,7 @@
 <td>N/A</td>
 <td>Old Ottawa South (N/A)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">5D</td>
@@ -2158,7 +2508,7 @@
 <td>Alfa Omni 5.8dBi</td>
 <td>Cumberland (~70 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">76</td>
@@ -2203,7 +2553,7 @@
 <td>Taoglas Omni 4dBi</td>
 <td>Centretown (~10.5 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">7D</td>
@@ -2221,7 +2571,7 @@
 <td>TBD</td>
 <td>Kemptville (~X.X m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">81</td>
@@ -2230,7 +2580,7 @@
 <td>Alfa 5.8 dBi</td>
 <td>Beckwith (~4.0m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">83</td>
@@ -2302,7 +2652,7 @@
 <td>TBD</td>
 <td>Old Ottawa South (~7.0 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">A1</td>
@@ -2311,7 +2661,7 @@
 <td>TBD</td>
 <td>Alfred</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">A7</td>
@@ -2329,7 +2679,7 @@
 <td>Alfa Omni 5.8dBi</td>
 <td>Plateau, QC (~X m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">A9</td>
@@ -2410,7 +2760,7 @@
 <td>Gizont 167mm Whip</td>
 <td>Everywhere</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">CC</td>
@@ -2455,7 +2805,7 @@
 <td>Rokland Omni Fibreglass 8dBI</td>
 <td>Riverside South (~7.5 m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td style="text-align: right;">D3</td>
@@ -2662,7 +3012,7 @@
 <td>TBD</td>
 <td>TBD (~X.X m)</td>
 <td>N/A</td>
-<td>TBD</td>
+<td>N/A</td>
 </tr>
 </tbody>
 </table>
