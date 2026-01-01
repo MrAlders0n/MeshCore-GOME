@@ -214,7 +214,7 @@ function updateKeygenProgress(attempts, rate) {
 
 // Show keygen modal
 function showKeygenModal(hexId) {
-    const modal = document. getElementById('hex-modal');
+    const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
@@ -233,7 +233,7 @@ function showKeygenModal(hexId) {
             <div id="keygen-status" style="margin-top: 12px; display: none;">
                 <p id="keygen-progress"></p>
             </div>
-            <div id="keygen-result" style="display:  none; margin-top: 12px;">
+            <div id="keygen-result" style="display: none; margin-top: 12px;">
                 <div class="hex-keygen-results">
                     <div class="hex-key-section">
                         <div class="hex-key-header">
@@ -253,23 +253,27 @@ function showKeygenModal(hexId) {
                 <div class="hex-key-stats-inline">
                     <span id="keygen-stats"></span>
                 </div>
-                <div class="hex-info-contact" style="margin-top: 12px;">
-                    <button onclick="downloadKeyJSON('${hexId}')" class="hex-contact-btn">💾 Download JSON</button>
+                <div class="hex-keygen-actions">
+                    <button id="regenerate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
+                    <button onclick="downloadKeyJSON('${hexId}')" class="hex-download-btn" title="Download JSON">💾</button>
                 </div>
             </div>
             <div class="hex-keygen-footer">
                 <span class="hex-keygen-credit">Based on <a href="https://github.com/agessaman/meshcore-web-keygen" target="_blank">github.com/agessaman/meshcore-web-keygen</a></span>
             </div>
         </div>
-    `;
+    `;    
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
     
-    // Attach event listener to generate button
-    document.getElementById('generate-key-btn').addEventListener('click', async () => {
+    // Function to handle key generation
+    async function generateKey() {
         const btn = document.getElementById('generate-key-btn');
-        btn.disabled = true;
-        btn.textContent = '⏳ Generating...';
+        const regenBtn = document.getElementById('regenerate-key-btn');
+        const activeBtn = btn && btn.offsetParent !== null ?  btn :  regenBtn;
+        
+        activeBtn.disabled = true;
+        activeBtn.textContent = '⏳ Generating...';
         
         document.getElementById('keygen-status').style.display = 'block';
         
@@ -279,20 +283,35 @@ function showKeygenModal(hexId) {
             // Show results
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
-            document. getElementById('public-key-output').value = result.publicKey;
-            document.getElementById('private-key-output').value = result.privateKey;
+            document.getElementById('public-key-output').value = result.publicKey;
+            document. getElementById('private-key-output').value = result.privateKey;
             document.getElementById('keygen-stats').textContent = 
                 `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
+            
+            // Hide initial generate button
+            if (btn) btn.parentElement.style.display = 'none';
+            
+            // Reset regenerate button
+            if (regenBtn) {
+                regenBtn.disabled = false;
+                regenBtn. textContent = '🔑 Generate Key';
+            }
             
             // Store for download
             window.generatedKey = result;
         } catch (error) {
             alert('Error generating key: ' + error.message);
-            btn.disabled = false;
-            btn.textContent = '🔑 Generate Key';
+            activeBtn.disabled = false;
+            activeBtn.textContent = '🔑 Generate Key';
             document.getElementById('keygen-status').style.display = 'none';
         }
-    });
+    }
+    
+    // Attach event listener to initial generate button
+    document.getElementById('generate-key-btn').addEventListener('click', generateKey);
+    
+    // Attach event listener to regenerate button (for after first generation)
+    document.getElementById('regenerate-key-btn').addEventListener('click', generateKey);
 }
 
 function copyToClipboard(elementId) {
