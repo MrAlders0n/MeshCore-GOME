@@ -26,15 +26,21 @@
   cursor: pointer;
 }
 
-. hex-table td.hex-used {
+.hex-table td.hex-used {
   background-color: #5c1a1a !important;  /* Dark red for used */
   color: #ff9999 !important;
 }
 
-. hex-table td.hex-reserved {
+.hex-table td.hex-reserved {
   background-color: #3a3a3a !important;  /* Grey for reserved */
   color: #888 !important;
-  cursor:  not-allowed;
+  cursor: not-allowed;
+}
+
+. hex-table td.hex-duplicate {
+  background-color: #1a3a5c !important;  /* Dark blue for duplicates */
+  color: #99ccff !important;
+  cursor: help;
 }
 
 /* Style links in free cells */
@@ -42,12 +48,12 @@
   color: #a8d68c !important;
   text-decoration: none !important;
   display: block;
-  width: 100%;
+  width:  100%;
   height: 100%;
 }
 
-. hex-table td.hex-free a:hover {
-  color:  #ffffff !important;
+.hex-table td.hex-free a:hover {
+  color: #ffffff !important;
   text-decoration: underline !important;
 }
 
@@ -66,13 +72,17 @@
 }
 
 .md-typeset .hex-table td.hex-reserved {
-  background-color: #3a3a3a !important;
+  background-color:  #3a3a3a ! important;
 }
 
-.md-typeset .hex-table td.hex-free a {
-  color:  #a8d68c !important;
+.md-typeset .hex-table td. hex-duplicate {
+  background-color: #1a3a5c !important;
 }
 
-.md-typeset .hex-table td.hex-free a:hover {
-  color: #ffffff !important;
+. md-typeset .hex-table td.hex-free a {
+  color: #a8d68c !important;
+}
+
+. md-typeset .hex-table td.hex-free a:hover {
+  color: #ffffff ! important;
 }
