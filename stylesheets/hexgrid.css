@@ -608,3 +608,97 @@
   background-color: #1a3a5c !important;
   color: #99ccff !important;
 }
+
+/* Keygen ID chip */
+.hex-id-chip {
+  background:  rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  border:  1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+@media (max-width: 768px) {
+  .hex-id-chip {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+/* Condensed keygen layout */
+.hex-keygen-description {
+  line-height: 1.4;
+  color: #ccc;
+  font-size: 13px;
+  margin:  10px 0;
+  text-align: center;
+}
+
+.hex-keygen-results {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hex-key-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #2d5016;
+}
+
+.hex-key-stats {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 6px;
+  border-left:  3px solid #2d5016;
+  text-align: center;
+}
+
+.hex-keygen-footer {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.hex-keygen-credit {
+  font-size: 11px;
+  color: #888;
+  font-style: italic;
+}
+
+.hex-keygen-credit a {
+  color: #a8d68c;
+  text-decoration: none;
+}
+
+.hex-keygen-credit a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#keygen-progress {
+  color: #a8d68c;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  margin:  0;
+  padding: 8px;
+  background: rgba(45, 80, 22, 0.2);
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .hex-keygen-description {
+    font-size: 12px;
+  }
+  
+  .hex-keygen-credit {
+    font-size: 10px;
+  }
+  
+  #keygen-progress {
+    font-size: 11px;
+  }
+}

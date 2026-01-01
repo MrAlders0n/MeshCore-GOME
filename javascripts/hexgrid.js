@@ -1,19 +1,19 @@
 // Modal functions for hex grid
 function showRepeaterInfo(hexId, info) {
     const modal = document.getElementById('hex-modal');
-    const modalBody = document.getElementById('hex-modal-body');
+    const modalBody = document. getElementById('hex-modal-body');
     
     const contactLink = info.contact_url 
         ? `<a href="${info.contact_url}" class="hex-contact-btn">Add Contact</a>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
-    const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
+    const stateClass = info. state. toLowerCase().replace(/\s+/g, '-');
     
     modalBody.innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-used-badge">${hexId}</span>
-                <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
+                <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
             </div>
             <h2 class="hex-info-title">${info.name}</h2>
             <div class="hex-info-grid">
@@ -49,13 +49,13 @@ function showDuplicateInfo(hexId, infoArray) {
             ? `<a href="${info.contact_url}" class="hex-contact-btn-small">Add Contact</a>` 
             : '<span class="hex-no-contact-small">No Contact</span>';
         
-        const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
+        const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
         
         entriesHtml += `
             <div class="hex-duplicate-entry">
                 <div class="hex-info-header">
                     <span class="hex-entry-number">Entry ${idx + 1}</span>
-                    <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
+                    <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
                 </div>
                 <h3 class="hex-duplicate-name">${info.name}</h3>
                 <div class="hex-info-grid-small">
@@ -152,7 +152,7 @@ async function generateKeyForPrefix(prefix) {
         
         try {
             // Generate Ed25519 keypair using Web Crypto
-            const keypair = await crypto.subtle.generateKey(
+            const keypair = await crypto.subtle. generateKey(
                 { name: 'Ed25519' },
                 true,
                 ['sign', 'verify']
@@ -161,13 +161,13 @@ async function generateKeyForPrefix(prefix) {
             // Export public key
             const publicKeyJwk = await crypto.subtle. exportKey('jwk', keypair.publicKey);
             const publicKeyBytes = Uint8Array. from(
-                atob(publicKeyJwk.x.replace(/-/g, '+').replace(/_/g, '/')), 
+                atob(publicKeyJwk. x.replace(/-/g, '+').replace(/_/g, '/')), 
                 c => c.charCodeAt(0)
             );
             
             // Export private key
             const privateKeyJwk = await crypto.subtle.exportKey('jwk', keypair.privateKey);
-            const privateKeyBytes = Uint8Array. from(
+            const privateKeyBytes = Uint8Array.from(
                 atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
                 c => c.charCodeAt(0)
             );
@@ -194,7 +194,7 @@ async function generateKeyForPrefix(prefix) {
             // Update progress every 100 attempts (Ed25519 generation is slower)
             if (attempts % 100 === 0) {
                 const elapsed = (Date.now() - startTime) / 1000;
-                const rate = Math. floor(attempts / elapsed);
+                const rate = Math.floor(attempts / elapsed);
                 updateKeygenProgress(attempts, rate);
             }
         } catch (error) {
@@ -208,45 +208,44 @@ async function generateKeyForPrefix(prefix) {
 function updateKeygenProgress(attempts, rate) {
     const progressEl = document.getElementById('keygen-progress');
     if (progressEl) {
-        progressEl.textContent = `Attempts: ${attempts. toLocaleString()} | Speed: ${rate.toLocaleString()}/sec`;
+        progressEl.textContent = `Attempts: ${attempts. toLocaleString()} | Speed: ${rate. toLocaleString()}/sec`;
     }
 }
 
 // Show keygen modal
 function showKeygenModal(hexId) {
-    const modal = document. getElementById('hex-modal');
+    const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-free-badge">Available</span>
-                <span class="hex-id-badge">${hexId}</span>
+                <span class="hex-id-badge hex-id-chip">ID: ${hexId}</span>
             </div>
             <h2 class="hex-info-title">Generate Private Key</h2>
-            <p class="hex-reserved-text">
+            <p class="hex-keygen-description">
                 Generate a MeshCore-compatible Ed25519 keypair with this ID prefix.
-                This may take a few seconds depending on your device.
             </p>
             <div class="hex-info-contact">
                 <button id="generate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
             </div>
-            <div id="keygen-status" style="margin-top: 20px; display: none;">
-                <p id="keygen-progress" style="color: #a8d68c; text-align: center; font-family: monospace;"></p>
+            <div id="keygen-status" style="margin-top: 15px; display: none;">
+                <p id="keygen-progress"></p>
             </div>
-            <div id="keygen-result" style="display: none; margin-top: 20px;">
-                <div class="hex-info-grid">
-                    <div class="hex-info-item">
+            <div id="keygen-result" style="display: none; margin-top: 15px;">
+                <div class="hex-keygen-results">
+                    <div class="hex-key-section">
                         <span class="hex-info-label">🔑 Public Key</span>
                         <textarea readonly id="public-key-output" class="key-output" rows="2"></textarea>
                         <button onclick="copyToClipboard('public-key-output')" class="copy-btn">📋 Copy</button>
                     </div>
-                    <div class="hex-info-item">
+                    <div class="hex-key-section">
                         <span class="hex-info-label">🔐 Private Key</span>
                         <textarea readonly id="private-key-output" class="key-output" rows="2"></textarea>
                         <button onclick="copyToClipboard('private-key-output')" class="copy-btn">📋 Copy</button>
                     </div>
-                    <div class="hex-info-item">
+                    <div class="hex-key-stats">
                         <span class="hex-info-label">📊 Generation Stats</span>
                         <span id="keygen-stats" class="hex-info-value"></span>
                     </div>
@@ -255,10 +254,13 @@ function showKeygenModal(hexId) {
                     <button onclick="downloadKeyJSON('${hexId}')" class="hex-contact-btn">💾 Download JSON</button>
                 </div>
             </div>
+            <div class="hex-keygen-footer">
+                <span class="hex-keygen-credit">Based on <a href="https://github.com/agessaman/meshcore-web-keygen" target="_blank">github.com/agessaman/meshcore-web-keygen</a></span>
+            </div>
         </div>
     `;
     
-    modal.style. display = 'block';
+    modal.style.display = 'block';
     
     // Attach event listener to generate button
     document.getElementById('generate-key-btn').addEventListener('click', async () => {
