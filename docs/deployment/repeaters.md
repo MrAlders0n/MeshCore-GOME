@@ -11,7 +11,7 @@ hide:
 This page lists all deployed and reserved repeater IDs in Ottawa, along with their current configurations.
 
 !!! note "If you notice anything that should be updated"
-    Please see our **[Contributing Guide](../community/contributing.md)**.  You can also reach out to MrAlders0n on Discord or MeshCore, or contact any of the Knowledge Curators on the Discord server.
+    Please see our **[Contributing Guide](../community/contributing.md)**.  You can also reach out to MrAlders0n on GOME Discord or MeshCore, or contact any of the Knowledge Curators on the GOME Discord server.
 
 ## Repeater ID Visualization
 
@@ -27,4 +27,3 @@ The table below provides a **visual overview of all 256 possible repeater IDs** 
 {{ hex_table }}
 
 *({{ unused_ids | length }} available IDs)*
-
