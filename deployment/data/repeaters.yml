@@ -913,7 +913,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -922,7 +922,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -931,7 +931,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -940,7 +940,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -949,7 +949,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -958,7 +958,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -967,7 +967,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -976,7 +976,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -985,7 +985,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -994,7 +994,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -1003,7 +1003,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -1012,7 +1012,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -1021,7 +1021,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -1030,7 +1030,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -1039,7 +1039,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
@@ -1048,7 +1048,7 @@ repeaters:
     antenna: "TBD"
     location: "TBD"
     contact: null
-    state: "Backbonereserved"
+    state: ".BackboneReserved"
     hex_id: null
     last_heard: null
 
