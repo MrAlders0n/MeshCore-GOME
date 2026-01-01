@@ -25,7 +25,7 @@ def define_env(env):
     # Load repeater list from YAML
     data_path = project_dir / "docs" / "deployment" / "data" / "repeaters.yml"
     data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
-    repeaters = data.get("repeaters", [])
+    repeaters = data. get("repeaters", [])
 
     # Count occurrences of each ID (uppercase for consistency)
     id_list = [str(r["id"]).upper() for r in repeaters if "id" in r]
@@ -42,12 +42,12 @@ def define_env(env):
     for r in repeaters:
         if "id" in r:
             rid = str(r["id"]).upper()
-            state = r.get("state", "Unknown")
+            state = r. get("state", "Unknown")
             name = r.get("name", "N/A")
             antenna = r.get("antenna", "N/A")
             location = r.get("location", "N/A")
             last_heard = epoch_to_date(r.get("last_heard"))
-            contact_url = r.get("contact", "")
+            contact_url = r. get("contact", "")
             
             # If duplicate, store in a list
             if rid not in repeater_info:
@@ -71,11 +71,12 @@ def define_env(env):
     free_ids = [i for i in all_ids if i not in used_ids and i not in reserved_ids]
 
     # Sort for nice output
-    free_ids.sort(key=lambda x: int(x, 16))
+    free_ids. sort(key=lambda x: int(x, 16))
 
-    # Generate HTML hex table (NO WRAPPER)
+    # Generate HTML hex table WITH WRAPPER AND UNIQUE ID
     html_table = '<div id="hex-modal" class="hex-modal"><div class="hex-modal-content"><span class="hex-modal-close">&times;</span><div id="hex-modal-body"></div></div></div>\n'
-    html_table += '<table class="hex-table">\n'
+    html_table += '<div class="hex-grid-container">\n'
+    html_table += '<table id="repeater-hex-grid" class="hex-table">\n'
     
     # Header row
     html_table += '  <tr>\n    <th></th>\n'
@@ -99,7 +100,7 @@ def define_env(env):
                 # Escape quotes in JSON data
                 info_json = json.dumps(repeater_info[cell_id]).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showDuplicateInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
-            elif cell_id in used_ids: 
+            elif cell_id in used_ids:
                 css_class = "hex-used"
                 info = repeater_info[cell_id][0]
                 info_json = json.dumps(info).replace('"', '&quot;')
@@ -111,8 +112,9 @@ def define_env(env):
         html_table += '  </tr>\n'
 
     html_table += '</table>\n'
+    html_table += '</div>\n'
 
     # Expose variables to Jinja
-    env.variables["repeaters"] = repeaters
-    env. variables["unused_ids"] = free_ids
+    env. variables["repeaters"] = repeaters
+    env.variables["unused_ids"] = free_ids
     env.variables["hex_table"] = html_table
