@@ -1,30 +1,45 @@
 . hex-table {
   border-collapse: collapse;
-  margin: 20px 0;
+  margin:  20px 0;
   font-family: 'Courier New', monospace;
 }
 
 .hex-table td, .hex-table th {
-  width: 40px;
-  height: 40px;
+  width:  40px;
+  height:  40px;
   text-align:  center;
-  border: 1px solid #1a1a1a;
-  font-size: 13px;
+  border: 1px solid #1a1a1a ! important;
+  font-size:  13px;
   font-weight: 500;
+  padding: 8px ! important;
 }
 
 .hex-table th {
-  background:  #1a1a1a;
-  color: #999;
+  background: #1a1a1a ! important;
+  color: #999 !important;
   font-weight: 600;
 }
 
-. hex-free {
-  background: #2d5016 !important;  /* Dark green for available */
+.hex-table td. hex-free {
+  background-color: #2d5016 !important;  /* Dark green for available */
   color: #a8d68c !important;
 }
 
-.hex-used {
-  background: #5c1a1a !important;  /* Dark red for used */
+.hex-table td.hex-used {
+  background-color: #5c1a1a !important;  /* Dark red for used */
   color: #ff9999 !important;
+}
+
+/* Override Material theme defaults */
+.md-typeset .hex-table td {
+  background-color: transparent;
+  border-color: #1a1a1a ! important;
+}
+
+.md-typeset .hex-table td.hex-free {
+  background-color: #2d5016 !important;
+}
+
+. md-typeset .hex-table td.hex-used {
+  background-color: #5c1a1a !important;
 }
