@@ -66,9 +66,9 @@
   transition: all 0.1s ease;
 }
 
-#repeater-hex-grid td.hex-used:hover .hex-clickable,
-#repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
-#repeater-hex-grid td.hex-reserved:hover . hex-clickable {
+#repeater-hex-grid td.hex-used:hover.hex-clickable,
+#repeater-hex-grid td.hex-duplicate:hover.hex-clickable,
+#repeater-hex-grid td.hex-reserved:hover.hex-clickable {
   font-size: 16px;
   font-weight: 700;
 }
@@ -115,9 +115,9 @@
   }
   
   /* Disable hover effects on mobile */
-  #repeater-hex-grid td.hex-used:hover . hex-clickable,
-  #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
-  #repeater-hex-grid td.hex-reserved:hover .hex-clickable {
+  #repeater-hex-grid td.hex-used:hover.hex-clickable,
+  #repeater-hex-grid td.hex-duplicate:hover.hex-clickable,
+  #repeater-hex-grid td.hex-reserved:hover.hex-clickable {
     font-size: 10px;
     font-weight: 500;
   }
@@ -174,7 +174,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-modal-content {
+ .hex-modal-content {
     width: 95%;
     max-width: none;
     margin: 5vh auto;
@@ -233,7 +233,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-id-badge {
+ .hex-id-badge {
     font-size: 14px;
     padding: 5px 10px;
   }
@@ -251,7 +251,7 @@
   border: 2px solid #99ccff;
 }
 
-. hex-reserved-badge {
+.hex-reserved-badge {
   background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
   color: #aaa;
   border: 2px solid #888;
@@ -266,7 +266,7 @@
 }
 
 @media (max-width:  768px) {
-  .hex-state-badge {
+ .hex-state-badge {
     font-size: 10px;
     padding: 3px 8px;
   }
@@ -299,7 +299,7 @@
   font-weight: 600;
 }
 
-. hex-info-title {
+.hex-info-title {
   font-size: 20px;
   font-weight: 700;
   margin:  0 0 15px 0;
@@ -307,7 +307,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-info-title {
+ .hex-info-title {
     font-size: 18px;
     margin: 0 0 12px 0;
   }
@@ -343,7 +343,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-info-value {
+ .hex-info-value {
     font-size: 12px;
   }
 }
@@ -373,7 +373,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-contact-btn {
+ .hex-contact-btn {
     padding: 8px 20px;
     font-size:  13px;
   }
@@ -396,7 +396,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-duplicate-warning {
+ .hex-duplicate-warning {
     font-size: 12px;
     padding: 8px;
   }
@@ -418,7 +418,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-duplicate-entry {
+ .hex-duplicate-entry {
     padding: 10px;
   }
 }
@@ -432,14 +432,14 @@
   border-radius: 4px;
 }
 
-. hex-duplicate-name {
+.hex-duplicate-name {
   font-size: 16px;
   margin:  8px 0;
   color:  #fff;
 }
 
 @media (max-width: 768px) {
-  .hex-duplicate-name {
+ .hex-duplicate-name {
     font-size: 15px;
   }
 }
@@ -450,7 +450,7 @@
   margin:  8px 0;
 }
 
-. hex-info-item-small {
+.hex-info-item-small {
   display: flex;
   gap: 8px;
   font-size:  12px;
@@ -458,7 +458,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-info-item-small {
+ .hex-info-item-small {
     font-size: 11px;
   }
 }
@@ -474,7 +474,7 @@
   margin-top: 6px;
 }
 
-. hex-contact-btn-small: hover {
+.hex-contact-btn-small: hover {
   background: #3d6026;
 }
 
@@ -492,7 +492,7 @@
 }
 
 @media (max-width: 768px) {
-  .hex-reserved-text {
+ .hex-reserved-text {
     font-size: 13px;
   }
 }
