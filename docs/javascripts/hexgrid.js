@@ -132,20 +132,14 @@ function showBackboneInfo() {
     modal.style.display = 'block';
 }
 
-// NEW: Key generation function
+// Key generation using Web Crypto API
 async function generateKeyForPrefix(prefix) {
     const targetPrefix = prefix.toUpperCase();
-    
-    // SHA-512 hash function
-    async function sha512(data) {
-        const buffer = await crypto.subtle.digest('SHA-512', data);
-        return new Uint8Array(buffer);
-    }
     
     // Convert bytes to hex
     const toHex = (bytes) => {
         return Array.from(bytes)
-            .map(b => b.toString(16).padStart(2, '0'))
+            .map(b => b. toString(16).padStart(2, '0'))
             .join('')
             .toUpperCase();
     };
@@ -156,51 +150,57 @@ async function generateKeyForPrefix(prefix) {
     while (true) {
         attempts++;
         
-        // Generate random 32-byte seed
-        const seed = crypto.getRandomValues(new Uint8Array(32));
-        
-        // Hash the seed
-        const digestArray = await sha512(seed);
-        
-        // Clamp the first 32 bytes
-        const clamped = digestArray.slice(0, 32);
-        clamped[0] &= 248;
-        clamped[31] &= 63;
-        clamped[31] |= 64;
-        
-        // Generate public key using noble-ed25519
-        let scalarBigInt = 0n;
-        for (let i = 0; i < 32; i++) {
-            scalarBigInt += BigInt(clamped[i]) << BigInt(8 * i);
-        }
-        
-        const publicKey = nobleEd25519.Point. BASE.multiply(scalarBigInt);
-        const publicKeyBytes = publicKey.toRawBytes();
-        
-        // Create private key
-        const meshcorePrivateKey = new Uint8Array(64);
-        meshcorePrivateKey.set(clamped, 0);
-        meshcorePrivateKey.set(digestArray. slice(32, 64), 32);
-        
-        const publicKeyHex = toHex(publicKeyBytes);
-        const privateKeyHex = toHex(meshcorePrivateKey);
-        
-        // Check if it matches
-        if (publicKeyHex. startsWith(targetPrefix)) {
-            const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
-            return {
-                publicKey: publicKeyHex,
-                privateKey: privateKeyHex,
-                attempts: attempts,
-                timeSeconds: elapsedTime
-            };
-        }
-        
-        // Update progress every 1000 attempts
-        if (attempts % 1000 === 0) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            const rate = Math.floor(attempts / elapsed);
-            updateKeygenProgress(attempts, rate);
+        try {
+            // Generate Ed25519 keypair using Web Crypto
+            const keypair = await crypto.subtle.generateKey(
+                { name: 'Ed25519' },
+                true,
+                ['sign', 'verify']
+            );
+            
+            // Export public key
+            const publicKeyJwk = await crypto.subtle. exportKey('jwk', keypair.publicKey);
+            const publicKeyBytes = Uint8Array. from(
+                atob(publicKeyJwk.x.replace(/-/g, '+').replace(/_/g, '/')), 
+                c => c.charCodeAt(0)
+            );
+            
+            // Export private key
+            const privateKeyJwk = await crypto.subtle.exportKey('jwk', keypair.privateKey);
+            const privateKeyBytes = Uint8Array. from(
+                atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
+                c => c.charCodeAt(0)
+            );
+            
+            // MeshCore uses 64-byte private key format (32-byte seed + 32-byte public key)
+            const meshcorePrivateKey = new Uint8Array(64);
+            meshcorePrivateKey.set(privateKeyBytes, 0);
+            meshcorePrivateKey.set(publicKeyBytes, 32);
+            
+            const publicKeyHex = toHex(publicKeyBytes);
+            const privateKeyHex = toHex(meshcorePrivateKey);
+            
+            // Check if it matches
+            if (publicKeyHex. startsWith(targetPrefix)) {
+                const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
+                return {
+                    publicKey: publicKeyHex,
+                    privateKey: privateKeyHex,
+                    attempts: attempts,
+                    timeSeconds: elapsedTime
+                };
+            }
+            
+            // Update progress every 100 attempts (Ed25519 generation is slower)
+            if (attempts % 100 === 0) {
+                const elapsed = (Date.now() - startTime) / 1000;
+                const rate = Math. floor(attempts / elapsed);
+                updateKeygenProgress(attempts, rate);
+            }
+        } catch (error) {
+            // Skip this attempt if there's an error
+            console.error('Key generation error:', error);
+            continue;
         }
     }
 }
@@ -212,10 +212,10 @@ function updateKeygenProgress(attempts, rate) {
     }
 }
 
-// NEW: Show keygen modal
+// Show keygen modal
 function showKeygenModal(hexId) {
-    const modal = document.getElementById('hex-modal');
-    const modalBody = document. getElementById('hex-modal-body');
+    const modal = document. getElementById('hex-modal');
+    const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
         <div class="hex-info-card">
@@ -258,7 +258,7 @@ function showKeygenModal(hexId) {
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
     
     // Attach event listener to generate button
     document.getElementById('generate-key-btn').addEventListener('click', async () => {
@@ -285,6 +285,7 @@ function showKeygenModal(hexId) {
             alert('Error generating key: ' + error.message);
             btn.disabled = false;
             btn.textContent = '🔑 Generate Key';
+            document.getElementById('keygen-status').style.display = 'none';
         }
     });
 }
@@ -314,16 +315,16 @@ function downloadKeyJSON(prefix) {
     };
     
     const json = JSON.stringify(data, null, 2);
-    const blob = new Blob([json], { type:  'application/json' });
-    const url = URL.createObjectURL(blob);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL. createObjectURL(blob);
     
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
     const filename = `meshcore_${prefix}_${timestamp}.json`;
     
-    const a = document. createElement('a');
+    const a = document.createElement('a');
     a.href = url;
-    a. download = filename;
-    a. click();
+    a.download = filename;
+    a.click();
     
     URL.revokeObjectURL(url);
 }
