@@ -916,3 +916,147 @@ repeaters:
     state: "Reserved"
     hex_id: null
     last_heard: null
+
+  - id: "C0"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C1"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C2"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C3"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C4"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C5"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C6"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C7"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C8"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "C9"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "CA"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "CB"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "CC"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "CD"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "CE"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
+
+  - id: "CF"
+    name: null
+    antenna: null
+    location: "Reserved ID For City Link Backbone"
+    state: "BackboneReserved"
+    contact: null
+    hex_id: null
+    last_heard: null
