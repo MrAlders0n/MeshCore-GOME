@@ -81,8 +81,8 @@ plugins:
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - https://cdn.jsdelivr.net/npm/@noble/ed25519@2.1.0/+esm
-  - extra/javascript/tablesort.js
-  - extra/javascript/hexgrid.js
+  - zextra/javascript/tablesort.js
+  - zextra/javascript/hexgrid.js
 
 # Extra CSS
 extra_css: 
