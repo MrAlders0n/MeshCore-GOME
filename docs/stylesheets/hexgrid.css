@@ -285,6 +285,11 @@
   color:  #a8d68c;
 }
 
+.hex-state-available {
+  background:  #2d5016;
+  color:  #a8d68c;
+}
+
 .hex-state-reserved,
 .hex-state-observer,
 .hex-state-new {

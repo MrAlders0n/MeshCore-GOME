@@ -210,7 +210,7 @@ function updateKeygenProgress(attempts, rate) {
     if (progressEl) {
         progressEl.textContent = `Attempts: ${attempts. toLocaleString()} | Speed: ${rate. toLocaleString()}/sec`;
     }
-}
+}    
 
 // Show keygen modal
 function showKeygenModal(hexId) {
@@ -220,8 +220,8 @@ function showKeygenModal(hexId) {
     modalBody.innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
-                <span class="hex-id-badge hex-free-badge">Available</span>
-                <span class="hex-id-badge hex-id-chip">ID: ${hexId}</span>
+                <span class="hex-id-badge hex-free-badge">${hexId}</span>
+                <span class="hex-state-badge hex-state-available">Available</span>
             </div>
             <h2 class="hex-info-title">Generate Private Key</h2>
             <p class="hex-keygen-description">
@@ -233,7 +233,7 @@ function showKeygenModal(hexId) {
             <div id="keygen-status" style="margin-top: 12px; display: none;">
                 <p id="keygen-progress"></p>
             </div>
-            <div id="keygen-result" style="display: none; margin-top: 12px;">
+            <div id="keygen-result" style="display:  none; margin-top: 12px;">
                 <div class="hex-keygen-results">
                     <div class="hex-key-section">
                         <div class="hex-key-header">
@@ -262,6 +262,38 @@ function showKeygenModal(hexId) {
             </div>
         </div>
     `;    
+    
+    modal.style.display = 'block';
+    
+    // Attach event listener to generate button
+    document.getElementById('generate-key-btn').addEventListener('click', async () => {
+        const btn = document.getElementById('generate-key-btn');
+        btn.disabled = true;
+        btn.textContent = '⏳ Generating...';
+        
+        document.getElementById('keygen-status').style.display = 'block';
+        
+        try {
+            const result = await generateKeyForPrefix(hexId);
+            
+            // Show results
+            document. getElementById('keygen-status').style.display = 'none';
+            document.getElementById('keygen-result').style.display = 'block';
+            document.getElementById('public-key-output').value = result.publicKey;
+            document. getElementById('private-key-output').value = result.privateKey;
+            document.getElementById('keygen-stats').textContent = 
+                `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
+            
+            // Store for download
+            window.generatedKey = result;
+        } catch (error) {
+            alert('Error generating key:  ' + error.message);
+            btn.disabled = false;
+            btn.textContent = '🔑 Generate Key';
+            document.getElementById('keygen-status').style.display = 'none';
+        }
+    });
+}    
     
     modal.style.display = 'block';
     
