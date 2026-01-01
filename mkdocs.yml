@@ -73,7 +73,8 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
-  - macros
+  - macros: 
+      module_name: docs.zExtra.python.repeater_hex_grid
   - glightbox:
       touchNavigation: true
 
