@@ -4,7 +4,7 @@ function showRepeaterInfo(hexId, info) {
     const modalBody = document.getElementById('hex-modal-body');
     
     const contactLink = info.contact_url 
-        ? `<a href="${info.contact_url}" class="hex-contact-btn">Add Contact</a>` 
+        ? `<a href="${info. contact_url}" class="hex-contact-btn">Add Contact</a>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
     const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
@@ -36,7 +36,7 @@ function showRepeaterInfo(hexId, info) {
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
 }
 
 function showDuplicateInfo(hexId, infoArray) {
@@ -55,7 +55,7 @@ function showDuplicateInfo(hexId, infoArray) {
             <div class="hex-duplicate-entry">
                 <div class="hex-info-header">
                     <span class="hex-entry-number">Entry ${idx + 1}</span>
-                    <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
+                    <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
                 </div>
                 <h3 class="hex-duplicate-name">${info.name}</h3>
                 <div class="hex-info-grid-small">
@@ -94,7 +94,7 @@ function showDuplicateInfo(hexId, infoArray) {
 }
 
 function showReservedInfo() {
-    const modal = document. getElementById('hex-modal');
+    const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
@@ -104,20 +104,20 @@ function showReservedInfo() {
             </div>
             <h2 class="hex-info-title">MeshCore Reserved ID</h2>
             <p class="hex-reserved-text">
-                This ID is reserved by MeshCore and cannot be used for repeaters.
+                This ID is reserved by MeshCore and cannot be used for repeaters. 
                 IDs <strong>00</strong> and <strong>FF</strong> are system reserved.
             </p>
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
 }
 
 function showBackboneInfo() {
     const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
-    modalBody. innerHTML = `
+    modalBody.innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-backbone-badge">Backbone Reserved</span>
@@ -129,7 +129,7 @@ function showBackboneInfo() {
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
 }
 
 // Key generation using Web Crypto API
@@ -139,7 +139,7 @@ async function generateKeyForPrefix(prefix) {
     // Convert bytes to hex
     const toHex = (bytes) => {
         return Array.from(bytes)
-            .map(b => b.toString(16).padStart(2, '0'))
+            .map(b => b. toString(16).padStart(2, '0'))
             .join('')
             .toUpperCase();
     };
@@ -152,24 +152,24 @@ async function generateKeyForPrefix(prefix) {
         
         try {
             // Generate Ed25519 keypair using Web Crypto
-            const keypair = await crypto.subtle.generateKey(
+            const keypair = await crypto. subtle.generateKey(
                 { name: 'Ed25519' },
                 true,
                 ['sign', 'verify']
             );
             
             // Export public key
-            const publicKeyJwk = await crypto.subtle. exportKey('jwk', keypair.publicKey);
+            const publicKeyJwk = await crypto.subtle.exportKey('jwk', keypair.publicKey);
             const publicKeyBytes = Uint8Array.from(
-                atob(publicKeyJwk. x.replace(/-/g, '+').replace(/_/g, '/')), 
+                atob(publicKeyJwk.x. replace(/-/g, '+').replace(/_/g, '/')), 
                 c => c.charCodeAt(0)
             );
             
             // Export private key
-            const privateKeyJwk = await crypto.subtle.exportKey('jwk', keypair.privateKey);
-            const privateKeyBytes = Uint8Array.from(
+            const privateKeyJwk = await crypto.subtle.exportKey('jwk', keypair. privateKey);
+            const privateKeyBytes = Uint8Array. from(
                 atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
-                c => c.charCodeAt(0)
+                c => c. charCodeAt(0)
             );
             
             // MeshCore uses 64-byte private key format (32-byte seed + 32-byte public key)
@@ -186,8 +186,8 @@ async function generateKeyForPrefix(prefix) {
                 return {
                     publicKey: publicKeyHex,
                     privateKey: privateKeyHex,
-                    attempts:  attempts,
-                    timeSeconds:  elapsedTime
+                    attempts: attempts,
+                    timeSeconds: elapsedTime
                 };
             }
             
@@ -208,13 +208,13 @@ async function generateKeyForPrefix(prefix) {
 function updateKeygenProgress(attempts, rate) {
     const progressEl = document.getElementById('keygen-progress');
     if (progressEl) {
-        progressEl.textContent = `Attempts: ${attempts. toLocaleString()} | Speed: ${rate. toLocaleString()}/sec`;
+        progressEl.textContent = `Attempts: ${attempts. toLocaleString()} | Speed: ${rate.toLocaleString()}/sec`;
     }
-}    
+}
 
 // Show keygen modal
 function showKeygenModal(hexId) {
-    const modal = document.getElementById('hex-modal');
+    const modal = document. getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
@@ -261,39 +261,7 @@ function showKeygenModal(hexId) {
                 <span class="hex-keygen-credit">Based on <a href="https://github.com/agessaman/meshcore-web-keygen" target="_blank">github.com/agessaman/meshcore-web-keygen</a></span>
             </div>
         </div>
-    `;    
-    
-    modal.style.display = 'block';
-    
-    // Attach event listener to generate button
-    document.getElementById('generate-key-btn').addEventListener('click', async () => {
-        const btn = document.getElementById('generate-key-btn');
-        btn.disabled = true;
-        btn.textContent = '⏳ Generating...';
-        
-        document.getElementById('keygen-status').style.display = 'block';
-        
-        try {
-            const result = await generateKeyForPrefix(hexId);
-            
-            // Show results
-            document. getElementById('keygen-status').style.display = 'none';
-            document.getElementById('keygen-result').style.display = 'block';
-            document.getElementById('public-key-output').value = result.publicKey;
-            document. getElementById('private-key-output').value = result.privateKey;
-            document.getElementById('keygen-stats').textContent = 
-                `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
-            
-            // Store for download
-            window.generatedKey = result;
-        } catch (error) {
-            alert('Error generating key:  ' + error.message);
-            btn.disabled = false;
-            btn.textContent = '🔑 Generate Key';
-            document.getElementById('keygen-status').style.display = 'none';
-        }
-    });
-}    
+    `;
     
     modal.style.display = 'block';
     
@@ -312,7 +280,7 @@ function showKeygenModal(hexId) {
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
             document. getElementById('public-key-output').value = result.publicKey;
-            document. getElementById('private-key-output').value = result.privateKey;
+            document.getElementById('private-key-output').value = result.privateKey;
             document.getElementById('keygen-stats').textContent = 
                 `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
             
@@ -335,7 +303,7 @@ function copyToClipboard(elementId) {
     // Visual feedback
     const btn = event.target;
     const originalText = btn.textContent;
-    btn.textContent = '✓ Copied!';
+    btn. textContent = '✓ Copied! ';
     setTimeout(() => {
         btn.textContent = originalText;
     }, 2000);
@@ -346,19 +314,19 @@ function downloadKeyJSON(prefix) {
     
     const data = {
         public_key: window.generatedKey.publicKey,
-        private_key: window.generatedKey. privateKey,
+        private_key: window.generatedKey.privateKey,
         generated_at: new Date().toISOString(),
         prefix: prefix
     };
     
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
-    const url = URL. createObjectURL(blob);
+    const url = URL.createObjectURL(blob);
     
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
     const filename = `meshcore_${prefix}_${timestamp}.json`;
     
-    const a = document.createElement('a');
+    const a = document. createElement('a');
     a.href = url;
     a.download = filename;
     a.click();
@@ -367,20 +335,20 @@ function downloadKeyJSON(prefix) {
 }
 
 // Close modal when X is clicked
-document.addEventListener('DOMContentLoaded', function() {
+document. addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('hex-modal');
     const closeBtn = document.querySelector('.hex-modal-close');
     
     if (closeBtn) {
-        closeBtn.onclick = function() {
-            modal. style.display = 'none';
+        closeBtn. onclick = function() {
+            modal.style.display = 'none';
         };
     }
     
     // Close when clicking outside
     window.onclick = function(event) {
         if (event.target == modal) {
-            modal.style.display = 'none';
+            modal.style. display = 'none';
         }
     };
 });
