@@ -10,9 +10,6 @@ hide:
 
 This page tracks Ottawa repeater IDs (00–FF), showing which are deployed, reserved, or available, along with current configs.
 
-!!! note "See something that needs updating?"
-    Check the **[Contributing Guide](../community/contributing.md)**, or reach out to MrAlders0n or a Knowledge Curator on the GOME Discord / MeshCore.
-
 The table below shows all **256 repeater IDs**. Colors indicate status:
 
 - 🟢 **Available** — click to generate a keypair
@@ -25,3 +22,6 @@ Click any cell to view details or take action.
 {{ hex_table }}
 
 *({{ unused_ids | length }} available IDs)*
+
+!!! note "See something that needs updating?"
+    Check the **[Contributing Guide](../community/contributing.md)**, or reach out to MrAlders0n or a Knowledge Curator on the GOME Discord / MeshCore.
