@@ -18,7 +18,8 @@ The table below provides a **visual overview of all 256 possible repeater IDs** 
 - 🟢 **Dark Green** — Available IDs (click to generate a new keypair with this ID)
 - 🔴 **Dark Red** — Deployed repeaters (click to view details)
 - 🔵 **Dark Blue** — Duplicate/conflicting IDs (click to see all conflicts)
-- ⚫ **Grey** — MeshCore reserved IDs (00 and FF)
+- ⬜ **Light Grey** — Backbone reserved IDs (reserved for major city links)
+- ⬛ **Dark Grey** — MeshCore reserved IDs (00 and FF)
 
 **Click any cell** to interact with it.  Available IDs link directly to the key generator, while used IDs display detailed repeater information including antenna type, location, and contact details.
 
