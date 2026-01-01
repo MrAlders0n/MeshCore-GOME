@@ -198,10 +198,8 @@
   color: #fff;
 }
 
-/* Override Material theme h2 margins in modals */
-#hex-modal-body h2 {
-  margin: 6px 0 10px 0 ! important;
-  padding: 0 !important;
+#hex-modal-body {
+  padding: 20px 25px 25px 25px;
 }
 
 @media (max-width: 768px) {
@@ -324,7 +322,7 @@
 h2.hex-info-title {
   font-size: 20px;
   font-weight: 700;
-  margin: 0 0 10px 0 !important;
+  margin: 6px 0 10px 0 !important;
   padding: 0 !important;
   color: #fff;
 }
