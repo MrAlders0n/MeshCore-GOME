@@ -3,7 +3,7 @@
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin:  20px 0;
+  margin: 20px 0;
 }
 
 /* Table base styles - using ID for maximum specificity */
@@ -22,15 +22,15 @@
   min-height: 40px;
   text-align: center;
   border: 1px solid #1a1a1a ! important;
-  font-size: 13px;
-  font-weight: 500;
+  font-size:  13px;
+  font-weight:  500;
   padding: 0 !important;
   box-sizing: border-box;
   line-height: 40px;
 }
 
 #repeater-hex-grid th {
-  background:  #1a1a1a ! important;
+  background:  #1a1a1a !important;
   color: #999 !important;
   font-weight: 600;
 }
@@ -38,13 +38,13 @@
 /* Cell type styles with ID selector */
 #repeater-hex-grid td.hex-free {
   background-color: #2d5016 !important;
-  color:  #a8d68c !important;
+  color: #a8d68c !important;
   line-height: 1;
 }
 
 #repeater-hex-grid td.hex-used {
   background-color: #5c1a1a !important;
-  color:  #ff9999 !important;
+  color: #ff9999 !important;
   cursor: pointer;
 }
 
@@ -62,12 +62,12 @@
 
 #repeater-hex-grid td.hex-duplicate {
   background-color: #1a3a5c !important;
-  color: #99ccff !important;
+  color:  #99ccff !important;
   cursor: pointer;
 }
 
 /* Style clickable spans - simple inline with hover */
-hex-clickable {
+.hex-clickable {
   display: inline;
   transition: all 0.1s ease;
 }
@@ -76,24 +76,24 @@ hex-clickable {
 #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
 #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
 #repeater-hex-grid td.hex-backbone:hover .hex-clickable {
-  font-size:  16px;
+  font-size: 16px;
   font-weight: 700;
 }
 
 /* Style links in free cells */
 #repeater-hex-grid td.hex-free a {
   color: #a8d68c !important;
-  text-decoration: none ! important;
+  text-decoration: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height:  100%;
   transition: all 0.1s ease;
 }
 
 #repeater-hex-grid td.hex-free a:hover {
-  color:  #ffffff !important;
+  color: #ffffff !important;
   font-size: 16px;
   font-weight: 700;
 }
@@ -104,7 +104,7 @@ hex-clickable {
   #repeater-hex-grid th {
     width: 32px;
     height: 32px;
-    min-width: 32px;
+    min-width:  32px;
     min-height: 32px;
     max-width: 32px;
     max-height: 32px;
@@ -126,8 +126,8 @@ hex-clickable {
   #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
   #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
   #repeater-hex-grid td.hex-backbone:hover .hex-clickable {
-    font-size: 10px;
-    font-weight: 500;
+    font-size:  10px;
+    font-weight:  500;
   }
   
   #repeater-hex-grid td.hex-free a:hover {
@@ -183,13 +183,13 @@ hex-clickable {
 
 @media (max-width: 768px) {
   .hex-modal-content {
-    width:  95%;
-    max-width: none;
+    width: 95%;
+    max-width:  none;
     margin: 5vh auto;
   }
 }
 
-hex-modal-close {
+.hex-modal-close {
   color: #aaa;
   position: absolute;
   right: 15px;
@@ -237,7 +237,7 @@ hex-modal-close {
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size:  16px;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
@@ -248,9 +248,9 @@ hex-modal-close {
 }
 
 .hex-used-badge {
-  background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
+  background:  linear-gradient(135deg, #7a2a2a, #5c1a1a);
   color: #ff9999;
-  border:  2px solid #ff9999;
+  border: 2px solid #ff9999;
 }
 
 .hex-duplicate-badge {
@@ -313,12 +313,12 @@ hex-modal-close {
   padding: 4px 10px;
   border-radius: 4px;
   background: #7a4a2a;
-  color:  #ffcc99;
+  color: #ffcc99;
   font-size: 11px;
   font-weight: 600;
 }
 
-hex-info-title {
+.hex-info-title {
   font-size: 20px;
   font-weight: 700;
   margin:  0 0 15px 0;
@@ -336,7 +336,7 @@ hex-info-title {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom:  15px;
 }
 
 .hex-info-item {
@@ -361,7 +361,7 @@ hex-info-title {
   word-break: break-word;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  768px) {
   .hex-info-value {
     font-size: 12px;
   }
@@ -433,7 +433,7 @@ hex-info-title {
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
   border-radius:  8px;
-  border: 1px solid rgba(153, 204, 255, 0.2);
+  border:  1px solid rgba(153, 204, 255, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -451,7 +451,7 @@ hex-info-title {
   border-radius: 4px;
 }
 
-hex-duplicate-name {
+.hex-duplicate-name {
   font-size: 16px;
   margin:  8px 0;
   color:  #fff;
@@ -469,7 +469,7 @@ hex-duplicate-name {
   margin:  8px 0;
 }
 
-hex-info-item-small {
+.hex-info-item-small {
   display: flex;
   gap: 8px;
   font-size: 12px;
@@ -486,7 +486,7 @@ hex-info-item-small {
   display: inline-block;
   padding: 5px 10px;
   background: #2d5016;
-  color: #a8d68c ! important;
+  color:  #a8d68c ! important;
   text-decoration:  none !important;
   border-radius: 4px;
   font-size: 11px;
@@ -494,7 +494,7 @@ hex-info-item-small {
 }
 
 .hex-contact-btn-small:hover {
-  background:  #3d6026;
+  background: #3d6026;
 }
 
 .hex-no-contact-small {
@@ -506,8 +506,8 @@ hex-info-item-small {
 .hex-reserved-text {
   line-height: 1.6;
   color: #ccc;
-  font-size: 14px;
-  margin:  10px 0;
+  font-size:  14px;
+  margin: 10px 0;
 }
 
 @media (max-width: 768px) {
@@ -523,28 +523,28 @@ hex-info-item-small {
 }
 
 .md-typeset #repeater-hex-grid td.hex-free {
-  background-color: #2d5016 !important;
+  background-color: #2d5016 ! important;
   color: #a8d68c !important;
 }
 
 .md-typeset #repeater-hex-grid td.hex-used {
   background-color: #5c1a1a !important;
-  color: #ff9999 !important;
+  color:  #ff9999 !important;
 }
 
-md-typeset #repeater-hex-grid td.hex-reserved {
+.md-typeset #repeater-hex-grid td.hex-reserved {
   background-color: #3a3a3a !important;
   color: #888 !important;
 }
 
 .md-typeset #repeater-hex-grid td.hex-backbone {
   background-color: #4a4a4a !important;
-  color: #aaa ! important;
+  color:  #aaa !important;
 }
 
 .md-typeset #repeater-hex-grid td.hex-duplicate {
   background-color: #1a3a5c !important;
-  color: #99ccff ! important;
+  color: #99ccff !important;
 }
 
 .md-typeset #repeater-hex-grid td.hex-free a {
