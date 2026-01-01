@@ -4,16 +4,16 @@ function showRepeaterInfo(hexId, info) {
     const modalBody = document.getElementById('hex-modal-body');
     
     const contactLink = info.contact_url 
-        ? `<button onclick="copyContactUrl('${info.contact_url. replace(/'/g, "\\\'")}')" class="hex-contact-btn">📋 Copy Contact</button>` 
+        ?  `<button onclick="copyContactUrl(event, '${info.contact_url. replace(/'/g, "\\'")}')" class="hex-contact-btn">📋 Copy Contact</button>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
-    const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
+    const stateClass = info. state. toLowerCase().replace(/\s+/g, '-');
     
     modalBody. innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-used-badge">${hexId}</span>
-                <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
+                <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
             </div>
             <h2 class="hex-info-title">${info.name}</h2>
             <div class="hex-info-grid">
@@ -40,20 +40,20 @@ function showRepeaterInfo(hexId, info) {
 }
 
 // Copy contact URL to clipboard
-function copyContactUrl(url) {
-    navigator.clipboard. writeText(url).then(() => {
+function copyContactUrl(event, url) {
+    navigator.clipboard.writeText(url).then(() => {
         // Visual feedback
-        const btn = event.target;
+        const btn = event. target;
         const originalText = btn.textContent;
         btn.textContent = '✓ Copied!';
-        btn.style.background = 'linear-gradient(135deg, #3d6026, #4d7036)';
+        btn. style.background = 'linear-gradient(135deg, #3d6026, #4d7036)';
         
         setTimeout(() => {
             btn.textContent = originalText;
-            btn.style.background = '';
+            btn. style.background = '';
         }, 2000);
     }).catch(err => {
-        console.error('Failed to copy:', err);
+        console. error('Failed to copy:', err);
         alert('Failed to copy contact URL');
     });
 }
