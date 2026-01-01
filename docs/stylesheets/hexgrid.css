@@ -215,10 +215,11 @@
 .hex-info-header {
   display: flex;
   gap: 10px;
-  align-items:  center;
-  margin-bottom:  12px;
+  align-items: center;
+  margin-bottom: 8px;
   flex-wrap: wrap;
 }
+
 
 .hex-id-badge {
   font-family:  'Courier New', monospace;
@@ -320,14 +321,14 @@
 .hex-info-title {
   font-size: 20px;
   font-weight:  700;
-  margin:  0 0 15px 0;
+  margin: 0 0 10px 0;
   color:  #fff;
 }
 
 @media (max-width: 768px) {
   .hex-info-title {
     font-size: 18px;
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
   }
 }
 
