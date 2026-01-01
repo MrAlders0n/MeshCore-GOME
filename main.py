@@ -65,7 +65,8 @@ def define_env(env):
                 "antenna":   antenna,
                 "location":  location,
                 "last_heard":   last_heard,
-                "contact_url": contact_url
+                "contact_url": contact_url,
+                "power": r.get("power", "N/A")
             })
 
     # Reserved IDs by MeshCore (always reserved, regardless of YAML)
