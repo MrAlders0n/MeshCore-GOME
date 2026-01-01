@@ -8,24 +8,24 @@
   width: 40px;
   height: 40px;
   text-align: center;
-  border: 1px solid #1a1a1a ! important;
+  border: 1px solid #1a1a1a !  important;
   font-size: 13px;
-  font-weight:  500;
-  padding: 8px ! important;
+  font-weight:   500;
+  padding: 8px !  important;
 }
 
 .hex-table th {
-  background: #1a1a1a ! important;
-  color: #999 !important;
+  background:  #1a1a1a !  important;
+  color: #999 ! important;
   font-weight: 600;
 }
 
-.hex-table td. hex-free {
-  background-color: #2d5016 !important;
+.hex-table td.  hex-free {
+  background-color: #2d5016 ! important;
   color: #a8d68c !important;
 }
 
-.hex-table td.hex-used {
+. hex-table td. hex-used {
   background-color: #5c1a1a !important;
   color: #ff9999 !important;
   cursor: pointer;
@@ -34,12 +34,12 @@
 .hex-table td.hex-reserved {
   background-color: #3a3a3a !important;
   color: #888 !important;
-  cursor: pointer;
+  cursor:  pointer;
 }
 
 .hex-table td.hex-duplicate {
   background-color: #1a3a5c !important;
-  color: #99ccff !important;
+  color:  #99ccff !important;
   cursor: pointer;
 }
 
@@ -48,8 +48,8 @@
   transition: transform 0.1s ease;
 }
 
-.hex-table td.hex-used:hover . hex-clickable,
-.hex-table td.hex-duplicate:hover .hex-clickable,
+.hex-table td.hex-used: hover .  hex-clickable,
+.hex-table td.hex-duplicate:hover . hex-clickable,
 .hex-table td.hex-reserved:hover .hex-clickable {
   transform: scale(1.2);
 }
@@ -57,16 +57,38 @@
 /* Style links in free cells */
 .hex-table td.hex-free a {
   color: #a8d68c !important;
-  text-decoration: none !important;
+  text-decoration: none ! important;
   display: block;
   width: 100%;
   height: 100%;
   transition: transform 0.1s ease;
 }
 
-.hex-table td. hex-free a:hover {
+.hex-table td.  hex-free a:hover {
   color: #ffffff !important;
   transform: scale(1.2);
+}
+
+/* Responsive wrapper for mobile */
+@media (max-width: 768px) {
+  .hex-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px -15px;
+    padding: 0 15px;
+  }
+  
+  .hex-table td, .hex-table th {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+    padding: 4px ! important;
+    min-width: 32px;
+  }
+  
+  .hex-table {
+    margin: 10px 0;
+  }
 }
 
 /* Modal Styling */
@@ -90,10 +112,10 @@
 }
 
 .hex-modal-content {
-  background:  linear-gradient(145deg, #2a2a2a, #1e1e1e);
+  background:   linear-gradient(145deg, #2a2a2a, #1e1e1e);
   margin: 10vh auto;
   padding: 0;
-  border:  1px solid #444;
+  border:   1px solid #444;
   border-radius: 12px;
   width: 85%;
   max-width: 450px;
@@ -113,14 +135,23 @@
   }
 }
 
-.hex-modal-close {
+/* Mobile modal adjustments */
+@media (max-width: 768px) {
+  .hex-modal-content {
+    width: 95%;
+    max-width: none;
+    margin: 5vh auto;
+  }
+}
+
+. hex-modal-close {
   color: #aaa;
   position: absolute;
   right: 15px;
   top: 10px;
-  font-size:  28px;
+  font-size:   28px;
   font-weight: bold;
-  cursor:  pointer;
+  cursor:   pointer;
   transition: color 0.2s ease;
   z-index: 1;
 }
@@ -134,6 +165,12 @@
   padding: 20px 25px 25px 25px;
 }
 
+@media (max-width: 768px) {
+  #hex-modal-body {
+    padding: 15px 18px 18px 18px;
+  }
+}
+
 .hex-info-card {
   color: #e0e0e0;
 }
@@ -141,8 +178,8 @@
 .hex-info-header {
   display: flex;
   gap: 10px;
-  align-items: center;
-  margin-bottom: 12px;
+  align-items:  center;
+  margin-bottom:  12px;
   flex-wrap: wrap;
 }
 
@@ -151,11 +188,18 @@
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size:  16px;
+}
+
+@media (max-width: 768px) {
+  .hex-id-badge {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
 }
 
 .hex-used-badge {
-  background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
+  background:  linear-gradient(135deg, #7a2a2a, #5c1a1a);
   color: #ff9999;
   border: 2px solid #ff9999;
 }
@@ -174,15 +218,22 @@
 
 .hex-state-badge {
   padding: 4px 10px;
-  border-radius:  4px;
-  font-size: 11px;
+  border-radius:   4px;
+  font-size:  11px;
   font-weight: 600;
   text-transform: uppercase;
 }
 
+@media (max-width: 768px) {
+  .hex-state-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
 .hex-state-active {
   background: #2d5016;
-  color:  #a8d68c;
+  color:   #a8d68c;
 }
 
 .hex-state-reserved,
@@ -202,29 +253,36 @@
   padding: 4px 10px;
   border-radius: 4px;
   background: #7a4a2a;
-  color:  #ffcc99;
+  color:   #ffcc99;
   font-size: 11px;
   font-weight: 600;
 }
 
-.hex-info-title {
+. hex-info-title {
   font-size: 20px;
-  font-weight:  700;
-  margin:  0 0 15px 0;
-  color:  #fff;
+  font-weight:   700;
+  margin:   0 0 15px 0;
+  color:   #fff;
+}
+
+@media (max-width: 768px) {
+  .hex-info-title {
+    font-size: 18px;
+    margin: 0 0 12px 0;
+  }
 }
 
 .hex-info-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  margin-bottom:  15px;
+  margin-bottom:   15px;
 }
 
-. hex-info-item {
-  background: rgba(255, 255, 255, 0.05);
+.  hex-info-item {
+  background:  rgba(255, 255, 255, 0.05);
   padding: 10px 12px;
-  border-radius:  6px;
+  border-radius:   6px;
   border-left: 3px solid #5c1a1a;
 }
 
@@ -240,6 +298,13 @@
   display: block;
   font-size: 13px;
   color: #e0e0e0;
+  word-break: break-word;
+}
+
+@media (max-width:  768px) {
+  .hex-info-value {
+    font-size: 12px;
+  }
 }
 
 .hex-info-contact {
@@ -250,10 +315,10 @@
 .hex-contact-btn {
   display: inline-block;
   padding: 10px 24px;
-  background: linear-gradient(135deg, #2d5016, #3d6026);
-  color: #a8d68c ! important;
-  text-decoration:  none !important;
-  border-radius: 6px;
+  background:  linear-gradient(135deg, #2d5016, #3d6026);
+  color: #a8d68c !  important;
+  text-decoration:   none !important;
+  border-radius:  6px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
@@ -266,20 +331,34 @@
   box-shadow: 0 4px 12px rgba(168, 214, 140, 0.3);
 }
 
+@media (max-width: 768px) {
+  .hex-contact-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
+
 .hex-no-contact {
   color: #888;
   font-style: italic;
   font-size: 13px;
 }
 
-.hex-duplicate-warning {
+. hex-duplicate-warning {
   background: rgba(255, 204, 153, 0.1);
   border-left: 4px solid #ffcc99;
   padding: 10px;
-  margin: 12px 0;
+  margin:  12px 0;
   border-radius: 4px;
   color: #ffcc99;
   font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .hex-duplicate-warning {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
 
 .hex-duplicates-container {
@@ -287,14 +366,20 @@
   flex-direction: column;
   gap: 12px;
   max-height: 50vh;
-  overflow-y:  auto;
+  overflow-y:   auto;
 }
 
 .hex-duplicate-entry {
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
-  border-radius:  8px;
-  border: 1px solid rgba(153, 204, 255, 0.2);
+  border-radius:   8px;
+  border:  1px solid rgba(153, 204, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .hex-duplicate-entry {
+    padding: 10px;
+  }
 }
 
 .hex-entry-number {
@@ -308,36 +393,48 @@
 
 .hex-duplicate-name {
   font-size: 16px;
-  margin: 8px 0;
-  color:  #fff;
+  margin:  8px 0;
+  color:   #fff;
+}
+
+@media (max-width: 768px) {
+  .hex-duplicate-name {
+    font-size: 15px;
+  }
 }
 
 .hex-info-grid-small {
   display: grid;
   gap: 6px;
-  margin:  8px 0;
+  margin:   8px 0;
 }
 
-. hex-info-item-small {
+.  hex-info-item-small {
   display: flex;
   gap: 8px;
   font-size: 12px;
   color: #ccc;
 }
 
+@media (max-width: 768px) {
+  .hex-info-item-small {
+    font-size: 11px;
+  }
+}
+
 .hex-contact-btn-small {
   display: inline-block;
   padding: 5px 10px;
   background: #2d5016;
-  color: #a8d68c ! important;
-  text-decoration:  none !important;
+  color: #a8d68c !  important;
+  text-decoration:   none !important;
   border-radius: 4px;
   font-size: 11px;
   margin-top: 6px;
 }
 
 .hex-contact-btn-small:hover {
-  background:  #3d6026;
+  background:   #3d6026;
 }
 
 .hex-no-contact-small {
@@ -350,17 +447,23 @@
   line-height: 1.6;
   color: #ccc;
   font-size: 14px;
-  margin:  10px 0;
+  margin:   10px 0;
+}
+
+@media (max-width: 768px) {
+  .hex-reserved-text {
+    font-size: 13px;
+  }
 }
 
 /* Override Material theme */
 .md-typeset .hex-table td {
   background-color: transparent;
-  border-color: #1a1a1a !important;
+  border-color: #1a1a1a ! important;
 }
 
-.md-typeset .hex-table td.hex-free {
-  background-color: #2d5016 ! important;
+.md-typeset .hex-table td. hex-free {
+  background-color: #2d5016 !  important;
 }
 
 .md-typeset .hex-table td.hex-used {
@@ -368,13 +471,13 @@
 }
 
 .md-typeset .hex-table td.hex-reserved {
-  background-color:  #3a3a3a ! important;
+  background-color:   #3a3a3a !  important;
 }
 
-.md-typeset .hex-table td. hex-duplicate {
+.md-typeset .hex-table td.  hex-duplicate {
   background-color: #1a3a5c !important;
 }
 
-. md-typeset .hex-table td.hex-free a {
-  color: #a8d68c !important;
+.  md-typeset .hex-table td. hex-free a {
+  color: #a8d68c ! important;
 }
