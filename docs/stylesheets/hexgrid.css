@@ -689,32 +689,62 @@ h2.hex-info-title {
   background-color: #1a3a5c !important;
   color: #99ccff !important;
 }
+
 /* Keygen actions row */
 .hex-keygen-actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:  flex;
+    justify-content:  center;
+    align-items:  stretch;
     gap: 10px;
-    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.hex-keygen-actions .hex-contact-btn {
+    flex: 1;
+    margin: 0;
 }
 
 .hex-download-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    padding: 10px 14px;
     background: linear-gradient(135deg, #2d5016, #3d6026);
     color: #a8d68c;
-    border: 2px solid #a8d68c;
+    border:  2px solid #a8d68c;
     border-radius: 6px;
-    font-size:  18px;
+    font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
+    height: auto;
 }
 
 .hex-download-btn:hover {
     background: linear-gradient(135deg, #3d6026, #4d7036);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(168, 214, 140, 0.3);
+}
+
+@media (max-width: 768px) {
+    .hex-download-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+.hex-key-stats-inline {
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 12px;
+    background: rgba(45, 80, 22, 0.2);
+    border-radius: 4px;
+    font-size: 11px;
+    color: #a8d68c;
+    font-family: 'Courier New', monospace;
+}
+
+.hex-keygen-results {
+    display:  flex;
+    flex-direction: column;
+    gap: 8px;
 }
