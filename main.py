@@ -15,8 +15,8 @@ def define_env(env):
         
         try:  
             # Convert epoch to datetime and format as YYYY-MM-DD
-            dt = datetime.fromtimestamp(int(epoch_time))
-            return dt.strftime("%Y-%m-%d")
+            dt = datetime. fromtimestamp(int(epoch_time))
+            return dt. strftime("%Y-%m-%d")
         except (ValueError, TypeError):
             return "Invalid date"
 
@@ -28,11 +28,14 @@ def define_env(env):
     # Compute used IDs (uppercase for consistency with hex display)
     used_ids = {str(r["id"]).upper() for r in repeaters if "id" in r}
 
-    # All possible 1 byte IDs 00 - FF
-    all_ids = [f"{i:02X}" for i in range(256)]
+    # Reserved IDs by MeshCore
+    reserved_ids = {"00", "FF"}
 
-    # Free IDs are everything not in used_ids
-    free_ids = [i for i in all_ids if i not in used_ids]
+    # All possible 1 byte IDs 00 - FF
+    all_ids = [f"{i: 02X}" for i in range(256)]
+
+    # Free IDs are everything not in used_ids or reserved_ids
+    free_ids = [i for i in all_ids if i not in used_ids and i not in reserved_ids]
 
     # Sort for nice output
     free_ids.sort(key=lambda x: int(x, 16))
@@ -51,12 +54,16 @@ def define_env(env):
         html_table += f'    <th>{row:X}</th>\n'
         for col in range(16):
             cell_id = f"{row:X}{col:X}"
-            css_class = "hex-free" if cell_id in free_ids else "hex-used"
             
-            # If free, wrap in anchor tag linking to keygen
-            if cell_id in free_ids:
+            # Determine cell type
+            if cell_id in reserved_ids:
+                css_class = "hex-reserved"
+                html_table += f'    <td class="{css_class}" title="MeshCore&#10;Reserved">{cell_id}</td>\n'
+            elif cell_id in free_ids:
+                css_class = "hex-free"
                 html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/?prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
             else:
+                css_class = "hex-used"
                 html_table += f'    <td class="{css_class}">{cell_id}</td>\n'
         html_table += '  </tr>\n'
 

@@ -7,60 +7,70 @@
 .hex-table td, .hex-table th {
   width:  40px;
   height:  40px;
-  text-align:   center;
-  border: 1px solid #1a1a1a ! important;
-  font-size:  13px;
+  text-align: center;
+  border:  1px solid #1a1a1a !important;
+  font-size: 13px;
   font-weight: 500;
   padding: 8px !important;
 }
 
 .hex-table th {
-  background: #1a1a1a !important;
+  background:  #1a1a1a ! important;
   color: #999 !important;
   font-weight: 600;
 }
 
 .hex-table td.hex-free {
-  background-color: #2d5016 !important;  /* Dark green for available */
-  color:  #a8d68c !important;
+  background-color:  #2d5016 !important;  /* Dark green for available */
+  color: #a8d68c !important;
   cursor: pointer;
 }
 
-.hex-table td.hex-used {
+. hex-table td.hex-used {
   background-color: #5c1a1a !important;  /* Dark red for used */
   color: #ff9999 !important;
 }
 
+. hex-table td.hex-reserved {
+  background-color: #3a3a3a !important;  /* Grey for reserved */
+  color: #888 !important;
+  cursor:  not-allowed;
+}
+
 /* Style links in free cells */
 .hex-table td.hex-free a {
-  color: #a8d68c ! important;
-  text-decoration:  none ! important;
+  color: #a8d68c !important;
+  text-decoration: none !important;
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.hex-table td.hex-free a:hover {
-  color: #ffffff !important;
+. hex-table td.hex-free a:hover {
+  color:  #ffffff !important;
   text-decoration: underline !important;
 }
 
 /* Override Material theme defaults */
-. md-typeset .hex-table td {
-  background-color:  transparent;
-  border-color:  #1a1a1a ! important;
+.md-typeset . hex-table td {
+  background-color: transparent;
+  border-color: #1a1a1a !important;
 }
 
-.md-typeset .hex-table td. hex-free {
+.md-typeset .hex-table td.hex-free {
   background-color: #2d5016 !important;
 }
 
-. md-typeset .hex-table td.hex-used {
+.md-typeset .hex-table td.hex-used {
   background-color: #5c1a1a !important;
 }
 
+.md-typeset .hex-table td.hex-reserved {
+  background-color: #3a3a3a !important;
+}
+
 .md-typeset .hex-table td.hex-free a {
-  color: #a8d68c !important;
+  color:  #a8d68c !important;
 }
 
 .md-typeset .hex-table td.hex-free a:hover {
