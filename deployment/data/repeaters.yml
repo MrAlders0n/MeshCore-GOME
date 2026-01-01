@@ -920,7 +920,7 @@ repeaters:
   - id: "C0"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -929,7 +929,7 @@ repeaters:
   - id: "C1"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -938,7 +938,7 @@ repeaters:
   - id: "C2"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -947,7 +947,7 @@ repeaters:
   - id: "C3"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -956,7 +956,7 @@ repeaters:
   - id: "C4"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -965,7 +965,7 @@ repeaters:
   - id: "C5"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -974,7 +974,7 @@ repeaters:
   - id: "C6"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -983,7 +983,7 @@ repeaters:
   - id: "C7"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -992,7 +992,7 @@ repeaters:
   - id: "C8"
     name: "Backbone to Toronto"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -1001,7 +1001,7 @@ repeaters:
   - id: "C9"
     name: "Backbone to Montreal"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -1010,7 +1010,7 @@ repeaters:
   - id: "CA"
     name: "Backbone to Montreal"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -1019,7 +1019,7 @@ repeaters:
   - id: "CB"
     name: "Backbone to Montreal"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -1028,7 +1028,7 @@ repeaters:
   - id: "CC"
     name: "Backbone to Montreal"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -1037,7 +1037,7 @@ repeaters:
   - id: "CD"
     name: "Backbone to Montreal"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -1046,7 +1046,7 @@ repeaters:
   - id: "CE"
     name: "Backbone to Montreal"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
@@ -1055,7 +1055,7 @@ repeaters:
   - id: "CF"
     name: "Backbone to Montreal"
     antenna: "TBD"
-    location: "Reserved ID For City Link Backbone"
+    location: "TBD"
     state: "BackboneReserved"
     contact: null
     hex_id: null
