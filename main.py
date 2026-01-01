@@ -117,9 +117,9 @@ def define_env(env):
                 info_json = json.dumps(info).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showRepeaterInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
             else:
-                # Must be free - no wrapper span, just the link
+                # Must be free - call showKeygenModal instead of link
                 css_class = "hex-free"
-                html_table += f'    <td class="{css_class}"><a href="https://gessaman.com/mc-keygen/? prefix={cell_id}" target="_blank">{cell_id}</a></td>\n'
+                html_table += f'    <td class="{css_class}" onclick="showKeygenModal(\'{cell_id}\')"><span class="hex-clickable">{cell_id}</span></td>\n'
         html_table += '  </tr>\n'
 
     html_table += '</table>\n'
