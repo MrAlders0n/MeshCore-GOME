@@ -67,6 +67,9 @@ theme:
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
+  - javascripts/hexgrid.js
 
+extra_css:
+  - stylesheets/hexgrid.css
 extra_css:
   - stylesheets/hexgrid.css
