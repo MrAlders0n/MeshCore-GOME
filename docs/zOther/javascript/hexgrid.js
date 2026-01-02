@@ -10,7 +10,8 @@ function showRepeaterInfo(hexId, info) {
     const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
     
     // Format height and power if available
-    const heightDisplay = info. height_metre ? `${info.height_metre}m` : 'N/A';
+    const antennaDisplay = info.antenna ? `${info.antenna}` : 'N/A';
+    const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
     const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
     
     modalBody.innerHTML = `
@@ -23,7 +24,7 @@ function showRepeaterInfo(hexId, info) {
             <div class="hex-info-grid">
                 <div class="hex-info-item">
                     <span class="hex-info-label">📡 Antenna</span>
-                    <span class="hex-info-value">${info.antenna}</span>
+                    <span class="hex-info-value">${antennaDisplay}</span>
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">📍 Location</span>
