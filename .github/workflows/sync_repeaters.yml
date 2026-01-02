@@ -71,27 +71,27 @@ jobs:
                   return str(value)
               return yaml_quote(value)
 
-          def get_city_name(lat, lon):
-              if lat is None or lon is None: 
-                  return None
-              try:
-                  headers = {'User-Agent': 'MeshCore-GOME-Sync/1.0'}
-                  url = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&zoom=18"
-                  resp = requests.get(url, headers=headers, timeout=10)
-                  resp.raise_for_status()
-                  data = resp.json()
-                  address = data.get('address', {})
-                  return (
-                      address.get('suburb')
-                      or address.get('neighbourhood')
-                      or address.get('village')
-                      or address.get('town')
-                      or address.get('city')
-                      or address.get('municipality')
-                  )
-              except Exception as e:
-                  print(f"  Error geocoding {lat}, {lon}: {e}")
-                  return None
+        def get_city_name(lat, lon):
+            if lat is None or lon is None:
+                return None
+            try:
+                headers = {'User-Agent': 'MeshCore-GOME-Sync/1.0'}
+                url = f"https://nominatim.openstreetmap.org/reverse? format=json&lat={lat}&lon={lon}&zoom=18"
+                resp = requests.get(url, headers=headers, timeout=10)
+                resp.raise_for_status()
+                data = resp.json()
+                address = data.get('address', {})
+                return (
+                    address.get('neighbourhood')  # More specific (e.g., "Barrhaven West")
+                    or address.get('suburb')      # Slightly broader (e.g., "Nepean")
+                    or address.get('village')
+                    or address.get('town')
+                    or address.get('city')
+                    or address.get('municipality')
+                )
+            except Exception as e:
+                print(f"  Error geocoding {lat}, {lon}: {e}")
+                return None
 
           def safe(v):
               return "" if v is None else str(v)
