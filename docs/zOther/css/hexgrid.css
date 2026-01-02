@@ -24,6 +24,7 @@
   border: 2px solid #555;              /* border belongs here, not on full-width container */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  outline: none;
   overflow: hidden;                    /* prevent internal overflow showing outside wrapper */
 }
 
@@ -540,11 +541,13 @@ h2.hex-info-title {
   font-family: 'Courier New', monospace;
   background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
   color: #e0e0e0;
-  border: 2px solid #555;
+  border: none !important;            /* no internal border */
   border-bottom: none;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0 !important; /* keep rounded top corners to match wrapper */
   outline: none;
   transition: all 0.3s ease;
+  background-clip: padding-box;       /* avoid bleed over rounded corners */
+  box-shadow: none !important;        /* remove any glow that increases perceived thickness */
   box-sizing: border-box;
 }
 .hex-search-input:focus {
@@ -553,6 +556,11 @@ h2.hex-info-title {
   background: linear-gradient(145deg, #2d2d2d, #202020);
 }
 .hex-search-input::placeholder { color: #888; font-style: italic; }
+
+/* If Material theme injects a width-limited search rule, ensure input still fills wrapper */
+.md-typeset .hex-search-input {
+  width: 100% !important;
+}
 
 .hex-search-clear {
   position: absolute;
@@ -573,6 +581,7 @@ h2.hex-info-title {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
+  border: 1px solid rgba(255,255,255,0.05); /* keep subtle inner button border only */
 }
 
 .hex-search-results {
@@ -583,8 +592,9 @@ h2.hex-info-title {
   font-family: 'Courier New', monospace;
   min-height: 20px;
   background: rgba(45, 80, 22, 0.15);
-  border-left: 2px solid #555;
-  border-right: 2px solid #555;
+  background-clip: padding-box;
+  border-left: none !important;
+  border-right: none !important;
 }
 
 /* Material theme overrides using ID selector (highest specificity) */
