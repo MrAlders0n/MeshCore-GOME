@@ -417,7 +417,7 @@ repeaters:
     last_heard: null
     power_watt: null
 
-    - id: "5D"
+  - id: "5D"
     name: "Inured Repeater 2"
     antenna: "Seeed Studio RF Explorer 902-928 MHz 8 dBi (1300 mm)"
     height_metre: null
