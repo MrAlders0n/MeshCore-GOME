@@ -807,3 +807,18 @@ h2.hex-info-title {
         font-size: 9px;
     }
 }
+/* Side-by-side layout for height and power */
+.hex-info-row {
+  display: flex;
+  gap:  10px;
+}
+
+.hex-info-half {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .hex-info-row {
+    gap: 8px;
+  }
+}

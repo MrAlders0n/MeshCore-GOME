@@ -42,9 +42,9 @@ def define_env(env):
     backbone_reserved_ids = set()
     
     for r in repeaters:
-        if "id" in r: 
+        if "id" in r:
             rid = str(r["id"]).upper()
-            state = r.get("state", "Unknown")
+            state = r. get("state", "Unknown")
             
             # Track BackboneReserved IDs separately
             if state == "BackboneReserved":
@@ -53,9 +53,10 @@ def define_env(env):
             name = r.get("name", "N/A")
             antenna = r.get("antenna", "N/A")
             location = r.get("location", "N/A")
-            height_metre = r.get("height_metre", "N/A")
+            height_metre = r.get("height_metre", "")
+            power_watt = r.get("power_watt", "")
             last_heard = epoch_to_date(r.get("last_heard"))
-            contact_url = r.get("contact", "N/A")
+            contact_url = r.get("contact", "")
             
             # If duplicate, store in a list
             if rid not in repeater_info:
@@ -63,12 +64,12 @@ def define_env(env):
             repeater_info[rid].append({
                 "name": name,
                 "state": state,
-                "antenna":   antenna,
-                "location":  location,
+                "antenna":  antenna,
+                "location": location,
                 "height_metre":  height_metre,
-                "last_heard":   last_heard,
-                "contact_url": contact_url,
-                "power": r.get("power", "N/A")
+                "power_watt": power_watt,
+                "last_heard":  last_heard,
+                "contact_url": contact_url
             })
 
     # Reserved IDs by MeshCore (always reserved, regardless of YAML)
