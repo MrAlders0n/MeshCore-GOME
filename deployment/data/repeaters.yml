@@ -1115,12 +1115,3 @@ repeaters:
     state: "New"
     hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
     last_heard: 1767317042
-
-  - id: "59"
-    name: "Unimatrix-01"
-    antenna: "TBD"
-    location: "Ottawa"
-    contact: "meshcore://contact/add?name=Unimatrix-01&public_key=5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF&type=2"
-    state: "Duplicate"
-    hex_id: "5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF"
-    last_heard: 1767318779
