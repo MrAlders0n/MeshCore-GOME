@@ -853,7 +853,7 @@ h2.hex-info-title {
 /* Search box styling */
 .hex-search-container {
   margin-bottom: 0;
-  width: 100%;
+  width: 681px; /* Desktop: 17 columns × 40px + 1px for borders */
   box-sizing: border-box;
 }
 
@@ -871,7 +871,7 @@ h2.hex-info-title {
   color: #e0e0e0;
   border: 2px solid #555;
   border-bottom: none;
-  border-radius: 8px 8px 0 0;
+  border-radius: 6px 6px 0 0;
   outline: none;
   transition: all 0.3s ease;
   box-sizing: border-box;
@@ -955,6 +955,11 @@ h2.hex-info-title {
 }
 
 @media (max-width: 768px) {
+  .hex-search-container {
+    width: 545px; /* Mobile: 17 columns × 32px + 1px for borders */
+    max-width: 545px;
+  }
+  
   .hex-search-input {
     font-size: 12px;
     padding: 8px 36px 8px 10px;
