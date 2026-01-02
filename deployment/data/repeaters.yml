@@ -95,7 +95,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R0&public_key=0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D&type=2"
     state: "Active"
     hex_id: "0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D"
-    last_heard: 1767321696
+    last_heard: 1767364897
     power_watt: null
 
   - id: "14"
@@ -227,7 +227,7 @@ repeaters:
     contact: "meshcore://contact/add?name=YOW_Richmond&public_key=38F34D34C61837F9907FB9640AE6B19FF01AE1A38A47A77AF69DC700AA21431B&type=2"
     state: "Observer"
     hex_id: "38F34D34C61837F9907FB9640AE6B19FF01AE1A38A47A77AF6"
-    last_heard: 1767317728
+    last_heard: 1767364529
     power_watt: null
 
   - id: "39"
@@ -282,7 +282,7 @@ repeaters:
     contact: "meshcore://contact/add?name=EZ%20Repeater&public_key=4226EAAF38AAF479F35572C3D376B872309D72D33B56DDB91D8494F47845EBCD&type=2"
     state: "Active"
     hex_id: "4226EAAF38AAF479F35572C3D376B872309D72D33B56DDB91D"
-    last_heard: 1767277717
+    last_heard: 1767364115
     power_watt: null
 
   - id: "46"
@@ -502,7 +502,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Peter%20Heltec%20Repeater&public_key=78cc71e4f633ffd7ccecd5526335b130886bf984efa5ec7b2aaee2226cb84da5&type=2"
     state: "Active"
     hex_id: "78CC71E4F633FFD7CCECD5526335B130886BF984EFA5EC7B2A"
-    last_heard: 1767334487
+    last_heard: 1767363289
     power_watt: null
 
   - id: "79"
@@ -513,7 +513,7 @@ repeaters:
     contact: "meshcore://contact/add?name=CSP-RPTR1&public_key=797c3f84760b6624989062fd8b4394dd8a90c90e2babbaf928af8373ffc5049f&type=2"
     state: "Active"
     hex_id: "798AEF1F0A148A0B62EFF07B0D631D8630948269E6D39616B8"
-    last_heard: 1767359295
+    last_heard: 1767365961
     power_watt: null
 
   - id: "7B"
@@ -623,7 +623,7 @@ repeaters:
     contact: "meshcore://contact/add?name=ZabRepeater1&public_key=8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC&type=2"
     state: "Active"
     hex_id: "8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC"
-    last_heard: 1767355108
+    last_heard: 1767365908
     power_watt: null
 
   - id: "90"
@@ -634,7 +634,7 @@ repeaters:
     contact: "meshcore://contact/add?name=YOW_BarrhavenEast&public_key=9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F0476C3F394658AA8&type=2"
     state: "Observer"
     hex_id: "9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F04"
-    last_heard: 1767322408
+    last_heard: 1767365610
     power_watt: null
 
   - id: "92"
@@ -876,7 +876,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Vanier%20East%20R3&public_key=e4c361f1d3a5bd94a7c914f8a02f4abe1adcd1a12ee67f9037174069bf5adcd2&type=2"
     state: "Active"
     hex_id: "E4C361F1D3A5BD94A7C914F8A02F4ABE1ADCD1A12EE67F9037"
-    last_heard: 1767322387
+    last_heard: 1767365588
     power_watt: null
 
   - id: "EC"
@@ -920,7 +920,7 @@ repeaters:
     contact: "meshcore://contact/add?name=MAY_SOLAR_R&public_key=F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2&type=2"
     state: "Active"
     hex_id: "F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2"
-    last_heard: 1767322321
+    last_heard: 1767365523
     power_watt: null
 
   - id: "FC"
@@ -997,7 +997,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3NFA_R1&public_key=70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33&type=2"
     state: "New"
     hex_id: "70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33"
-    last_heard: 1767354448
+    last_heard: 1767365249
     power_watt: null
 
   - id: "75"
@@ -1296,7 +1296,7 @@ repeaters:
     hex_id: "5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A"
     last_heard: 1767337376
     power_watt: null
-      
+
   - id: "D1"
     name: "Cinnabar Island"
     antenna: "Stock Station-G2 Antenna"

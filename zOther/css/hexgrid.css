@@ -125,7 +125,27 @@
     font-weight: 500;
   }
 }
-
+/* Mobile responsive - prevent overflow */
+@media (max-width: 768px) {
+  .hex-search-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  .hex-grid-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  .hex-search-input {
+    font-size: 12px;
+    padding: 8px 36px 8px 10px;
+  }
+  
+  .hex-search-results {
+    font-size:  10px;
+  }
+}
 /* Modal Styling */
 .hex-modal {
   display: none;
