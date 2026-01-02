@@ -351,17 +351,6 @@ repeaters:
     last_heard: 1767337375
     power_watt: null
 
-  - id: "4E"
-    name: "MrAlders0n_R1_DUP"
-    antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
-    location: "TEST"
-    contact: null
-    state: "Reserved"
-    hex_id: null
-    last_heard: null
-    power_watt: null
-
   - id: "4F"
     name: "ElDoc_Temp_R"
     antenna: "Log Periodic"
@@ -1367,7 +1356,7 @@ repeaters:
     name: "Silo Repeater"
     antenna: null
     height_metre: null
-    location: "TBD"
+    location: null
     contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
     state: "New"
     hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
