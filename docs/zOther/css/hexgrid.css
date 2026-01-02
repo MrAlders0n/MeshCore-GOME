@@ -835,7 +835,7 @@ h2.hex-info-title {
   width: 100%;
 }
 
-. hex-search-input {
+.hex-search-input {
   width: 100%;
   padding: 10px 40px 10px 12px;
   font-size:  13px;
@@ -893,7 +893,7 @@ h2.hex-info-title {
 }
 
 /* Dimmed state for non-matching cells */
-#repeater-hex-grid td. hex-dimmed {
+#repeater-hex-grid td.hex-dimmed {
   opacity: 0.2;
   filter: grayscale(50%);
   transition: all 0.3s ease;
@@ -904,7 +904,7 @@ h2.hex-info-title {
   opacity: 1;
   filter:  none;
   box-shadow: 0 0 12px rgba(168, 214, 140, 0.6);
-  animation: pulse 1. 5s ease-in-out infinite;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
