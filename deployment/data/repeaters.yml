@@ -1,7 +1,7 @@
 repeaters:
   - id: "03"
     name: "AlxR4"
-    antenna: "None"
+    antenna: null
     height_metre: null
     location: "Orleans"
     contact: "meshcore://contact/add?name=AlxR4&public_key=03C7E4C6ABD49DAC36043ED3276E7CB9CFAC57BC428B704DE3&type=2"
@@ -35,7 +35,7 @@ repeaters:
   - id: "06"
     name: "MrAlders0n_R7"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
+    height_metre: 9.0
     location: "Centretown"
     contact: "meshcore://contact/add?name=MrAlders0n_R7&public_key=06B179064A96F3AA06E68F5E4F6CCE92FD8A1B4A6F6E366B1DB6F90E8066A36A&type=2"
     state: "Active"
@@ -201,7 +201,7 @@ repeaters:
     name: "WAG_SOLAR_R"
     antenna: "Alfa 5.8dBi"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=WAG_SOLAR_R&public_key=359D98DF99FDC69B1399FBC188FFA08543B13FB242B14F5DAA&type=2"
     state: "Active"
     hex_id: "359D98DF99FDC69B1399FBC188FFA08543B13FB242B14F5DAA"
@@ -300,7 +300,7 @@ repeaters:
     name: "VA3HUP_DowsLake"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=VA3HUP_DowsLake&public_key=47d004ded5f0bd0839ae60a33bfe724d3f30a4b66b3f7770d1b9a69a85940321&type=2"
     state: "Active"
     hex_id: "47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1"
@@ -344,7 +344,7 @@ repeaters:
     name: "MrAlders0n_R1"
     antenna: "Alfa Omni 5.8dBi"
     height_metre: null
-    location: null
+    location: "Barrhaven West"
     contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7&type=2"
     state: "Active"
     hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7"
@@ -366,7 +366,7 @@ repeaters:
     name: "WTE5 TRASH"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=WTE5%20TRASH&public_key=50af4c9149fbcd89b3d4aa3d63f0522cd05ea413caf54ce48c5fa7113dd74bd7&type=2"
     state: "Unknown"
     hex_id: null
@@ -387,8 +387,8 @@ repeaters:
   - id: "59"
     name: "Unimatrix-01"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
-    location: "Stittsville (5.8 m on balcony)"
+    height_metre: 5.8m
+    location: "Stittsville on a balcony"
     contact: "meshcore://contact/add?name=Unimatrix-01&public_key=5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF&type=2"
     state: "Active"
     hex_id: "5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF"
@@ -432,7 +432,7 @@ repeaters:
     name: "TBRG_R3"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=TBRG_R3&public_key=649D120810863F3ADE5682832842E5523B4286F8253C658ABA&type=2"
     state: "Active"
     hex_id: "649D120810863F3ADE5682832842E5523B4286F8253C658ABA"
@@ -465,7 +465,7 @@ repeaters:
     name: "Zaffman_R1"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Zaffman_R1&public_key=6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2&type=2"
     state: "Active"
     hex_id: "6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2"
@@ -630,7 +630,7 @@ repeaters:
     name: "YOW_BarrhavenEast"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=YOW_BarrhavenEast&public_key=9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F0476C3F394658AA8&type=2"
     state: "Observer"
     hex_id: "9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F04"
@@ -861,7 +861,7 @@ repeaters:
     name: "Quinterra"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Quinterra&public_key=DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0A9E7A28C826767&type=2"
     state: "Active"
     hex_id: "DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0"
@@ -872,7 +872,7 @@ repeaters:
     name: "VA3HUP_Roof"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=VA3HUP_Roof&public_key=E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8A42F22095B4385&type=2"
     state: "Active"
     hex_id: "E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8"
@@ -883,7 +883,7 @@ repeaters:
     name: "Vanier East R3"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Vanier%20East%20R3&public_key=e4c361f1d3a5bd94a7c914f8a02f4abe1adcd1a12ee67f9037174069bf5adcd2&type=2"
     state: "Active"
     hex_id: "E4C361F1D3A5BD94A7C914F8A02F4ABE1ADCD1A12EE67F9037"
@@ -971,7 +971,7 @@ repeaters:
     name: "Inured Repeater 3"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Inured%20Repeater%203&public_key=1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714&type=2"
     state: "New"
     hex_id: "1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714"
@@ -982,7 +982,7 @@ repeaters:
     name: "Tabarnak Repeater"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Tabarnak%20Repeater&public_key=5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3&type=2"
     state: "New"
     hex_id: "5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3"
@@ -993,7 +993,7 @@ repeaters:
     name: "YOW_Orleans_N1"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=YOW_Orleans_N1&public_key=69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C&type=2"
     state: "New"
     hex_id: "69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C"
@@ -1004,7 +1004,7 @@ repeaters:
     name: "VA3NFA_R1"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=VA3NFA_R1&public_key=70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33&type=2"
     state: "New"
     hex_id: "70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33"
@@ -1026,7 +1026,7 @@ repeaters:
     name: "MrAlders0n_Ikoka_R1"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=MrAlders0n_Ikoka_R1&public_key=7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7&type=2"
     state: "New"
     hex_id: "7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7"
@@ -1037,7 +1037,7 @@ repeaters:
     name: "VE3RIM-R1"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=VE3RIM-R1&public_key=8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C&type=2"
     state: "New"
     hex_id: "8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C"
@@ -1048,7 +1048,7 @@ repeaters:
     name: "HX_R1"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=HX_R1&public_key=8E656408D1C7&type=2"
     state: "New"
     hex_id: "8E656408D1C7"
@@ -1059,7 +1059,7 @@ repeaters:
     name: "BUN_SOLAR_R"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=BUN_SOLAR_R&public_key=B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE&type=2"
     state: "New"
     hex_id: "B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE"
@@ -1070,7 +1070,7 @@ repeaters:
     name: "llm-repeater1"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=llm-repeater1&public_key=D6B21E3667F3&type=2"
     state: "New"
     hex_id: "D6B21E3667F3"
@@ -1081,7 +1081,7 @@ repeaters:
     name: "AlxR3"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=AlxR3&public_key=02953DA68B20727D4DD4335596055FEC348280A596910114D5&type=2"
     state: "New"
     hex_id: "02953DA68B20727D4DD4335596055FEC348280A596910114D5"
@@ -1092,7 +1092,7 @@ repeaters:
     name: "Limoges"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "Reserved"
     hex_id: null
@@ -1103,7 +1103,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1114,7 +1114,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1125,7 +1125,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1136,7 +1136,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1147,7 +1147,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1158,7 +1158,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1169,7 +1169,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1180,7 +1180,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1191,7 +1191,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1202,7 +1202,7 @@ repeaters:
     name: "Backbone to Toronto"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1213,7 +1213,7 @@ repeaters:
     name: "Backbone to Montreal"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1224,7 +1224,7 @@ repeaters:
     name: "Backbone to Montreal"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1235,7 +1235,7 @@ repeaters:
     name: "Backbone to Montreal"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1246,7 +1246,7 @@ repeaters:
     name: "Backbone to Montreal"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1257,7 +1257,7 @@ repeaters:
     name: "Backbone to Montreal"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1268,7 +1268,7 @@ repeaters:
     name: "Backbone to Montreal"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
@@ -1279,7 +1279,7 @@ repeaters:
     name: "Nox Roof Repeater"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Nox%20Roof%20Repeater&public_key=849522C90D59058DA6E3C19F381AC3F62F31EC71F5B7E4E0E8&type=2"
     state: "New"
     hex_id: "849522C90D59058DA6E3C19F381AC3F62F31EC71F5B7E4E0E8"
@@ -1290,7 +1290,7 @@ repeaters:
     name: "Nox Repeater"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Nox%20Repeater&public_key=9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25&type=2"
     state: "New"
     hex_id: "9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25"
@@ -1301,7 +1301,7 @@ repeaters:
     name: "Inured Repeater 2"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A&type=2"
     state: "Duplicate"
     hex_id: "5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A"
@@ -1312,7 +1312,7 @@ repeaters:
     name: "Cinnabar Island"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=Cinnabar%20Island&public_key=D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E&type=2"
     state: "Duplicate"
     hex_id: "D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E"
@@ -1323,7 +1323,7 @@ repeaters:
     name: "YOW_Alx_Mob_Observer"
     antenna: "None"
     height_metre: null
-    location: "None"
+    location: null
     contact: "meshcore://contact/add?name=YOW_Alx_Mob_Observer&public_key=F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA&type=2"
     state: "New"
     hex_id: "F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA"
@@ -1350,5 +1350,16 @@ repeaters:
     state: "New"
     hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
     last_heard: 1767317042
+    power_watt: null
+
+  - id: "6B"
+    name: "Silo Repeater"
+    antenna: null
+    height_metre: null
+    location: "Alfred and Plantagenet"
+    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
+    state: "New"
+    hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
+    last_heard: 1767324241
     power_watt: null
 
