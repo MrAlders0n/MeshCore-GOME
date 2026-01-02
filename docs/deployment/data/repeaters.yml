@@ -1352,14 +1352,3 @@ repeaters:
     last_heard: 1767317042
     power_watt: null
 
-  - id: "6B"
-    name: "Silo Repeater"
-    antenna: null
-    height_metre: null
-    location: "TBD"
-    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
-    state: "New"
-    hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
-    last_heard: 1767324241
-    power_watt: null
-
