@@ -250,20 +250,20 @@ jobs:
                       f.write(f'    location: "{repeater.get("location", "TBD")}"\n')
                       
                       contact = repeater.get('contact')
-                      f.write(f'    contact: "{contact if contact else null}"\n')
+                      f.write(f'    contact: "{contact if contact else "null"}"\n')
                       
                       if 'state' in repeater:  
                           f.write(f'    state: "{repeater["state"]}"\n')
                       
                       if 'hex_id' in repeater:  
-                          f.write(f'    hex_id: "{repeater["hex_id"] if repeater["hex_id"] else null}"\n')
+                          f.write(f'    hex_id: "{repeater["hex_id"] if repeater["hex_id"] else "null"}"\n')
                       
                       if 'last_heard' in repeater:  
-                          f.write(f'    last_heard: {repeater["last_heard"] if repeater["last_heard"] else null}\n')
+                          f.write(f'    last_heard: {repeater["last_heard"] if repeater["last_heard"] else "null"}\n')
 
                       if 'power_watt' in repeater:
-                          f.write(f'    power_watt: "{repeater["power_watt"] if repeater["power_watt"] else null}"\n')
-                      
+                          f.write(f'    power_watt: "{repeater["power_watt"] if repeater["power_watt"] else "null"}"\n')
+
                       f.write('\n')
               
               # Output to GITHUB_OUTPUT
