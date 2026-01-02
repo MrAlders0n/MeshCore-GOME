@@ -2,1364 +2,1341 @@ repeaters:
   - id: "03"
     name: "AlxR4"
     antenna: null
-    height_metre: null
     location: "Orleans"
+    height_metre: "14"
     contact: "meshcore://contact/add?name=AlxR4&public_key=03C7E4C6ABD49DAC36043ED3276E7CB9CFAC57BC428B704DE3&type=2"
     state: "Active"
     hex_id: "03C7E4C6ABD49DAC36043ED3276E7CB9CFAC57BC428B704DE3"
-    last_heard: 1767358203
     power_watt: null
+    last_heard: 1767277647
 
   - id: "04"
     name: "Kevrex_R1"
     antenna: "Alfa 5.8dbi"
-    height_metre: null
     location: "Centretown"
+    height_metre: "10"
     contact: null
     state: "Reserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "05"
     name: "YOW_OldBarrhaven"
     antenna: "Gizont"
+    location: null
     height_metre: null
-    location: "Old Barrhaven"
     contact: "meshcore://contact/add?name=YOW_OldBarrhaven&public_key=05D6F975A1658A5DAB1A6477EDCD36D8C2B5398567DA37602E6B583B325C1425&type=2"
     state: "Observer"
     hex_id: "05D6F975A1658A5DAB1A6477EDCD36D8C2B5398567DA37602E"
-    last_heard: 1767358596
     power_watt: null
+    last_heard: 1767272196
 
   - id: "06"
     name: "MrAlders0n_R7"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: 9.0
     location: "Centretown"
+    height_metre: "10"
     contact: "meshcore://contact/add?name=MrAlders0n_R7&public_key=06B179064A96F3AA06E68F5E4F6CCE92FD8A1B4A6F6E366B1DB6F90E8066A36A&type=2"
     state: "Active"
     hex_id: "06B179064A96F3AA06E68F5E4F6CCE92FD8A1B4A6F6E366B1D"
-    last_heard: 1767334135
     power_watt: null
+    last_heard: 1767290934
 
   - id: "07"
     name: "Inured Repeater 1"
-    antenna: "None"
+    antenna: null
+    location: null
     height_metre: null
-    location: "Barrhaven"
     contact: "meshcore://contact/add?name=Inured%20Repeater%201&public_key=07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A24687BDEC02DF7&type=2"
     state: "Active"
     hex_id: "07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A"
-    last_heard: 1767353165
     power_watt: null
+    last_heard: 1767288363
 
   - id: "08"
     name: "NPQ-00"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Buckingham"
+    height_metre: null
     contact: "meshcore://contact/add?name=NPQ-00&public_key=085BA7CE428EF87042D45F8D274C0A555E6F43A20B8E7A53BD9256FF11B6AB9D&type=2"
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "0A"
     name: "SSHO_R1"
     antenna: "Rokland Omni Fibreglass 5.8dBi with Acasom Cavity Filter"
-    height_metre: null
     location: "Orleans"
+    height_metre: "8.0"
     contact: "meshcore://contact/add?name=SSHO_R1&public_key=0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651B&type=2"
     state: "Active"
     hex_id: "0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651B"
-    last_heard: 1767336845
     power_watt: null
+    last_heard: 1767293646
 
   - id: "0B"
     name: "NPQ-SOLAR"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Buckingham"
+    height_metre: null
     contact: "meshcore://contact/add?name=NPQ-SOLAR&public_key=0B3DFB71062FDC4AA6F066B715E2F08D43658391BFE2F1BD83&type=2"
     state: "Active"
     hex_id: "0B3DFB71062FDC4AA6F066B715E2F08D43658391BFE2F1BD83"
-    last_heard: 1767217507
     power_watt: null
+    last_heard: 1767217507
 
   - id: "0C"
     name: "TBRG_R0"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Ashton"
+    height_metre: null
     contact: "meshcore://contact/add?name=TBRG_R0&public_key=0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D&type=2"
     state: "Active"
     hex_id: "0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D"
-    last_heard: 1767321696
     power_watt: null
+    last_heard: 1767278493
 
   - id: "14"
     name: "CORRIGE-R1"
     antenna: "10dBi Omni"
-    height_metre: null
     location: "Orleans"
+    height_metre: "7.0"
     contact: "meshcore://contact/add?name=CORRIGE-R1&public_key=146ACF961C253989FA7B79E5B014D39B622F736EA3F6FBF998&type=2"
     state: "Active"
     hex_id: "146ACF961C253989FA7B79E5B014D39B622F736EA3F6FBF998"
-    last_heard: 1767355861
     power_watt: null
+    last_heard: 1767291295
 
   - id: "17"
     name: "llm-repeater2"
-    antenna: "None"
+    antenna: null
+    location: "Orleans TBD"
     height_metre: null
-    location: "Orleans"
     contact: "meshcore://contact/add?name=llm-repeater2&public_key=17ab75372aca255e7810c99dbb31475c0eac133d59ec4b0f9e5d78c6bc413ebf&type=2"
     state: "Active"
     hex_id: "17AB75372ACA255E7810C99DBB31475C0EAC133D59EC4B0F9E"
-    last_heard: 1767325299
     power_watt: null
+    last_heard: 1767282099
 
   - id: "20"
     name: "Centretown Alfa"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Centretown"
+    height_metre: null
     contact: "meshcore://contact/add?name=Centretown%20Alfa&public_key=201c2398856e855bf7d46538eb0c58867373e996c2fcf76ae1199605ae93659c&type=2"
     state: "Active"
     hex_id: "201C2398856E855BF7D46538EB0C58867373E996C2FCF76AE1"
-    last_heard: 1767333796
     power_watt: null
+    last_heard: 1767290597
 
   - id: "22"
     name: "TOO_SOLAR_R"
     antenna: "Seeed 8dBi 1300mm Fiberglass Omni"
-    height_metre: null
     location: "Ashton"
+    height_metre: null
     contact: "meshcore://contact/add?name=TOO_SOLAR_R&public_key=22EBC5EBB5CC7DC5A44A8132B5863754771C9CAF38F035C953&type=2"
     state: "Active"
     hex_id: "22EBC5EBB5CC7DC5A44A8132B5863754771C9CAF38F035C953"
-    last_heard: 1767343811
     power_watt: null
+    last_heard: 1767300609
 
   - id: "27"
     name: "Gatineau_R2"
     antenna: "Rokland Omni Fibreglass 8dBI"
-    height_metre: null
     location: "Gatineau"
+    height_metre: null
     contact: "meshcore://contact/add?name=Gatineau_R2&public_key=27642f192ff758da30968587703d873b643c1cf2f76b397ce877d4c5b5929a5e&type=2"
     state: "Active"
     hex_id: "27642F192FF758DA30968587703D873B643C1CF2F76B397CE8"
-    last_heard: 1767316756
     power_watt: null
+    last_heard: 1767273554
 
   - id: "28"
     name: "Juno_REP"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Barrhaven"
+    height_metre: null
     contact: "meshcore://contact/add?name=Juno_REP&public_key=283AF70DBE2D62CFC8281C64ECC48ABF5748F773CB69B47A7F1A8E18D0FF179A&type=2"
     state: "Active"
     hex_id: "283af70dbe2d"
-    last_heard: 1766418819
     power_watt: null
+    last_heard: 1766418819
 
   - id: "2D"
     name: "HappyR1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Kanata"
+    height_metre: null
     contact: "meshcore://contact/add?name=HappyR1&public_key=2deb5c1040db&type=2"
     state: "Active"
     hex_id: "2deb5c1040db"
-    last_heard: 1766166020
     power_watt: null
+    last_heard: 1766166020
 
   - id: "2E"
     name: "loug_2e"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Baseline & Greenbank"
+    height_metre: "18"
     contact: null
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "30"
     name: "MrAlders0n_R4"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Parkdale"
+    height_metre: "20"
     contact: null
     state: "Active"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "35"
     name: "WAG_SOLAR_R"
     antenna: "Alfa 5.8dBi"
-    height_metre: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=WAG_SOLAR_R&public_key=359D98DF99FDC69B1399FBC188FFA08543B13FB242B14F5DAA&type=2"
     state: "Active"
     hex_id: "359D98DF99FDC69B1399FBC188FFA08543B13FB242B14F5DAA"
-    last_heard: 1766896014
     power_watt: null
+    last_heard: 1766896014
 
   - id: "37"
     name: "LFR1"
     antenna: "Alfa 5.8dBi"
-    height_metre: null
     location: "Lincoln Fields"
+    height_metre: null
     contact: "meshcore://contact/add?name=HH-R1&public_key=37bdcfdbb6d4b873d6cc70660ec5c6554ac4ba280e2f60f44f895f9f6e5dc53e&type=2"
     state: "Active"
     hex_id: "37BDCFDBB6D4B873D6CC70660EC5C6554AC4BA280E2F60F44F"
-    last_heard: 1767273994
     power_watt: null
+    last_heard: 1767273994
 
   - id: "38"
     name: "YOW_Richmond"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Richmond"
+    height_metre: null
     contact: "meshcore://contact/add?name=YOW_Richmond&public_key=38F34D34C61837F9907FB9640AE6B19FF01AE1A38A47A77AF69DC700AA21431B&type=2"
     state: "Observer"
     hex_id: "38F34D34C61837F9907FB9640AE6B19FF01AE1A38A47A77AF6"
-    last_heard: 1767317728
     power_watt: null
+    last_heard: 1767270927
 
   - id: "39"
     name: "funkymonkey"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Richmond"
+    height_metre: null
     contact: "meshcore://contact/add?name=funkymonkey&public_key=394192EB8139264051606C15421CF5127BDC22100067238CA6&type=2"
     state: "Active"
     hex_id: "394192EB8139264051606C15421CF5127BDC22100067238CA6"
-    last_heard: 1767342760
     power_watt: null
+    last_heard: 1767295956
 
   - id: "3B"
     name: "NEW_SOLAR_R"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Orleans"
+    height_metre: null
     contact: "meshcore://contact/add?name=NEW_SOLAR_R&public_key=3B5DFCAE5F5061AE67AF0B6AAECA05EEAF16461424B093A771F3269248B54BF1&type=2"
     state: "Active"
     hex_id: "3B5DFCAE5F5061AE67AF0B6AAECA05EEAF16461424B093A771"
-    last_heard: 1767317553
     power_watt: null
+    last_heard: 1767274351
 
   - id: "3D"
     name: "HX_R2"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Gatineau"
+    height_metre: null
     contact: "meshcore://contact/add?name=RAK4631%20Repeater&public_key=3d55109a5082a2018625e6d974fdfb8e24d3e8bee190a40357b69518f36bdf8d&type=2"
     state: "Active"
     hex_id: "3D55109A5082A2018625E6D974FDFB8E24D3E8BEE190A40357"
-    last_heard: 1767330285
     power_watt: null
+    last_heard: 1767208883
 
   - id: "3E"
     name: "NIS-RPTR1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Orleans"
+    height_metre: null
     contact: "meshcore://contact/add?name=NIS-RPTR1&public_key=3E6E8B520F0F3B30F5D6BDEA4355F66289A6B51FD9307C5489&type=2"
     state: "Active"
     hex_id: "3E6E8B520F0F3B30F5D6BDEA4355F66289A6B51FD9307C5489"
-    last_heard: 1767346755
     power_watt: null
+    last_heard: 1767303552
 
   - id: "42"
     name: "EZ Repeater"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Richmond"
+    height_metre: null
     contact: "meshcore://contact/add?name=EZ%20Repeater&public_key=4226EAAF38AAF479F35572C3D376B872309D72D33B56DDB91D8494F47845EBCD&type=2"
     state: "Active"
     hex_id: "4226EAAF38AAF479F35572C3D376B872309D72D33B56DDB91D"
-    last_heard: 1767277717
     power_watt: null
+    last_heard: 1767277717
 
   - id: "46"
     name: "High in the Sky"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Westboro"
+    height_metre: null
     contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46322f039e3fbc63c3c810af4fa4589de360c4349d642f78c485ad182887a51c&type=2"
     state: "Active"
     hex_id: "46322F039E3FBC63C3C810AF4FA4589DE360C4349D642F78C4"
-    last_heard: 1767348608
     power_watt: null
+    last_heard: 1767305409
 
   - id: "47"
     name: "VA3HUP_DowsLake"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=VA3HUP_DowsLake&public_key=47d004ded5f0bd0839ae60a33bfe724d3f30a4b66b3f7770d1b9a69a85940321&type=2"
     state: "Active"
     hex_id: "47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1"
-    last_heard: 1767344114
     power_watt: null
+    last_heard: 1767304390
 
   - id: "48"
     name: "GFS-WRK"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Gloucester (Canotek Business Park)"
+    height_metre: null
     contact: "meshcore://contact/add?name=GFS-WRK&public_key=4890D2CB5F08BEFC0BA66852DFFE39EEE082D826C27AD7B2D2778D7BFD71DCAA&type=2"
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "4B"
     name: "CSP-RPTR2"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Leitrim"
+    height_metre: null
     contact: "meshcore://contact/add?name=CSP-RPTR2&public_key=4B5A10F72E0F839F1CBCDAECF581D184A512E680A5597835E7&type=2"
     state: "Active"
     hex_id: "4B5A10F72E0F839F1CBCDAECF581D184A512E680A5597835E7"
+    power_watt: null
     last_heard: 1767240481
-    power_watt: "0.3w"
 
   - id: "4D"
     name: "MrAlders0n_R2"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Downtown 14th-floor apartment balcony"
+    height_metre: "40"
     contact: "meshcore://contact/add?name=MrAlders0n_R2&public_key=4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929D&type=2"
     state: "Active"
     hex_id: "4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929D"
-    last_heard: 1767356320
     power_watt: null
+    last_heard: 1767269913
 
   - id: "4E"
     name: "MrAlders0n_R1"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
-    location: "Barrhaven West"
+    location: "Eaves in Old Barrhaven"
+    height_metre: "7.5"
     contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7&type=2"
     state: "Active"
     hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7"
-    last_heard: 1767337375
     power_watt: null
+    last_heard: 1767294173
+
+  - id: "4E"
+    name: "MrAlders0n_R1_DUP"
+    antenna: "Alfa Omni 5.8dBi"
+    location: "TEST"
+    height_metre: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    power_watt: null
+    last_heard: null
 
   - id: "4F"
     name: "ElDoc_Temp_R"
     antenna: "Log Periodic"
-    height_metre: null
     location: "Cumberland  - Indoors"
+    height_metre: "7"
     contact: "meshcore://contact/add?name=ElDoc_Temp_R&public_key=4FCDB1CF17476A0F6E2F3564925BDE7269F71F7B80544152CFA08DCE9CAC3865&type=2"
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "50"
     name: "WTE5 TRASH"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=WTE5%20TRASH&public_key=50af4c9149fbcd89b3d4aa3d63f0522cd05ea413caf54ce48c5fa7113dd74bd7&type=2"
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "51"
     name: "AlxR5b"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Orleans"
+    height_metre: null
     contact: "meshcore://contact/add?name=AlxR5b&public_key=510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3&type=2"
     state: "Active"
     hex_id: "510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3"
-    last_heard: 1767327310
     power_watt: null
+    last_heard: 1767284108
 
   - id: "59"
     name: "Unimatrix-01"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: 5.8m
-    location: "Stittsville on a balcony"
-    contact: "meshcore://contact/add?name=Unimatrix-01&public_key=5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF&type=2"
+    location: "Stittsville (5.8 m on balcony)"
+    height_metre: null
+    contact: "meshcore://contact/add?name=Unimatrix-01&public_key=5921f50fd47e&type=2"
     state: "Active"
-    hex_id: "5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF"
-    last_heard: 1767318779
+    hex_id: "5921f50fd47e"
     power_watt: null
+    last_heard: 1766669959
 
   - id: "5C"
     name: "OOS BBS"
     antenna: "N/A"
-    height_metre: null
     location: "Old Ottawa South (N/A)"
+    height_metre: null
     contact: null
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "5D"
     name: "Inured Repeater 2"
     antenna: "Seeed Studio RF Explorer 902-928 MHz 8 dBi (1300 mm)"
-    height_metre: null
     location: "Central Park"
+    height_metre: null
     contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5df532ee2f959a100cb5e3bbd42cd3495acaeb0b94ec7cb23a5f2bd4e1b0d81f&type=2"
     state: "Active"
     hex_id: "5df532ee2f95"
-    last_heard: 1766805360
     power_watt: null
+    last_heard: 1766805360
 
   - id: "61"
     name: "WTE2 Repeater"
     antenna: "Pulse Electronics W5012"
-    height_metre: null
     location: "Eaves Parkwood Hills"
+    height_metre: "3.0"
     contact: "meshcore://contact/add?name=WTE2%20Repeater&public_key=61e3f47ba27f&type=2"
     state: "Active"
     hex_id: "61e3f47ba27f"
-    last_heard: 1766385314
     power_watt: null
+    last_heard: 1766385314
 
   - id: "64"
     name: "TBRG_R3"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=TBRG_R3&public_key=649D120810863F3ADE5682832842E5523B4286F8253C658ABA&type=2"
     state: "Active"
     hex_id: "649D120810863F3ADE5682832842E5523B4286F8253C658ABA"
-    last_heard: 1767348841
     power_watt: null
+    last_heard: 1767305638
 
   - id: "67"
     name: "Tek_HV4_Repeater"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "North Barrhaven"
+    height_metre: "7.5"
     contact: "meshcore://contact/add?name=Tek_HV4_Repeater&public_key=678A01CA375E65B5AC42080C3D5727063F2A9213BD6EB2A88D16D8A74C134614&type=2"
     state: "Active"
     hex_id: "678A01CA375E65B5AC42080C3D5727063F2A9213BD6EB2A88D"
-    last_heard: 1767357699
     power_watt: null
+    last_heard: 1767303690
 
   - id: "68"
     name: "AUS_SOLAR_R"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Old Ottawa South"
+    height_metre: null
     contact: "meshcore://contact/add?name=AUS_SOLAR_R&public_key=68756615112ceffb49fac95f4b4eea01365543093a774dfff955af0eb8f2e114&type=2"
     state: "Active"
     hex_id: "68756615112CEFFB49FAC95F4B4EEA01365543093A774DFFF9"
-    last_heard: 1767337343
     power_watt: null
+    last_heard: 1767292991
 
   - id: "6A"
     name: "Zaffman_R1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Zaffman_R1&public_key=6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2&type=2"
     state: "Active"
     hex_id: "6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2"
-    last_heard: 1767346671
     power_watt: null
+    last_heard: 1767303467
 
   - id: "74"
     name: "ElDoc_Solar"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Cumberland"
+    height_metre: "70"
     contact: null
     state: "Active"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "76"
     name: "GFS-HB"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Orleans (Near Tenth Line and Innes)"
+    height_metre: null
     contact: "meshcore://contact/add?name=GFS-HB&public_key=76D2488E85476F64FB624AEB138BF78C874B6ACE3C84916D07EA5DB0348C756A&type=2"
     state: "Active"
     hex_id: "76D2488E85476F64FB624AEB138BF78C874B6ACE3C84916D07"
-    last_heard: 1767352213
     power_watt: null
+    last_heard: 1767265815
 
   - id: "78"
     name: "Peter Heltec Repeater"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Barrhaven"
+    height_metre: null
     contact: "meshcore://contact/add?name=Peter%20Heltec%20Repeater&public_key=78cc71e4f633ffd7ccecd5526335b130886bf984efa5ec7b2aaee2226cb84da5&type=2"
     state: "Active"
     hex_id: "78CC71E4F633FFD7CCECD5526335B130886BF984EFA5EC7B2A"
-    last_heard: 1767334487
     power_watt: null
+    last_heard: 1767305685
 
   - id: "79"
     name: "CSP-RPTR1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Barrhaven"
+    height_metre: null
     contact: "meshcore://contact/add?name=CSP-RPTR1&public_key=797c3f84760b6624989062fd8b4394dd8a90c90e2babbaf928af8373ffc5049f&type=2"
     state: "Active"
     hex_id: "798AEF1F0A148A0B62EFF07B0D631D8630948269E6D39616B8"
-    last_heard: 1767359295
     power_watt: null
+    last_heard: 1767305295
 
   - id: "7B"
     name: "EssentialTrash_R1"
     antenna: "Gizont 200mm Whip"
-    height_metre: null
     location: "Old Barrhaven Window"
+    height_metre: "6.0"
     contact: "meshcore://contact/add?name=EssentialTrash_R1&public_key=7B2EF0359918364D66048102B574C830DCB023489514899D40&type=2"
     state: "Active"
     hex_id: "7B2EF0359918364D66048102B574C830DCB023489514899D40"
-    last_heard: 1767326916
     power_watt: null
+    last_heard: 1767283716
 
   - id: "7C"
     name: "Centretown Static"
     antenna: "Taoglas Omni 4dBi"
-    height_metre: null
     location: "Centretown"
+    height_metre: "10.5"
     contact: null
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "7D"
     name: "phr4"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Kemptville"
+    height_metre: "18"
     contact: "meshcore://contact/add?name=phr4&public_key=7d4db5943b01b52e8a409f57a9457e497b6020be6fc0872b482665b4786ee99f&type=2"
     state: "Active"
     hex_id: "7D4DB5943B01B52E8A409F57A9457E497B6020BE6FC0872B48"
-    last_heard: 1767358363
     power_watt: null
+    last_heard: 1767288763
 
   - id: "80"
     name: "lw-r1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Kemptville"
+    height_metre: null
     contact: null
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "81"
     name: "Starsolar_R2"
     antenna: "Alfa 5.8 dBi"
-    height_metre: null
     location: "Beckwith"
+    height_metre: "4.0"
     contact: null
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "83"
     name: "YOW_Plateau"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Orleans"
+    height_metre: null
     contact: "meshcore://contact/add?name=YOW_Plateau&public_key=834569EC3D4B9E1A4B301FB41EE8C7CA5380DE5B68100FE2B4B388010EA57D40&type=2"
     state: "Observer"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "86"
     name: "AlxR5"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Orleans"
+    height_metre: null
     contact: "meshcore://contact/add?name=AlxR5&public_key=86138d742a47f16dea8f929333489a7f5d2e3003d549059fc7ec239d5b49e7ad&type=2"
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "89"
     name: "Vanier East R2"
     antenna: "Gizont 17cm whip"
-    height_metre: null
     location: "Vanier  - Indoor window facing W"
+    height_metre: "45"
     contact: "meshcore://contact/add?name=Vanier%20East%20R2&public_key=89538efae2030a850073824287cd86cc62ed8af9c6f3bc41279a08c080bddbab&type=2"
     state: "Active"
     hex_id: "895358746537E4FAEC0CBAEA50313E94C1D425BDE3A46DF98B"
-    last_heard: 1767325453
     power_watt: null
+    last_heard: 1767282251
 
   - id: "8B"
     name: "AlxR1"
     antenna: "Yagi"
-    height_metre: null
     location: "Orleans"
+    height_metre: "15.0"
     contact: "meshcore://contact/add?name=AlxR1&public_key=8B3371FE78F8D2889D58E2FA060D029E2A42E66C5BF3D4EC26&type=2"
     state: "Active"
     hex_id: "8B3371FE78F8D2889D58E2FA060D029E2A42E66C5BF3D4EC26"
-    last_heard: 1767357841
     power_watt: null
+    last_heard: 1767277670
 
   - id: "8F"
     name: "ZabRepeater1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Old Barrhaven"
+    height_metre: null
     contact: "meshcore://contact/add?name=ZabRepeater1&public_key=8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC&type=2"
     state: "Active"
     hex_id: "8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC"
-    last_heard: 1767355108
     power_watt: null
+    last_heard: 1767301108
 
   - id: "90"
     name: "YOW_BarrhavenEast"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=YOW_BarrhavenEast&public_key=9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F0476C3F394658AA8&type=2"
     state: "Observer"
     hex_id: "9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F04"
-    last_heard: 1767322408
     power_watt: null
+    last_heard: 1767279208
 
   - id: "92"
     name: "CAN_SOLAR_R"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Twin Elm – mounted on top of grain silo"
+    height_metre: "45"
     contact: "meshcore://contact/add?name=CAN_SOLAR_R&public_key=921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF&type=2"
     state: "Active"
     hex_id: "921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF"
-    last_heard: 1767326416
     power_watt: null
+    last_heard: 1767283218
 
   - id: "99"
     name: "BUN_Solar_Rep"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Old Ottawa South"
+    height_metre: "7.0"
     contact: null
     state: "Unknown"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "A1"
     name: "Tabarnak repeater"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Alfred"
+    height_metre: null
     contact: null
     state: "Active"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "A7"
     name: "MrAlders0n_R6"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Blackburn Hamlet"
+    height_metre: null
     contact: "meshcore://contact/add?name=MrAlders0n_R6&public_key=a78006107f8bf4813eabcce3eb84128f057a44a771ed65c5fcd2d1910cd098f8&type=2"
     state: "Active"
     hex_id: "A78006107F8BF4813EABCCE3EB84128F057A44A771ED65C5FC"
-    last_heard: 1767354675
     power_watt: null
+    last_heard: 1767268269
 
   - id: "A8"
     name: "IndigoPlateau_R1"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Plateau, QC"
+    height_metre: null
     contact: null
     state: "Active"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "A9"
     name: "HX_R1"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Gatineau"
+    height_metre: null
     contact: "meshcore://contact/add?name=HX_R1&public_key=A9529B65C9670464791B4BF6A8B9D60D94D4EE1FEC6DA4FDB7F759162D7B55EE&type=2"
     state: "Active"
     hex_id: "A9529B65C9670464791B4BF6A8B9D60D94D4EE1FEC6DA4FDB7"
-    last_heard: 1767353340
     power_watt: null
+    last_heard: 1767266936
 
   - id: "AF"
     name: "Rideau_Blaster"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Kars-Osgoode"
+    height_metre: "8"
     contact: "meshcore://contact/add?name=Rideau_Blaster&public_key=af80c36b81e290a3993ccdc7295aa435e10213006d9181076161eeed0dbbde70&type=2"
     state: "Active"
     hex_id: "AF80C36B81E290A3993CCDC7295AA435E10213006D91810761"
-    last_heard: 1767334344
     power_watt: null
+    last_heard: 1767301946
 
   - id: "B1"
     name: "e7her.nod3"
     antenna: "Alfa 5.8dBi"
-    height_metre: null
     location: "Katimavik"
+    height_metre: "15.0"
     contact: "meshcore://contact/add?name=e7her.nod3&public_key=B1FBD6AA2B0EB5707666DA5340B78107B7E3A86B011E49B100&type=2"
     state: "Active"
     hex_id: "B1FBD6AA2B0EB5707666DA5340B78107B7E3A86B011E49B100"
-    last_heard: 1767342137
     power_watt: null
+    last_heard: 1767298934
 
   - id: "B3"
     name: "Rax_Repeat"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Eaves in Old Barrhaven"
+    height_metre: "7.5"
     contact: "meshcore://contact/add?name=Rax_Repeat&public_key=B357FDCAE5AB9EDFBF5DC6BDA1BA650FED9CDBFC9F960534E1&type=2"
     state: "Active"
     hex_id: "B357FDCAE5AB9EDFBF5DC6BDA1BA650FED9CDBFC9F960534E1"
-    last_heard: 1767316357
     power_watt: null
+    last_heard: 1767273156
 
   - id: "B5"
     name: "Hull Heritage"
     antenna: "Yagi Pointing NW"
-    height_metre: null
     location: "Gatineau"
+    height_metre: null
     contact: "meshcore://contact/add?name=Hull%20Heritage&public_key=B5C38DB5E0FE55F13C9A8E3A65A6844FB65A7591FE97BFA62BF78F73328CFB09&type=2"
     state: "Active"
     hex_id: "B5C38DB5E0FE55F13C9A8E3A65A6844FB65A7591FE97BFA62B"
-    last_heard: 1767301532
     power_watt: null
+    last_heard: 1767301532
 
   - id: "B7"
     name: "MrAlders0n_R5"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Barrhaven Market Place (Facing West)"
+    height_metre: "40.0"
     contact: "meshcore://contact/add?name=MrAlders0n_R5&public_key=B76B620CD8DAF554C675C75615CCE76E59A091CCE4A9083874&type=2"
     state: "Active"
     hex_id: "B76B620CD8DAF554C675C75615CCE76E59A091CCE4A9083874"
-    last_heard: 1767334675
     power_watt: null
+    last_heard: 1767291473
 
   - id: "BF"
     name: "CarletonHeightsSolarRep"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Carleton Heights"
+    height_metre: null
     contact: "meshcore://contact/add?name=CarletonHeightsSolarRep&public_key=bf31359be4d2466dd857364f0ee5d1fe1a31aa3de4e0dbd5008be21ee4bda816&type=2"
     state: "Active"
     hex_id: "BF31359BE4D2466DD857364F0EE5D1FE1A31AA3DE4E0DBD500"
-    last_heard: 1767129037
     power_watt: null
+    last_heard: 1767129037
 
   - id: "C4"
     name: "YOW_Orleans_AR1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Orleans"
+    height_metre: null
     contact: "meshcore://contact/add?name=YOW_Orleans_AR1&public_key=C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92FF037CCE7BF06AD&type=2"
     state: "Observer"
     hex_id: "C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92F"
-    last_heard: 1767305191
     power_watt: null
+    last_heard: 1767305191
 
   - id: "C9"
     name: "MrAlders0n_Drone"
     antenna: "Gizont 167mm Whip"
-    height_metre: null
     location: "Everywhere"
+    height_metre: null
     contact: null
     state: "Active"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "CC"
     name: "Vanier East R1"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Vanier  - Balcony railing facing NW"
+    height_metre: "45"
     contact: "meshcore://contact/add?name=Vanier%20East%20R1&public_key=ccef942235d61d1cf094fecc235eae3f10d7e407b69a3463a5f3837d591ecdb0&type=2"
     state: "Active"
     hex_id: "CCBEABBE3774EDBAC849728338A68F521E1F2D7D6CEF89B493"
-    last_heard: 1767344168
     power_watt: null
+    last_heard: 1767300967
 
   - id: "CF"
     name: "SVIL_R1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "New Stittsville"
+    height_metre: null
     contact: "meshcore://contact/add?name=SVIL_R1&public_key=CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A&type=2"
     state: "Active"
     hex_id: "CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A"
-    last_heard: 1767349027
     power_watt: null
+    last_heard: 1767305826
 
   - id: "D0"
     name: "Gatineau_R1"
     antenna: "Alfa 5.8dBi"
-    height_metre: null
     location: "Gatineau"
+    height_metre: null
     contact: "meshcore://contact/add?name=Gatineau_R1&public_key=d05386332896ff78742c824a47009d9a219ac7a7232f7dd2d63fd91086b74d8c&type=2"
     state: "Active"
     hex_id: "D05386332896FF78742C824A47009D9A219AC7A7232F7DD2D6"
-    last_heard: 1767316714
     power_watt: null
+    last_heard: 1767273512
 
   - id: "D1"
     name: "Cinnabar Island"
     antenna: "Stock Station-G2 Antenna"
-    height_metre: null
     location: "Plateau-Québec"
+    height_metre: null
     contact: "meshcore://contact/add?name=Cinnabar%20Island&public_key=d162d1d002ab&type=2"
     state: "Active"
     hex_id: "d162d1d002ab"
-    last_heard: 1766767919
     power_watt: null
+    last_heard: 1766767919
 
   - id: "D2"
     name: "MAC_Repeat"
     antenna: "Rokland Omni Fibreglass 8dBI"
-    height_metre: null
     location: "Riverside South"
+    height_metre: "7.5"
     contact: null
     state: "Offline"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "D3"
     name: "GD-MrA_R3"
     antenna: "Alfa 5.8dBi"
-    height_metre: null
     location: "Kanata"
+    height_metre: "12"
     contact: "meshcore://contact/add?name=GD-MrA_R3&public_key=D35BE0D747C22F4D1988DE8EA86B10C648DF03C14C3B94AAE2&type=2"
     state: "Active"
     hex_id: "D35BE0D747C22F4D1988DE8EA86B10C648DF03C14C3B94AAE2"
-    last_heard: 1767340687
     power_watt: null
+    last_heard: 1767297487
 
   - id: "DA"
     name: "Quinterra"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Quinterra&public_key=DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0A9E7A28C826767&type=2"
     state: "Active"
     hex_id: "DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0"
-    last_heard: 1767305383
     power_watt: null
+    last_heard: 1767305383
 
   - id: "E1"
     name: "VA3HUP_Roof"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=VA3HUP_Roof&public_key=E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8A42F22095B4385&type=2"
     state: "Active"
     hex_id: "E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8"
-    last_heard: 1767326162
     power_watt: null
+    last_heard: 1767282960
 
   - id: "E4"
     name: "Vanier East R3"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Vanier%20East%20R3&public_key=e4c361f1d3a5bd94a7c914f8a02f4abe1adcd1a12ee67f9037174069bf5adcd2&type=2"
     state: "Active"
     hex_id: "E4C361F1D3A5BD94A7C914F8A02F4ABE1ADCD1A12EE67F9037"
-    last_heard: 1767322387
     power_watt: null
+    last_heard: 1767279254
 
   - id: "EC"
     name: "MAG 101"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Barrhaven"
+    height_metre: null
     contact: "meshcore://contact/add?name=MAG%20101&public_key=ECE23809B83C019C44CBC8B8F09DD638DF90FADA5382804A6A&type=2"
     state: "Active"
     hex_id: "ECE23809B83C019C44CBC8B8F09DD638DF90FADA5382804A6A"
-    last_heard: 1767348847
     power_watt: null
+    last_heard: 1767119781
 
   - id: "F2"
     name: "TBRG_R1"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Ashton"
+    height_metre: null
     contact: "meshcore://contact/add?name=TBRG_R1&public_key=F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7&type=2"
     state: "Active"
     hex_id: "F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7"
-    last_heard: 1767358088
     power_watt: null
+    last_heard: 1767300487
 
   - id: "F3"
     name: "AlxR2"
     antenna: "8dBI Omni"
-    height_metre: null
     location: "Gloucester"
+    height_metre: "30.0"
     contact: "meshcore://contact/add?name=AlxR2&public_key=F31D9B81DB69DA4C62BFBA1E29D305506CA3FF0C5340D9C842&type=2"
     state: "Active"
     hex_id: "F31D9B81DB69DA4C62BFBA1E29D305506CA3FF0C5340D9C842"
-    last_heard: 1767357991
     power_watt: null
+    last_heard: 1767271591
 
   - id: "F4"
     name: "MAY_SOLAR_R"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Rooftop of Mayfair Theatre"
+    height_metre: "20"
     contact: "meshcore://contact/add?name=MAY_SOLAR_R&public_key=F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2&type=2"
     state: "Active"
     hex_id: "F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2"
-    last_heard: 1767322321
     power_watt: null
+    last_heard: 1767228452
 
   - id: "FC"
     name: "R56_R1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Riverside South"
+    height_metre: null
     contact: "meshcore://contact/add?name=R56_R1&public_key=FCB7F2DB3D45BCF4994D72354405751819B3B0498CC6864F97&type=2"
     state: "Active"
     hex_id: "FCB7F2DB3D45BCF4994D72354405751819B3B0498CC6864F97"
-    last_heard: 1767355284
     power_watt: null
+    last_heard: 1767268878
 
   - id: "FE"
     name: "TBRG_R2"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
     location: "Ashton"
+    height_metre: null
     contact: "meshcore://contact/add?name=TBRG_R2&public_key=FE653F47E232ADAB960C273221C693D9709439AA0D811424ED&type=2"
     state: "Active"
     hex_id: "FE653F47E232ADAB960C273221C693D9709439AA0D811424ED"
-    last_heard: 1767335444
     power_watt: null
+    last_heard: 1767292242
 
   - id: "FF"
     name: "YOW_Stittsville"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: "Richmond"
+    height_metre: null
     contact: "meshcore://contact/add?name=YOW_Stittsville&public_key=ffca1e2ceeb8&type=2"
     state: "Observer"
     hex_id: "ffca1e2ceeb8"
-    last_heard: 1766348440
     power_watt: null
+    last_heard: 1766348440
 
   - id: "1B"
     name: "Inured Repeater 3"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Inured%20Repeater%203&public_key=1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714&type=2"
     state: "New"
     hex_id: "1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714"
-    last_heard: 1767083051
     power_watt: null
+    last_heard: 1767083051
 
   - id: "5B"
     name: "Tabarnak Repeater"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Tabarnak%20Repeater&public_key=5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3&type=2"
     state: "New"
     hex_id: "5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3"
-    last_heard: 1767136740
     power_watt: null
+    last_heard: 1767136740
 
   - id: "69"
     name: "YOW_Orleans_N1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=YOW_Orleans_N1&public_key=69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C&type=2"
     state: "New"
     hex_id: "69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C"
-    last_heard: 1767355872
     power_watt: null
+    last_heard: 1767269472
 
   - id: "70"
     name: "VA3NFA_R1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=VA3NFA_R1&public_key=70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33&type=2"
     state: "New"
     hex_id: "70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33"
-    last_heard: 1767354448
     power_watt: null
+    last_heard: 1767302091
 
   - id: "75"
     name: "VA3TEC_R1"
     antenna: "Patch Antenna"
-    height_metre: null
     location: "Orleans"
+    height_metre: "9.0"
     contact: "meshcore://contact/add?name=VA3TEC_R1&public_key=75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93&type=2"
     state: "Active"
     hex_id: "75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93"
-    last_heard: 1767033549
     power_watt: null
+    last_heard: 1767033549
 
   - id: "77"
     name: "MrAlders0n_Ikoka_R1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=MrAlders0n_Ikoka_R1&public_key=7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7&type=2"
     state: "New"
     hex_id: "7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7"
-    last_heard: 1767342533
     power_watt: null
+    last_heard: 1767299332
 
   - id: "8A"
     name: "VE3RIM-R1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=VE3RIM-R1&public_key=8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C&type=2"
     state: "New"
     hex_id: "8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C"
-    last_heard: 1767139293
     power_watt: null
+    last_heard: 1767139293
 
   - id: "8E"
     name: "HX_R1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=HX_R1&public_key=8E656408D1C7&type=2"
     state: "New"
     hex_id: "8E656408D1C7"
-    last_heard: 1766092908
     power_watt: null
+    last_heard: 1766092908
 
   - id: "B2"
     name: "BUN_SOLAR_R"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=BUN_SOLAR_R&public_key=B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE&type=2"
     state: "New"
     hex_id: "B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE"
-    last_heard: 1767341213
     power_watt: null
+    last_heard: 1767298012
 
   - id: "D6"
     name: "llm-repeater1"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=llm-repeater1&public_key=D6B21E3667F3&type=2"
     state: "New"
     hex_id: "D6B21E3667F3"
-    last_heard: 1766628046
     power_watt: null
+    last_heard: 1766628046
 
   - id: "02"
     name: "AlxR3"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=AlxR3&public_key=02953DA68B20727D4DD4335596055FEC348280A596910114D5&type=2"
     state: "New"
     hex_id: "02953DA68B20727D4DD4335596055FEC348280A596910114D5"
-    last_heard: 1767350297
     power_watt: null
+    last_heard: 1767307093
 
   - id: "E0"
     name: "Limoges"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "Reserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C0"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C1"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C2"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C3"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C4"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C5"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C6"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C7"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C8"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "C9"
     name: "Backbone to Toronto"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "CA"
     name: "Backbone to Montreal"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "CB"
     name: "Backbone to Montreal"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "CC"
     name: "Backbone to Montreal"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "CD"
     name: "Backbone to Montreal"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "CE"
     name: "Backbone to Montreal"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "CF"
     name: "Backbone to Montreal"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: null
     state: "BackboneReserved"
     hex_id: null
-    last_heard: null
     power_watt: null
+    last_heard: null
 
   - id: "84"
     name: "Nox Roof Repeater"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Nox%20Roof%20Repeater&public_key=849522C90D59058DA6E3C19F381AC3F62F31EC71F5B7E4E0E8&type=2"
     state: "New"
     hex_id: "849522C90D59058DA6E3C19F381AC3F62F31EC71F5B7E4E0E8"
-    last_heard: 1767331143
     power_watt: null
+    last_heard: 1767287958
 
   - id: "9A"
     name: "Nox Repeater"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Nox%20Repeater&public_key=9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25&type=2"
     state: "New"
     hex_id: "9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25"
-    last_heard: 1767329741
     power_watt: null
+    last_heard: 1767286542
 
   - id: "5D"
     name: "Inured Repeater 2"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A&type=2"
     state: "Duplicate"
     hex_id: "5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A"
-    last_heard: 1767337376
     power_watt: null
+    last_heard: 1767296321
 
   - id: "D1"
     name: "Cinnabar Island"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=Cinnabar%20Island&public_key=D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E&type=2"
     state: "Duplicate"
     hex_id: "D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E"
-    last_heard: 1767337207
     power_watt: null
+    last_heard: 1767294024
 
   - id: "F7"
     name: "YOW_Alx_Mob_Observer"
-    antenna: "None"
-    height_metre: null
+    antenna: null
     location: null
+    height_metre: null
     contact: "meshcore://contact/add?name=YOW_Alx_Mob_Observer&public_key=F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA&type=2"
     state: "New"
     hex_id: "F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA"
-    last_heard: 1767314584
     power_watt: null
-
-  - id: "85"
-    name: "YOW_TabarnakVille"
-    antenna: "TBD"
-    height_metre: null
-    location: "Alfred and Plantagenet"
-    contact: "meshcore://contact/add?name=YOW_TabarnakVille&public_key=858925361F56073974D8787BD8DED2737E72DABD6C16F1A301&type=2"
-    state: "New"
-    hex_id: "858925361F56073974D8787BD8DED2737E72DABD6C16F1A301"
-    last_heard: 1767317870
-    power_watt: null
-
-  - id: "F1"
-    name: "YOW_Alx_Mob_Rpt_2"
-    antenna: "TBD"
-    height_metre: null
-    location: "TBD (~X.X m)"
-    contact: "meshcore://contact/add?name=YOW_Alx_Mob_Rpt_2&public_key=F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265&type=2"
-    state: "New"
-    hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
-    last_heard: 1767317042
-    power_watt: null
-
-  - id: "6B"
-    name: "Silo Repeater"
-    antenna: null
-    height_metre: null
-    location: "Alfred and Plantagenet"
-    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
-    state: "New"
-    hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
-    last_heard: 1767324241
-    power_watt: null
-
+    last_heard: 1767307691
