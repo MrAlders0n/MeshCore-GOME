@@ -2,9 +2,8 @@ name: Sync Repeaters from MeshMapper API
 
 on:
   schedule:
-    # Runs every hour at minute 0
     - cron: "0 * * * *"
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -25,17 +24,22 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: pip install pyyaml requests urllib3
+        run: pip install "ruamel.yaml<0.18" requests urllib3
 
       - name: Fetch and sync repeaters
         id: sync
         run: |
           python << 'EOF'
-          import yaml
           import requests
           import os
           import time
           from urllib.parse import quote
+          from ruamel.yaml import YAML
+
+          yaml = YAML()
+          yaml.preserve_quotes = True
+          yaml.indent(mapping=2, sequence=2, offset=2)
+          yaml.width = 4096
 
           VALID_STATES = {
               'duplicate': 'Duplicate',
@@ -75,10 +79,11 @@ jobs:
           print(f"Found {len(api_repeaters)} repeaters in API")
 
           yml_path = 'docs/deployment/data/repeaters.yml'
-          with open(yml_path, 'r') as f:
-              existing_data = yaml.safe_load(f) or {}
+          with open(yml_path, 'r', encoding='utf-8') as f:
+              existing_data = yaml.load(f) or {}
 
           existing_data.setdefault('repeaters', [])
+          rep_seq = existing_data['repeaters']
 
           state_corrections = []
           last_heard_updates = 0
@@ -86,7 +91,7 @@ jobs:
           location_updates = 0
           location_updates_list = []
 
-          for r in existing_data.get('repeaters', []):
+          for r in rep_seq:
               if 'state' in r:
                   old_state = r['state']
                   new_state = normalize_state(old_state)
@@ -102,7 +107,7 @@ jobs:
 
           existing_hex_id_map = {}
           existing_hex_ids = set()
-          for r in existing_data.get('repeaters', []):
+          for r in rep_seq:
               hex_id = r.get('hex_id')
               if hex_id:
                   hex_id_upper = str(hex_id).upper()
@@ -111,7 +116,7 @@ jobs:
 
           existing_id_map = {}
           existing_ids = set()
-          for r in existing_data.get('repeaters', []):
+          for r in rep_seq:
               rep_id = r.get('id')
               if rep_id:
                   rep_id_upper = str(rep_id).upper()
@@ -230,27 +235,14 @@ jobs:
 
           if has_changes:
               if all_new:
-                  existing_data['repeaters'].extend(all_new)
-
-              dumped = yaml.safe_dump(
-                  existing_data,
-                  sort_keys=False,
-                  default_flow_style=False,
-                  allow_unicode=True,
-              )
-
-              # Insert a blank line between each list item under "repeaters:"
-              lines = dumped.splitlines()
-              spaced_lines = []
-              for i, line in enumerate(lines):
-                  spaced_lines.append(line)
-                  nxt = lines[i + 1] if i + 1 < len(lines) else None
-                  if nxt and nxt.startswith('  - '):
-                      spaced_lines.append('')
+                  start_idx = len(rep_seq)
+                  rep_seq.extend(all_new)
+                  # add a blank line before each newly appended item
+                  for i in range(start_idx, len(rep_seq)):
+                      rep_seq.yaml_set_comment_before_after_key(i, before="\n")
 
               with open(yml_path, 'w', encoding='utf-8') as f:
-                  f.write("\n".join(spaced_lines))
-                  f.write("\n")
+                  yaml.dump(existing_data, f)
 
               output_file = os.environ.get('GITHUB_OUTPUT')
               if output_file:
@@ -286,7 +278,7 @@ jobs:
                       f.write(f"state_table<<EOF\n{state_table}\nEOF\n")
 
                       location_table = "\n".join(
-                          [f"| {r['name'].replace('|', '\\|')} | `{r['id']}` | `{r['hex_id'][:16]}...` | { (r['old_location'] or 'TBD').replace('|', '\\|') } | { (r['new_location'] or 'TBD').replace('|', '\\|') } |" for r in location_updates_list]
+                          [f"| {r['name'].replace('|', '\\|')} | `{r['id']}` | `{r['hex_id'][:16]}...` | {(r['old_location'] or 'TBD').replace('|', '\\|')} | {(r['new_location'] or 'TBD').replace('|', '\\|')} |" for r in location_updates_list]
                       )
                       f.write(f"location_table<<EOF\n{location_table}\nEOF\n")
           else:
@@ -338,15 +330,15 @@ jobs:
             |----|----------|----------|--------|
             ${{ steps.sync.outputs.upd_table }}
 
+            ### 🔧 State Corrections
+            | Name | ID | Old State | New State |
+            |------|----|-----------|-----------|
+            ${{ steps.sync.outputs.state_table }}
+
             ### 📍 Location/City Updates
             | Name | ID | Hex ID | Old Location | New Location |
             |------|----|-------|--------------|--------------|
             ${{ steps.sync.outputs.location_table }}
 
-            ### 🔧 State Corrections
-            | Name | ID | Old State | New State |
-            |------|----|-----------|-----------|
-            ${{ steps.sync.outputs.state_table }}
-            
             ---
             _Generated automatically by the sync workflow._
