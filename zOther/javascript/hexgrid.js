@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const query = this. value.trim().toLowerCase();
         
         // Show/hide clear button
-        if (query.length > 0) {
+        if (query. length > 0) {
             searchClear.style.display = 'block';
         } else {
             searchClear.style.display = 'none';
@@ -434,14 +434,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Perform search
-        if (query.length >= 2) {
+        if (query. length >= 2) {
             performSearch(query);
         }
     });
     
     searchClear.addEventListener('click', function() {
         searchInput.value = '';
-        searchClear.style.display = 'none';
+        searchClear. style.display = 'none';
         clearSearch();
         searchInput.focus();
     });
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Skip free cells
             if (onclick.includes('showKeygenModal')) {
-                cell.classList. add('hex-dimmed');
+                cell.classList.add('hex-dimmed');
                 return;
             }
             
@@ -471,29 +471,33 @@ document.addEventListener('DOMContentLoaded', function() {
             let matched = false;
             
             // For single repeaters:  showRepeaterInfo or showBackboneInfo
-            if (onclick. includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
-                const match = onclick.match(/\{[^}]+\}/);
-                if (match) {
-                    const infoStr = match[0].replace(/&quot;/g, '"');
+            if (onclick.includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
+                // Extract JSON between the quotes after the hex ID
+                const regex = /show(? :Repeater|Backbone)Info\("([^"]+)",\s*({[^}]+})\)/;
+                const match = onclick.match(regex);
+                if (match && match[2]) {
+                    const infoStr = match[2].replace(/&quot;/g, '"');
                     try {
                         const info = JSON.parse(infoStr);
                         matched = searchInInfo(info, query);
                     } catch (e) {
-                        console.error('Parse error:', e);
+                        console.error('Parse error for single:', e, infoStr);
                     }
                 }
             }
             
             // For duplicates: showDuplicateInfo
             if (onclick.includes('showDuplicateInfo')) {
-                const match = onclick.match(/\[[^\]]+\]/);
-                if (match) {
-                    const infoStr = match[0].replace(/&quot;/g, '"');
+                // Extract JSON array
+                const regex = /showDuplicateInfo\("([^"]+)",\s*(\[[^\]]+\])\)/;
+                const match = onclick.match(regex);
+                if (match && match[2]) {
+                    const infoStr = match[2].replace(/&quot;/g, '"');
                     try {
                         const infoArray = JSON.parse(infoStr);
                         matched = infoArray.some(info => searchInInfo(info, query));
                     } catch (e) {
-                        console.error('Parse error:', e);
+                        console.error('Parse error for duplicate:', e, infoStr);
                     }
                 }
             }
@@ -521,7 +525,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function searchInInfo(info, query) {
         const searchableFields = [
             info.name,
-            info.location,
+            info. location,
             info.antenna,
             info. state,
             info.height_metre,
@@ -536,10 +540,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function clearSearch() {
         cells.forEach(cell => {
-            cell.classList.remove('hex-highlighted', 'hex-dimmed');
+            cell. classList.remove('hex-highlighted', 'hex-dimmed');
         });
         searchResults.textContent = '';
     }
-});
-    };
 });
