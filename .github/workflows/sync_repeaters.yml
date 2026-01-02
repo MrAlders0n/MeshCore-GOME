@@ -35,7 +35,6 @@ jobs:
           import requests
           import json
           import os
-          import re
           from urllib.parse import quote
           from datetime import datetime
 
@@ -49,28 +48,12 @@ jobs:
               'reserved': 'Reserved'
           }
 
-          # Regex pattern to match heights in parentheses with tilde
-          HEIGHT_RE = re.compile(r"\(~\s*([0-9Xx\.]+)\s*m\s*\)")
-
           def normalize_state(state):
               """Normalize state to proper capitalization"""
               if not state:
                   return None
               state_lower = str(state).lower()
-              return VALID_STATES.get(state_lower, state.capitalize())
-
-          def extract_height_from_location(location):
-              """Extract height from location string and return cleaned location"""
-              if not location:
-                  return None, location
-              m = HEIGHT_RE.search(location)
-              if m:
-                  height = m.group(1)
-                  new_location = HEIGHT_RE.sub('', location).strip()
-                  # Remove leftover trailing commas or hyphens
-                  new_location = re.sub(r"[\-,;:\s]+$", '', new_location).strip()
-                  return height, new_location
-              return None, location
+              return VALID_STATES.get(state_lower, state. capitalize())
 
           # Fetch repeaters from API
           api_url = 'https://yow.meshmapper.net/repeaters.json'
@@ -88,14 +71,6 @@ jobs:
           # Track state corrections
           state_corrections = []
           last_heard_updates = 0
-          
-          # Extract heights from existing repeaters and clean locations
-          for r in existing_data.get('repeaters', []):
-              location = r.get('location', '')
-              height, cleaned_location = extract_height_from_location(location)
-              r['location'] = cleaned_location
-              if 'height' not in r:  # Only add if not already present
-                  r['height'] = height
 
           # Normalize all existing states first
           for r in existing_data. get('repeaters', []):
@@ -202,16 +177,12 @@ jobs:
               # Get last_heard timestamp
               last_heard = repeater.get('last_heard')
               
-              # Extract height from default location
-              default_location = 'TBD (~X.X m)'
-              height, cleaned_location = extract_height_from_location(default_location)
-              
               new_entry = {
                   'id': repeater_id_upper,
                   'name': api_name,
                   'antenna': 'TBD',
-                  'location': cleaned_location,
-                  'height': height,
+                  'location': 'TBD (~X.X m)',
+                  'height': 'X.X',
                   'contact': contact,
                   'state': state,
                   'hex_id': hex_id_upper,
@@ -248,7 +219,7 @@ jobs:
                       f.write(f'    antenna: "{repeater.get("antenna", "TBD")}"\n')
                       f.write(f'    location: "{repeater.get("location", "TBD")}"\n')
                       
-                      # Add height field right after location
+                      # Add height field right after location (preserve existing values)
                       height_val = repeater.get('height')
                       if height_val:
                           f.write(f'    height: "{height_val}"\n')
