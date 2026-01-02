@@ -327,7 +327,7 @@ repeaters:
     state: "Active"
     hex_id: "4B5A10F72E0F839F1CBCDAECF581D184A512E680A5597835E7"
     last_heard: 1767240481
-    power_watt: null
+    power_watt: "0.3w"
 
   - id: "4D"
     name: "MrAlders0n_R2"
@@ -1361,5 +1361,16 @@ repeaters:
     state: "New"
     hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
     last_heard: 1767317042
+    power_watt: null
+
+  - id: "6B"
+    name: "Silo Repeater"
+    antenna: null
+    height_metre: null
+    location: "TBD"
+    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
+    state: "New"
+    hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
+    last_heard: 1767324241
     power_watt: null
 
