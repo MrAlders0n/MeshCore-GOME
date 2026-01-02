@@ -1,28 +1,28 @@
 name: Sync Repeaters from MeshMapper API
 
-on:  
-  schedule:    
+on:
+  schedule:
     # Runs every hour at minute 0
-    - cron: '0 * * * *'
-  workflow_dispatch:    # Allows manual triggering
+    - cron: "0 * * * *"
+  workflow_dispatch: # Allows manual triggering
 
 permissions:
   contents: write
   pull-requests: write
 
-jobs:    
-  sync-repeaters:     
+jobs:
+  sync-repeaters:
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:  
+        with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
-        with:   
-          python-version: '3.x'
+        with:
+          python-version: "3.x"
 
       - name: Install dependencies
         run: pip install pyyaml requests urllib3
@@ -33,11 +33,9 @@ jobs:
           python << 'EOF'
           import yaml
           import requests
-          import json
           import os
           import time
           from urllib.parse import quote
-          from datetime import datetime
 
           # Define valid state values with proper capitalization
           VALID_STATES = {
@@ -51,24 +49,22 @@ jobs:
 
           def normalize_state(state):
               """Normalize state to proper capitalization"""
-              if not state:
+              if state is None:
                   return None
               state_lower = str(state).lower()
               return VALID_STATES.get(state_lower, state.capitalize())
 
           def get_city_name(lat, lon):
               """Get city/town name from coordinates using Nominatim"""
-              if not lat or not lon:
+              if lat is None or lon is None:
                   return None
               try:
-                  # Nominatim requires a user-agent
                   headers = {'User-Agent': 'MeshCore-GOME-Sync/1.0'}
                   url = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&zoom=10"
                   response = requests.get(url, headers=headers, timeout=10)
                   response.raise_for_status()
                   data = response.json()
                   address = data.get('address', {})
-                  # Try different city fields
                   return address.get('city') or address.get('town') or address.get('village') or address.get('municipality') or address.get('suburb')
               except Exception as e:
                   print(f"  Error geocoding {lat}, {lon}: {e}")
@@ -85,7 +81,9 @@ jobs:
           # Load existing YAML file
           yml_path = 'docs/deployment/data/repeaters.yml'
           with open(yml_path, 'r') as f:
-              existing_data = yaml.safe_load(f)
+              existing_data = yaml.safe_load(f) or {}
+
+          existing_data.setdefault('repeaters', [])
 
           # Track corrections and updates
           state_corrections = []
@@ -98,7 +96,7 @@ jobs:
               if 'state' in r:
                   old_state = r['state']
                   new_state = normalize_state(old_state)
-                  if old_state != new_state: 
+                  if old_state != new_state:
                       state_corrections.append({
                           'name': r.get('name', 'Unknown'),
                           'id': r.get('id', ''),
@@ -117,56 +115,56 @@ jobs:
                   hex_id_upper = str(hex_id).upper()
                   existing_hex_id_map[hex_id_upper] = r
                   existing_hex_ids.add(hex_id_upper)
-          
+
           # Create map of id to repeater for finding duplicate names
           existing_id_map = {}
           existing_ids = set()
           for r in existing_data.get('repeaters', []):
               rep_id = r.get('id')
-              if rep_id:       
+              if rep_id:
                   rep_id_upper = str(rep_id).upper()
                   existing_ids.add(rep_id_upper)
                   existing_id_map[rep_id_upper] = r
-          
+
           print(f"Existing YAML has {len(existing_hex_ids)} unique hex_ids and {len(existing_ids)} unique ids")
 
           # Track changes
           new_repeaters = []
           duplicate_repeaters = []
           updated_repeaters = []
-          
-          for repeater in api_repeaters:    
+
+          for repeater in api_repeaters:
               hex_id = repeater.get('hex_id')
               repeater_id = repeater.get('id')
               api_name = repeater.get('name', 'Unknown')
               api_power = repeater.get('power')
               api_lat = repeater.get('lat')
               api_lon = repeater.get('lon')
-              
+
               # Skip if no hex_id
-              if not hex_id:  
+              if not hex_id:
                   print(f"  Skipping repeater '{api_name}' - no hex_id in API")
                   continue
-              
+
               # Normalize hex_id and id to uppercase for comparison
               hex_id_upper = str(hex_id).upper()
               repeater_id_upper = str(repeater_id).upper() if repeater_id else ''
-              
+
               # Check if this hex_id already exists
-              if hex_id_upper in existing_hex_id_map:  
+              if hex_id_upper in existing_hex_id_map:
                   existing_repeater = existing_hex_id_map[hex_id_upper]
                   existing_name = existing_repeater.get('name', '')
-                  
+
                   # Update last_heard timestamp
                   last_heard = repeater.get('last_heard')
-                  if last_heard: 
+                  if last_heard is not None:
                       old_last_heard = existing_repeater.get('last_heard')
                       if old_last_heard != last_heard:
                           existing_repeater['last_heard'] = last_heard
                           last_heard_updates += 1
-                  
+
                   # Update power if exists and changed
-                  if api_power:
+                  if api_power is not None:
                       old_power = existing_repeater.get('power_watt')
                       if old_power != api_power:
                           existing_repeater['power_watt'] = api_power
@@ -175,21 +173,20 @@ jobs:
 
                   # Update location if TBD and coordinates available
                   current_loc = existing_repeater.get('location', '')
-                  if api_lat and api_lon and (not current_loc or 'TBD' in current_loc):
+                  if api_lat is not None and api_lon is not None and (not current_loc or 'TBD' in current_loc):
                       city = get_city_name(api_lat, api_lon)
                       if city:
                           existing_repeater['location'] = city
                           location_updates += 1
                           print(f"  Updated location for {existing_name}: {current_loc} → {city}")
-                          # Sleep to respect Nominatim rate limits (1 req/sec)
-                          time.sleep(1)
+                          time.sleep(1)  # Respect Nominatim rate limits
 
-                  if existing_name != api_name:   
+                  if existing_name != api_name:
                       old_name = existing_name
                       existing_repeater['name'] = api_name
                       encoded_name = quote(api_name)
                       existing_repeater['contact'] = f"meshcore://contact/add?name={encoded_name}&public_key={hex_id_upper}&type=2"
-                      
+
                       updated_repeaters.append({
                           'hex_id': hex_id_upper,
                           'old_name': old_name,
@@ -197,24 +194,24 @@ jobs:
                           'id': existing_repeater.get('id', '')
                       })
                   continue
-              
+
               # This is a new repeater (new hex_id)
               is_duplicate = repeater_id_upper in existing_ids
               state = "Duplicate" if is_duplicate else "New"
-              
+
               encoded_name = quote(api_name)
               contact = f"meshcore://contact/add?name={encoded_name}&public_key={hex_id_upper}&type=2"
-              
+
               # Get city for new repeater if coordinates exist
               location = 'TBD'
-              if api_lat and api_lon:
+              if api_lat is not None and api_lon is not None:
                   city = get_city_name(api_lat, api_lon)
                   if city:
                       location = city
                       time.sleep(1)
 
               new_entry = {
-                  'id': repeater_id_upper,
+                  'id': repeater_id_upper or None,
                   'name': api_name,
                   'antenna': 'TBD',
                   'location': location,
@@ -224,8 +221,8 @@ jobs:
                   'last_heard': repeater.get('last_heard'),
                   'power_watt': api_power
               }
-              
-              if is_duplicate:  
+
+              if is_duplicate:
                   existing_repeater_name = existing_id_map.get(repeater_id_upper, {}).get('name', 'Unknown')
                   new_entry['existing_name'] = existing_repeater_name
                   duplicate_repeaters.append(new_entry)
@@ -234,38 +231,29 @@ jobs:
 
           # Check if there are any changes
           all_new = new_repeaters + duplicate_repeaters
-          has_changes = len(all_new) > 0 or len(updated_repeaters) > 0 or len(state_corrections) > 0 or last_heard_updates > 0 or power_updates > 0 or location_updates > 0
-          
-          if has_changes:  
-              if all_new:  
+          has_changes = (
+              len(all_new) > 0
+              or len(updated_repeaters) > 0
+              or len(state_corrections) > 0
+              or last_heard_updates > 0
+              or power_updates > 0
+              or location_updates > 0
+          )
+
+          if has_changes:
+              if all_new:
                   existing_data['repeaters'].extend(all_new)
-              
+
+              # Write the YAML cleanly (let PyYAML handle nulls/quoting)
               with open(yml_path, 'w') as f:
-                  f.write("repeaters:\n")
-                  for repeater in existing_data['repeaters']: 
-                      rep_id = repeater.get("id", "")
-                      f.write(f'  - id: "{rep_id}"\n')
-                      f.write(f'    name: "{repeater.get("name", "")}"\n')
-                      f.write(f'    antenna: "{repeater.get("antenna", "TBD")}"\n')
-                      f.write(f'    location: "{repeater.get("location", "TBD")}"\n')
-                      
-                      contact = repeater.get('contact')
-                      f.write(f'    contact: "{contact if contact else "null"}"\n')
-                      
-                      if 'state' in repeater:  
-                          f.write(f'    state: "{repeater["state"]}"\n')
-                      
-                      if 'hex_id' in repeater:  
-                          f.write(f'    hex_id: "{repeater["hex_id"] if repeater["hex_id"] else "null"}"\n')
-                      
-                      if 'last_heard' in repeater:  
-                          f.write(f'    last_heard: {repeater["last_heard"] if repeater["last_heard"] else "null"}\n')
+                  yaml.safe_dump(
+                      existing_data,
+                      f,
+                      sort_keys=False,
+                      default_flow_style=False,
+                      allow_unicode=True,
+                  )
 
-                      if 'power_watt' in repeater:
-                          f.write(f'    power_watt: "{repeater["power_watt"] if repeater["power_watt"] else "null"}"\n')
-
-                      f.write('\n')
-              
               # Output to GITHUB_OUTPUT
               output_file = os.environ.get('GITHUB_OUTPUT')
               if output_file:
@@ -279,18 +267,25 @@ jobs:
                       f.write(f"location_updates={location_updates}\n")
                       f.write(f"has_duplicates={'true' if len(duplicate_repeaters) > 0 else 'false'}\n")
                       f.write("has_changes=true\n")
-                      
-                      # Tables...
-                      new_table = "\n".join([f"| 🆕 | {r['name'].replace('|', '\\|')} | `{r['id']}` | `{r['hex_id'][:16]}...` |" for r in new_repeaters])
+
+                      new_table = "\n".join(
+                          [f"| 🆕 | {r['name'].replace('|', '\\|')} | `{r['id'] or ''}` | `{r['hex_id'][:16]}...` |" for r in new_repeaters]
+                      )
                       f.write(f"new_table<<EOF\n{new_table}\nEOF\n")
-                      
-                      dup_table = "\n".join([f"| ⚠️ | {r.get('existing_name', 'Unknown').replace('|', '\\|')} | {r['name'].replace('|', '\\|')} | `{r['id']}` | `{r['hex_id'][:16]}...` |" for r in duplicate_repeaters])
+
+                      dup_table = "\n".join(
+                          [f"| ⚠️ | {r.get('existing_name', 'Unknown').replace('|', '\\|')} | {r['name'].replace('|', '\\|')} | `{r['id'] or ''}` | `{r['hex_id'][:16]}...` |" for r in duplicate_repeaters]
+                      )
                       f.write(f"dup_table<<EOF\n{dup_table}\nEOF\n")
-                      
-                      upd_table = "\n".join([f"| `{r['id']}` | {r['old_name'].replace('|', '\\|')} | {r['new_name'].replace('|', '\\|')} | `{r['hex_id'][:16]}...` |" for r in updated_repeaters])
+
+                      upd_table = "\n".join(
+                          [f"| `{r['id']}` | {r['old_name'].replace('|', '\\|')} | {r['new_name'].replace('|', '\\|')} | `{r['hex_id'][:16]}...` |" for r in updated_repeaters]
+                      )
                       f.write(f"upd_table<<EOF\n{upd_table}\nEOF\n")
-                      
-                      state_table = "\n".join([f"| {r['name'].replace('|', '\\|')} | `{r['id']}` | `{r['old_state']}` | `{r['new_state']}` |" for r in state_corrections])
+
+                      state_table = "\n".join(
+                          [f"| {r['name'].replace('|', '\\|')} | `{r['id']}` | `{r['old_state']}` | `{r['new_state']}` |" for r in state_corrections]
+                      )
                       f.write(f"state_table<<EOF\n{state_table}\nEOF\n")
           else:
               output_file = os.environ.get('GITHUB_OUTPUT')
@@ -303,19 +298,19 @@ jobs:
         if: steps.sync.outputs.has_changes == 'true'
         id: create_pr
         uses: peter-evans/create-pull-request@v6
-        with:  
+        with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Sync repeaters from MeshMapper API (${{ steps.sync.outputs.new_count }} new, ${{ steps.sync.outputs.power_updates }} power updates)"
           title: "🔄 Sync: ${{ steps.sync.outputs.new_count }} new, ${{ steps.sync.outputs.power_updates }} power, ${{ steps.sync.outputs.location_updates }} location"
           body: |
             ## 🤖 Automated Repeater Sync
-            
+
             This PR was automatically generated by syncing with the [MeshMapper API](https://yow.meshmapper.net/repeaters.json).
-            
+
             ${{ steps.sync.outputs.has_duplicates == 'true' && '> **⚠️ WARNING:** This PR contains duplicate ID entries that require manual review before merging!' || '> ✅ **Safe to auto-merge**' }}
-            
+
             ### 📊 Summary
-            
+
             | Type | Count |
             |------|-------|
             | 🆕 New Repeaters | **${{ steps.sync.outputs.new_count }}** |
@@ -325,6 +320,26 @@ jobs:
             | 🕐 Last Heard Updates | **${{ steps.sync.outputs.last_heard_updates }}** |
             | ⚡ Power Updates | **${{ steps.sync.outputs.power_updates }}** |
             | 📍 Location/City Updates | **${{ steps.sync.outputs.location_updates }}** |
-            
+
+            ### 🆕 New Repeaters
+            | Type | Name | ID | Hex ID |
+            |------|------|----|--------|
+            ${{ steps.sync.outputs.new_table }}
+
+            ### ⚠️ Duplicate ID Repeaters
+            | Type | Existing Name | New Name | ID | Hex ID |
+            |------|---------------|----------|----|--------|
+            ${{ steps.sync.outputs.dup_table }}
+
+            ### 📝 Updated Names
+            | ID | Old Name | New Name | Hex ID |
+            |----|----------|----------|--------|
+            ${{ steps.sync.outputs.upd_table }}
+
+            ### 🔧 State Corrections
+            | Name | ID | Old State | New State |
+            |------|----|-----------|-----------|
+            ${{ steps.sync.outputs.state_table }}
+
             ---
-            ... (rest of the body)
+            _Generated automatically by the sync workflow._
