@@ -53,8 +53,8 @@ def define_env(env):
             name = r.get("name", "N/A")
             antenna = r.get("antenna", "N/A")
             location = r.get("location", "N/A")
-            height_metre = r.get("height_metre", "")
-            power_watt = r.get("power_watt", "")
+            height_metre = r.get("height_metre", "N/A")
+            power_watt = r.get("power_watt", "N/A")
             last_heard = epoch_to_date(r.get("last_heard"))
             contact_url = r.get("contact", "")
             
