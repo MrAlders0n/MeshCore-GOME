@@ -417,17 +417,6 @@ repeaters:
     last_heard: null
     power_watt: null
 
-  - id: "5D"
-    name: "Inured Repeater 2"
-    antenna: "Seeed Studio RF Explorer 902-928 MHz 8 dBi (1300 mm)"
-    height_metre: null
-    location: "Courtland Park"
-    contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A&type=2"
-    state: "Active"
-    hex_id: "5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A"
-    last_heard: 1767337376
-    power_watt: null
-
   - id: "61"
     name: "WTE2 Repeater"
     antenna: "Pulse Electronics W5012"
@@ -1307,7 +1296,7 @@ repeaters:
     hex_id: "5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A"
     last_heard: 1767337376
     power_watt: null
-
+      
   - id: "D1"
     name: "Cinnabar Island"
     antenna: "Stock Station-G2 Antenna"
