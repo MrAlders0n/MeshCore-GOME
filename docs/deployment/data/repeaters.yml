@@ -344,7 +344,7 @@ repeaters:
     name: "MrAlders0n_R1"
     antenna: "Alfa Omni 5.8dBi"
     height_metre: null
-    location: null
+    location: "Barrhaven West"
     contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7&type=2"
     state: "Active"
     hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7"
@@ -1350,5 +1350,16 @@ repeaters:
     state: "New"
     hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
     last_heard: 1767317042
+    power_watt: null
+
+  - id: "6B"
+    name: "Silo Repeater"
+    antenna: null
+    height_metre: null
+    location: "Alfred and Plantagenet"
+    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
+    state: "New"
+    hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
+    last_heard: 1767324241
     power_watt: null
 
