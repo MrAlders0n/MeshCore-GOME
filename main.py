@@ -86,16 +86,17 @@ def define_env(env):
 
     # Generate HTML hex table WITH WRAPPER AND UNIQUE ID
     html_table = '<div id="hex-modal" class="hex-modal"><div class="hex-modal-content"><span class="hex-modal-close">&times;</span><div id="hex-modal-body"></div></div></div>\n'
-    # Add search box above the table
-    html_table += '<div class="hex-search-container">\n'
-    html_table += '  <div class="hex-search-wrapper">\n'
-    html_table += '    <input type="text" id="hex-search" class="hex-search-input" placeholder="🔍 Search repeaters by name, location, antenna...">\n'
-    html_table += '    <button id="hex-search-clear" class="hex-search-clear" style="display: none;">✕</button>\n'
+    # Add unified wrapper for search and table
+    html_table += '<div class="hex-table-wrapper">\n'
+    html_table += '  <div class="hex-search-container">\n'
+    html_table += '    <div class="hex-search-wrapper">\n'
+    html_table += '      <input type="text" id="hex-search" class="hex-search-input" placeholder="🔍 Search repeaters by name, location, antenna...">\n'
+    html_table += '      <button id="hex-search-clear" class="hex-search-clear" style="display: none;">✕</button>\n'
+    html_table += '    </div>\n'
+    html_table += '    <div id="hex-search-results" class="hex-search-results"></div>\n'
     html_table += '  </div>\n'
-    html_table += '  <div id="hex-search-results" class="hex-search-results"></div>\n'
-    html_table += '</div>\n'
-    html_table += '<div class="hex-grid-container">\n'
-    html_table += '<table id="repeater-hex-grid" class="hex-table">\n'
+    html_table += '  <div class="hex-grid-container">\n'
+    html_table += '    <table id="repeater-hex-grid" class="hex-table">\n'
     # Header row
     html_table += '  <tr>\n    <th></th>\n'
     for col in range(16):
@@ -136,9 +137,10 @@ def define_env(env):
         html_table += '  </tr>\n'
 
     html_table += '</table>\n'
+    html_table += '  </div>\n'
     html_table += '</div>\n'
 
     # Expose variables to Jinja
     env.variables["repeaters"] = repeaters
-    env. variables["unused_ids"] = free_ids
+    env.variables["unused_ids"] = free_ids
     env.variables["hex_table"] = html_table

@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (closeBtn) {
         closeBtn.onclick = function() {
-            modal. style.display = 'none';
+            modal.style.display = 'none';
         };
     }
     
@@ -408,24 +408,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
-        
-// Search functionality
-document.addEventListener('DOMContentLoaded', function() {
+    };
+    
+    // Search functionality
     const searchInput = document.getElementById('hex-search');
     const searchClear = document.getElementById('hex-search-clear');
     const searchResults = document.getElementById('hex-search-results');
     const hexTable = document.getElementById('repeater-hex-grid');
     
-    if (! searchInput || !hexTable) return;
+    if (!searchInput || !hexTable) return;
     
     // Store original repeater data in data attributes
     const cells = hexTable.querySelectorAll('td[onclick]');
     
     searchInput.addEventListener('input', function() {
-        const query = this. value.trim().toLowerCase();
+        const query = this.value.trim().toLowerCase();
         
         // Show/hide clear button
-        if (query. length > 0) {
+        if (query.length > 0) {
             searchClear.style.display = 'block';
         } else {
             searchClear.style.display = 'none';
@@ -434,14 +434,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Perform search
-        if (query. length >= 2) {
+        if (query.length >= 2) {
             performSearch(query);
         }
     });
     
     searchClear.addEventListener('click', function() {
         searchInput.value = '';
-        searchClear. style.display = 'none';
+        searchClear.style.display = 'none';
         clearSearch();
         searchInput.focus();
     });
@@ -473,7 +473,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // For single repeaters:  showRepeaterInfo or showBackboneInfo
             if (onclick.includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
                 // Extract JSON between the quotes after the hex ID
-                const regex = /show(? :Repeater|Backbone)Info\("([^"]+)",\s*({[^}]+})\)/;
+                const regex = /show(?:Repeater|Backbone)Info\("([^"]+)",\s*({[^}]+})\)/;
                 const match = onclick.match(regex);
                 if (match && match[2]) {
                     const infoStr = match[2].replace(/&quot;/g, '"');
@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 cell.classList.remove('hex-dimmed');
                 matchCount++;
             } else {
-                cell. classList.add('hex-dimmed');
+                cell.classList.add('hex-dimmed');
                 cell.classList.remove('hex-highlighted');
             }
         });
@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
             searchResults.textContent = `Found ${matchCount} matching repeater${matchCount !== 1 ? 's' :  ''} out of ${totalSearchable}`;
             searchResults.style.color = '#a8d68c';
         } else {
-            searchResults. textContent = `No matches found for "${query}"`;
+            searchResults.textContent = `No matches found for "${query}"`;
             searchResults.style.color = '#ff9999';
         }
     }
@@ -525,9 +525,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function searchInInfo(info, query) {
         const searchableFields = [
             info.name,
-            info. location,
+            info.location,
             info.antenna,
-            info. state,
+            info.state,
             info.height_metre,
             info.power_watt
         ];
@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function clearSearch() {
         cells.forEach(cell => {
-            cell. classList.remove('hex-highlighted', 'hex-dimmed');
+            cell.classList.remove('hex-highlighted', 'hex-dimmed');
         });
         searchResults.textContent = '';
     }
