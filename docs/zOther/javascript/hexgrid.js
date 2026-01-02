@@ -408,5 +408,138 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
+        
+// Search functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('hex-search');
+    const searchClear = document.getElementById('hex-search-clear');
+    const searchResults = document.getElementById('hex-search-results');
+    const hexTable = document.getElementById('repeater-hex-grid');
+    
+    if (! searchInput || !hexTable) return;
+    
+    // Store original repeater data in data attributes
+    const cells = hexTable.querySelectorAll('td[onclick]');
+    
+    searchInput.addEventListener('input', function() {
+        const query = this. value.trim().toLowerCase();
+        
+        // Show/hide clear button
+        if (query.length > 0) {
+            searchClear.style.display = 'block';
+        } else {
+            searchClear.style.display = 'none';
+            clearSearch();
+            return;
+        }
+        
+        // Perform search
+        if (query.length >= 2) {
+            performSearch(query);
+        }
+    });
+    
+    searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.style.display = 'none';
+        clearSearch();
+        searchInput.focus();
+    });
+    
+    function performSearch(query) {
+        let matchCount = 0;
+        let totalSearchable = 0;
+        
+        cells.forEach(cell => {
+            const onclick = cell.getAttribute('onclick');
+            
+            // Skip reserved cells (they don't have repeater info)
+            if (onclick.includes('showReservedInfo')) {
+                cell.classList.remove('hex-highlighted', 'hex-dimmed');
+                return;
+            }
+            
+            // Skip free cells
+            if (onclick.includes('showKeygenModal')) {
+                cell.classList. add('hex-dimmed');
+                return;
+            }
+            
+            totalSearchable++;
+            
+            // Extract the info JSON from onclick
+            let matched = false;
+            
+            // For single repeaters:  showRepeaterInfo or showBackboneInfo
+            if (onclick. includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
+                const match = onclick.match(/\{[^}]+\}/);
+                if (match) {
+                    const infoStr = match[0].replace(/&quot;/g, '"');
+                    try {
+                        const info = JSON.parse(infoStr);
+                        matched = searchInInfo(info, query);
+                    } catch (e) {
+                        console.error('Parse error:', e);
+                    }
+                }
+            }
+            
+            // For duplicates: showDuplicateInfo
+            if (onclick.includes('showDuplicateInfo')) {
+                const match = onclick.match(/\[[^\]]+\]/);
+                if (match) {
+                    const infoStr = match[0].replace(/&quot;/g, '"');
+                    try {
+                        const infoArray = JSON.parse(infoStr);
+                        matched = infoArray.some(info => searchInInfo(info, query));
+                    } catch (e) {
+                        console.error('Parse error:', e);
+                    }
+                }
+            }
+            
+            if (matched) {
+                cell.classList.add('hex-highlighted');
+                cell.classList.remove('hex-dimmed');
+                matchCount++;
+            } else {
+                cell. classList.add('hex-dimmed');
+                cell.classList.remove('hex-highlighted');
+            }
+        });
+        
+        // Update results
+        if (matchCount > 0) {
+            searchResults.textContent = `Found ${matchCount} matching repeater${matchCount !== 1 ? 's' :  ''} out of ${totalSearchable}`;
+            searchResults.style.color = '#a8d68c';
+        } else {
+            searchResults. textContent = `No matches found for "${query}"`;
+            searchResults.style.color = '#ff9999';
+        }
+    }
+    
+    function searchInInfo(info, query) {
+        const searchableFields = [
+            info.name,
+            info.location,
+            info.antenna,
+            info. state,
+            info.height_metre,
+            info.power_watt
+        ];
+        
+        return searchableFields.some(field => {
+            if (field === undefined || field === null) return false;
+            return String(field).toLowerCase().includes(query);
+        });
+    }
+    
+    function clearSearch() {
+        cells.forEach(cell => {
+            cell.classList.remove('hex-highlighted', 'hex-dimmed');
+        });
+        searchResults.textContent = '';
+    }
+});
     };
 });
