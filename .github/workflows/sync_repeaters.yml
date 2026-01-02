@@ -41,8 +41,14 @@ jobs:
           # Configure ruamel YAML for round-trip preservation
           yaml = YAML()
           yaml.preserve_quotes = True
-          yaml.indent(mapping=2, sequence=2, offset=2)
+          yaml.indent(mapping=2, sequence=2, offset=0)  # offset=0 keeps keys indented under dash
           yaml.width = 4096  # avoid wrapping long lines
+          yaml.default_flow_style = False
+          yaml.explicit_start = False
+          
+          # Configure to output explicit 'null' for None values instead of empty
+          yaml.representer.add_representer(type(None), 
+              lambda self, data: self.represent_scalar('tag:yaml.org,2002:null', 'null'))
 
           VALID_STATES = {
               'duplicate': 'Duplicate',
@@ -64,12 +70,12 @@ jobs:
                   return None
               try:
                   headers = {'User-Agent': 'MeshCore-GOME-Sync/1.0'}
-                  url = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&zoom=10"
+                  url = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&zoom=18"
                   resp = requests.get(url, headers=headers, timeout=10)
                   resp.raise_for_status()
                   data = resp.json()
                   address = data.get('address', {})
-                  return address.get('city') or address.get('town') or address.get('village') or address.get('municipality') or address.get('suburb')
+                  return address.get('suburb') or address.get('neighbourhood') or address.get('village') or address.get('town') or address.get('city') or address.get('municipality')
               except Exception as e:
                   print(f"  Error geocoding {lat}, {lon}: {e}")
                   return None
@@ -130,8 +136,6 @@ jobs:
                   rid_u = str(rid).upper()
                   existing_id_map[rid_u] = r
                   existing_ids.add(rid_u)
-
-          print(f"Existing YAML has {len(existing_hex_ids)} unique hex_ids and {len(existing_ids)} unique ids")
 
           # Process API repeaters
           for repeater in api_repeaters:
