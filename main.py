@@ -84,19 +84,114 @@ def define_env(env):
     # Sort for nice output
     free_ids.sort(key=lambda x: int(x, 16))
 
+Copilot said: Here's the complete `main.py` file with the
+Here's the complete main.py file with the fix:
+
+Python
+import pathlib
+import yaml
+from datetime import datetime
+from collections import Counter
+import json
+
+def define_env(env):
+    """Hook for mkdocs-macros-plugin."""
+    project_dir = pathlib.Path(env. project_dir)
+
+    # Define a filter to convert epoch to YYYY-MM-DD
+    @env.filter
+    def epoch_to_date(epoch_time):
+        """Convert epoch timestamp to YYYY-MM-DD format."""
+        if not epoch_time:
+            return "N/A"
+        
+        try:  
+            # Convert epoch to datetime and format as YYYY-MM-DD
+            dt = datetime.fromtimestamp(int(epoch_time))
+            return dt.strftime("%Y-%m-%d")
+        except (ValueError, TypeError):
+            return "Invalid date"
+
+    # Load repeater list from YAML
+    data_path = project_dir / "docs" / "deployment" / "data" / "repeaters.yml"
+    data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
+    repeaters = data.get("repeaters", [])
+
+    # Count occurrences of each ID (uppercase for consistency)
+    id_list = [str(r["id"]).upper() for r in repeaters if "id" in r]
+    id_counts = Counter(id_list)
+    
+    # Find duplicates
+    duplicate_ids = {id_val for id_val, count in id_counts.items() if count > 1}
+    
+    # Used IDs (all IDs from YAML)
+    used_ids = set(id_list)
+
+    # Create a lookup dictionary for repeater info by ID
+    repeater_info = {}
+    backbone_reserved_ids = set()
+    
+    for r in repeaters: 
+        if "id" in r: 
+            rid = str(r["id"]).upper()
+            state = r.get("state", "Unknown")
+            
+            # Track BackboneReserved IDs separately
+            if state == "BackboneReserved":
+                backbone_reserved_ids.add(rid)
+            
+            name = r.get("name", "N/A")
+            antenna = r.get("antenna", "N/A")
+            location = r.get("location", "N/A")
+            height_metre = r.get("height_metre", "")
+            power_watt = r.get("power_watt", "")
+            last_heard = epoch_to_date(r.get("last_heard"))
+            contact_url = r. get("contact", "")
+            
+            # If duplicate, store in a list
+            if rid not in repeater_info:
+                repeater_info[rid] = []
+            repeater_info[rid].append({
+                "name": name,
+                "state": state,
+                "antenna":  antenna,
+                "location": location,
+                "height_metre":  height_metre,
+                "power_watt": power_watt,
+                "last_heard":  last_heard,
+                "contact_url": contact_url
+            })
+
+    # Reserved IDs by MeshCore (always reserved, regardless of YAML)
+    reserved_ids = {"00", "FF"}
+
+    # All possible 1 byte IDs 00 - FF
+    all_ids = [f"{i:02X}" for i in range(256)]
+
+    # Free IDs are everything not in used_ids or reserved_ids
+    free_ids = [i for i in all_ids if i not in used_ids and i not in reserved_ids]
+
+    # Sort for nice output
+    free_ids.sort(key=lambda x: int(x, 16))
+
     # Generate HTML hex table WITH WRAPPER AND UNIQUE ID
     html_table = '<div id="hex-modal" class="hex-modal"><div class="hex-modal-content"><span class="hex-modal-close">&times;</span><div id="hex-modal-body"></div></div></div>\n'
-    # Add unified wrapper for search and table
-    html_table += '<div class="hex-table-wrapper">\n'
-    html_table += '  <div class="hex-search-container">\n'
-    html_table += '    <div class="hex-search-wrapper">\n'
-    html_table += '      <input type="text" id="hex-search" class="hex-search-input" placeholder="🔍 Search repeaters by name, location, antenna...">\n'
-    html_table += '      <button id="hex-search-clear" class="hex-search-clear" style="display: none;">✕</button>\n'
-    html_table += '    </div>\n'
-    html_table += '    <div id="hex-search-results" class="hex-search-results"></div>\n'
+    
+    # Wrap everything in a scrollable container
+    html_table += '<div class="hex-grid-container">\n'
+    
+    # Add search box INSIDE the container
+    html_table += '<div class="hex-search-container">\n'
+    html_table += '  <div class="hex-search-wrapper">\n'
+    html_table += '    <input type="text" id="hex-search" class="hex-search-input" placeholder="🔍 Search repeaters by name, location, antenna...">\n'
+    html_table += '    <button id="hex-search-clear" class="hex-search-clear" style="display:  none;">✕</button>\n'
     html_table += '  </div>\n'
-    html_table += '  <div class="hex-grid-container">\n'
-    html_table += '    <table id="repeater-hex-grid" class="hex-table">\n'
+    html_table += '  <div id="hex-search-results" class="hex-search-results"></div>\n'
+    html_table += '</div>\n'
+    
+    # Add the table
+    html_table += '<table id="repeater-hex-grid" class="hex-table">\n'
+    
     # Header row
     html_table += '  <tr>\n    <th></th>\n'
     for col in range(16):
