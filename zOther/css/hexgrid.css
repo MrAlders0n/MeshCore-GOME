@@ -969,3 +969,42 @@ h2.hex-info-title {
     font-size: 10px;
   }
 }
+/* ---- ADD THIS at the end of the file ----
+   Fixes: align wrapper to table width, remove fixed search width, prevent desktop overflow
+*/
+
+/* Center a fit-content wrapper and keep page responsive */
+.hex-grid-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* center the inner wrapper */
+  overflow-x: auto;        /* still allow scrolling on narrow viewports */
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+}
+
+/* The wrapper now defines the visible box that should match the table width */
+.hex-table-wrapper {
+  width: fit-content;      /* shrink-to-fit the table + search */
+  margin: 20px 0;
+  border: 2px solid #555;  /* move border here so it matches the table */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow: hidden;        /* prevent internal children from escaping the wrapper */
+}
+
+/* Ensure the table never forces the wrapper to expand full-width */
+#repeater-hex-grid {
+  width: fit-content;      /* let the table determine wrapper width */
+}
+
+/* Make the search container follow the wrapper width (remove fixed px width) */
+.hex-search-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Optional: ensure the old fixed-width rule doesn't win (higher specificity) */
+.md-typeset .hex-search-container {
+  width: 100% !important;
+}
