@@ -93,6 +93,12 @@ jobs:
                   print(f"  Error geocoding {lat}, {lon}: {e}")
                   return None
 
+          def safe(v):
+              return "" if v is None else str(v)
+
+          def esc_md(s):
+              return str(s).replace("|", "\\|") if s is not None else ""
+
           api_url = "https://yow.meshmapper.net/repeaters.json"
           print(f"Fetching repeaters from {api_url}...")
           resp = requests.get(api_url)
@@ -158,9 +164,13 @@ jobs:
 
           # Trackers
           last_heard_updates = 0
+
           power_updates = 0
+          power_updates_list = []
+
           location_updates = 0
           location_updates_list = []
+
           new_repeaters = []
           duplicate_repeaters = []
           updated_repeaters = []
@@ -199,6 +209,13 @@ jobs:
                       if old_power != api_power:
                           existing_repeater["power_watt"] = api_power
                           power_updates += 1
+                          power_updates_list.append({
+                              "hex_id": hex_id_upper,
+                              "id": existing_repeater.get("id", ""),
+                              "name": existing_name,
+                              "old_power": old_power,
+                              "new_power": api_power,
+                          })
                           print(f"  Updated power for {existing_name}: {old_power} → {api_power}")
 
                   # location only when TBD/empty and coords exist
@@ -261,6 +278,14 @@ jobs:
 
               if api_power is not None and api_power != "":
                   new_entry["power_watt"] = api_power
+                  # Optional: include new repeater power in the PR power summary with old=null
+                  power_updates_list.append({
+                      "hex_id": hex_id_upper,
+                      "id": new_entry.get("id", ""),
+                      "name": api_name,
+                      "old_power": None,
+                      "new_power": api_power,
+                  })
 
               if is_duplicate:
                   existing_repeater_name = existing_id_map.get(repeater_id_upper, {}).get("name", "Unknown")
@@ -279,12 +304,6 @@ jobs:
               or location_updates > 0
           )
 
-          def safe(v):
-              return "" if v is None else str(v)
-
-          def esc_md(s):
-              return str(s).replace("|", "\\|") if s is not None else ""
-
           # Write YAML manually (only if changes)
           if has_changes:
               if all_new:
@@ -301,21 +320,17 @@ jobs:
                       f.write(f"    antenna: {yaml_scalar(r.get('antenna'))}\n")
                       f.write(f"    height_metre: {yaml_scalar(r.get('height_metre'))}\n")
                       f.write(f"    location: {yaml_scalar(r.get('location'))}\n")
-
                       f.write(f"    contact: {yaml_scalar(r.get('contact'))}\n")
 
                       if "state" in r:
                           f.write(f"    state: {yaml_scalar(r.get('state'))}\n")
-
                       if "hex_id" in r:
                           f.write(f"    hex_id: {yaml_scalar(r.get('hex_id'))}\n")
-
                       if "last_heard" in r:
                           f.write(f"    last_heard: {yaml_scalar(r.get('last_heard'))}\n")
 
                       # Always write power_watt (null if missing)
                       f.write(f"    power_watt: {yaml_scalar(r.get('power_watt'))}\n")
-
                       f.write("\n")
 
           # Emit GitHub Action outputs
@@ -353,12 +368,17 @@ jobs:
                           f"| {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{(r.get('hex_id')[:16] + '...') if r.get('hex_id') else ''}` | {esc_md(r.get('old_location') or 'TBD')} | {esc_md(r.get('new_location') or '')} |"
                           for r in location_updates_list
                       ])
+                      power_table = "\n".join([
+                          f"| {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{(r.get('hex_id')[:16] + '...') if r.get('hex_id') else ''}` | {esc_md(safe(r.get('old_power')))} | {esc_md(safe(r.get('new_power')))} |"
+                          for r in power_updates_list
+                      ])
 
                       of.write(f"new_table<<EOF\n{new_table}\nEOF\n")
                       of.write(f"dup_table<<EOF\n{dup_table}\nEOF\n")
                       of.write(f"upd_table<<EOF\n{upd_table}\nEOF\n")
                       of.write(f"state_table<<EOF\n{state_table}\nEOF\n")
                       of.write(f"location_table<<EOF\n{location_table}\nEOF\n")
+                      of.write(f"power_table<<EOF\n{power_table}\nEOF\n")
                   else:
                       of.write("has_changes=false\n")
           EOF
@@ -404,6 +424,11 @@ jobs:
             | ID | Old Name | New Name | Hex ID |
             |----|----------|----------|--------|
             ${{ steps.sync.outputs.upd_table }}
+
+            ### ⚡ Power Updates
+            | Name | ID | Hex ID | Old Power | New Power |
+            |------|----|--------|-----------|-----------|
+            ${{ steps.sync.outputs.power_table }}
 
             ### 📍 Location/City Updates
             | Name | ID | Hex ID | Old Location | New Location |
