@@ -239,9 +239,14 @@ jobs:
                           })
                           print(f"  Updated power for {existing_name}: {old_power} → {api_power}")
 
-                  # location only when TBD/empty and coords exist
+                  # location only when TBD/empty/null and coords exist
                   current_loc = existing_repeater.get("location", "")
-                  if api_lat is not None and api_lon is not None and (not current_loc or "TBD" in str(current_loc)):
+                  if current_loc is None: 
+                      current_loc = ""
+                  current_loc_str = str(current_loc).strip()
+                  
+                  # Only update if location is empty, null, or contains "TBD"
+                  if api_lat is not None and api_lon is not None and (not current_loc_str or current_loc_str.upper() == "NULL" or "TBD" in current_loc_str. upper()):
                       city = get_city_name(api_lat, api_lon)
                       if city:
                           existing_repeater["location"] = city
@@ -250,10 +255,10 @@ jobs:
                               "hex_id": hex_id_upper,
                               "id": existing_repeater.get("id", ""),
                               "name": existing_name,
-                              "old_location": current_loc or None,
-                              "new_location": city,
+                              "old_location":  current_loc or None,
+                              "new_location":  city,
                           })
-                          print(f"  Updated location for {existing_name}: {current_loc} → {city}")
+                          print(f"  Updated location for {existing_name}: {current_loc or 'null'} → {city}")
                           time.sleep(1)
 
                   # name/contact updates
