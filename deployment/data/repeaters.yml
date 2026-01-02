@@ -268,7 +268,7 @@ repeaters:
     state: "Active"
     hex_id: "4B5A10F72E0F839F1CBCDAECF581D184A512E680A5597835E7"
     last_heard: 1767240481
-    power_watt: "0.3w"
+    power_watt: null
 
   - id: "4D"
     name: "MrAlders0n_R2"
