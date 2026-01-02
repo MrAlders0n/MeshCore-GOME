@@ -41,7 +41,7 @@ jobs:
           # Configure ruamel YAML for round-trip preservation
           yaml = YAML()
           yaml.preserve_quotes = True
-          yaml.indent(mapping=2, sequence=2, offset=0)  # offset=0 keeps keys indented under dash
+          yaml.indent(mapping=2, sequence=2, offset=2)  # offset=2 preserves proper indentation
           yaml.width = 4096  # avoid wrapping long lines
           yaml.default_flow_style = False
           yaml.explicit_start = False
@@ -166,8 +166,8 @@ jobs:
                           existing_repeater['last_heard'] = last_heard
                           last_heard_updates += 1
 
-                  # power_watt only when API provided (keep None -> null)
-                  if api_power is not None:
+                  # power_watt only when API provided a non-empty value
+                  if api_power is not None and api_power != '':
                       old_power = existing_repeater.get('power_watt')
                       if old_power != api_power:
                           existing_repeater['power_watt'] = api_power
@@ -229,7 +229,9 @@ jobs:
               new_entry['state'] = state
               new_entry['hex_id'] = hex_id_upper
               new_entry['last_heard'] = repeater.get('last_heard') if repeater.get('last_heard') is not None else None
-              new_entry['power_watt'] = api_power if api_power is not None else None
+              # Only add power_watt if API provides a meaningful non-empty value
+              if api_power is not None and api_power != '':
+                  new_entry['power_watt'] = api_power
 
               if is_duplicate:
                   existing_repeater_name = existing_id_map.get(repeater_id_upper, {}).get('name', 'Unknown')
