@@ -417,15 +417,15 @@ repeaters:
     last_heard: null
     power_watt: null
 
-  - id: "5D"
+    - id: "5D"
     name: "Inured Repeater 2"
     antenna: "Seeed Studio RF Explorer 902-928 MHz 8 dBi (1300 mm)"
     height_metre: null
-    location: "Central Park"
-    contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5df532ee2f959a100cb5e3bbd42cd3495acaeb0b94ec7cb23a5f2bd4e1b0d81f&type=2"
+    location: "Courtland Park"
+    contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A&type=2"
     state: "Active"
-    hex_id: "5df532ee2f95"
-    last_heard: 1766805360
+    hex_id: "5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A"
+    last_heard: 1767337376
     power_watt: null
 
   - id: "61"
@@ -833,17 +833,6 @@ repeaters:
     state: "Active"
     hex_id: "D05386332896FF78742C824A47009D9A219AC7A7232F7DD2D6"
     last_heard: 1767359917
-    power_watt: null
-
-  - id: "D1"
-    name: "Cinnabar Island"
-    antenna: "Stock Station-G2 Antenna"
-    height_metre: null
-    location: "Plateau-Québec"
-    contact: "meshcore://contact/add?name=Cinnabar%20Island&public_key=d162d1d002ab&type=2"
-    state: "Active"
-    hex_id: "d162d1d002ab"
-    last_heard: 1766767919
     power_watt: null
 
   - id: "D2"
@@ -1321,11 +1310,11 @@ repeaters:
 
   - id: "D1"
     name: "Cinnabar Island"
-    antenna: null
+    antenna: "Stock Station-G2 Antenna"
     height_metre: null
     location: "Aylmer"
     contact: "meshcore://contact/add?name=Cinnabar%20Island&public_key=D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E&type=2"
-    state: "Duplicate"
+    state: "Active"
     hex_id: "D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E"
     last_heard: 1767337207
     power_watt: null
