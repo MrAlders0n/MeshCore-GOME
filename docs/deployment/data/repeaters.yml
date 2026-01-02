@@ -12,9 +12,9 @@ repeaters:
     name: "Kevrex_R1"
     antenna: "Alfa 5.8dbi"
     location: "Centretown"
-    contact: null
+    contact: "null"
     state: "Reserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "05"
@@ -42,7 +42,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Inured%20Repeater%201&public_key=07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A24687BDEC02DF7&type=2"
     state: "Active"
     hex_id: "07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A"
-    last_heard: 1767309961
+    last_heard: 1767320770
 
   - id: "08"
     name: "NPQ-00"
@@ -50,7 +50,7 @@ repeaters:
     location: "Buckingham"
     contact: "meshcore://contact/add?name=NPQ-00&public_key=085BA7CE428EF87042D45F8D274C0A555E6F43A20B8E7A53BD9256FF11B6AB9D&type=2"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "0A"
@@ -78,7 +78,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R0&public_key=0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D&type=2"
     state: "Active"
     hex_id: "0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D"
-    last_heard: 1767278493
+    last_heard: 1767321696
 
   - id: "14"
     name: "CORRIGE-R1"
@@ -92,7 +92,7 @@ repeaters:
   - id: "17"
     name: "llm-repeater2"
     antenna: "None"
-    location: "Orleans TBD"
+    location: "Ottawa"
     contact: "meshcore://contact/add?name=llm-repeater2&public_key=17ab75372aca255e7810c99dbb31475c0eac133d59ec4b0f9e5d78c6bc413ebf&type=2"
     state: "Active"
     hex_id: "17AB75372ACA255E7810C99DBB31475C0EAC133D59EC4B0F9E"
@@ -147,18 +147,18 @@ repeaters:
     name: "loug_2e"
     antenna: "Alfa Omni 5.8dBi"
     location: "Baseline & Greenbank"
-    contact: null
+    contact: "null"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "30"
     name: "MrAlders0n_R4"
     antenna: "Alfa Omni 5.8dBi"
     location: "Parkdale"
-    contact: null
+    contact: "null"
     state: "Active"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "35"
@@ -249,7 +249,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3HUP_DowsLake&public_key=47d004ded5f0bd0839ae60a33bfe724d3f30a4b66b3f7770d1b9a69a85940321&type=2"
     state: "Active"
     hex_id: "47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1"
-    last_heard: 1767318743
+    last_heard: 1767323021
 
   - id: "48"
     name: "GFS-WRK"
@@ -257,7 +257,7 @@ repeaters:
     location: "Gloucester (Canotek Business Park)"
     contact: "meshcore://contact/add?name=GFS-WRK&public_key=4890D2CB5F08BEFC0BA66852DFFE39EEE082D826C27AD7B2D2778D7BFD71DCAA&type=2"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "4B"
@@ -268,6 +268,7 @@ repeaters:
     state: "Active"
     hex_id: "4B5A10F72E0F839F1CBCDAECF581D184A512E680A5597835E7"
     last_heard: 1767240481
+    power_watt: "0.3w"
 
   - id: "4D"
     name: "MrAlders0n_R2"
@@ -291,9 +292,9 @@ repeaters:
     name: "MrAlders0n_R1_DUP"
     antenna: "Alfa Omni 5.8dBi"
     location: "TEST"
-    contact: null
+    contact: "null"
     state: "Reserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "4F"
@@ -302,7 +303,7 @@ repeaters:
     location: "Cumberland  - Indoors"
     contact: "meshcore://contact/add?name=ElDoc_Temp_R&public_key=4FCDB1CF17476A0F6E2F3564925BDE7269F71F7B80544152CFA08DCE9CAC3865&type=2"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "50"
@@ -311,7 +312,7 @@ repeaters:
     location: "None"
     contact: "meshcore://contact/add?name=WTE5%20TRASH&public_key=50af4c9149fbcd89b3d4aa3d63f0522cd05ea413caf54ce48c5fa7113dd74bd7&type=2"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "51"
@@ -336,9 +337,9 @@ repeaters:
     name: "OOS BBS"
     antenna: "N/A"
     location: "Old Ottawa South (N/A)"
-    contact: null
+    contact: "null"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "5D"
@@ -399,9 +400,9 @@ repeaters:
     name: "ElDoc_Solar"
     antenna: "Alfa Omni 5.8dBi"
     location: "Cumberland"
-    contact: null
+    contact: "null"
     state: "Active"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "76"
@@ -444,9 +445,9 @@ repeaters:
     name: "Centretown Static"
     antenna: "Taoglas Omni 4dBi"
     location: "Centretown"
-    contact: null
+    contact: "null"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "7D"
@@ -462,18 +463,18 @@ repeaters:
     name: "lw-r1"
     antenna: "None"
     location: "Kemptville"
-    contact: null
+    contact: "null"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "81"
     name: "Starsolar_R2"
     antenna: "Alfa 5.8 dBi"
     location: "Beckwith"
-    contact: null
+    contact: "null"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "83"
@@ -482,7 +483,7 @@ repeaters:
     location: "Orleans"
     contact: "meshcore://contact/add?name=YOW_Plateau&public_key=834569EC3D4B9E1A4B301FB41EE8C7CA5380DE5B68100FE2B4B388010EA57D40&type=2"
     state: "Observer"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "86"
@@ -491,7 +492,7 @@ repeaters:
     location: "Orleans"
     contact: "meshcore://contact/add?name=AlxR5&public_key=86138d742a47f16dea8f929333489a7f5d2e3003d549059fc7ec239d5b49e7ad&type=2"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "89"
@@ -528,7 +529,7 @@ repeaters:
     contact: "meshcore://contact/add?name=YOW_BarrhavenEast&public_key=9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F0476C3F394658AA8&type=2"
     state: "Observer"
     hex_id: "9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F04"
-    last_heard: 1767279208
+    last_heard: 1767322408
 
   - id: "92"
     name: "CAN_SOLAR_R"
@@ -543,18 +544,18 @@ repeaters:
     name: "BUN_Solar_Rep"
     antenna: "None"
     location: "Old Ottawa South"
-    contact: null
+    contact: "null"
     state: "Unknown"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "A1"
     name: "Tabarnak repeater"
     antenna: "None"
     location: "Alfred"
-    contact: null
+    contact: "null"
     state: "Active"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "A7"
@@ -570,9 +571,9 @@ repeaters:
     name: "IndigoPlateau_R1"
     antenna: "Alfa Omni 5.8dBi"
     location: "Plateau, QC"
-    contact: null
+    contact: "null"
     state: "Active"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "A9"
@@ -651,9 +652,9 @@ repeaters:
     name: "MrAlders0n_Drone"
     antenna: "Gizont 167mm Whip"
     location: "Everywhere"
-    contact: null
+    contact: "null"
     state: "Active"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "CC"
@@ -696,9 +697,9 @@ repeaters:
     name: "MAC_Repeat"
     antenna: "Rokland Omni Fibreglass 8dBI"
     location: "Riverside South"
-    contact: null
+    contact: "null"
     state: "Offline"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "D3"
@@ -735,7 +736,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Vanier%20East%20R3&public_key=e4c361f1d3a5bd94a7c914f8a02f4abe1adcd1a12ee67f9037174069bf5adcd2&type=2"
     state: "Active"
     hex_id: "E4C361F1D3A5BD94A7C914F8A02F4ABE1ADCD1A12EE67F9037"
-    last_heard: 1767279254
+    last_heard: 1767322387
 
   - id: "EC"
     name: "MAG 101"
@@ -771,7 +772,7 @@ repeaters:
     contact: "meshcore://contact/add?name=MAY_SOLAR_R&public_key=F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2&type=2"
     state: "Active"
     hex_id: "F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2"
-    last_heard: 1767228452
+    last_heard: 1767322321
 
   - id: "FC"
     name: "R56_R1"
@@ -834,7 +835,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3NFA_R1&public_key=70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33&type=2"
     state: "New"
     hex_id: "70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33"
-    last_heard: 1767316672
+    last_heard: 1767322065
 
   - id: "75"
     name: "VA3TEC_R1"
@@ -903,153 +904,153 @@ repeaters:
     name: "Limoges"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "Reserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C0"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C1"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C2"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C3"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C4"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C5"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C6"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C7"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C8"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "C9"
     name: "Backbone to Toronto"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "CA"
     name: "Backbone to Montreal"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "CB"
     name: "Backbone to Montreal"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "CC"
     name: "Backbone to Montreal"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "CD"
     name: "Backbone to Montreal"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "CE"
     name: "Backbone to Montreal"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "CF"
     name: "Backbone to Montreal"
     antenna: "None"
     location: "None"
-    contact: null
+    contact: "null"
     state: "BackboneReserved"
-    hex_id: null
+    hex_id: "null"
     last_heard: null
 
   - id: "84"
@@ -1100,7 +1101,7 @@ repeaters:
   - id: "85"
     name: "YOW_TabarnakVille"
     antenna: "TBD"
-    location: "TBD (~X.X m)"
+    location: "Alfred and Plantagenet"
     contact: "meshcore://contact/add?name=YOW_TabarnakVille&public_key=858925361F56073974D8787BD8DED2737E72DABD6C16F1A301&type=2"
     state: "New"
     hex_id: "858925361F56073974D8787BD8DED2737E72DABD6C16F1A301"
@@ -1118,7 +1119,7 @@ repeaters:
   - id: "59"
     name: "Unimatrix-01"
     antenna: "TBD"
-    location: "TBD (~X.X m)"
+    location: "Ottawa"
     contact: "meshcore://contact/add?name=Unimatrix-01&public_key=5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF&type=2"
     state: "Duplicate"
     hex_id: "5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF"
