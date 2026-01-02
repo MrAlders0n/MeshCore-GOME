@@ -824,33 +824,34 @@ h2.hex-info-title {
 
 /* Search box styling */
 .hex-search-container {
-  margin-bottom: 20px;
-  width: 100%;
+  margin-bottom: 5px;
+  width: fit-content;
+  margin-left: 0;
+  margin-right: auto;
 }
 
-. hex-search-wrapper {
+.hex-search-wrapper {
   position: relative;
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
 }
 
-.hex-search-input {
+. hex-search-input {
   width: 100%;
-  padding: 12px 40px 12px 16px;
-  font-size:  14px;
+  padding: 10px 40px 10px 12px;
+  font-size:  13px;
   font-family: 'Courier New', monospace;
   background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
   color: #e0e0e0;
   border: 2px solid #444;
-  border-radius: 8px;
+  border-radius: 6px 6px 0 0;
   outline: none;
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
 .hex-search-input:focus {
-  border-color:  #a8d68c;
-  box-shadow: 0 0 12px rgba(168, 214, 140, 0.3);
+  border-color: #a8d68c;
+  box-shadow:  0 0 12px rgba(168, 214, 140, 0.3);
 }
 
 .hex-search-input::placeholder {
@@ -877,15 +878,22 @@ h2.hex-info-title {
 
 .hex-search-results {
   text-align: center;
-  margin-top: 8px;
-  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 11px;
   color: #a8d68c;
   font-family: 'Courier New', monospace;
-  min-height: 20px;
+  min-height: 16px;
+}
+
+/* Make grid container match search width */
+.hex-grid-container {
+  border-radius: 0 0 6px 6px;
+  overflow-x: auto;
 }
 
 /* Dimmed state for non-matching cells */
-#repeater-hex-grid td.hex-dimmed {
+#repeater-hex-grid td. hex-dimmed {
   opacity: 0.2;
   filter: grayscale(50%);
   transition: all 0.3s ease;
@@ -911,10 +919,10 @@ h2.hex-info-title {
 @media (max-width: 768px) {
   .hex-search-input {
     font-size: 12px;
-    padding: 10px 36px 10px 12px;
+    padding: 8px 36px 8px 10px;
   }
   
   .hex-search-results {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
