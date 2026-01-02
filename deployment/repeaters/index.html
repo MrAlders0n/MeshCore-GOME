@@ -1683,16 +1683,14 @@
 </ul>
 <p>Click any cell to view details or take action.</p>
 <div id="hex-modal" class="hex-modal"><div class="hex-modal-content"><span class="hex-modal-close">×</span><div id="hex-modal-body"></div></div></div>
-
-<pre><code>&lt;div class="hex-search-container"&gt;
-    &lt;div class="hex-search-wrapper"&gt;
-        &lt;input type="text" id="hex-search" class="hex-search-input" placeholder="🔍 Search repeaters by name, location, antenna... "&gt;
-        &lt;button id="hex-search-clear" class="hex-search-clear" style="display: none;"&gt;✕&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div id="hex-search-results" class="hex-search-results"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="hex-grid-container"&gt;
-</code></pre>
+<div class="hex-search-container">
+  <div class="hex-search-wrapper">
+    <input type="text" id="hex-search" class="hex-search-input" placeholder="🔍 Search repeaters by name, location, antenna...">
+    <button id="hex-search-clear" class="hex-search-clear" style="display: none;">✕</button>
+  </div>
+  <div id="hex-search-results" class="hex-search-results"></div>
+</div>
+<div class="hex-grid-container">
 <table id="repeater-hex-grid" class="hex-table">
   <tbody><tr>
     <th></th>
@@ -2018,6 +2016,7 @@
     <td class="hex-reserved" onclick="showReservedInfo()"><span class="hex-clickable">FF</span></td>
   </tr>
 </tbody></table>
+</div>
 
 <p><em>(137 available IDs)</em></p>
 <div class="admonition note">
