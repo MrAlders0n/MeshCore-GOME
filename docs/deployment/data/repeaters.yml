@@ -1351,15 +1351,3 @@ repeaters:
     hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
     last_heard: 1767317042
     power_watt: null
-
-  - id: "X1"
-    name: "LowerTown-R1"
-    antenna: null
-    height_metre: null
-    location: "Lowertown"
-    contact: "meshcore://contact/add?name=LowerTown-R1&public_key=7541FEB3D9B7294C540E81EC82E21CA677806174357F103E49&type=2"
-    state: "New"
-    hex_id: "7541FEB3D9B7294C540E81EC82E21CA677806174357F103E49"
-    last_heard: 1767379407
-    power_watt: null
-
