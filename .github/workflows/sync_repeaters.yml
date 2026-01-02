@@ -59,11 +59,10 @@ jobs:
               """Quote for YAML double-quoted scalars."""
               if s is None:
                   return "null"
-              # Escape backslash and double quote
               return '"' + str(s).replace('\\', '\\\\').replace('"', '\\"') + '"'
 
           def yaml_scalar(value):
-              """Return YAML scalar text (quoted string, null, or plain number)."""
+              """Return YAML scalar text (quoted string, null, bool, or plain number)."""
               if value is None:
                   return "null"
               if isinstance(value, bool):
@@ -108,6 +107,17 @@ jobs:
           if "repeaters" not in existing_data or existing_data["repeaters"] is None:
               existing_data["repeaters"] = []
           rep_list = existing_data["repeaters"]
+
+          # --- Schema normalization: ensure these keys always exist ---
+          for r in rep_list:
+              if not isinstance(r, dict):
+                  continue
+              if "antenna" not in r:
+                  r["antenna"] = None
+              if "height_metre" not in r:
+                  r["height_metre"] = None
+              if "power_watt" not in r:
+                  r["power_watt"] = None
 
           # Normalize existing states
           state_corrections = []
@@ -170,7 +180,7 @@ jobs:
               hex_id_upper = str(hex_id).upper()
               repeater_id_upper = str(repeater_id).upper() if repeater_id else ""
 
-              # Update existing by hex_id
+              # UPDATE existing by hex_id
               if hex_id_upper in existing_hex_id_map:
                   existing_repeater = existing_hex_id_map[hex_id_upper]
                   existing_name = existing_repeater.get("name", "")
@@ -239,13 +249,16 @@ jobs:
               new_entry = {
                   "id": repeater_id_upper or None,
                   "name": api_name,
-                  "antenna": "TBD",
+                  "antenna": None,        # new entries should be null
+                  "height_metre": None,   # manual field always present
                   "location": location if location is not None else None,
                   "contact": contact if contact is not None else None,
                   "state": state,
                   "hex_id": hex_id_upper,
                   "last_heard": repeater.get("last_heard") if repeater.get("last_heard") is not None else None,
+                  "power_watt": None,     # always present, possibly overridden
               }
+
               if api_power is not None and api_power != "":
                   new_entry["power_watt"] = api_power
 
@@ -286,29 +299,26 @@ jobs:
                       f.write(f"  - id: {yaml_scalar(r.get('id'))}\n")
                       f.write(f"    name: {yaml_scalar(r.get('name'))}\n")
                       f.write(f"    antenna: {yaml_scalar(r.get('antenna'))}\n")
+                      f.write(f"    height_metre: {yaml_scalar(r.get('height_metre'))}\n")
                       f.write(f"    location: {yaml_scalar(r.get('location'))}\n")
 
-                      contact_val = r.get("contact")
-                      f.write(f"    contact: {yaml_scalar(contact_val)}\n")
+                      f.write(f"    contact: {yaml_scalar(r.get('contact'))}\n")
 
-                      # state (optional but usually present)
                       if "state" in r:
                           f.write(f"    state: {yaml_scalar(r.get('state'))}\n")
 
-                      # hex_id
                       if "hex_id" in r:
                           f.write(f"    hex_id: {yaml_scalar(r.get('hex_id'))}\n")
 
-                      # last_heard
                       if "last_heard" in r:
                           f.write(f"    last_heard: {yaml_scalar(r.get('last_heard'))}\n")
 
-                      # power_watt only if present (do not write empty)
-                      if "power_watt" in r and r.get("power_watt") not in (None, ""):
-                          f.write(f"    power_watt: {yaml_scalar(r.get('power_watt'))}\n")
+                      # Always write power_watt (null if missing)
+                      f.write(f"    power_watt: {yaml_scalar(r.get('power_watt'))}\n")
 
                       f.write("\n")
 
+          # Emit GitHub Action outputs
           output_file = os.environ.get("GITHUB_OUTPUT")
           if output_file:
               with open(output_file, "a", encoding="utf-8") as of:
