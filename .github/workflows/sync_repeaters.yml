@@ -30,21 +30,19 @@ jobs:
       - name: Fetch and sync repeaters
         id: sync
         run: |
-          python << 'EOF'
+          python <<'EOF'
           from ruamel.yaml import YAML
           from ruamel.yaml.comments import CommentedMap
           import requests
           import os
           import time
-          from io import StringIO
           from urllib.parse import quote
-          import re
 
-          # --- YAML setup (round-trip) ---
+          # Configure ruamel YAML for round-trip preservation
           yaml = YAML()
           yaml.preserve_quotes = True
           yaml.indent(mapping=2, sequence=2, offset=2)
-          yaml.width = 4096  # avoid wrapping lines
+          yaml.width = 4096  # avoid wrapping long lines
 
           VALID_STATES = {
               'duplicate': 'Duplicate',
@@ -67,16 +65,15 @@ jobs:
               try:
                   headers = {'User-Agent': 'MeshCore-GOME-Sync/1.0'}
                   url = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&zoom=10"
-                  response = requests.get(url, headers=headers, timeout=10)
-                  response.raise_for_status()
-                  data = response.json()
+                  resp = requests.get(url, headers=headers, timeout=10)
+                  resp.raise_for_status()
+                  data = resp.json()
                   address = data.get('address', {})
                   return address.get('city') or address.get('town') or address.get('village') or address.get('municipality') or address.get('suburb')
               except Exception as e:
                   print(f"  Error geocoding {lat}, {lon}: {e}")
                   return None
 
-          # --- Fetch API data ---
           api_url = 'https://yow.meshmapper.net/repeaters.json'
           print(f"Fetching repeaters from {api_url}...")
           resp = requests.get(api_url)
@@ -84,15 +81,15 @@ jobs:
           api_repeaters = resp.json()
           print(f"Found {len(api_repeaters)} repeaters in API")
 
-          # --- Load existing YAML with ruamel (preserves formatting) ---
           yml_path = 'docs/deployment/data/repeaters.yml'
+          # Load with ruamel (CommentedMap / CommentedSeq preserved)
           with open(yml_path, 'r', encoding='utf-8') as fh:
               existing_data = yaml.load(fh) or CommentedMap()
 
           existing_data.setdefault('repeaters', [])
           rep_seq = existing_data['repeaters']  # CommentedSeq
 
-          # Trackers
+          # Trackers & output lists
           state_corrections = []
           last_heard_updates = 0
           power_updates = 0
@@ -102,7 +99,7 @@ jobs:
           duplicate_repeaters = []
           updated_repeaters = []
 
-          # Normalize existing states first
+          # Normalize existing states
           for r in rep_seq:
               if 'state' in r:
                   old_state = r['state']
@@ -117,26 +114,26 @@ jobs:
                       r['state'] = new_state
                       print(f"  Corrected state: {r.get('name')} - '{old_state}' → '{new_state}'")
 
-          # Build lookup maps (uppercase keys)
+          # Build lookups (uppercase keys for robustness)
           existing_hex_id_map = {}
           existing_hex_ids = set()
           existing_id_map = {}
           existing_ids = set()
           for r in rep_seq:
               hex_id = r.get('hex_id')
-              if hex_id:
+              if hex_id is not None:
                   h = str(hex_id).upper()
                   existing_hex_id_map[h] = r
                   existing_hex_ids.add(h)
               rid = r.get('id')
-              if rid:
+              if rid is not None:
                   rid_u = str(rid).upper()
                   existing_id_map[rid_u] = r
                   existing_ids.add(rid_u)
 
           print(f"Existing YAML has {len(existing_hex_ids)} unique hex_ids and {len(existing_ids)} unique ids")
 
-          # --- Process API repeaters ---
+          # Process API repeaters
           for repeater in api_repeaters:
               hex_id = repeater.get('hex_id')
               repeater_id = repeater.get('id')
@@ -152,12 +149,12 @@ jobs:
               hex_id_upper = str(hex_id).upper()
               repeater_id_upper = str(repeater_id).upper() if repeater_id else ''
 
-              # Existing entry (match by hex_id)
+              # UPDATE existing by hex_id
               if hex_id_upper in existing_hex_id_map:
                   existing_repeater = existing_hex_id_map[hex_id_upper]
                   existing_name = existing_repeater.get('name', '')
 
-                  # last_heard update (only if API provided)
+                  # last_heard only when API provided
                   last_heard = repeater.get('last_heard')
                   if last_heard is not None:
                       old_last_heard = existing_repeater.get('last_heard')
@@ -165,7 +162,7 @@ jobs:
                           existing_repeater['last_heard'] = last_heard
                           last_heard_updates += 1
 
-                  # power_watt update (only if API provided)
+                  # power_watt only when API provided (keep None -> null)
                   if api_power is not None:
                       old_power = existing_repeater.get('power_watt')
                       if old_power != api_power:
@@ -173,7 +170,7 @@ jobs:
                           power_updates += 1
                           print(f"  Updated power for {existing_name}: {old_power} → {api_power}")
 
-                  # location only if TBD/empty and coords exist
+                  # location only when TBD/empty and coords exist
                   current_loc = existing_repeater.get('location', '')
                   if api_lat is not None and api_lon is not None and (not current_loc or 'TBD' in current_loc):
                       city = get_city_name(api_lat, api_lon)
@@ -190,7 +187,7 @@ jobs:
                           print(f"  Updated location for {existing_name}: {current_loc} → {city}")
                           time.sleep(1)
 
-                  # name/contact
+                  # name/contact updates
                   if existing_name != api_name:
                       old_name = existing_name
                       existing_repeater['name'] = api_name
@@ -204,7 +201,7 @@ jobs:
                       })
                   continue
 
-              # New repeater
+              # NEW repeater
               is_duplicate = repeater_id_upper in existing_ids
               state = "Duplicate" if is_duplicate else "New"
 
@@ -218,7 +215,7 @@ jobs:
                       location = city
                       time.sleep(1)
 
-              # Build new entry using CommentedMap; use None for missing values so YAML emits null
+              # Build new entry - use None for missing values so YAML emits explicit null
               new_entry = CommentedMap()
               new_entry['id'] = repeater_id_upper or None
               new_entry['name'] = api_name
@@ -228,7 +225,6 @@ jobs:
               new_entry['state'] = state
               new_entry['hex_id'] = hex_id_upper
               new_entry['last_heard'] = repeater.get('last_heard') if repeater.get('last_heard') is not None else None
-              # IMPORTANT: keep power as None when absent so YAML emits `null`
               new_entry['power_watt'] = api_power if api_power is not None else None
 
               if is_duplicate:
@@ -238,7 +234,7 @@ jobs:
               else:
                   new_repeaters.append(new_entry)
 
-          # --- Decide changes and write back ---
+          # Decide whether there are changes
           all_new = new_repeaters + duplicate_repeaters
           has_changes = (
               len(all_new) > 0
@@ -250,69 +246,25 @@ jobs:
           )
 
           if has_changes:
-              # append new items, remember start index
+              # Append the new entries and add a blank line BEFORE each newly appended sequence item
               if all_new:
                   start_idx = len(rep_seq)
                   for ne in all_new:
                       rep_seq.append(ne)
-              else:
-                  start_idx = len(rep_seq)  # no new appends
+                  # IMPORTANT: operate on the sequence (rep_seq) so the blank line is inserted before the "- "
+                  for idx in range(start_idx, len(rep_seq)):
+                      rep_seq.yaml_set_comment_before_after_key(idx, before="\n")
 
-              # Dump to string first so we can insert blank lines only before newly appended sequence items
-              sio = StringIO()
-              yaml.dump(existing_data, sio)
-              dumped = sio.getvalue().splitlines()
-
-              # Find the 'repeaters:' line, then count sequence items under it.
-              out_lines = []
-              seq_count = 0
-              in_repeaters = False
-              # compute where sequence starts: locate line that is exactly 'repeaters:' (allow trailing spaces)
-              for idx, line in enumerate(dumped):
-                  stripped = line.rstrip()
-                  if not in_repeaters and stripped == 'repeaters:':
-                      in_repeaters = True
-                      out_lines.append(line)
-                      continue
-
-                  if in_repeaters:
-                      # match only top-level sequence items under repeaters (indentation of two spaces then hyphen)
-                      # allow matches like "  - " or more indentation if mapping style differs
-                      m = re.match(r'^(\s*)-\s', line.lstrip() and line if False else line)  # placeholder to satisfy logic below
-                      # Instead, compute indent as leading spaces count
-                      leading = len(line) - len(line.lstrip(' '))
-                      if line.lstrip().startswith('- '):
-                          # this is a sequence item line
-                          seq_count += 1
-                          # if this sequence index corresponds to a newly appended item, insert a blank line before it
-                          # seq_count is 1-based; start_idx is number of old items
-                          if seq_count > start_idx:
-                              # only add blank line if previous output line isn't already blank
-                              if len(out_lines) == 0 or out_lines[-1].strip() != '':
-                                  out_lines.append('')
-                          out_lines.append(line)
-                          continue
-                      else:
-                          out_lines.append(line)
-                          continue
-                  else:
-                      out_lines.append(line)
-
-              # If we never found 'repeaters:' (unlikely), just fallback to dumped content
-              if not in_repeaters:
-                  out_text = "\n".join(dumped) + "\n"
-              else:
-                  out_text = "\n".join(out_lines) + "\n"
-
-              # Write back the processed YAML
+              # Write back using ruamel (preserves mapping indentation inside sequence)
               with open(yml_path, 'w', encoding='utf-8') as fh:
-                  fh.write(out_text)
+                  yaml.dump(existing_data, fh)
 
-              # Write GitHub Action outputs
+              # Emit GitHub Action outputs
               output_file = os.environ.get('GITHUB_OUTPUT')
               if output_file:
-                  def safe(v):
-                      return '' if v is None else str(v)
+                  def safe(v): return '' if v is None else str(v)
+                  def esc(s): return str(s).replace('|', '\\|') if s is not None else ''
+
                   with open(output_file, 'a', encoding='utf-8') as of:
                       of.write(f"new_count={len(new_repeaters)}\n")
                       of.write(f"duplicate_count={len(duplicate_repeaters)}\n")
@@ -323,9 +275,6 @@ jobs:
                       of.write(f"location_updates={location_updates}\n")
                       of.write(f"has_duplicates={'true' if len(duplicate_repeaters) > 0 else 'false'}\n")
                       of.write("has_changes=true\n")
-
-                      def esc(s):
-                          return str(s).replace('|', '\\|') if s is not None else ''
 
                       new_table = "\n".join(
                           [f"| 🆕 | {esc(r.get('name'))} | `{safe(r.get('id'))}` | `{(r.get('hex_id')[:16] + '...') if r.get('hex_id') else ''}` |" for r in new_repeaters]
@@ -351,9 +300,8 @@ jobs:
                           [f"| {esc(r['name'])} | `{r['id']}` | `{(r['hex_id'][:16] + '...') if r.get('hex_id') else ''}` | {esc(r.get('old_location') or 'TBD')} | {esc(r.get('new_location') or 'TBD')} |" for r in location_updates_list]
                       )
                       of.write(f"location_table<<EOF\n{location_table}\nEOF\n")
-
           else:
-              # No changes: write has_changes=false
+              # No changes
               output_file = os.environ.get('GITHUB_OUTPUT')
               if output_file:
                   with open(output_file, 'a', encoding='utf-8') as of:
