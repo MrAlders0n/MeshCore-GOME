@@ -260,7 +260,7 @@ repeaters:
     contact: "meshcore://contact/add?name=RAK4631%20Repeater&public_key=3d55109a5082a2018625e6d974fdfb8e24d3e8bee190a40357b69518f36bdf8d&type=2"
     state: "Active"
     hex_id: "3D55109A5082A2018625E6D974FDFB8E24D3E8BEE190A40357"
-    last_heard: 1767330285
+    last_heard: 1767373485
     power_watt: null
 
   - id: "3E"
@@ -293,7 +293,7 @@ repeaters:
     contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46322f039e3fbc63c3c810af4fa4589de360c4349d642f78c485ad182887a51c&type=2"
     state: "Active"
     hex_id: "46322F039E3FBC63C3C810AF4FA4589DE360C4349D642F78C4"
-    last_heard: 1767359408
+    last_heard: 1767370207
     power_watt: null
 
   - id: "47"
@@ -304,7 +304,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3HUP_DowsLake&public_key=47d004ded5f0bd0839ae60a33bfe724d3f30a4b66b3f7770d1b9a69a85940321&type=2"
     state: "Active"
     hex_id: "47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1"
-    last_heard: 1767367363
+    last_heard: 1767371610
     power_watt: null
 
   - id: "48"
@@ -392,7 +392,7 @@ repeaters:
     contact: "meshcore://contact/add?name=AlxR5b&public_key=510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3&type=2"
     state: "Active"
     hex_id: "510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3"
-    last_heard: 1767327310
+    last_heard: 1767370510
     power_watt: null
 
   - id: "59"
@@ -810,7 +810,7 @@ repeaters:
     contact: "meshcore://contact/add?name=SVIL_R1&public_key=CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A&type=2"
     state: "Active"
     hex_id: "CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A"
-    last_heard: 1767359826
+    last_heard: 1767370628
     power_watt: null
 
   - id: "D0"
@@ -898,7 +898,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R1&public_key=F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7&type=2"
     state: "Active"
     hex_id: "F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7"
-    last_heard: 1767358088
+    last_heard: 1767372490
     power_watt: null
 
   - id: "F3"
@@ -1008,7 +1008,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3TEC_R1&public_key=75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93&type=2"
     state: "Active"
     hex_id: "75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93"
-    last_heard: 1767033549
+    last_heard: 1767371077
     power_watt: null
 
   - id: "77"
@@ -1074,7 +1074,7 @@ repeaters:
     contact: "meshcore://contact/add?name=AlxR3&public_key=02953DA68B20727D4DD4335596055FEC348280A596910114D5&type=2"
     state: "New"
     hex_id: "02953DA68B20727D4DD4335596055FEC348280A596910114D5"
-    last_heard: 1767361098
+    last_heard: 1767371898
     power_watt: null
 
   - id: "E0"
@@ -1283,7 +1283,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Nox%20Repeater&public_key=9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25&type=2"
     state: "New"
     hex_id: "9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25"
-    last_heard: 1767329741
+    last_heard: 1767372940
     power_watt: null
 
   - id: "5D"
@@ -1350,5 +1350,16 @@ repeaters:
     state: "New"
     hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
     last_heard: 1767317042
+    power_watt: null
+
+  - id: "X1"
+    name: "LowerTown-R1"
+    antenna: null
+    height_metre: null
+    location: "Lowertown"
+    contact: "meshcore://contact/add?name=LowerTown-R1&public_key=7541FEB3D9B7294C540E81EC82E21CA677806174357F103E49&type=2"
+    state: "New"
+    hex_id: "7541FEB3D9B7294C540E81EC82E21CA677806174357F103E49"
+    last_heard: 1767373209
     power_watt: null
 
