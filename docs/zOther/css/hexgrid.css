@@ -43,15 +43,6 @@
   padding: 0 !important;
 }
 
-/* Free cell clickable span acts like the cell content */
-#repeater-hex-grid td.hex-free .hex-clickable {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  line-height: 1;
-}
 
 #repeater-hex-grid td.hex-used {
   background-color: #5c1a1a !important;
@@ -77,13 +68,18 @@
   cursor: pointer;
 }
 
-/* Style clickable spans - simple inline with hover */
+/* Style clickable spans - all use flex to prevent reflow on hover */
 .hex-clickable {
-  display: inline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   transition: all 0.1s ease;
+  line-height: 1;
 }
 
-#repeater-hex-grid td.hex-free:hover .hex-clickable,
+#repeater-hex-grid td.hex-free: hover .hex-clickable,
 #repeater-hex-grid td.hex-used:hover .hex-clickable,
 #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
 #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
