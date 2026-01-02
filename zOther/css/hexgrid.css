@@ -1,17 +1,30 @@
-/* Container for responsive scrolling */
+/* Hex grid CSS - cleaned and consolidated
+   - Removed duplicate/conflicting rules
+   - Border moved to .hex-table-wrapper (so it matches only the table+search)
+   - .hex-grid-container is the full-width responsive container (no border)
+   - .hex-search-container is responsive (no fixed px width)
+*/
+
+/* OUTER RESPONSIVE CONTAINER (no border) */
 .hex-grid-container {
   width: 100%;
-  overflow-x: auto;
+  display: block;                      /* normal flow so wrapper lines up with page content */
+  overflow-x: auto;                    /* allow horizontal scroll on small viewports */
   -webkit-overflow-scrolling: touch;
   margin: 0;
+  padding: 0;
 }
 
-/* Wrapper for search + table to keep them unified */
+/* VISIBLE BOX — border and shadow match the table width */
 .hex-table-wrapper {
+  display: inline-block;               /* shrink-to-fit the inner table + search */
   width: fit-content;
+  vertical-align: top;
   margin: 20px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid #555;              /* border belongs here, not on full-width container */
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;                    /* prevent internal overflow showing outside wrapper */
 }
 
 /* Table base styles - using ID for maximum specificity */
@@ -19,7 +32,7 @@
   border-collapse: collapse;
   margin: 0;
   font-family: 'Courier New', monospace;
-  width: fit-content;
+  width: fit-content;                   /* let the table determine wrapper width */
 }
 
 #repeater-hex-grid td,
@@ -29,7 +42,7 @@
   min-width: 40px;
   min-height: 40px;
   text-align: center;
-  border: 1px solid #1a1a1a ! important;
+  border: 1px solid #1a1a1a !important;
   font-size: 13px;
   font-weight: 500;
   padding: 0 !important;
@@ -38,7 +51,7 @@
 }
 
 #repeater-hex-grid th {
-  background:  #1a1a1a ! important;
+  background: #1a1a1a !important;
   color: #999 !important;
   font-weight: 600;
 }
@@ -50,7 +63,6 @@
   cursor: pointer;
   padding: 0 !important;
 }
-
 
 #repeater-hex-grid td.hex-used {
   background-color: #5c1a1a !important;
@@ -72,8 +84,27 @@
 
 #repeater-hex-grid td.hex-duplicate {
   background-color: #1a3a5c !important;
-  color:  #99ccff !important;
+  color: #99ccff !important;
   cursor: pointer;
+}
+
+/* Dimmed/highlighted states for search */
+#repeater-hex-grid td.hex-dimmed {
+  opacity: 0.2;
+  filter: grayscale(50%);
+  transition: all 0.3s ease;
+}
+
+#repeater-hex-grid td.hex-highlighted {
+  opacity: 1;
+  filter: none;
+  box-shadow: 0 0 12px rgba(168, 214, 140, 0.6);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(168, 214, 140, 0.6); }
+  50%     { box-shadow: 0 0 20px rgba(168, 214, 140, 0.9); }
 }
 
 /* Style clickable spans - all use flex to prevent reflow on hover */
@@ -96,63 +127,13 @@
   font-weight: 700;
 }
 
-/* Mobile responsive */
-@media (max-width:  768px) {
-  #repeater-hex-grid td,
-  #repeater-hex-grid th {
-    width: 32px;
-    height: 32px;
-    min-width:  32px;
-    min-height: 32px;
-    max-width: 32px;
-    max-height: 32px;
-    font-size: 10px;
-    padding: 0 !important;
-    line-height: 32px;
-  }
-  
-  #repeater-hex-grid td.hex-free .hex-clickable {
-    font-size: 10px;
-  }
-  
-  /* Disable hover effects on mobile */
-  #repeater-hex-grid td.hex-free:hover .hex-clickable,
-  #repeater-hex-grid td.hex-used:hover .hex-clickable,
-  #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
-  #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
-  #repeater-hex-grid td.hex-backbone:hover .hex-clickable {
-    font-size: 10px;
-    font-weight: 500;
-  }
-}
-/* Mobile responsive - prevent overflow */
-@media (max-width: 768px) {
-  .hex-search-container {
-    max-width: 100%;
-    overflow-x: auto;
-  }
-  
-  .hex-grid-container {
-    max-width: 100%;
-    overflow-x: auto;
-  }
-  
-  .hex-search-input {
-    font-size: 12px;
-    padding: 8px 36px 8px 10px;
-  }
-  
-  .hex-search-results {
-    font-size:  10px;
-  }
-}
 /* Modal Styling */
 .hex-modal {
   display: none;
   position: fixed;
   z-index: 99999 !important;
   left: 0;
-  top:  0;
+  top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -163,42 +144,28 @@
 
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 .hex-modal-content {
-  background:  linear-gradient(145deg, #2a2a2a, #1e1e1e);
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
   margin: 10vh auto;
   padding: 0;
-  border:  1px solid #444;
+  border: 1px solid #444;
   border-radius: 12px;
   width: 85%;
   max-width: 450px;
   min-height: 100px;
   max-height: 80vh;
-  overflow-y:  auto;
+  overflow-y: auto;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   animation: slideDown 0.3s ease;
   position: relative;
 }
 
 @keyframes slideDown {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .hex-modal-content {
-    width:  95%;
-    max-width: none;
-    margin: 5vh auto;
-  }
+  from { transform: translateY(-50px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
 }
 
 .hex-modal-close {
@@ -210,7 +177,7 @@
   font-weight: bold;
   line-height: 1;
   cursor: pointer;
-  transition:  color 0.2s ease;
+  transition: color 0.2s ease;
   z-index: 1;
   background: transparent;
   border: none;
@@ -218,23 +185,12 @@
 }
 
 .hex-modal-close:hover,
-.hex-modal-close:focus {
-  color: #fff;
-}
+.hex-modal-close:focus { color: #fff; }
 
-#hex-modal-body {
-  padding: 20px 25px 25px 25px;
-}
+#hex-modal-body { padding: 20px 25px 25px 25px; }
 
-@media (max-width: 768px) {
-  #hex-modal-body {
-    padding:  15px 18px 18px 18px;
-  }
-}
-
-.hex-info-card {
-  color: #e0e0e0;
-}
+/* Info card / badges / layout */
+.hex-info-card { color: #e0e0e0; }
 
 .hex-info-header {
   display: flex;
@@ -249,18 +205,11 @@
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
-  font-size:  16px;
-}
-
-@media (max-width: 768px) {
-  .hex-id-badge {
-    font-size: 14px;
-    padding: 5px 10px;
-  }
+  font-size: 16px;
 }
 
 .hex-used-badge {
-  background:  linear-gradient(135deg, #7a2a2a, #5c1a1a);
+  background: linear-gradient(135deg, #7a2a2a, #5c1a1a);
   color: #ff9999;
   border: 2px solid #ff9999;
 }
@@ -286,62 +235,19 @@
 .hex-free-badge {
   background: linear-gradient(135deg, #3d6026, #2d5016);
   color: #a8d68c;
-  border:  2px solid #a8d68c;
+  border: 2px solid #a8d68c;
 }
 
 .hex-state-badge {
   padding: 4px 10px;
-  border-radius:  4px;
+  border-radius: 4px;
   font-size: 11px;
-  font-weight:  600;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
-  .hex-state-badge {
-    font-size: 10px;
-    padding: 3px 8px;
-  }
-}
-
-.hex-state-active {
-  background: #2d5016;
-  color:  #a8d68c;
-}
-
-.hex-state-available {
-  background: #2d5016;
-  color:  #a8d68c;
-}
-
-.hex-state-reserved,
-.hex-state-observer,
-.hex-state-new {
-  background: #4a4a2a;
-  color: #d4d48c;
-}
-
-.hex-state-backbonereserved {
-  background: #4a4a4a;
-  color:  #bbb;
-}
-
-.hex-state-unknown,
-.hex-state-offline {
-  background: #3a3a3a;
-  color: #999;
-}
-
-.hex-warning-badge {
-  padding: 4px 10px;
-  border-radius: 4px;
-  background: #7a4a2a;
-  color: #ffcc99;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.hex-info-card .hex-info-title,
+/* Info text / grid */
+.hex-info-title,
 .hex-modal .hex-info-title,
 h2.hex-info-title {
   font-size: 20px;
@@ -351,26 +257,17 @@ h2.hex-info-title {
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .hex-info-card .hex-info-title,
-  .hex-modal .hex-info-title,
-  h2.hex-info-title {
-    font-size: 18px;
-    margin: 0 0 8px 0 !important;
-  }
-}
-
 .hex-info-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  margin-bottom:  15px;
+  margin-bottom: 15px;
 }
 
 .hex-info-item {
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 12px;
-  border-radius:  6px;
+  border-radius: 6px;
   border-left: 3px solid #5c1a1a;
 }
 
@@ -389,24 +286,16 @@ h2.hex-info-title {
   word-break: break-word;
 }
 
-@media (max-width: 768px) {
-  .hex-info-value {
-    font-size: 12px;
-  }
-}
-
-.hex-info-contact {
-  text-align: center;
-  margin-top: 18px;
-}
+/* Contact button / small variants */
+.hex-info-contact { text-align: center; margin-top: 18px; }
 
 .hex-contact-btn {
   display: inline-block;
   padding: 10px 24px;
   background: linear-gradient(135deg, #2d5016, #3d6026);
-  color: #a8d68c ! important;
-  text-decoration:  none ! important;
-  border-radius:  6px;
+  color: #a8d68c !important;
+  text-decoration: none !important;
+  border-radius: 6px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s ease;
@@ -426,19 +315,23 @@ h2.hex-info-title {
   transform: none;
 }
 
-@media (max-width: 768px) {
-  .hex-contact-btn {
-    padding: 8px 20px;
-    font-size:  13px;
-  }
+.hex-contact-btn-small {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #2d5016;
+  color: #a8d68c !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  font-size: 11px;
+  margin-top: 6px;
 }
 
-.hex-no-contact {
-  color: #888;
-  font-style: italic;
-  font-size: 13px;
-}
+.hex-contact-btn-small:hover { background: #3d6026; }
 
+.hex-no-contact { color: #888; font-style: italic; font-size: 13px; }
+.hex-no-contact-small { color: #666; font-size: 11px; font-style: italic; }
+
+/* Duplicate warning / entries */
 .hex-duplicate-warning {
   background: rgba(255, 204, 153, 0.1);
   border-left: 4px solid #ffcc99;
@@ -449,34 +342,22 @@ h2.hex-info-title {
   font-size: 13px;
 }
 
-@media (max-width: 768px) {
-  .hex-duplicate-warning {
-    font-size: 12px;
-    padding: 8px;
-  }
-}
-
 .hex-duplicates-container {
   display: flex;
   flex-direction: column;
   gap: 12px;
   max-height: 50vh;
-  overflow-y:  auto;
+  overflow-y: auto;
 }
 
 .hex-duplicate-entry {
   background: rgba(255, 255, 255, 0.03);
   padding: 12px;
-  border-radius:  8px;
+  border-radius: 8px;
   border: 1px solid rgba(153, 204, 255, 0.2);
 }
 
-@media (max-width: 768px) {
-  .hex-duplicate-entry {
-    padding: 10px;
-  }
-}
-
+/* Misc small parts */
 .hex-entry-number {
   font-size: 11px;
   color: #99ccff;
@@ -486,90 +367,23 @@ h2.hex-info-title {
   border-radius: 4px;
 }
 
-.hex-duplicate-name {
-  font-size: 16px;
-  margin:  8px 0;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .hex-duplicate-name {
-    font-size: 15px;
-  }
-}
-
-.hex-info-grid-small {
-  display: grid;
-  gap: 6px;
-  margin:  8px 0;
-}
-
-.hex-info-item-small {
-  display: flex;
-  gap: 8px;
-  font-size: 12px;
-  color: #ccc;
-}
-
-@media (max-width: 768px) {
-  .hex-info-item-small {
-    font-size: 11px;
-  }
-}
-
-.hex-contact-btn-small {
-  display: inline-block;
-  padding: 5px 10px;
-  background: #2d5016;
-  color: #a8d68c ! important;
-  text-decoration:  none !important;
-  border-radius: 4px;
-  font-size: 11px;
-  margin-top: 6px;
-}
-
-.hex-contact-btn-small:hover {
-  background:  #3d6026;
-}
-
-.hex-no-contact-small {
-  color: #666;
-  font-size: 11px;
-  font-style: italic;
-}
-
-.hex-reserved-text {
-  line-height: 1.6;
-  color: #ccc;
-  font-size:  14px;
-  margin:  10px 0;
-}
-
-@media (max-width: 768px) {
-  .hex-reserved-text {
-    font-size: 13px;
-  }
-}
+.hex-duplicate-name { font-size: 16px; margin: 8px 0; color: #fff; }
 
 /* Keygen specific styles */
 .hex-keygen-description {
   line-height: 1.3;
   color: #ccc;
-  font-size:  13px;
+  font-size: 13px;
   margin: 8px 0;
   text-align: center;
 }
 
-.hex-keygen-results {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.hex-keygen-results { display: flex; flex-direction: column; gap: 8px; }
 
 .hex-key-section {
   background: rgba(255, 255, 255, 0.05);
   padding: 8px;
-  border-radius:  4px;
+  border-radius: 4px;
   border-left: 3px solid #2d5016;
 }
 
@@ -580,45 +394,38 @@ h2.hex-info-title {
   margin-bottom: 6px;
 }
 
-.hex-key-header .hex-info-label {
-  margin-bottom: 0;
-  font-size: 10px;
-}
-
 .copy-btn-inline {
   padding: 3px 8px;
   background: #3a3a3a;
   color: #aaa;
-  border:  1px solid #555;
+  border: 1px solid #555;
   border-radius: 3px;
   cursor: pointer;
   font-size: 10px;
   transition: all 0.2s ease;
 }
-
-.copy-btn-inline:hover {
-  background: #4a4a4a;
-  color: #fff;
-}
+.copy-btn-inline:hover { background: #4a4a4a; color: #fff; }
 
 .key-output-compact {
   width: 100%;
   font-family: 'Courier New', monospace;
-  font-size:  10px;
+  font-size: 10px;
   background: rgba(0, 0, 0, 0.3);
   color: #e0e0e0;
   border: 1px solid #444;
   border-radius: 3px;
   padding: 6px;
+  margin-top: 6px;
   resize: none;
   box-sizing: border-box;
   line-height: 1.3;
+  word-break: break-all;
 }
 
 .hex-key-stats-inline {
   text-align: center;
   padding: 8px;
-  margin-top: 8px;
+  margin-bottom: 12px;
   background: rgba(45, 80, 22, 0.2);
   border-radius: 4px;
   font-size: 11px;
@@ -626,6 +433,7 @@ h2.hex-info-title {
   font-family: 'Courier New', monospace;
 }
 
+/* Keygen footer / credit */
 .hex-keygen-footer {
   margin-top: 12px;
   padding-top: 12px;
@@ -638,229 +446,92 @@ h2.hex-info-title {
   color: #888;
   font-style: italic;
 }
-
-.hex-keygen-credit a {
-  color: #a8d68c;
-  text-decoration: none;
-}
-
-.hex-keygen-credit a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
+.hex-keygen-credit a { color: #a8d68c; text-decoration: none; }
+.hex-keygen-credit a:hover { color: #fff; text-decoration: underline; }
 
 #keygen-progress {
   color: #a8d68c;
   text-align: center;
   font-family: 'Courier New', monospace;
-  font-size:  11px;
-  margin:  0;
+  font-size: 11px;
+  margin: 0;
   padding: 6px;
   background: rgba(45, 80, 22, 0.2);
   border-radius: 4px;
 }
 
-@media (max-width:  768px) {
-  .hex-keygen-description {
-    font-size: 12px;
-  }
-  
-  .hex-keygen-credit {
-    font-size: 9px;
-  }
-  
-  #keygen-progress {
-    font-size: 10px;
-  }
-  
-  .key-output-compact {
-    font-size: 9px;
-    padding: 5px;
-  }
-  
-  .hex-key-stats-inline {
-    font-size: 10px;
-  }
-}
-
-/* Material theme overrides using ID selector (highest specificity) */
-.md-typeset #repeater-hex-grid td {
-  background-color: transparent;
-  border-color: #1a1a1a ! important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-free {
-  background-color: #2d5016 !important;
-  color: #a8d68c !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-used {
-  background-color: #5c1a1a !important;
-  color: #ff9999 !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-reserved {
-  background-color: #3a3a3a !important;
-  color: #888 !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-backbone {
-  background-color: #4a4a4a !important;
-  color: #aaa !important;
-}
-
-.md-typeset #repeater-hex-grid td.hex-duplicate {
-  background-color: #1a3a5c !important;
-  color: #99ccff !important;
-}
-
-/* Keygen actions row */
+/* Download / action buttons */
 .hex-keygen-actions {
-    display:  flex;
-    justify-content:  center;
-    align-items:  stretch;
-    gap: 10px;
-    margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 12px;
 }
-
-.hex-keygen-actions .hex-contact-btn {
-    flex: 1;
-    margin: 0;
-}
+.hex-keygen-actions .hex-contact-btn { flex: 1; margin: 0; }
 
 .hex-download-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 14px;
-    background: linear-gradient(135deg, #2d5016, #3d6026);
-    color: #a8d68c;
-    border:  2px solid #a8d68c;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #2d5016, #3d6026);
+  color: #a8d68c;
+  border: 2px solid #a8d68c;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: auto;
 }
-
 .hex-download-btn:hover {
-    background: linear-gradient(135deg, #3d6026, #4d7036);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(168, 214, 140, 0.3);
+  background: linear-gradient(135deg, #3d6026, #4d7036);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(168, 214, 140, 0.3);
 }
 
-@media (max-width: 768px) {
-    .hex-download-btn {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-}
-
-.hex-key-stats-inline {
-    text-align: center;
-    padding: 8px;
-    margin-bottom: 12px;
-    background: rgba(45, 80, 22, 0.2);
-    border-radius: 4px;
-    font-size: 11px;
-    color: #a8d68c;
-    font-family: 'Courier New', monospace;
-}
-
-.hex-keygen-results {
-    display:  flex;
-    flex-direction: column;
-    gap: 8px;
-}
-/* Key preview styling */
+/* Key preview and toggles */
 .key-preview {
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    background: rgba(0, 0, 0, 0.3);
-    color: #e0e0e0;
-    border: 1px solid #444;
-    border-radius: 3px;
-    padding: 8px;
-    margin-top:  6px;
-    text-align: center;
-    letter-spacing: 0.5px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 3px;
+  padding: 8px;
+  margin-top: 6px;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .key-toggle-btn {
-    display: block;
-    width: 100%;
-    margin-top: 6px;
-    padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #a8d68c;
-    border: 1px solid rgba(168, 214, 140, 0.3);
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 10px;
-    transition: all 0.2s ease;
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #a8d68c;
+  border: 1px solid rgba(168, 214, 140, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.2s ease;
 }
+.key-toggle-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: #a8d68c; }
 
-.key-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #a8d68c;
-}
-
-.key-output-compact {
-    width: 100%;
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    color: #e0e0e0;
-    border: 1px solid #444;
-    border-radius: 3px;
-    padding: 6px;
-    margin-top:  6px;
-    resize: none;
-    box-sizing: border-box;
-    line-height: 1.3;
-    word-break: break-all;
-}
-
-@media (max-width: 768px) {
-    .key-preview {
-        font-size: 10px;
-        padding: 6px;
-    }
-    
-    .key-toggle-btn {
-        font-size: 9px;
-    }
-}
 /* Side-by-side layout for height and power */
-.hex-info-row {
-  display: flex;
-  gap:  10px;
-}
+.hex-info-row { display: flex; gap: 10px; }
+.hex-info-half { flex: 1; }
 
-.hex-info-half {
-  flex: 1;
-}
-
-@media (max-width: 768px) {
-  .hex-info-row {
-    gap: 8px;
-  }
-}
-
-
-
-
-/* Search box styling */
+/* Search box styling — responsive and follows wrapper width */
 .hex-search-container {
   margin-bottom: 0;
-  width: 681px; /* Desktop: 17 columns × 40px + 1px for borders */
+  width: 100%;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
-.hex-search-wrapper {
-  position: relative;
-  width: 100%;
-}
+.hex-search-wrapper { position: relative; width: 100%; }
 
 .hex-search-input {
   width: 100%;
@@ -876,17 +547,12 @@ h2.hex-info-title {
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
-
 .hex-search-input:focus {
   border-color: #a8d68c;
   box-shadow: 0 0 15px rgba(168, 214, 140, 0.4);
   background: linear-gradient(145deg, #2d2d2d, #202020);
 }
-
-.hex-search-input::placeholder {
-  color: #888;
-  font-style: italic;
-}
+.hex-search-input::placeholder { color: #888; font-style: italic; }
 
 .hex-search-clear {
   position: absolute;
@@ -903,7 +569,6 @@ h2.hex-info-title {
   transition: all 0.2s ease;
   line-height: 1;
 }
-
 .hex-search-clear:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
@@ -922,89 +587,88 @@ h2.hex-info-title {
   border-right: 2px solid #555;
 }
 
-/* Make grid container match search width */
-.hex-grid-container {
-  border-radius: 0 0 8px 8px;
-  overflow-x: auto;
-  border: 2px solid #555;
-  border-top: none;
+/* Material theme overrides using ID selector (highest specificity) */
+.md-typeset #repeater-hex-grid td {
+  background-color: transparent;
+  border-color: #1a1a1a !important;
 }
 
-/* Dimmed state for non-matching cells */
-#repeater-hex-grid td.hex-dimmed {
-  opacity: 0.2;
-  filter: grayscale(50%);
-  transition: all 0.3s ease;
+.md-typeset #repeater-hex-grid td.hex-free {
+  background-color: #2d5016 !important;
+  color: #a8d68c !important;
+}
+.md-typeset #repeater-hex-grid td.hex-used {
+  background-color: #5c1a1a !important;
+  color: #ff9999 !important;
+}
+.md-typeset #repeater-hex-grid td.hex-reserved {
+  background-color: #3a3a3a !important;
+  color: #888 !important;
+}
+.md-typeset #repeater-hex-grid td.hex-backbone {
+  background-color: #4a4a4a !important;
+  color: #aaa !important;
+}
+.md-typeset #repeater-hex-grid td.hex-duplicate {
+  background-color: #1a3a5c !important;
+  color: #99ccff !important;
 }
 
-/* Highlighted state for matching cells */
-#repeater-hex-grid td.hex-highlighted {
-  opacity: 1;
-  filter:  none;
-  box-shadow: 0 0 12px rgba(168, 214, 140, 0.6);
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 12px rgba(168, 214, 140, 0.6);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(168, 214, 140, 0.9);
-  }
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .hex-search-container {
-    width: 545px; /* Mobile: 17 columns × 32px + 1px for borders */
-    max-width: 545px;
+  #repeater-hex-grid td,
+  #repeater-hex-grid th {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    font-size: 10px;
+    padding: 0 !important;
+    line-height: 32px;
   }
-  
+
+  #repeater-hex-grid td.hex-free .hex-clickable {
+    font-size: 10px;
+  }
+
+  /* Disable hover effects on mobile */
+  #repeater-hex-grid td.hex-free:hover .hex-clickable,
+  #repeater-hex-grid td.hex-used:hover .hex-clickable,
+  #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
+  #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
+  #repeater-hex-grid td.hex-backbone:hover .hex-clickable {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .hex-search-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
   .hex-search-input {
     font-size: 12px;
     padding: 8px 36px 8px 10px;
   }
-  
-  .hex-search-results {
-    font-size: 10px;
+
+  .hex-search-results { font-size: 10px; }
+
+  .hex-modal-content {
+    width: 95%;
+    max-width: none;
+    margin: 5vh auto;
   }
-}
-/* ---- ADD THIS at the end of the file ----
-   Fixes: align wrapper to table width, remove fixed search width, prevent desktop overflow
-*/
 
-/* Center a fit-content wrapper and keep page responsive */
-.hex-grid-container {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* center the inner wrapper */
-  overflow-x: auto;        /* still allow scrolling on narrow viewports */
-  -webkit-overflow-scrolling: touch;
-  margin: 0;
-}
-
-/* The wrapper now defines the visible box that should match the table width */
-.hex-table-wrapper {
-  width: fit-content;      /* shrink-to-fit the table + search */
-  margin: 20px 0;
-  border: 2px solid #555;  /* move border here so it matches the table */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  overflow: hidden;        /* prevent internal children from escaping the wrapper */
-}
-
-/* Ensure the table never forces the wrapper to expand full-width */
-#repeater-hex-grid {
-  width: fit-content;      /* let the table determine wrapper width */
-}
-
-/* Make the search container follow the wrapper width (remove fixed px width) */
-.hex-search-container {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Optional: ensure the old fixed-width rule doesn't win (higher specificity) */
-.md-typeset .hex-search-container {
-  width: 100% !important;
+  .hex-id-badge { font-size: 14px; padding: 5px 10px; }
+  .hex-info-title { font-size: 18px; margin: 0 0 8px 0 !important; }
+  .hex-info-value { font-size: 12px; }
+  .hex-duplicate-entry { padding: 10px; }
+  .hex-keygen-description { font-size: 12px; }
+  .hex-keygen-credit { font-size: 9px; }
+  #keygen-progress { font-size: 10px; }
+  .key-output-compact { font-size: 9px; padding: 5px; }
+  .hex-key-stats-inline { font-size: 10px; }
 }
