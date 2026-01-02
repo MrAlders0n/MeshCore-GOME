@@ -3,7 +3,15 @@
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  margin: 0;
+}
+
+/* Wrapper for search + table to keep them unified */
+.hex-table-wrapper {
+  width: fit-content;
   margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
 }
 
 /* Table base styles - using ID for maximum specificity */
@@ -824,10 +832,9 @@ h2.hex-info-title {
 
 /* Search box styling */
 .hex-search-container {
-  margin-bottom: 5px;
-  width: fit-content;
-  margin-left: 0;
-  margin-right: auto;
+  margin-bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hex-search-wrapper {
@@ -835,15 +842,16 @@ h2.hex-info-title {
   width: 100%;
 }
 
-. hex-search-input {
+.hex-search-input {
   width: 100%;
-  padding: 10px 40px 10px 12px;
-  font-size:  13px;
+  padding: 12px 45px 12px 15px;
+  font-size: 14px;
   font-family: 'Courier New', monospace;
   background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
   color: #e0e0e0;
-  border: 2px solid #444;
-  border-radius: 6px 6px 0 0;
+  border: 2px solid #555;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
   outline: none;
   transition: all 0.3s ease;
   box-sizing: border-box;
@@ -851,11 +859,13 @@ h2.hex-info-title {
 
 .hex-search-input:focus {
   border-color: #a8d68c;
-  box-shadow:  0 0 12px rgba(168, 214, 140, 0.3);
+  box-shadow: 0 0 15px rgba(168, 214, 140, 0.4);
+  background: linear-gradient(145deg, #2d2d2d, #202020);
 }
 
 .hex-search-input::placeholder {
   color: #888;
+  font-style: italic;
 }
 
 .hex-search-clear {
@@ -863,37 +873,45 @@ h2.hex-info-title {
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  color: #888;
-  font-size: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #999;
+  font-size: 16px;
   cursor: pointer;
   padding: 4px 8px;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  line-height: 1;
 }
 
 .hex-search-clear:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
 .hex-search-results {
   text-align: center;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  padding: 6px 10px;
   font-size: 11px;
   color: #a8d68c;
   font-family: 'Courier New', monospace;
-  min-height: 16px;
+  min-height: 20px;
+  background: rgba(45, 80, 22, 0.15);
+  border-left: 2px solid #555;
+  border-right: 2px solid #555;
 }
 
 /* Make grid container match search width */
 .hex-grid-container {
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 8px 8px;
   overflow-x: auto;
+  border: 2px solid #555;
+  border-top: none;
 }
 
 /* Dimmed state for non-matching cells */
-#repeater-hex-grid td. hex-dimmed {
+#repeater-hex-grid td.hex-dimmed {
   opacity: 0.2;
   filter: grayscale(50%);
   transition: all 0.3s ease;
@@ -904,7 +922,7 @@ h2.hex-info-title {
   opacity: 1;
   filter:  none;
   box-shadow: 0 0 12px rgba(168, 214, 140, 0.6);
-  animation: pulse 1. 5s ease-in-out infinite;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
