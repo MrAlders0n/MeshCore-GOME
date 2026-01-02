@@ -528,3 +528,10 @@ jobs:
 
             ---
             _Generated automatically by the sync workflow._
+
+      - name: Enable Auto-merge (only if no duplicates)
+        if: steps.sync.outputs.has_changes == 'true' && steps. sync.outputs.has_duplicates == 'false'
+        run: |
+          gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --auto --squash
+        env:
+          GH_TOKEN: ${{ secrets. GITHUB_TOKEN }}
