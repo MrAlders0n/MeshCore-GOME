@@ -87,8 +87,10 @@ def define_env(env):
     # Generate HTML hex table WITH WRAPPER AND UNIQUE ID
     html_table = '<div id="hex-modal" class="hex-modal"><div class="hex-modal-content"><span class="hex-modal-close">&times;</span><div id="hex-modal-body"></div></div></div>\n'
     
-    # Wrap everything in a scrollable container
+    # Outer full-width container (keeps page responsive and centers the wrapper)
     html_table += '<div class="hex-grid-container">\n'
+    # Use the wrapper so the border & sizing match the inner table (fit-content)
+    html_table += '  <div class="hex-table-wrapper">\n'
     
     # Add search box INSIDE the container
     html_table += '<div class="hex-search-container">\n'
@@ -105,7 +107,7 @@ def define_env(env):
     # Header row
     html_table += '  <tr>\n    <th></th>\n'
     for col in range(16):
-        html_table += f'    <th>{col: X}</th>\n'
+        html_table += f'    <th>{col:X}</th>\n'
     html_table += '  </tr>\n'
 
     # Data rows
@@ -142,6 +144,8 @@ def define_env(env):
         html_table += '  </tr>\n'
 
     html_table += '</table>\n'
+    # close wrapper
+    html_table += '  </div>\n'
     html_table += '</div>\n'  # Close hex-grid-container
 
     # Expose variables to Jinja
