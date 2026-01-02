@@ -53,8 +53,9 @@ def define_env(env):
             name = r.get("name", "N/A")
             antenna = r.get("antenna", "N/A")
             location = r.get("location", "N/A")
+            height_metre = r.get("height_metre", "N/A")
             last_heard = epoch_to_date(r.get("last_heard"))
-            contact_url = r.get("contact", "")
+            contact_url = r.get("contact", "N/A")
             
             # If duplicate, store in a list
             if rid not in repeater_info:
@@ -64,6 +65,7 @@ def define_env(env):
                 "state": state,
                 "antenna":   antenna,
                 "location":  location,
+                "height_metre":  height_metre,
                 "last_heard":   last_heard,
                 "contact_url": contact_url,
                 "power": r.get("power", "N/A")
