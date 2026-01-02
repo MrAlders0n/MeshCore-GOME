@@ -131,8 +131,6 @@ jobs:
                   existing_id_map[rid_u] = r
                   existing_ids.add(rid_u)
 
-          print(f"Existing YAML has {len(existing_hex_ids)} unique hex_ids and {len(existing_ids)} unique ids")
-
           # Process API repeaters
           for repeater in api_repeaters:
               hex_id = repeater.get('hex_id')
