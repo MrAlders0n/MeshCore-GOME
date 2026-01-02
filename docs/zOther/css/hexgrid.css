@@ -79,7 +79,7 @@
   line-height: 1;
 }
 
-#repeater-hex-grid td.hex-free: hover .hex-clickable,
+#repeater-hex-grid td.hex-free:hover .hex-clickable,
 #repeater-hex-grid td.hex-used:hover .hex-clickable,
 #repeater-hex-grid td.hex-duplicate:hover .hex-clickable,
 #repeater-hex-grid td.hex-reserved:hover .hex-clickable,
