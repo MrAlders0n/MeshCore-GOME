@@ -7,10 +7,11 @@ function showRepeaterInfo(hexId, info) {
         ? `<a href="${info.contact_url}" class="hex-contact-btn">Add Contact</a>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
-    const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
+    const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
     
-    // Format height if available
-    const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
+    // Format height and power if available
+    const heightDisplay = info. height_metre ? `${info.height_metre}m` : 'N/A';
+    const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
     
     modalBody.innerHTML = `
         <div class="hex-info-card">
@@ -18,7 +19,7 @@ function showRepeaterInfo(hexId, info) {
                 <span class="hex-id-badge hex-used-badge">${hexId}</span>
                 <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
             </div>
-            <h2 class="hex-info-title">${info.name}</h2>
+            <h2 class="hex-info-title">${info. name}</h2>
             <div class="hex-info-grid">
                 <div class="hex-info-item">
                     <span class="hex-info-label">📡 Antenna</span>
@@ -26,15 +27,21 @@ function showRepeaterInfo(hexId, info) {
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">📍 Location</span>
-                    <span class="hex-info-value">${info. location}</span>
+                    <span class="hex-info-value">${info.location}</span>
                 </div>
-                <div class="hex-info-item">
-                    <span class="hex-info-label">📏 Height</span>
-                    <span class="hex-info-value">${heightDisplay}</span>
+                <div class="hex-info-row">
+                    <div class="hex-info-item hex-info-half">
+                        <span class="hex-info-label">📏 Height</span>
+                        <span class="hex-info-value">${heightDisplay}</span>
+                    </div>
+                    <div class="hex-info-item hex-info-half">
+                        <span class="hex-info-label">⚡ Power</span>
+                        <span class="hex-info-value">${powerDisplay}</span>
+                    </div>
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">🕐 Last Heard</span>
-                    <span class="hex-info-value">${info.last_heard}</span>
+                    <span class="hex-info-value">${info. last_heard}</span>
                 </div>
             </div>
             <div class="hex-info-contact">
@@ -43,11 +50,11 @@ function showRepeaterInfo(hexId, info) {
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
 }
 
 function showDuplicateInfo(hexId, infoArray) {
-    const modal = document.getElementById('hex-modal');
+    const modal = document. getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     let entriesHtml = '';
@@ -58,12 +65,13 @@ function showDuplicateInfo(hexId, infoArray) {
         
         const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
         const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
+        const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
         
         entriesHtml += `
             <div class="hex-duplicate-entry">
                 <div class="hex-info-header">
                     <span class="hex-entry-number">Entry ${idx + 1}</span>
-                    <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
+                    <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
                 </div>
                 <h3 class="hex-duplicate-name">${info.name}</h3>
                 <div class="hex-info-grid-small">
@@ -78,6 +86,10 @@ function showDuplicateInfo(hexId, infoArray) {
                     <div class="hex-info-item-small">
                         <span class="hex-info-label">📏</span>
                         <span class="hex-info-value">${heightDisplay}</span>
+                    </div>
+                    <div class="hex-info-item-small">
+                        <span class="hex-info-label">⚡</span>
+                        <span class="hex-info-value">${powerDisplay}</span>
                     </div>
                     <div class="hex-info-item-small">
                         <span class="hex-info-label">🕐</span>
@@ -95,7 +107,7 @@ function showDuplicateInfo(hexId, infoArray) {
                 <span class="hex-id-badge hex-duplicate-badge">${hexId}</span>
                 <span class="hex-warning-badge">⚠️ DUPLICATE CONFLICT</span>
             </div>
-            <p class="hex-duplicate-warning">Multiple repeaters are using the same ID.  This must be resolved!</p>
+            <p class="hex-duplicate-warning">Multiple repeaters are using the same ID.   This must be resolved! </p>
             <div class="hex-duplicates-container">
                 ${entriesHtml}
             </div>
@@ -106,10 +118,10 @@ function showDuplicateInfo(hexId, infoArray) {
 }
 
 function showReservedInfo() {
-    const modal = document. getElementById('hex-modal');
+    const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
-    modalBody.innerHTML = `
+    modalBody. innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-reserved-badge">Reserved</span>
@@ -126,23 +138,24 @@ function showReservedInfo() {
 }
 
 function showBackboneInfo(hexId, info) {
-    const modal = document.getElementById('hex-modal');
+    const modal = document. getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
-    const contactLink = info.contact_url 
+    const contactLink = info. contact_url 
         ? `<a href="${info.contact_url}" class="hex-contact-btn">Add Contact</a>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
     const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
     const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
+    const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
     
-    modalBody.innerHTML = `
+    modalBody. innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-backbone-badge">${hexId}</span>
                 <span class="hex-state-badge hex-state-${stateClass}">Backbone Reserved</span>
             </div>
-            <h2 class="hex-info-title">${info. name}</h2>
+            <h2 class="hex-info-title">${info.name}</h2>
             <div class="hex-info-grid">
                 <div class="hex-info-item">
                     <span class="hex-info-label">📡 Antenna</span>
@@ -152,13 +165,19 @@ function showBackboneInfo(hexId, info) {
                     <span class="hex-info-label">📍 Location</span>
                     <span class="hex-info-value">${info.location}</span>
                 </div>
-                <div class="hex-info-item">
-                    <span class="hex-info-label">📏 Height</span>
-                    <span class="hex-info-value">${heightDisplay}</span>
+                <div class="hex-info-row">
+                    <div class="hex-info-item hex-info-half">
+                        <span class="hex-info-label">📏 Height</span>
+                        <span class="hex-info-value">${heightDisplay}</span>
+                    </div>
+                    <div class="hex-info-item hex-info-half">
+                        <span class="hex-info-label">⚡ Power</span>
+                        <span class="hex-info-value">${powerDisplay}</span>
+                    </div>
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">🕐 Last Heard</span>
-                    <span class="hex-info-value">${info.last_heard}</span>
+                    <span class="hex-info-value">${info. last_heard}</span>
                 </div>
             </div>
             <div class="hex-info-contact">
@@ -167,7 +186,7 @@ function showBackboneInfo(hexId, info) {
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
 }
 
 // Key generation using Web Crypto API
@@ -190,22 +209,22 @@ async function generateKeyForPrefix(prefix) {
         
         try {
             // Generate Ed25519 keypair using Web Crypto
-            const keypair = await crypto.subtle.generateKey(
+            const keypair = await crypto. subtle.generateKey(
                 { name: 'Ed25519' },
                 true,
                 ['sign', 'verify']
             );
             
             // Export public key
-            const publicKeyJwk = await crypto.subtle. exportKey('jwk', keypair.publicKey);
+            const publicKeyJwk = await crypto.subtle.exportKey('jwk', keypair.publicKey);
             const publicKeyBytes = Uint8Array.from(
                 atob(publicKeyJwk. x. replace(/-/g, '+').replace(/_/g, '/')), 
                 c => c.charCodeAt(0)
             );
             
             // Export private key
-            const privateKeyJwk = await crypto.subtle.exportKey('jwk', keypair.privateKey);
-            const privateKeyBytes = Uint8Array.from(
+            const privateKeyJwk = await crypto.subtle. exportKey('jwk', keypair.privateKey);
+            const privateKeyBytes = Uint8Array. from(
                 atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
                 c => c.charCodeAt(0)
             );
@@ -252,8 +271,8 @@ function updateKeygenProgress(attempts, rate) {
 
 // Show keygen modal
 function showKeygenModal(hexId) {
-    const modal = document.getElementById('hex-modal');
-    const modalBody = document. getElementById('hex-modal-body');
+    const modal = document. getElementById('hex-modal');
+    const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
         <div class="hex-info-card">
