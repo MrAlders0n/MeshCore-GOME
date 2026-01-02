@@ -1,528 +1,947 @@
-name: Sync Repeaters from MeshMapper API
-
-on:
-  schedule:
-    # Runs every hour at minute 0
-    - cron: "0 * * * *"
-  workflow_dispatch: # Allows manual triggering
-
-permissions:
-  contents: write
-  pull-requests: write
-
-jobs:
-  sync-repeaters:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
-      - name: Install dependencies
-        run: pip install pyyaml requests urllib3
-
-      - name: Fetch and sync repeaters
-        id: sync
-        run: |
-          python <<'EOF'
-          import os
-          import time
-          import yaml
-          import requests
-          from urllib.parse import quote
-
-          VALID_STATES = {
-              'duplicate': 'Duplicate',
-              'new': 'New',
-              'active': 'Active',
-              'observer': 'Observer',
-              'backbonereserved': 'BackboneReserved',
-              'reserved': 'Reserved',
-          }
-
-          def normalize_state(state):
-              if state is None:
-                  return None
-              s = str(state).strip()
-              if s == "":
-                  return None
-              s_lower = s.lower()
-              return VALID_STATES.get(s_lower, s.capitalize())
-
-          def yaml_quote(s: str) -> str:
-              """Quote for YAML double-quoted scalars."""
-              if s is None:
-                  return "null"
-              return '"' + str(s).replace('\\', '\\\\').replace('"', '\\"') + '"'
-
-          def yaml_scalar(value):
-              """Return YAML scalar text (quoted string, null, bool, or plain number)."""
-              if value is None:
-                  return "null"
-              if isinstance(value, bool):
-                  return "true" if value else "false"
-              if isinstance(value, (int, float)):
-                  return str(value)
-              return yaml_quote(value)
-
-          def get_city_name(lat, lon):
-              if lat is None or lon is None:
-                  return None
-              try:
-                  headers = {'User-Agent': 'MeshCore-GOME-Sync/1.0'}
-                  url = f"https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lon}&zoom=18"
-                  resp = requests.get(url, headers=headers, timeout=10)
-                  resp.raise_for_status()
-                  data = resp.json()
-                  address = data.get('address', {})
-                  return (
-                      address.get('suburb')
-                      or address.get('neighbourhood')
-                      or address.get('village')
-                      or address.get('town')
-                      or address.get('city')
-                      or address.get('municipality')
-                  )
-              except Exception as e:
-                  print(f"  Error geocoding {lat}, {lon}: {e}")
-                  return None
-
-          def safe(v):
-              return "" if v is None else str(v)
-
-          def esc_md(s):
-              return str(s).replace("|", "\\|") if s is not None else ""
-
-          def norm_hex(h):
-              if h is None:
-                  return None
-              s = str(h).strip()
-              if s == "":
-                  return None
-              return s.upper()
-
-          def hex_prefix(h, n=12):
-              h2 = norm_hex(h)
-              if not h2:
-                  return None
-              return h2[:n]
-
-          api_url = "https://yow.meshmapper.net/repeaters.json"
-          print(f"Fetching repeaters from {api_url}...")
-          resp = requests.get(api_url)
-          resp.raise_for_status()
-          api_repeaters = resp.json()
-          print(f"Found {len(api_repeaters)} repeaters in API")
-
-          yml_path = "docs/deployment/data/repeaters.yml"
-          with open(yml_path, "r", encoding="utf-8") as f:
-              existing_data = yaml.safe_load(f) or {}
-
-          if "repeaters" not in existing_data or existing_data["repeaters"] is None:
-              existing_data["repeaters"] = []
-          rep_list = existing_data["repeaters"]
-
-          # --- Schema normalization: ensure these keys always exist ---
-          for r in rep_list:
-              if not isinstance(r, dict):
-                  continue
-              if "antenna" not in r:
-                  r["antenna"] = None
-              if "height_metre" not in r:
-                  r["height_metre"] = None
-              if "power_watt" not in r:
-                  r["power_watt"] = None
-
-          # Normalize existing states
-          state_corrections = []
-          for r in rep_list:
-              if isinstance(r, dict) and "state" in r:
-                  old_state = r.get("state")
-                  new_state = normalize_state(old_state)
-                  if old_state != new_state:
-                      state_corrections.append({
-                          "name": r.get("name", "Unknown"),
-                          "id": r.get("id", ""),
-                          "old_state": old_state,
-                          "new_state": new_state,
-                      })
-                      r["state"] = new_state
-                      print(f"  Corrected state: {r.get('name')} - '{old_state}' → '{new_state}'")
-
-          # Build lookups
-          existing_hex_id_map = {}          # full hex -> repeater
-          existing_hex_prefix_map = {}      # first 12 chars -> repeater (legacy short hex support)
-          existing_id_map = {}
-          existing_ids = set()
-
-          for r in rep_list:
-              if not isinstance(r, dict):
-                  continue
-
-              hex_id = norm_hex(r.get("hex_id"))
-              if hex_id:
-                  existing_hex_id_map[hex_id] = r
-                  pfx = hex_prefix(hex_id, 12)
-                  if pfx and pfx not in existing_hex_prefix_map:
-                      existing_hex_prefix_map[pfx] = r
-
-              rid = r.get("id")
-              if rid is not None and str(rid).strip() != "":
-                  rid_u = str(rid).upper()
-                  existing_id_map[rid_u] = r
-                  existing_ids.add(rid_u)
-
-          # Trackers
-          last_heard_updates = 0
-
-          power_updates = 0
-          power_updates_list = []
-
-          location_updates = 0
-          location_updates_list = []
-
-          # legacy short -> full hex upgrades
-          hex_id_upgrades = []
-
-          new_repeaters = []
-          duplicate_repeaters = []
-          updated_repeaters = []
-
-          for repeater in api_repeaters:
-              hex_id = norm_hex(repeater.get("hex_id"))
-              repeater_id = repeater.get("id")
-              api_name = repeater.get("name", "Unknown")
-              api_power = repeater.get("power")
-              api_lat = repeater.get("lat")
-              api_lon = repeater.get("lon")
-
-              if not hex_id:
-                  print(f"  Skipping repeater '{api_name}' - no hex_id in API")
-                  continue
-
-              hex_id_upper = hex_id
-              repeater_id_upper = str(repeater_id).upper() if repeater_id else ""
-
-              # 1) UPDATE existing by FULL hex_id match
-              if hex_id_upper in existing_hex_id_map:
-                  existing_repeater = existing_hex_id_map[hex_id_upper]
-                  existing_name = existing_repeater.get("name", "")
-
-                  # last_heard only when API provided
-                  last_heard = repeater.get("last_heard")
-                  if last_heard is not None:
-                      old_last_heard = existing_repeater.get("last_heard")
-                      if old_last_heard != last_heard:
-                          existing_repeater["last_heard"] = last_heard
-                          last_heard_updates += 1
-
-                  # power_watt only when API provided a non-empty value
-                  if api_power is not None and api_power != "":
-                      old_power = existing_repeater.get("power_watt")
-                      if old_power != api_power:
-                          existing_repeater["power_watt"] = api_power
-                          power_updates += 1
-                          power_updates_list.append({
-                              "hex_id": hex_id_upper,
-                              "id": existing_repeater.get("id", ""),
-                              "name": existing_name,
-                              "old_power": old_power,
-                              "new_power": api_power,
-                          })
-                          print(f"  Updated power for {existing_name}: {old_power} → {api_power}")
-
-                  # location only when TBD/empty and coords exist
-                  current_loc = existing_repeater.get("location", "")
-                  if api_lat is not None and api_lon is not None and (not current_loc or "TBD" in str(current_loc)):
-                      city = get_city_name(api_lat, api_lon)
-                      if city:
-                          existing_repeater["location"] = city
-                          location_updates += 1
-                          location_updates_list.append({
-                              "hex_id": hex_id_upper,
-                              "id": existing_repeater.get("id", ""),
-                              "name": existing_name,
-                              "old_location": current_loc or None,
-                              "new_location": city,
-                          })
-                          print(f"  Updated location for {existing_name}: {current_loc} → {city}")
-                          time.sleep(1)
-
-                  # name/contact updates
-                  if existing_name != api_name:
-                      old_name = existing_name
-                      existing_repeater["name"] = api_name
-                      encoded_name = quote(api_name)
-                      existing_repeater["contact"] = f"meshcore://contact/add?name={encoded_name}&public_key={hex_id_upper}&type=2"
-                      updated_repeaters.append({
-                          "hex_id": hex_id_upper,
-                          "old_name": old_name,
-                          "new_name": api_name,
-                          "id": existing_repeater.get("id", ""),
-                      })
-                  continue
-
-              # 2) LEGACY short hex-id upgrade: match by first 12 chars
-              api_pfx = hex_prefix(hex_id_upper, 12)
-              if api_pfx and api_pfx in existing_hex_prefix_map:
-                  existing_repeater = existing_hex_prefix_map[api_pfx]
-                  existing_name = existing_repeater.get("name", "")
-
-                  old_hex = existing_repeater.get("hex_id")
-                  old_hex_norm = norm_hex(old_hex)
-
-                  if old_hex_norm != hex_id_upper:
-                      existing_repeater["hex_id"] = hex_id_upper
-
-                      # regenerate contact URL with full public_key
-                      encoded_name = quote(existing_repeater.get("name", api_name) or api_name)
-                      existing_repeater["contact"] = f"meshcore://contact/add?name={encoded_name}&public_key={hex_id_upper}&type=2"
-
-                      hex_id_upgrades.append({
-                          "name": existing_repeater.get("name", api_name),
-                          "id": existing_repeater.get("id", ""),
-                          "prefix": api_pfx,
-                          "old_hex": old_hex,
-                          "new_hex": hex_id_upper,
-                      })
-                      print(f"  Upgraded legacy hex_id for {existing_name}: {old_hex} → {hex_id_upper}")
-
-                      # last_heard
-                      last_heard = repeater.get("last_heard")
-                      if last_heard is not None:
-                          old_last_heard = existing_repeater.get("last_heard")
-                          if old_last_heard != last_heard:
-                              existing_repeater["last_heard"] = last_heard
-                              last_heard_updates += 1
-
-                      # power_watt
-                      if api_power is not None and api_power != "":
-                          old_power = existing_repeater.get("power_watt")
-                          if old_power != api_power:
-                              existing_repeater["power_watt"] = api_power
-                              power_updates += 1
-                              power_updates_list.append({
-                                  "hex_id": hex_id_upper,
-                                  "id": existing_repeater.get("id", ""),
-                                  "name": existing_repeater.get("name", api_name),
-                                  "old_power": old_power,
-                                  "new_power": api_power,
-                              })
-                      continue
-
-              # 3) NEW repeater (or duplicate id)
-              is_duplicate = repeater_id_upper in existing_ids
-              state = "Duplicate" if is_duplicate else "New"
-
-              encoded_name = quote(api_name)
-              contact = f"meshcore://contact/add?name={encoded_name}&public_key={hex_id_upper}&type=2"
-
-              location = "TBD"
-              if api_lat is not None and api_lon is not None:
-                  city = get_city_name(api_lat, api_lon)
-                  if city:
-                      location = city
-                      time.sleep(1)
-
-              new_entry = {
-                  "id": repeater_id_upper or None,
-                  "name": api_name,
-                  "antenna": None,        # new entries should be null
-                  "height_metre": None,   # manual field always present
-                  "location": location if location is not None else None,
-                  "contact": contact if contact is not None else None,
-                  "state": state,
-                  "hex_id": hex_id_upper,
-                  "last_heard": repeater.get("last_heard") if repeater.get("last_heard") is not None else None,
-                  "power_watt": None,     # always present, possibly overridden
-              }
-
-              if api_power is not None and api_power != "":
-                  new_entry["power_watt"] = api_power
-                  # include new repeater power in the PR power summary (old=null)
-                  power_updates_list.append({
-                      "hex_id": hex_id_upper,
-                      "id": new_entry.get("id", ""),
-                      "name": api_name,
-                      "old_power": None,
-                      "new_power": api_power,
-                  })
-
-              if is_duplicate:
-                  existing_repeater_name = existing_id_map.get(repeater_id_upper, {}).get("name", "Unknown")
-                  new_entry["existing_name"] = existing_repeater_name
-                  duplicate_repeaters.append(new_entry)
-              else:
-                  new_repeaters.append(new_entry)
-
-          all_new = new_repeaters + duplicate_repeaters
-          has_changes = (
-              len(all_new) > 0
-              or len(updated_repeaters) > 0
-              or len(state_corrections) > 0
-              or len(hex_id_upgrades) > 0
-              or last_heard_updates > 0
-              or power_updates > 0
-              or location_updates > 0
-          )
-
-          # Write YAML manually (only if changes)
-          if has_changes:
-              if all_new:
-                  rep_list.extend(all_new)
-
-              with open(yml_path, "w", encoding="utf-8") as f:
-                  f.write("repeaters:\n")
-                  for r in rep_list:
-                      if not isinstance(r, dict):
-                          continue
-
-                      f.write(f"  - id: {yaml_scalar(r.get('id'))}\n")
-                      f.write(f"    name: {yaml_scalar(r.get('name'))}\n")
-                      f.write(f"    antenna: {yaml_scalar(r.get('antenna'))}\n")
-                      f.write(f"    height_metre: {yaml_scalar(r.get('height_metre'))}\n")
-                      f.write(f"    location: {yaml_scalar(r.get('location'))}\n")
-                      f.write(f"    contact: {yaml_scalar(r.get('contact'))}\n")
-
-                      if "state" in r:
-                          f.write(f"    state: {yaml_scalar(r.get('state'))}\n")
-                      if "hex_id" in r:
-                          f.write(f"    hex_id: {yaml_scalar(r.get('hex_id'))}\n")
-                      if "last_heard" in r:
-                          f.write(f"    last_heard: {yaml_scalar(r.get('last_heard'))}\n")
-
-                      # Always write power_watt (null if missing)
-                      f.write(f"    power_watt: {yaml_scalar(r.get('power_watt'))}\n")
-                      f.write("\n")
-
-          # Emit GitHub Action outputs
-          output_file = os.environ.get("GITHUB_OUTPUT")
-          if output_file:
-              with open(output_file, "a", encoding="utf-8") as of:
-                  if has_changes:
-                      of.write(f"new_count={len(new_repeaters)}\n")
-                      of.write(f"duplicate_count={len(duplicate_repeaters)}\n")
-                      of.write(f"updated_count={len(updated_repeaters)}\n")
-                      of.write(f"state_corrections_count={len(state_corrections)}\n")
-                      of.write(f"hex_id_upgrades_count={len(hex_id_upgrades)}\n")
-                      of.write(f"last_heard_updates={last_heard_updates}\n")
-                      of.write(f"power_updates={power_updates}\n")
-                      of.write(f"location_updates={location_updates}\n")
-                      of.write(f"has_duplicates={'true' if len(duplicate_repeaters) > 0 else 'false'}\n")
-                      of.write("has_changes=true\n")
-
-                      new_table = "\n".join([
-                          f"| 🆕 | {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{(norm_hex(r.get('hex_id'))[:16] + '...') if r.get('hex_id') else ''}` |"
-                          for r in new_repeaters
-                      ])
-                      dup_table = "\n".join([
-                          f"| ⚠️ | {esc_md(r.get('existing_name','Unknown'))} | {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{(norm_hex(r.get('hex_id'))[:16] + '...') if r.get('hex_id') else ''}` |"
-                          for r in duplicate_repeaters
-                      ])
-                      upd_table = "\n".join([
-                          f"| `{safe(r.get('id'))}` | {esc_md(r.get('old_name'))} | {esc_md(r.get('new_name'))} | `{(norm_hex(r.get('hex_id'))[:16] + '...') if r.get('hex_id') else ''}` |"
-                          for r in updated_repeaters
-                      ])
-                      state_table = "\n".join([
-                          f"| {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{safe(r.get('old_state'))}` | `{safe(r.get('new_state'))}` |"
-                          for r in state_corrections
-                      ])
-                      location_table = "\n".join([
-                          f"| {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{(norm_hex(r.get('hex_id'))[:16] + '...') if r.get('hex_id') else ''}` | {esc_md(r.get('old_location') or 'TBD')} | {esc_md(r.get('new_location') or '')} |"
-                          for r in location_updates_list
-                      ])
-                      power_table = "\n".join([
-                          f"| {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{(norm_hex(r.get('hex_id'))[:16] + '...') if r.get('hex_id') else ''}` | {esc_md(safe(r.get('old_power')))} | {esc_md(safe(r.get('new_power')))} |"
-                          for r in power_updates_list
-                      ])
-                      hex_upgrade_table = "\n".join([
-                          f"| {esc_md(r.get('name'))} | `{safe(r.get('id'))}` | `{esc_md(r.get('prefix'))}` | "
-                          f"`{esc_md(safe(r.get('old_hex')))}` | "
-                          f"`{esc_md(safe(r.get('new_hex')))}` |"
-                          for r in hex_id_upgrades
-                      ])
-
-                      of.write(f"new_table<<EOF\n{new_table}\nEOF\n")
-                      of.write(f"dup_table<<EOF\n{dup_table}\nEOF\n")
-                      of.write(f"upd_table<<EOF\n{upd_table}\nEOF\n")
-                      of.write(f"state_table<<EOF\n{state_table}\nEOF\n")
-                      of.write(f"location_table<<EOF\n{location_table}\nEOF\n")
-                      of.write(f"power_table<<EOF\n{power_table}\nEOF\n")
-                      of.write(f"hex_upgrade_table<<EOF\n{hex_upgrade_table}\nEOF\n")
-                  else:
-                      of.write("has_changes=false\n")
-          EOF
-
-      - name: Create Pull Request
-        if: steps.sync.outputs.has_changes == 'true'
-        id: create_pr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Sync repeaters from MeshMapper API (${{ steps.sync.outputs.new_count }} new, ${{ steps.sync.outputs.power_updates }} power updates)"
-          title: "🔄 Sync: ${{ steps.sync.outputs.new_count }} new, ${{ steps.sync.outputs.power_updates }} power, ${{ steps.sync.outputs.location_updates }} location"
-          body: |
-            ## 🤖 Automated Repeater Sync
-
-            This PR was automatically generated by syncing with the [MeshMapper API](https://yow.meshmapper.net/repeaters.json).
-
-            ${{ steps.sync.outputs.has_duplicates == 'true' && '> **⚠️ WARNING:** This PR contains duplicate ID entries that require manual review before merging!' || '> ✅ **Safe to auto-merge**' }}
-
-            ### 📊 Summary
-
-            | Type | Count |
-            |------|-------|
-            | 🆕 New Repeaters | **${{ steps.sync.outputs.new_count }}** |
-            | ⚠️ Duplicate ID Repeaters | **${{ steps.sync.outputs.duplicate_count }}** |
-            | 📝 Updated Names | **${{ steps.sync.outputs.updated_count }}** |
-            | 🔧 State Corrections | **${{ steps.sync.outputs.state_corrections_count }}** |
-            | 🔑 Hex ID Upgrades (legacy short → full) | **${{ steps.sync.outputs.hex_id_upgrades_count }}** |
-            | 🕐 Last Heard Updates | **${{ steps.sync.outputs.last_heard_updates }}** |
-            | ⚡ Power Updates | **${{ steps.sync.outputs.power_updates }}** |
-            | 📍 Location/City Updates | **${{ steps.sync.outputs.location_updates }}** |
-
-            ### 🆕 New Repeaters
-            | Type | Name | ID | Hex ID |
-            |------|------|----|--------|
-            ${{ steps.sync.outputs.new_table }}
-
-            ### ⚠️ Duplicate ID Repeaters
-            | Type | Existing Name | New Name | ID | Hex ID |
-            |------|---------------|----------|----|--------|
-            ${{ steps.sync.outputs.dup_table }}
-
-            ### 📝 Updated Names
-            | ID | Old Name | New Name | Hex ID |
-            |----|----------|----------|--------|
-            ${{ steps.sync.outputs.upd_table }}
-
-            ### 🔑 Hex ID Upgrades (legacy short → full)
-            These entries previously stored only the first 12 characters of `hex_id`. If an API `hex_id` shares the same first 12 characters, the workflow upgrades the stored `hex_id` and regenerates the `contact` URL.
-
-            | Name | ID | Prefix (12) | Old Hex ID | New Hex ID |
-            |------|----|-------------|------------|------------|
-            ${{ steps.sync.outputs.hex_upgrade_table }}
-
-            ### ⚡ Power Updates
-            | Name | ID | Hex ID | Old Power | New Power |
-            |------|----|--------|-----------|-----------|
-            ${{ steps.sync.outputs.power_table }}
-
-            ### 📍 Location/City Updates
-            | Name | ID | Hex ID | Old Location | New Location |
-            |------|----|-------|--------------|--------------|
-            ${{ steps.sync.outputs.location_table }}
-
-            ### 🔧 State Corrections
-            | Name | ID | Old State | New State |
-            |------|----|-----------|-----------|
-            ${{ steps.sync.outputs.state_table }}
-
-            ---
-            _Generated automatically by the sync workflow._
+repeaters:
+  - id: "02"
+    name: "AlxR3"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=AlxR3&public_key=02953DA68B20727D4DD4335596055FEC348280A596910114D5&type=2"
+    state: "New"
+    hex_id: "02953DA68B20727D4DD4335596055FEC348280A596910114D5"
+    last_heard: 1767350297
+    power_watt: null
+
+  - id: "03"
+    name: "AlxR4"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=AlxR4&public_key=03C7E4C6ABD49DAC36043ED3276E7CB9CFAC57BC428B704DE3&type=2"
+    state: "New"
+    hex_id: "03C7E4C6ABD49DAC36043ED3276E7CB9CFAC57BC428B704DE3"
+    last_heard: 1767315007
+    power_watt: null
+
+  - id: "05"
+    name: "YOW_OldBarrhaven"
+    antenna: null
+    height_metre: null
+    location: "TBD"
+    contact: "meshcore://contact/add?name=YOW_OldBarrhaven&public_key=05D6F975A1658A5DAB1A6477EDCD36D8C2B5398567DA37602E&type=2"
+    state: "New"
+    hex_id: "05D6F975A1658A5DAB1A6477EDCD36D8C2B5398567DA37602E"
+    last_heard: 1767315397
+    power_watt: null
+
+  - id: "06"
+    name: "MrAlders0n_R7"
+    antenna: null
+    height_metre: null
+    location: "Centretown"
+    contact: "meshcore://contact/add?name=MrAlders0n_R7&public_key=06B179064A96F3AA06E68F5E4F6CCE92FD8A1B4A6F6E366B1D&type=2"
+    state: "New"
+    hex_id: "06B179064A96F3AA06E68F5E4F6CCE92FD8A1B4A6F6E366B1D"
+    last_heard: 1767334135
+    power_watt: null
+
+  - id: "07"
+    name: "Inured Repeater 1"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=Inured%20Repeater%201&public_key=07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A&type=2"
+    state: "New"
+    hex_id: "07C1CA685FC9A1B22FBF4ADCE74E07DF6B8E4FB641ABE9322A"
+    last_heard: 1767353165
+    power_watt: null
+
+  - id: "0A"
+    name: "SSHO_R1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=SSHO_R1&public_key=0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651B&type=2"
+    state: "New"
+    hex_id: "0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651B"
+    last_heard: 1767336845
+    power_watt: null
+
+  - id: "0B"
+    name: "NPQ-SOLAR"
+    antenna: null
+    height_metre: null
+    location: "Masson-Angers"
+    contact: "meshcore://contact/add?name=NPQ-SOLAR&public_key=0B3DFB71062FDC4AA6F066B715E2F08D43658391BFE2F1BD83&type=2"
+    state: "New"
+    hex_id: "0B3DFB71062FDC4AA6F066B715E2F08D43658391BFE2F1BD83"
+    last_heard: 1767217507
+    power_watt: null
+
+  - id: "0C"
+    name: "TBRG_R0"
+    antenna: null
+    height_metre: null
+    location: "Beckwith"
+    contact: "meshcore://contact/add?name=TBRG_R0&public_key=0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D&type=2"
+    state: "New"
+    hex_id: "0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D"
+    last_heard: 1767321696
+    power_watt: null
+
+  - id: "14"
+    name: "CORRIGE-R1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=CORRIGE-R1&public_key=146ACF961C253989FA7B79E5B014D39B622F736EA3F6FBF998&type=2"
+    state: "New"
+    hex_id: "146ACF961C253989FA7B79E5B014D39B622F736EA3F6FBF998"
+    last_heard: 1767312677
+    power_watt: null
+
+  - id: "17"
+    name: "llm-repeater2"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=llm-repeater2&public_key=17AB75372ACA255E7810C99DBB31475C0EAC133D59EC4B0F9E&type=2"
+    state: "New"
+    hex_id: "17AB75372ACA255E7810C99DBB31475C0EAC133D59EC4B0F9E"
+    last_heard: 1767325299
+    power_watt: null
+
+  - id: "1B"
+    name: "Inured Repeater 3"
+    antenna: null
+    height_metre: null
+    location: "Westboro"
+    contact: "meshcore://contact/add?name=Inured%20Repeater%203&public_key=1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714&type=2"
+    state: "New"
+    hex_id: "1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714"
+    last_heard: 1767083051
+    power_watt: null
+
+  - id: "20"
+    name: "Centretown Alfa"
+    antenna: null
+    height_metre: null
+    location: "Centretown"
+    contact: "meshcore://contact/add?name=Centretown%20Alfa&public_key=201C2398856E855BF7D46538EB0C58867373E996C2FCF76AE1&type=2"
+    state: "New"
+    hex_id: "201C2398856E855BF7D46538EB0C58867373E996C2FCF76AE1"
+    last_heard: 1767333796
+    power_watt: null
+
+  - id: "22"
+    name: "TOO_SOLAR_R"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=TOO_SOLAR_R&public_key=22EBC5EBB5CC7DC5A44A8132B5863754771C9CAF38F035C953&type=2"
+    state: "New"
+    hex_id: "22EBC5EBB5CC7DC5A44A8132B5863754771C9CAF38F035C953"
+    last_heard: 1767343811
+    power_watt: null
+
+  - id: "27"
+    name: "Gatineau_R2"
+    antenna: null
+    height_metre: null
+    location: "Aylmer"
+    contact: "meshcore://contact/add?name=Gatineau_R2&public_key=27642F192FF758DA30968587703D873B643C1CF2F76B397CE8&type=2"
+    state: "New"
+    hex_id: "27642F192FF758DA30968587703D873B643C1CF2F76B397CE8"
+    last_heard: 1767316756
+    power_watt: null
+
+  - id: "28"
+    name: "Juno_REP"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=Juno_REP&public_key=283AF70DBE2D&type=2"
+    state: "New"
+    hex_id: "283AF70DBE2D"
+    last_heard: 1766418819
+    power_watt: null
+
+  - id: "2D"
+    name: "HappyR1"
+    antenna: null
+    height_metre: null
+    location: "Kanata"
+    contact: "meshcore://contact/add?name=HappyR1&public_key=2DEB5C1040DB&type=2"
+    state: "New"
+    hex_id: "2DEB5C1040DB"
+    last_heard: 1766166020
+    power_watt: null
+
+  - id: "35"
+    name: "WAG_SOLAR_R"
+    antenna: null
+    height_metre: null
+    location: "Alta Vista"
+    contact: "meshcore://contact/add?name=WAG_SOLAR_R&public_key=359D98DF99FDC69B1399FBC188FFA08543B13FB242B14F5DAA&type=2"
+    state: "New"
+    hex_id: "359D98DF99FDC69B1399FBC188FFA08543B13FB242B14F5DAA"
+    last_heard: 1766896014
+    power_watt: null
+
+  - id: "37"
+    name: "LFR1"
+    antenna: null
+    height_metre: null
+    location: "Queensway Terrace North"
+    contact: "meshcore://contact/add?name=LFR1&public_key=37BDCFDBB6D4B873D6CC70660EC5C6554AC4BA280E2F60F44F&type=2"
+    state: "New"
+    hex_id: "37BDCFDBB6D4B873D6CC70660EC5C6554AC4BA280E2F60F44F"
+    last_heard: 1767273994
+    power_watt: null
+
+  - id: "38"
+    name: "YOW_Richmond"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=YOW_Richmond&public_key=38F34D34C61837F9907FB9640AE6B19FF01AE1A38A47A77AF6&type=2"
+    state: "New"
+    hex_id: "38F34D34C61837F9907FB9640AE6B19FF01AE1A38A47A77AF6"
+    last_heard: 1767317728
+    power_watt: null
+
+  - id: "39"
+    name: "funkymonkey"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=funkymonkey&public_key=394192EB8139264051606C15421CF5127BDC22100067238CA6&type=2"
+    state: "New"
+    hex_id: "394192EB8139264051606C15421CF5127BDC22100067238CA6"
+    last_heard: 1767342760
+    power_watt: null
+
+  - id: "3B"
+    name: "NEW_SOLAR_R"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=NEW_SOLAR_R&public_key=3B5DFCAE5F5061AE67AF0B6AAECA05EEAF16461424B093A771&type=2"
+    state: "New"
+    hex_id: "3B5DFCAE5F5061AE67AF0B6AAECA05EEAF16461424B093A771"
+    last_heard: 1767317553
+    power_watt: null
+
+  - id: "3D"
+    name: "HX_R2"
+    antenna: null
+    height_metre: null
+    location: "Gatineau"
+    contact: "meshcore://contact/add?name=HX_R2&public_key=3D55109A5082A2018625E6D974FDFB8E24D3E8BEE190A40357&type=2"
+    state: "New"
+    hex_id: "3D55109A5082A2018625E6D974FDFB8E24D3E8BEE190A40357"
+    last_heard: 1767330285
+    power_watt: null
+
+  - id: "3E"
+    name: "NIS-RPTR1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=NIS-RPTR1&public_key=3E6E8B520F0F3B30F5D6BDEA4355F66289A6B51FD9307C5489&type=2"
+    state: "New"
+    hex_id: "3E6E8B520F0F3B30F5D6BDEA4355F66289A6B51FD9307C5489"
+    last_heard: 1767346755
+    power_watt: null
+
+  - id: "42"
+    name: "EZ Repeater"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=EZ%20Repeater&public_key=4226EAAF38AAF479F35572C3D376B872309D72D33B56DDB91D&type=2"
+    state: "New"
+    hex_id: "4226EAAF38AAF479F35572C3D376B872309D72D33B56DDB91D"
+    last_heard: 1767277717
+    power_watt: null
+
+  - id: "46"
+    name: "High in the Sky"
+    antenna: null
+    height_metre: null
+    location: "Westboro"
+    contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46322F039E3FBC63C3C810AF4FA4589DE360C4349D642F78C4&type=2"
+    state: "New"
+    hex_id: "46322F039E3FBC63C3C810AF4FA4589DE360C4349D642F78C4"
+    last_heard: 1767348608
+    power_watt: null
+
+  - id: "47"
+    name: "VA3HUP_DowsLake"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=VA3HUP_DowsLake&public_key=47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1&type=2"
+    state: "New"
+    hex_id: "47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1"
+    last_heard: 1767344114
+    power_watt: null
+
+  - id: "4B"
+    name: "CSP-RPTR2"
+    antenna: null
+    height_metre: null
+    location: "South Gloucester"
+    contact: "meshcore://contact/add?name=CSP-RPTR2&public_key=4B5A10F72E0F839F1CBCDAECF581D184A512E680A5597835E7&type=2"
+    state: "New"
+    hex_id: "4B5A10F72E0F839F1CBCDAECF581D184A512E680A5597835E7"
+    last_heard: 1767240481
+    power_watt: "0.3w"
+
+  - id: "4D"
+    name: "MrAlders0n_R2"
+    antenna: null
+    height_metre: null
+    location: "Centretown"
+    contact: "meshcore://contact/add?name=MrAlders0n_R2&public_key=4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929D&type=2"
+    state: "New"
+    hex_id: "4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929D"
+    last_heard: 1767313114
+    power_watt: null
+
+  - id: "4E"
+    name: "MrAlders0n_R1"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7&type=2"
+    state: "New"
+    hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7"
+    last_heard: 1767337375
+    power_watt: null
+
+  - id: "51"
+    name: "AlxR5b"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=AlxR5b&public_key=510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3&type=2"
+    state: "New"
+    hex_id: "510978F14B72981D9497BE595863BCC1978ADBC77CEA6CAAD3"
+    last_heard: 1767327310
+    power_watt: null
+
+  - id: "59"
+    name: "Unimatrix-01"
+    antenna: null
+    height_metre: null
+    location: "Kanata"
+    contact: "meshcore://contact/add?name=Unimatrix-01&public_key=5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF&type=2"
+    state: "New"
+    hex_id: "5921F50FD47EFC1BDD65DEA70B757F5F1C3769A31918DA24EF"
+    last_heard: 1767318779
+    power_watt: null
+
+  - id: "5B"
+    name: "Tabarnak Repeater"
+    antenna: null
+    height_metre: null
+    location: "Alfred and Plantagenet"
+    contact: "meshcore://contact/add?name=Tabarnak%20Repeater&public_key=5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3&type=2"
+    state: "New"
+    hex_id: "5B7A0FDA0DB3C26C6A47F2F733AF566626A982526723CE68B3"
+    last_heard: 1767136740
+    power_watt: null
+
+  - id: "5D"
+    name: "Inured Repeater 2"
+    antenna: null
+    height_metre: null
+    location: "Courtland Park"
+    contact: "meshcore://contact/add?name=Inured%20Repeater%202&public_key=5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A&type=2"
+    state: "New"
+    hex_id: "5DF532EE2F959A100CB5E3BBD42CD3495ACAEB0B94EC7CB23A"
+    last_heard: 1767337376
+    power_watt: null
+
+  - id: "61"
+    name: "WTE2 Repeater"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=WTE2%20Repeater&public_key=61E3F47BA27F&type=2"
+    state: "New"
+    hex_id: "61E3F47BA27F"
+    last_heard: 1766385314
+    power_watt: null
+
+  - id: "64"
+    name: "TBRG_R3"
+    antenna: null
+    height_metre: null
+    location: "Beckwith"
+    contact: "meshcore://contact/add?name=TBRG_R3&public_key=649D120810863F3ADE5682832842E5523B4286F8253C658ABA&type=2"
+    state: "New"
+    hex_id: "649D120810863F3ADE5682832842E5523B4286F8253C658ABA"
+    last_heard: 1767348841
+    power_watt: null
+
+  - id: "67"
+    name: "Tek_HV4_Repeater"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=Tek_HV4_Repeater&public_key=678A01CA375E65B5AC42080C3D5727063F2A9213BD6EB2A88D&type=2"
+    state: "New"
+    hex_id: "678A01CA375E65B5AC42080C3D5727063F2A9213BD6EB2A88D"
+    last_heard: 1767346891
+    power_watt: null
+
+  - id: "68"
+    name: "AUS_SOLAR_R"
+    antenna: null
+    height_metre: null
+    location: "Old Ottawa South"
+    contact: "meshcore://contact/add?name=AUS_SOLAR_R&public_key=68756615112CEFFB49FAC95F4B4EEA01365543093A774DFFF9&type=2"
+    state: "New"
+    hex_id: "68756615112CEFFB49FAC95F4B4EEA01365543093A774DFFF9"
+    last_heard: 1767337343
+    power_watt: null
+
+  - id: "69"
+    name: "YOW_Orleans_N1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=YOW_Orleans_N1&public_key=69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C&type=2"
+    state: "New"
+    hex_id: "69E609E54394C5DECCABD4EFA90D86299B2223166CF0DF420C"
+    last_heard: 1767312672
+    power_watt: null
+
+  - id: "6A"
+    name: "Zaffman_R1"
+    antenna: null
+    height_metre: null
+    location: "Kanata"
+    contact: "meshcore://contact/add?name=Zaffman_R1&public_key=6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2&type=2"
+    state: "New"
+    hex_id: "6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2"
+    last_heard: 1767346671
+    power_watt: null
+
+  - id: "6B"
+    name: "Silo Repeater"
+    antenna: null
+    height_metre: null
+    location: "Alfred and Plantagenet"
+    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
+    state: "New"
+    hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
+    last_heard: 1767324241
+    power_watt: null
+
+  - id: "70"
+    name: "VA3NFA_R1"
+    antenna: null
+    height_metre: null
+    location: "College"
+    contact: "meshcore://contact/add?name=VA3NFA_R1&public_key=70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33&type=2"
+    state: "New"
+    hex_id: "70ECD5551DC53313B66DB51D7D9B504541AAFAA0B7A504CB33"
+    last_heard: 1767354448
+    power_watt: null
+
+  - id: "75"
+    name: "VA3TEC_R1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=VA3TEC_R1&public_key=75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93&type=2"
+    state: "New"
+    hex_id: "75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB93"
+    last_heard: 1767033549
+    power_watt: null
+
+  - id: "76"
+    name: "GFS-HB"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=GFS-HB&public_key=76D2488E85476F64FB624AEB138BF78C874B6ACE3C84916D07&type=2"
+    state: "New"
+    hex_id: "76D2488E85476F64FB624AEB138BF78C874B6ACE3C84916D07"
+    last_heard: 1767352213
+    power_watt: null
+
+  - id: "77"
+    name: "MrAlders0n_Ikoka_R1"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=MrAlders0n_Ikoka_R1&public_key=7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7&type=2"
+    state: "New"
+    hex_id: "7749EA528D0767A908FC1CDC6BD03328727D7601D011B84CA7"
+    last_heard: 1767342533
+    power_watt: null
+
+  - id: "78"
+    name: "Peter Heltec Repeater"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=Peter%20Heltec%20Repeater&public_key=78CC71E4F633FFD7CCECD5526335B130886BF984EFA5EC7B2A&type=2"
+    state: "New"
+    hex_id: "78CC71E4F633FFD7CCECD5526335B130886BF984EFA5EC7B2A"
+    last_heard: 1767334487
+    power_watt: null
+
+  - id: "79"
+    name: "CSP-RPTR1"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=CSP-RPTR1&public_key=798AEF1F0A148A0B62EFF07B0D631D8630948269E6D39616B8&type=2"
+    state: "New"
+    hex_id: "798AEF1F0A148A0B62EFF07B0D631D8630948269E6D39616B8"
+    last_heard: 1767348496
+    power_watt: null
+
+  - id: "7B"
+    name: "EssentialTrash_R1"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=EssentialTrash_R1&public_key=7B2EF0359918364D66048102B574C830DCB023489514899D40&type=2"
+    state: "New"
+    hex_id: "7B2EF0359918364D66048102B574C830DCB023489514899D40"
+    last_heard: 1767326916
+    power_watt: null
+
+  - id: "7D"
+    name: "phr4"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=phr4&public_key=7D4DB5943B01B52E8A409F57A9457E497B6020BE6FC0872B48&type=2"
+    state: "New"
+    hex_id: "7D4DB5943B01B52E8A409F57A9457E497B6020BE6FC0872B48"
+    last_heard: 1767331948
+    power_watt: null
+
+  - id: "84"
+    name: "Nox Roof Repeater"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=Nox%20Roof%20Repeater&public_key=849522C90D59058DA6E3C19F381AC3F62F31EC71F5B7E4E0E8&type=2"
+    state: "New"
+    hex_id: "849522C90D59058DA6E3C19F381AC3F62F31EC71F5B7E4E0E8"
+    last_heard: 1767331143
+    power_watt: null
+
+  - id: "85"
+    name: "YOW_TabarnakVille"
+    antenna: null
+    height_metre: null
+    location: "Alfred and Plantagenet"
+    contact: "meshcore://contact/add?name=YOW_TabarnakVille&public_key=858925361F56073974D8787BD8DED2737E72DABD6C16F1A301&type=2"
+    state: "New"
+    hex_id: "858925361F56073974D8787BD8DED2737E72DABD6C16F1A301"
+    last_heard: 1767317870
+    power_watt: null
+
+  - id: "89"
+    name: "Vanier East R2"
+    antenna: null
+    height_metre: null
+    location: "Vanier"
+    contact: "meshcore://contact/add?name=Vanier%20East%20R2&public_key=895358746537E4FAEC0CBAEA50313E94C1D425BDE3A46DF98B&type=2"
+    state: "New"
+    hex_id: "895358746537E4FAEC0CBAEA50313E94C1D425BDE3A46DF98B"
+    last_heard: 1767325453
+    power_watt: null
+
+  - id: "8A"
+    name: "VE3RIM-R1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=VE3RIM-R1&public_key=8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C&type=2"
+    state: "New"
+    hex_id: "8A6CD73D336B2D120E5584D6FE7285080721336A70919A842C"
+    last_heard: 1767139293
+    power_watt: null
+
+  - id: "8B"
+    name: "AlxR1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=AlxR1&public_key=8B3371FE78F8D2889D58E2FA060D029E2A42E66C5BF3D4EC26&type=2"
+    state: "New"
+    hex_id: "8B3371FE78F8D2889D58E2FA060D029E2A42E66C5BF3D4EC26"
+    last_heard: 1767314642
+    power_watt: null
+
+  - id: "8E"
+    name: "HX_R1"
+    antenna: null
+    height_metre: null
+    location: "Gatineau"
+    contact: "meshcore://contact/add?name=HX_R1&public_key=8E656408D1C7&type=2"
+    state: "New"
+    hex_id: "8E656408D1C7"
+    last_heard: 1766092908
+    power_watt: null
+
+  - id: "8F"
+    name: "ZabRepeater1"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=ZabRepeater1&public_key=8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC&type=2"
+    state: "New"
+    hex_id: "8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC"
+    last_heard: 1767355108
+    power_watt: null
+
+  - id: "90"
+    name: "YOW_BarrhavenEast"
+    antenna: null
+    height_metre: null
+    location: "TBD"
+    contact: "meshcore://contact/add?name=YOW_BarrhavenEast&public_key=9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F04&type=2"
+    state: "New"
+    hex_id: "9059E3EB6BD8506A280B55AE0EB2AB3A2B734A13870C5C8F04"
+    last_heard: 1767322408
+    power_watt: null
+
+  - id: "92"
+    name: "CAN_SOLAR_R"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=CAN_SOLAR_R&public_key=921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF&type=2"
+    state: "New"
+    hex_id: "921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF"
+    last_heard: 1767326416
+    power_watt: null
+
+  - id: "9A"
+    name: "Nox Repeater"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=Nox%20Repeater&public_key=9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25&type=2"
+    state: "New"
+    hex_id: "9A82F444A1B3295570FCAEEA5D8836ACB0E02F1EA125215C25"
+    last_heard: 1767329741
+    power_watt: null
+
+  - id: "A7"
+    name: "MrAlders0n_R6"
+    antenna: null
+    height_metre: null
+    location: "Blackburn Hamlet"
+    contact: "meshcore://contact/add?name=MrAlders0n_R6&public_key=A78006107F8BF4813EABCCE3EB84128F057A44A771ED65C5FC&type=2"
+    state: "New"
+    hex_id: "A78006107F8BF4813EABCCE3EB84128F057A44A771ED65C5FC"
+    last_heard: 1767354675
+    power_watt: null
+
+  - id: "A9"
+    name: "HX_R1"
+    antenna: null
+    height_metre: null
+    location: "Gatineau"
+    contact: "meshcore://contact/add?name=HX_R1&public_key=A9529B65C9670464791B4BF6A8B9D60D94D4EE1FEC6DA4FDB7&type=2"
+    state: "New"
+    hex_id: "A9529B65C9670464791B4BF6A8B9D60D94D4EE1FEC6DA4FDB7"
+    last_heard: 1767353340
+    power_watt: null
+
+  - id: "AF"
+    name: "Rideau_Blaster"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=Rideau_Blaster&public_key=AF80C36B81E290A3993CCDC7295AA435E10213006D91810761&type=2"
+    state: "New"
+    hex_id: "AF80C36B81E290A3993CCDC7295AA435E10213006D91810761"
+    last_heard: 1767334344
+    power_watt: null
+
+  - id: "B1"
+    name: "e7her.nod3"
+    antenna: null
+    height_metre: null
+    location: "Kanata"
+    contact: "meshcore://contact/add?name=e7her.nod3&public_key=B1FBD6AA2B0EB5707666DA5340B78107B7E3A86B011E49B100&type=2"
+    state: "New"
+    hex_id: "B1FBD6AA2B0EB5707666DA5340B78107B7E3A86B011E49B100"
+    last_heard: 1767342137
+    power_watt: null
+
+  - id: "B2"
+    name: "BUN_SOLAR_R"
+    antenna: null
+    height_metre: null
+    location: "Chelsea"
+    contact: "meshcore://contact/add?name=BUN_SOLAR_R&public_key=B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE&type=2"
+    state: "New"
+    hex_id: "B24D10D7906BDC4B3D49ABC3B19E4F36B2826BC87AC402E8CE"
+    last_heard: 1767341213
+    power_watt: null
+
+  - id: "B3"
+    name: "Rax_Repeat"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=Rax_Repeat&public_key=B357FDCAE5AB9EDFBF5DC6BDA1BA650FED9CDBFC9F960534E1&type=2"
+    state: "New"
+    hex_id: "B357FDCAE5AB9EDFBF5DC6BDA1BA650FED9CDBFC9F960534E1"
+    last_heard: 1767316357
+    power_watt: null
+
+  - id: "B5"
+    name: "Hull Heritage"
+    antenna: null
+    height_metre: null
+    location: "Hull"
+    contact: "meshcore://contact/add?name=Hull%20Heritage&public_key=B5C38DB5E0FE55F13C9A8E3A65A6844FB65A7591FE97BFA62B&type=2"
+    state: "New"
+    hex_id: "B5C38DB5E0FE55F13C9A8E3A65A6844FB65A7591FE97BFA62B"
+    last_heard: 1767301532
+    power_watt: null
+
+  - id: "B7"
+    name: "MrAlders0n_R5"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=MrAlders0n_R5&public_key=B76B620CD8DAF554C675C75615CCE76E59A091CCE4A9083874&type=2"
+    state: "New"
+    hex_id: "B76B620CD8DAF554C675C75615CCE76E59A091CCE4A9083874"
+    last_heard: 1767334675
+    power_watt: null
+
+  - id: "BF"
+    name: "CarletonHeightsSolarRep"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=CarletonHeightsSolarRep&public_key=BF31359BE4D2466DD857364F0EE5D1FE1A31AA3DE4E0DBD500&type=2"
+    state: "New"
+    hex_id: "BF31359BE4D2466DD857364F0EE5D1FE1A31AA3DE4E0DBD500"
+    last_heard: 1767129037
+    power_watt: null
+
+  - id: "C4"
+    name: "YOW_Orleans_AR1"
+    antenna: null
+    height_metre: null
+    location: "TBD"
+    contact: "meshcore://contact/add?name=YOW_Orleans_AR1&public_key=C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92F&type=2"
+    state: "New"
+    hex_id: "C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92F"
+    last_heard: 1767305191
+    power_watt: null
+
+  - id: "CC"
+    name: "Vanier East R1"
+    antenna: null
+    height_metre: null
+    location: "Vanier"
+    contact: "meshcore://contact/add?name=Vanier%20East%20R1&public_key=CCBEABBE3774EDBAC849728338A68F521E1F2D7D6CEF89B493&type=2"
+    state: "New"
+    hex_id: "CCBEABBE3774EDBAC849728338A68F521E1F2D7D6CEF89B493"
+    last_heard: 1767344168
+    power_watt: null
+
+  - id: "CF"
+    name: "SVIL_R1"
+    antenna: null
+    height_metre: null
+    location: "Potter's Key"
+    contact: "meshcore://contact/add?name=SVIL_R1&public_key=CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A&type=2"
+    state: "New"
+    hex_id: "CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A"
+    last_heard: 1767349027
+    power_watt: null
+
+  - id: "D0"
+    name: "Gatineau_R1"
+    antenna: null
+    height_metre: null
+    location: "Hollow Glen"
+    contact: "meshcore://contact/add?name=Gatineau_R1&public_key=D05386332896FF78742C824A47009D9A219AC7A7232F7DD2D6&type=2"
+    state: "New"
+    hex_id: "D05386332896FF78742C824A47009D9A219AC7A7232F7DD2D6"
+    last_heard: 1767316714
+    power_watt: null
+
+  - id: "D1"
+    name: "Cinnabar Island"
+    antenna: null
+    height_metre: null
+    location: "Aylmer"
+    contact: "meshcore://contact/add?name=Cinnabar%20Island&public_key=D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E&type=2"
+    state: "New"
+    hex_id: "D162D1D002AB883B44F1FD90D929D328C3CA5333439D490F2E"
+    last_heard: 1767337207
+    power_watt: null
+
+  - id: "D3"
+    name: "GD-MrA_R3"
+    antenna: null
+    height_metre: null
+    location: "Kanata"
+    contact: "meshcore://contact/add?name=GD-MrA_R3&public_key=D35BE0D747C22F4D1988DE8EA86B10C648DF03C14C3B94AAE2&type=2"
+    state: "New"
+    hex_id: "D35BE0D747C22F4D1988DE8EA86B10C648DF03C14C3B94AAE2"
+    last_heard: 1767340687
+    power_watt: null
+
+  - id: "D6"
+    name: "llm-repeater1"
+    antenna: null
+    height_metre: null
+    location: "Orléans"
+    contact: "meshcore://contact/add?name=llm-repeater1&public_key=D6B21E3667F3&type=2"
+    state: "New"
+    hex_id: "D6B21E3667F3"
+    last_heard: 1766628046
+    power_watt: null
+
+  - id: "DA"
+    name: "Quinterra"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=Quinterra&public_key=DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0&type=2"
+    state: "New"
+    hex_id: "DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0"
+    last_heard: 1767305383
+    power_watt: null
+
+  - id: "E1"
+    name: "VA3HUP_Roof"
+    antenna: null
+    height_metre: null
+    location: "Riverside Park"
+    contact: "meshcore://contact/add?name=VA3HUP_Roof&public_key=E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8&type=2"
+    state: "New"
+    hex_id: "E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8"
+    last_heard: 1767326162
+    power_watt: null
+
+  - id: "E4"
+    name: "Vanier East R3"
+    antenna: null
+    height_metre: null
+    location: "Vanier"
+    contact: "meshcore://contact/add?name=Vanier%20East%20R3&public_key=E4C361F1D3A5BD94A7C914F8A02F4ABE1ADCD1A12EE67F9037&type=2"
+    state: "New"
+    hex_id: "E4C361F1D3A5BD94A7C914F8A02F4ABE1ADCD1A12EE67F9037"
+    last_heard: 1767322387
+    power_watt: null
+
+  - id: "EC"
+    name: "MAG 101"
+    antenna: null
+    height_metre: null
+    location: "Nepean"
+    contact: "meshcore://contact/add?name=MAG%20101&public_key=ECE23809B83C019C44CBC8B8F09DD638DF90FADA5382804A6A&type=2"
+    state: "New"
+    hex_id: "ECE23809B83C019C44CBC8B8F09DD638DF90FADA5382804A6A"
+    last_heard: 1767348847
+    power_watt: null
+
+  - id: "F1"
+    name: "YOW_Alx_Mob_Rpt_2"
+    antenna: null
+    height_metre: null
+    location: "TBD"
+    contact: "meshcore://contact/add?name=YOW_Alx_Mob_Rpt_2&public_key=F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265&type=2"
+    state: "New"
+    hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
+    last_heard: 1767317042
+    power_watt: null
+
+  - id: "F2"
+    name: "TBRG_R1"
+    antenna: null
+    height_metre: null
+    location: "Carleton Place"
+    contact: "meshcore://contact/add?name=TBRG_R1&public_key=F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7&type=2"
+    state: "New"
+    hex_id: "F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7"
+    last_heard: 1767343688
+    power_watt: null
+
+  - id: "F3"
+    name: "AlxR2"
+    antenna: null
+    height_metre: null
+    location: "Gloucester"
+    contact: "meshcore://contact/add?name=AlxR2&public_key=F31D9B81DB69DA4C62BFBA1E29D305506CA3FF0C5340D9C842&type=2"
+    state: "New"
+    hex_id: "F31D9B81DB69DA4C62BFBA1E29D305506CA3FF0C5340D9C842"
+    last_heard: 1767314791
+    power_watt: null
+
+  - id: "F4"
+    name: "MAY_SOLAR_R"
+    antenna: null
+    height_metre: null
+    location: "Old Ottawa South"
+    contact: "meshcore://contact/add?name=MAY_SOLAR_R&public_key=F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2&type=2"
+    state: "New"
+    hex_id: "F485E2975D1B3B0EC219DE3F8D7BE034778C2F4EF117B359E2"
+    last_heard: 1767322321
+    power_watt: null
+
+  - id: "F7"
+    name: "YOW_Alx_Mob_Observer"
+    antenna: null
+    height_metre: null
+    location: "TBD"
+    contact: "meshcore://contact/add?name=YOW_Alx_Mob_Observer&public_key=F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA&type=2"
+    state: "New"
+    hex_id: "F7897732DAFACC2CE7AFF0571D59269F1C97852C1AA9764EFA"
+    last_heard: 1767314584
+    power_watt: null
+
+  - id: "FC"
+    name: "R56_R1"
+    antenna: null
+    height_metre: null
+    location: "Ottawa"
+    contact: "meshcore://contact/add?name=R56_R1&public_key=FCB7F2DB3D45BCF4994D72354405751819B3B0498CC6864F97&type=2"
+    state: "New"
+    hex_id: "FCB7F2DB3D45BCF4994D72354405751819B3B0498CC6864F97"
+    last_heard: 1767355284
+    power_watt: null
+
+  - id: "FE"
+    name: "TBRG_R2"
+    antenna: null
+    height_metre: null
+    location: "Beckwith"
+    contact: "meshcore://contact/add?name=TBRG_R2&public_key=FE653F47E232ADAB960C273221C693D9709439AA0D811424ED&type=2"
+    state: "New"
+    hex_id: "FE653F47E232ADAB960C273221C693D9709439AA0D811424ED"
+    last_heard: 1767335444
+    power_watt: null
+
+  - id: "FF"
+    name: "YOW_Stittsville"
+    antenna: null
+    height_metre: null
+    location: "TBD"
+    contact: "meshcore://contact/add?name=YOW_Stittsville&public_key=FFCA1E2CEEB8&type=2"
+    state: "New"
+    hex_id: "FFCA1E2CEEB8"
+    last_heard: 1766348440
+    power_watt: null
+
