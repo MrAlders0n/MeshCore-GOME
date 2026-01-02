@@ -113,7 +113,7 @@ jobs:
                   return None
               return h2[:n]
 
-          api_url = "https://yow.meshmapper.net/repeaters. json"
+          api_url = "https://yow.meshmapper.net/repeaters.json"
           print(f"Fetching repeaters from {api_url}...")
           resp = requests.get(api_url)
           resp.raise_for_status()
