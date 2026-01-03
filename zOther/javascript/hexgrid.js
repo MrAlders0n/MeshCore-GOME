@@ -190,7 +190,7 @@ function showBackboneInfo(hexId, info) {
     modal.style. display = 'block';
 }
 
-// Key generation using pure JS Ed25519 implementation (no external dependencies)
+// Key generation using Web Crypto API
 async function generateKeyForPrefix(prefix) {
     const targetPrefix = prefix.toUpperCase();
     
@@ -205,42 +205,41 @@ async function generateKeyForPrefix(prefix) {
     let attempts = 0;
     const startTime = Date.now();
     
-    // Load the offline implementation (pure JS, no external dependencies)
-    const noble = await import('./noble-ed25519-offline-simple.js');
-    
     while (true) {
         attempts++;
         
         try {
-            // RFC 8032 Ed25519 key generation
-            // Step 1: Generate 32-byte random seed
-            const seed = crypto.getRandomValues(new Uint8Array(32));
+            // Generate Ed25519 keypair using Web Crypto
+            const keypair = await crypto. subtle.generateKey(
+                { name: 'Ed25519' },
+                true,
+                ['sign', 'verify']
+            );
             
-            // Step 2: SHA-512 hash the seed
-            const digest = await crypto.subtle.digest('SHA-512', seed);
-            const digestArray = new Uint8Array(digest);
+            // Export public key
+            const publicKeyJwk = await crypto.subtle.exportKey('jwk', keypair.publicKey);
+            const publicKeyBytes = Uint8Array.from(
+                atob(publicKeyJwk. x. replace(/-/g, '+').replace(/_/g, '/')), 
+                c => c.charCodeAt(0)
+            );
             
-            // Step 3: Get first 32 bytes and create clamped version
-            const unclamped = new Uint8Array(digestArray.slice(0, 32));
-            const clamped = new Uint8Array(unclamped);
-            clamped[0] &= 248;  // Clear bottom 3 bits
-            clamped[31] &= 63;  // Clear top 2 bits
-            clamped[31] |= 64;  // Set bit 6
+            // Export private key
+            const privateKeyJwk = await crypto.subtle. exportKey('jwk', keypair.privateKey);
+            const privateKeyBytes = Uint8Array. from(
+                atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
+                c => c.charCodeAt(0)
+            );
             
-            // Step 4: Generate public key using offline implementation
-            const publicKeyBytes = noble.getPublicKeyFromScalar(clamped);
-            
-            // Step 5: Create MeshCore 64-byte private key
-            // Format: [clamped_scalar (32 bytes)][sha512_second_half (32 bytes)]
+            // MeshCore uses 64-byte private key format (32-byte seed + 32-byte public key)
             const meshcorePrivateKey = new Uint8Array(64);
-            meshcorePrivateKey.set(clamped, 0);                    // First 32 bytes: clamped scalar
-            meshcorePrivateKey.set(digestArray.slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32:64]
+            meshcorePrivateKey.set(privateKeyBytes, 0);
+            meshcorePrivateKey.set(publicKeyBytes, 32);
             
             const publicKeyHex = toHex(publicKeyBytes);
             const privateKeyHex = toHex(meshcorePrivateKey);
             
             // Check if it matches
-            if (publicKeyHex.startsWith(targetPrefix)) {
+            if (publicKeyHex. startsWith(targetPrefix)) {
                 const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
                 return {
                     publicKey: publicKeyHex,
@@ -250,15 +249,14 @@ async function generateKeyForPrefix(prefix) {
                 };
             }
             
-            // Update progress every 100 attempts and yield to UI
+            // Update progress every 100 attempts (Ed25519 generation is slower)
             if (attempts % 100 === 0) {
                 const elapsed = (Date.now() - startTime) / 1000;
                 const rate = Math.floor(attempts / elapsed);
                 updateKeygenProgress(attempts, rate);
-                // Yield to browser to prevent freezing
-                await new Promise(resolve => setTimeout(resolve, 0));
             }
         } catch (error) {
+            // Skip this attempt if there's an error
             console.error('Key generation error:', error);
             continue;
         }
