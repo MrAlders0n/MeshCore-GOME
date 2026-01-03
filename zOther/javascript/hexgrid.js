@@ -190,7 +190,23 @@ function showBackboneInfo(hexId, info) {
     modal.style. display = 'block';
 }
 
-// Key generation using Web Crypto API
+// Key generation using noble-ed25519 (already loaded in mkdocs.yml)
+let nobleEd25519Module = null;
+
+async function loadNobleEd25519() {
+    if (nobleEd25519Module) return nobleEd25519Module;
+    
+    try {
+        // The library is already loaded via mkdocs.yml, try to import it
+        nobleEd25519Module = await import('https://cdn.jsdelivr.net/npm/@noble/ed25519@2.1.0/+esm');
+        console.log('✓ noble-ed25519 loaded');
+        return nobleEd25519Module;
+    } catch (error) {
+        console.error('Failed to load noble-ed25519:', error);
+        throw new Error('Ed25519 library not available');
+    }
+}
+
 async function generateKeyForPrefix(prefix) {
     const targetPrefix = prefix.toUpperCase();
     
@@ -205,35 +221,46 @@ async function generateKeyForPrefix(prefix) {
     let attempts = 0;
     const startTime = Date.now();
     
+    // Load the library first
+    const noble = await loadNobleEd25519();
+    
     while (true) {
         attempts++;
         
         try {
-            // Generate Ed25519 keypair using Web Crypto
-            const keypair = await crypto. subtle.generateKey(
-                { name: 'Ed25519' },
-                true,
-                ['sign', 'verify']
-            );
+            // RFC 8032 Ed25519 key generation
+            // Step 1: Generate 32-byte random seed
+            const seed = crypto.getRandomValues(new Uint8Array(32));
             
-            // Export public key
-            const publicKeyJwk = await crypto.subtle.exportKey('jwk', keypair.publicKey);
-            const publicKeyBytes = Uint8Array.from(
-                atob(publicKeyJwk. x. replace(/-/g, '+').replace(/_/g, '/')), 
-                c => c.charCodeAt(0)
-            );
+            // Step 2: SHA-512 hash the seed
+            const digest = await crypto.subtle.digest('SHA-512', seed);
+            const digestArray = new Uint8Array(digest);
             
-            // Export private key
-            const privateKeyJwk = await crypto.subtle. exportKey('jwk', keypair.privateKey);
-            const privateKeyBytes = Uint8Array. from(
-                atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
-                c => c.charCodeAt(0)
-            );
+            // Step 3: Clamp the first 32 bytes (scalar clamping)
+            const clamped = new Uint8Array(digestArray.slice(0, 32));
+            clamped[0] &= 248;  // Clear bottom 3 bits
+            clamped[31] &= 63;  // Clear top 2 bits
+            clamped[31] |= 64;  // Set bit 6
             
-            // MeshCore uses 64-byte private key format (32-byte seed + 32-byte public key)
+            // Step 4: Generate public key from clamped scalar using noble-ed25519
+            let publicKeyBytes;
+            
+            try {
+                // Try using getPublicKey (works with noble-ed25519 v2.x)
+                publicKeyBytes = await noble.getPublicKey(clamped);
+                if (!(publicKeyBytes instanceof Uint8Array)) {
+                    publicKeyBytes = new Uint8Array(publicKeyBytes);
+                }
+            } catch (error) {
+                console.error('noble.getPublicKey failed:', error);
+                throw error;
+            }
+            
+            // Step 5: Create MeshCore 64-byte private key
+            // Format: [clamped_scalar (32 bytes)][sha512_second_half (32 bytes)]
             const meshcorePrivateKey = new Uint8Array(64);
-            meshcorePrivateKey.set(privateKeyBytes, 0);
-            meshcorePrivateKey.set(publicKeyBytes, 32);
+            meshcorePrivateKey.set(clamped, 0);                    // First 32 bytes:  clamped scalar
+            meshcorePrivateKey.set(digestArray. slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32: 64]
             
             const publicKeyHex = toHex(publicKeyBytes);
             const privateKeyHex = toHex(meshcorePrivateKey);
@@ -249,14 +276,13 @@ async function generateKeyForPrefix(prefix) {
                 };
             }
             
-            // Update progress every 100 attempts (Ed25519 generation is slower)
+            // Update progress every 100 attempts
             if (attempts % 100 === 0) {
                 const elapsed = (Date.now() - startTime) / 1000;
                 const rate = Math.floor(attempts / elapsed);
                 updateKeygenProgress(attempts, rate);
             }
         } catch (error) {
-            // Skip this attempt if there's an error
             console.error('Key generation error:', error);
             continue;
         }
