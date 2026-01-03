@@ -102,40 +102,42 @@ function pointMultiply(point, scalar) {
 }
 
 // Main functions
-function getPublicKey(privateKey) {
+async function getPublicKey(privateKey) {
   if (!(privateKey instanceof Uint8Array)) {
     throw new Error('Private key must be Uint8Array');
   }
   if (privateKey.length !== 32) {
     throw new Error('Private key must be 32 bytes');
   }
-
-  // Convert to bigint
+  
+  // SHA-512 hash the private key
+  const digest = await crypto.subtle.digest('SHA-512', privateKey);
+  const digestArray = new Uint8Array(digest);
+  
+  // Take first 32 bytes and clamp
   let scalar = 0n;
   for (let i = 0; i < 32; i++) {
-    scalar += BigInt(privateKey[i]) << BigInt(8 * i);
+    scalar += BigInt(digestArray[i]) << BigInt(8 * i);
   }
-
-  // Clamp the scalar
-  scalar = mod(scalar, CURVE.n);
-  scalar &= ~(7n << 252n);
-  scalar |= (1n << 254n);
-
+  
+  // Clamp the scalar (Ed25519 clamping)
+  scalar &= ~(7n);  // clear bottom 3 bits
+  scalar &= ~(3n << 253n);  // clear top 2 bits (bits 254 and 255)
+  scalar |= (1n << 254n);  // set bit 254
+  
   // Multiply base point
   const point = pointMultiply(CURVE.G, scalar);
-
+  
   // Convert to bytes
   const x = point[0];
   const y = point[1];
   const result = new Uint8Array(32);
-
+  
   for (let i = 0; i < 32; i++) {
     result[i] = Number((y >> BigInt(8 * i)) & 255n);
   }
   result[31] |= Number((x & 1n) << 7);
-
+  
   return result;
-}
-
-// Export the functions
+}// Export the functions
 export { getPublicKey };
