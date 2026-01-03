@@ -366,14 +366,14 @@ function showKeygenModal(hexId) {
                     <div class="hex-key-section">
                         <div class="hex-key-header">
                             <span class="hex-info-label">🔑 Public Key</span>
-                            <button onclick="copyToClipboard('public-key-output')" class="copy-btn-inline">📋 Copy</button>
+                            <button onclick="copyToClipboard(event, 'public-key-output')" class="copy-btn-inline">📋 Copy</button>
                         </div>
                         <div id="public-key-output" class="key-output-condensed" onclick="toggleKeyExpansion('public-key-output')" title="Click to expand/collapse"></div>
                     </div>
                     <div class="hex-key-section">
                         <div class="hex-key-header">
                             <span class="hex-info-label">🔐 Private Key</span>
-                            <button onclick="copyToClipboard('private-key-output')" class="copy-btn-inline">📋 Copy</button>
+                            <button onclick="copyToClipboard(event, 'private-key-output')" class="copy-btn-inline">📋 Copy</button>
                         </div>
                         <div id="private-key-output" class="key-output-condensed" onclick="toggleKeyExpansion('private-key-output')" title="Click to expand/collapse"></div>
                     </div>
@@ -489,22 +489,46 @@ function toggleKeyExpansion(elementId) {
     }
 }
 
-function copyToClipboard(elementId) {
+function copyToClipboard(event, elementId) {
     const element = document.getElementById(elementId);
     const textToCopy = element.dataset.fullKey || element.textContent;
+    const btn = event.target;
     
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        // Visual feedback
-        const btn = event.target;
+    // Try modern clipboard API first, fall back to textarea method
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            showCopyFeedback();
+        }).catch(() => {
+            fallbackCopy(textToCopy);
+        });
+    } else {
+        fallbackCopy(textToCopy);
+    }
+    
+    function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            showCopyFeedback();
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            alert('Failed to copy to clipboard');
+        }
+        document.body.removeChild(textarea);
+    }
+    
+    function showCopyFeedback() {
         const originalText = btn.textContent;
         btn.textContent = '✓ Copied!';
         setTimeout(() => {
             btn.textContent = originalText;
         }, 2000);
-    }).catch(err => {
-        console.error('Failed to copy:', err);
-        alert('Failed to copy to clipboard');
-    });
+    }
 }
 
 function downloadKeyJSON(prefix) {
