@@ -7,7 +7,7 @@ function showRepeaterInfo(hexId, info) {
         ? `<a href="${info.contact_url}" class="hex-contact-btn">Add Contact</a>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
-    const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
+    const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
     
     // Format height and power if available
     const antennaDisplay = info.antenna ?  `${info.antenna}` : 'N/A';
@@ -64,7 +64,7 @@ function showDuplicateInfo(hexId, infoArray) {
             ? `<a href="${info.contact_url}" class="hex-contact-btn-small">Add Contact</a>` 
             : '<span class="hex-no-contact-small">No Contact</span>';
         
-        const stateClass = info.state. toLowerCase().replace(/\s+/g, '-');
+        const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
         const heightDisplay = info.height_metre ?  `${info.height_metre}m` : 'N/A';
         const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
         
@@ -72,7 +72,7 @@ function showDuplicateInfo(hexId, infoArray) {
             <div class="hex-duplicate-entry">
                 <div class="hex-info-header">
                     <span class="hex-entry-number">Entry ${idx + 1}</span>
-                    <span class="hex-state-badge hex-state-${stateClass}">${info. state}</span>
+                    <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
                 </div>
                 <h3 class="hex-duplicate-name">${info.name}</h3>
                 <div class="hex-info-grid-small">
@@ -108,7 +108,7 @@ function showDuplicateInfo(hexId, infoArray) {
                 <span class="hex-id-badge hex-duplicate-badge">${hexId}</span>
                 <span class="hex-warning-badge">⚠️ DUPLICATE CONFLICT</span>
             </div>
-            <p class="hex-duplicate-warning">Multiple repeaters are using the same ID.  This must be resolved! </p>
+            <p class="hex-duplicate-warning">Multiple repeaters are using the same ID.This must be resolved! </p>
             <div class="hex-duplicates-container">
                 ${entriesHtml}
             </div>
@@ -119,7 +119,7 @@ function showDuplicateInfo(hexId, infoArray) {
 }
 
 function showReservedInfo() {
-    const modal = document. getElementById('hex-modal');
+    const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
@@ -150,7 +150,7 @@ function showBackboneInfo(hexId, info) {
     const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
     const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
     
-    modalBody. innerHTML = `
+    modalBody.innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-backbone-badge">${hexId}</span>
@@ -178,7 +178,7 @@ function showBackboneInfo(hexId, info) {
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">🕐 Last Heard</span>
-                    <span class="hex-info-value">${info. last_heard}</span>
+                    <span class="hex-info-value">${info.last_heard}</span>
                 </div>
             </div>
             <div class="hex-info-contact">
@@ -187,7 +187,7 @@ function showBackboneInfo(hexId, info) {
         </div>
     `;
     
-    modal.style. display = 'block';
+    modal.style.display = 'block';
 }
 
 // ============================================================================
@@ -203,7 +203,7 @@ async function loadNobleEd25519() {
     try {
         // Try loading from CDN
         nobleEd25519 = await import('https://unpkg.com/@noble/ed25519@2.3.0/index.js');
-        console.log('✓ noble-ed25519 loaded from unpkg. com');
+        console.log('✓ noble-ed25519 loaded from unpkg.com');
     } catch (error) {
         console.error('Failed to load from unpkg.com:', error);
         try {
@@ -211,8 +211,8 @@ async function loadNobleEd25519() {
             nobleEd25519 = await import('https://cdn.jsdelivr.net/npm/@noble/ed25519@2.3.0/+esm');
             console.log('✓ noble-ed25519 loaded from jsDelivr');
         } catch (fallbackError) {
-            console. error('Failed to load noble-ed25519 from CDN:', fallbackError);
-            throw new Error('Failed to load Ed25519 library.  Please check your internet connection.');
+            console.error('Failed to load noble-ed25519 from CDN:', fallbackError);
+            throw new Error('Failed to load Ed25519 library.Please check your internet connection.');
         }
     }
 }
@@ -223,7 +223,7 @@ async function generateMeshCoreKeypair() {
     await loadNobleEd25519();
     
     // Step 1: Generate 32-byte random seed
-    const seed = crypto. getRandomValues(new Uint8Array(32));
+    const seed = crypto.getRandomValues(new Uint8Array(32));
     
     // Step 2: Hash the seed with SHA-512
     const digest = await crypto.subtle.digest('SHA-512', seed);
@@ -239,7 +239,7 @@ async function generateMeshCoreKeypair() {
     let publicKeyBytes;
     
     try {
-        // Method 1: Try using Point. BASE. multiply (preferred)
+        // Method 1: Try using Point.BASE.multiply (preferred)
         if (nobleEd25519.Point && nobleEd25519.Point.BASE) {
             // Convert clamped scalar to BigInt
             let scalarBigInt = 0n;
@@ -250,7 +250,7 @@ async function generateMeshCoreKeypair() {
             const publicKey = nobleEd25519.Point.BASE.multiply(scalarBigInt);
             
             // Convert Point to bytes
-            if (publicKey. toRawBytes) {
+            if (publicKey.toRawBytes) {
                 publicKeyBytes = publicKey.toRawBytes();
             } else if (publicKey.toBytes) {
                 publicKeyBytes = publicKey.toBytes();
@@ -276,8 +276,8 @@ async function generateMeshCoreKeypair() {
     // Step 5: Create MeshCore-compatible 64-byte private key
     // Format: [clamped_scalar (32 bytes)][sha512_second_half (32 bytes)]
     const meshcorePrivateKey = new Uint8Array(64);
-    meshcorePrivateKey. set(clamped, 0);                    // First 32 bytes:  clamped scalar
-    meshcorePrivateKey.set(digestArray. slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32:64]
+    meshcorePrivateKey.set(clamped, 0);                    // First 32 bytes:  clamped scalar
+    meshcorePrivateKey.set(digestArray.slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32:64]
     
     return {
         publicKey: publicKeyBytes,
@@ -313,7 +313,7 @@ async function generateKeyForPrefix(prefix) {
             
             // Convert to hex
             const publicKeyHex = toHex(keypair.publicKey);
-            const privateKeyHex = toHex(keypair. privateKey);
+            const privateKeyHex = toHex(keypair.privateKey);
             
             // Check if it matches the target prefix
             if (publicKeyHex.startsWith(targetPrefix)) {
@@ -342,14 +342,14 @@ async function generateKeyForPrefix(prefix) {
 function updateKeygenProgress(attempts, rate) {
     const progressEl = document.getElementById('keygen-progress');
     if (progressEl) {
-        progressEl.textContent = `Attempts: ${attempts. toLocaleString()} | Speed: ${rate.toLocaleString()}/sec`;
+        progressEl.textContent = `Attempts: ${attempts.toLocaleString()} | Speed: ${rate.toLocaleString()}/sec`;
     }
 }
 
 // Show keygen modal
 function showKeygenModal(hexId) {
     const modal = document.getElementById('hex-modal');
-    const modalBody = document. getElementById('hex-modal-body');
+    const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
         <div class="hex-info-card">
@@ -414,9 +414,9 @@ function showKeygenModal(hexId) {
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
             document.getElementById('public-key-output').value = result.publicKey;
-            document. getElementById('private-key-output').value = result.privateKey;
+            document.getElementById('private-key-output').value = result.privateKey;
             document.getElementById('keygen-stats').textContent = 
-                `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
+                `✓ Generated in ${result.timeSeconds}s (${result.attempts.toLocaleString()} attempts)`;
             
             // Store for download
             window.generatedKey = result;
@@ -448,14 +448,14 @@ function downloadKeyJSON(prefix) {
     
     const data = {
         public_key: window.generatedKey.publicKey,
-        private_key: window.generatedKey. privateKey,
+        private_key: window.generatedKey.privateKey,
         generated_at: new Date().toISOString(),
         prefix: prefix
     };
     
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
-    const url = URL. createObjectURL(blob);
+    const url = URL.createObjectURL(blob);
     
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
     const filename = `meshcore_${prefix}_${timestamp}.json`;
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (closeBtn) {
         closeBtn.onclick = function() {
-            modal. style.display = 'none';
+            modal.style.display = 'none';
         };
     }
     
@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     searchClear.addEventListener('click', function() {
         searchInput.value = '';
-        searchClear. style.display = 'none';
+        searchClear.style.display = 'none';
         clearSearch();
         searchInput.focus();
     });
@@ -530,14 +530,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const onclick = cell.getAttribute('onclick');
             
             // Skip reserved cells (they don't have repeater info)
-            if (onclick. includes('showReservedInfo')) {
+            if (onclick.includes('showReservedInfo')) {
                 cell.classList.remove('hex-highlighted', 'hex-dimmed');
                 return;
             }
             
             // Skip free cells
             if (onclick.includes('showKeygenModal')) {
-                cell. classList.add('hex-dimmed');
+                cell.classList.add('hex-dimmed');
                 return;
             }
             
@@ -547,12 +547,12 @@ document.addEventListener('DOMContentLoaded', function() {
             let matched = false;
             
             // For single repeaters:  showRepeaterInfo or showBackboneInfo
-            if (onclick. includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
+            if (onclick.includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
                 // Extract JSON between the quotes after the hex ID
                 const regex = /show(? :Repeater|Backbone)Info\("([^"]+)",\s*({[^}]+})\)/;
                 const match = onclick.match(regex);
                 if (match && match[2]) {
-                    const infoStr = match[2]. replace(/&quot;/g, '"');
+                    const infoStr = match[2].replace(/&quot;/g, '"');
                     try {
                         const info = JSON.parse(infoStr);
                         matched = searchInInfo(info, query);
