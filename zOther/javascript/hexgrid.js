@@ -197,13 +197,29 @@ async function loadNobleEd25519() {
     if (nobleEd25519Module) return nobleEd25519Module;
     
     try {
-        // The library is already loaded via mkdocs.yml, try to import it
-        nobleEd25519Module = await import('https://cdn.jsdelivr.net/npm/@noble/ed25519@2.1.0/+esm');
-        console.log('✓ noble-ed25519 loaded');
+        // Try unpkg first (most reliable)
+        nobleEd25519Module = await import('https://unpkg.com/@noble/ed25519@2.1.0/index.js');
+        console.log('✓ noble-ed25519 loaded from unpkg');
         return nobleEd25519Module;
     } catch (error) {
-        console.error('Failed to load noble-ed25519:', error);
-        throw new Error('Ed25519 library not available');
+        console.warn('Failed to load from unpkg:', error);
+        try {
+            // Fallback to jsDelivr
+            nobleEd25519Module = await import('https://cdn.jsdelivr.net/npm/@noble/ed25519@2.1.0/+esm');
+            console.log('✓ noble-ed25519 loaded from jsDelivr');
+            return nobleEd25519Module;
+        } catch (fallbackError) {
+            console.warn('Failed to load from jsDelivr:', fallbackError);
+            try {
+                // Final fallback: offline implementation
+                nobleEd25519Module = await import('./noble-ed25519-offline-simple.js');
+                console.log('✓ noble-ed25519 loaded from offline fallback');
+                return nobleEd25519Module;
+            } catch (offlineError) {
+                console.error('Failed to load offline noble-ed25519:', offlineError);
+                throw new Error('Ed25519 library not available - all loading methods failed');
+            }
+        }
     }
 }
 
