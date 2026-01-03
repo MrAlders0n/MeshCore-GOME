@@ -190,73 +190,143 @@ function showBackboneInfo(hexId, info) {
     modal.style. display = 'block';
 }
 
-// Key generation using Web Crypto API
+// noble-ed25519 library reference (loaded dynamically)
+let nobleEd25519 = null;
+
+// Load noble-ed25519 library with cascading fallbacks
+async function loadNobleEd25519() {
+    if (nobleEd25519) return nobleEd25519;
+    
+    const sources = [
+        'https://unpkg.com/noble-ed25519@latest/esm/index.js',
+        'https://cdn.jsdelivr.net/npm/noble-ed25519@latest/esm/index.js',
+        'https://cdn.skypack.dev/noble-ed25519',
+        './noble-ed25519-offline-simple.js'
+    ];
+    
+    for (const src of sources) {
+        try {
+            nobleEd25519 = await import(src);
+            console.log(`✓ noble-ed25519 loaded from: ${src}`);
+            return nobleEd25519;
+        } catch (e) {
+            console.warn(`Failed to load from ${src}:`, e.message);
+        }
+    }
+    
+    throw new Error('Failed to load Ed25519 library from all sources');
+}
+
+// Generate a MeshCore-compatible Ed25519 keypair (RFC 8032 compliant)
+async function generateMeshCoreKeypair() {
+    await loadNobleEd25519();
+    
+    // Step 1: Generate 32-byte random seed
+    const seed = crypto.getRandomValues(new Uint8Array(32));
+    
+    // Step 2: Hash the seed with SHA-512
+    const digest = await crypto.subtle.digest('SHA-512', seed);
+    const digestArray = new Uint8Array(digest);
+    
+    // Step 3: Clamp the first 32 bytes according to Ed25519 rules
+    const clamped = new Uint8Array(digestArray.slice(0, 32));
+    clamped[0] &= 248;   // Clear bottom 3 bits
+    clamped[31] &= 63;   // Clear top 2 bits
+    clamped[31] |= 64;   // Set bit 6
+    
+    // Step 4: Generate public key using Point.BASE.multiply (no double clamping)
+    let publicKey;
+    try {
+        // Convert scalar to BigInt for Point.BASE.multiply
+        let scalarBigInt = 0n;
+        for (let i = 0; i < 32; i++) {
+            scalarBigInt += BigInt(clamped[i]) << BigInt(8 * i);
+        }
+        publicKey = nobleEd25519.Point.BASE.multiply(scalarBigInt);
+    } catch (error) {
+        // Fallback to getPublicKey if Point.BASE.multiply fails
+        try {
+            publicKey = await nobleEd25519.getPublicKey(clamped);
+        } catch (fallbackError) {
+            publicKey = nobleEd25519.getPublicKey(clamped);
+        }
+    }
+    
+    // Convert public key to Uint8Array
+    let publicKeyBytes;
+    if (publicKey instanceof Uint8Array) {
+        publicKeyBytes = publicKey;
+    } else if (publicKey.toRawBytes) {
+        publicKeyBytes = publicKey.toRawBytes();
+    } else if (publicKey.toBytes) {
+        publicKeyBytes = publicKey.toBytes();
+    } else if (publicKey.x !== undefined && publicKey.y !== undefined) {
+        // Point object with x, y coordinates - convert to compressed format
+        publicKeyBytes = new Uint8Array(32);
+        const y = publicKey.y;
+        const x = publicKey.x;
+        for (let i = 0; i < 31; i++) {
+            publicKeyBytes[i] = Number((y >> BigInt(8 * i)) & 255n);
+        }
+        publicKeyBytes[31] = Number((x & 1n) << 7);
+    } else {
+        throw new Error('Unsupported public key format from noble-ed25519');
+    }
+    
+    // Step 5: Create 64-byte private key: [clamped_scalar][sha512_second_half]
+    const meshcorePrivateKey = new Uint8Array(64);
+    meshcorePrivateKey.set(clamped, 0);
+    meshcorePrivateKey.set(digestArray.slice(32, 64), 32);
+    
+    return {
+        publicKey: publicKeyBytes,
+        privateKey: meshcorePrivateKey
+    };
+}
+
+// Convert bytes to hex
+function toHex(bytes) {
+    return Array.from(bytes)
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('')
+        .toUpperCase();
+}
+
+// Key generation with prefix matching
 async function generateKeyForPrefix(prefix) {
     const targetPrefix = prefix.toUpperCase();
     
-    // Convert bytes to hex
-    const toHex = (bytes) => {
-        return Array.from(bytes)
-            .map(b => b.toString(16).padStart(2, '0'))
-            .join('')
-            .toUpperCase();
-    };
-    
     let attempts = 0;
     const startTime = Date.now();
+    
+    // Pre-load the library
+    await loadNobleEd25519();
     
     while (true) {
         attempts++;
         
         try {
-            // Generate Ed25519 keypair using Web Crypto
-            const keypair = await crypto. subtle.generateKey(
-                { name: 'Ed25519' },
-                true,
-                ['sign', 'verify']
-            );
+            const keypair = await generateMeshCoreKeypair();
+            const publicKeyHex = toHex(keypair.publicKey);
             
-            // Export public key
-            const publicKeyJwk = await crypto.subtle.exportKey('jwk', keypair.publicKey);
-            const publicKeyBytes = Uint8Array.from(
-                atob(publicKeyJwk. x. replace(/-/g, '+').replace(/_/g, '/')), 
-                c => c.charCodeAt(0)
-            );
-            
-            // Export private key
-            const privateKeyJwk = await crypto.subtle. exportKey('jwk', keypair.privateKey);
-            const privateKeyBytes = Uint8Array. from(
-                atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
-                c => c.charCodeAt(0)
-            );
-            
-            // MeshCore uses 64-byte private key format (32-byte seed + 32-byte public key)
-            const meshcorePrivateKey = new Uint8Array(64);
-            meshcorePrivateKey.set(privateKeyBytes, 0);
-            meshcorePrivateKey.set(publicKeyBytes, 32);
-            
-            const publicKeyHex = toHex(publicKeyBytes);
-            const privateKeyHex = toHex(meshcorePrivateKey);
-            
-            // Check if it matches
-            if (publicKeyHex. startsWith(targetPrefix)) {
+            // Check if it matches the target prefix
+            if (publicKeyHex.startsWith(targetPrefix)) {
                 const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
                 return {
                     publicKey: publicKeyHex,
-                    privateKey: privateKeyHex,
+                    privateKey: toHex(keypair.privateKey),
                     attempts: attempts,
                     timeSeconds: elapsedTime
                 };
             }
             
-            // Update progress every 100 attempts (Ed25519 generation is slower)
+            // Update progress every 100 attempts
             if (attempts % 100 === 0) {
                 const elapsed = (Date.now() - startTime) / 1000;
                 const rate = Math.floor(attempts / elapsed);
                 updateKeygenProgress(attempts, rate);
             }
         } catch (error) {
-            // Skip this attempt if there's an error
             console.error('Key generation error:', error);
             continue;
         }
