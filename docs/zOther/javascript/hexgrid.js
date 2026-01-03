@@ -252,18 +252,19 @@ async function generateKeyForPrefix(prefix) {
             const digest = await crypto.subtle.digest('SHA-512', seed);
             const digestArray = new Uint8Array(digest);
             
-            // Step 3: Clamp the first 32 bytes (scalar clamping)
-            const clamped = new Uint8Array(digestArray.slice(0, 32));
+            // Step 3: Get first 32 bytes and create clamped version
+            const unclamped = new Uint8Array(digestArray.slice(0, 32));
+            const clamped = new Uint8Array(unclamped);
             clamped[0] &= 248;  // Clear bottom 3 bits
             clamped[31] &= 63;  // Clear top 2 bits
             clamped[31] |= 64;  // Set bit 6
             
-            // Step 4: Generate public key from clamped scalar using noble-ed25519
+            // Step 4: Generate public key from unclamped using noble-ed25519
             let publicKeyBytes;
             
             try {
                 // Try using getPublicKey (works with noble-ed25519 v2.x)
-                publicKeyBytes = await noble.getPublicKey(clamped);
+                publicKeyBytes = await noble.getPublicKey(unclamped);
                 if (!(publicKeyBytes instanceof Uint8Array)) {
                     publicKeyBytes = new Uint8Array(publicKeyBytes);
                 }
@@ -276,7 +277,7 @@ async function generateKeyForPrefix(prefix) {
             // Format: [clamped_scalar (32 bytes)][sha512_second_half (32 bytes)]
             const meshcorePrivateKey = new Uint8Array(64);
             meshcorePrivateKey.set(clamped, 0);                    // First 32 bytes:  clamped scalar
-            meshcorePrivateKey.set(digestArray. slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32: 64]
+            meshcorePrivateKey.set(digestArray.slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32: 64]
             
             const publicKeyHex = toHex(publicKeyBytes);
             const privateKeyHex = toHex(meshcorePrivateKey);
