@@ -10,7 +10,7 @@ function showRepeaterInfo(hexId, info) {
     const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
     
     // Format height and power if available
-    const antennaDisplay = info.antenna ?  `${info.antenna}` : 'N/A';
+    const antennaDisplay = info.antenna ? `${info.antenna}` : 'N/A';
     const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
     const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
     
@@ -20,7 +20,7 @@ function showRepeaterInfo(hexId, info) {
                 <span class="hex-id-badge hex-used-badge">${hexId}</span>
                 <span class="hex-state-badge hex-state-${stateClass}">${info.state}</span>
             </div>
-            <h2 class="hex-info-title">${info.name}</h2>
+            <h2 class="hex-info-title">${info. name}</h2>
             <div class="hex-info-grid">
                 <div class="hex-info-item">
                     <span class="hex-info-label">📡 Antenna</span>
@@ -42,7 +42,7 @@ function showRepeaterInfo(hexId, info) {
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">🕐 Last Heard</span>
-                    <span class="hex-info-value">${info.last_heard}</span>
+                    <span class="hex-info-value">${info. last_heard}</span>
                 </div>
             </div>
             <div class="hex-info-contact">
@@ -51,11 +51,11 @@ function showRepeaterInfo(hexId, info) {
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
 }
 
 function showDuplicateInfo(hexId, infoArray) {
-    const modal = document.getElementById('hex-modal');
+    const modal = document. getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     let entriesHtml = '';
@@ -65,7 +65,7 @@ function showDuplicateInfo(hexId, infoArray) {
             : '<span class="hex-no-contact-small">No Contact</span>';
         
         const stateClass = info.state.toLowerCase().replace(/\s+/g, '-');
-        const heightDisplay = info.height_metre ?  `${info.height_metre}m` : 'N/A';
+        const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
         const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
         
         entriesHtml += `
@@ -108,7 +108,7 @@ function showDuplicateInfo(hexId, infoArray) {
                 <span class="hex-id-badge hex-duplicate-badge">${hexId}</span>
                 <span class="hex-warning-badge">⚠️ DUPLICATE CONFLICT</span>
             </div>
-            <p class="hex-duplicate-warning">Multiple repeaters are using the same ID.This must be resolved! </p>
+            <p class="hex-duplicate-warning">Multiple repeaters are using the same ID.   This must be resolved! </p>
             <div class="hex-duplicates-container">
                 ${entriesHtml}
             </div>
@@ -122,7 +122,7 @@ function showReservedInfo() {
     const modal = document.getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
-    modalBody.innerHTML = `
+    modalBody. innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-reserved-badge">Reserved</span>
@@ -139,10 +139,10 @@ function showReservedInfo() {
 }
 
 function showBackboneInfo(hexId, info) {
-    const modal = document.getElementById('hex-modal');
+    const modal = document. getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
-    const contactLink = info.contact_url 
+    const contactLink = info. contact_url 
         ? `<a href="${info.contact_url}" class="hex-contact-btn">Add Contact</a>` 
         : '<span class="hex-no-contact">No Contact Available</span>';
     
@@ -150,7 +150,7 @@ function showBackboneInfo(hexId, info) {
     const heightDisplay = info.height_metre ? `${info.height_metre}m` : 'N/A';
     const powerDisplay = info.power_watt ? `${info.power_watt}W` : 'N/A';
     
-    modalBody.innerHTML = `
+    modalBody. innerHTML = `
         <div class="hex-info-card">
             <div class="hex-info-header">
                 <span class="hex-id-badge hex-backbone-badge">${hexId}</span>
@@ -178,7 +178,7 @@ function showBackboneInfo(hexId, info) {
                 </div>
                 <div class="hex-info-item">
                     <span class="hex-info-label">🕐 Last Heard</span>
-                    <span class="hex-info-value">${info.last_heard}</span>
+                    <span class="hex-info-value">${info. last_heard}</span>
                 </div>
             </div>
             <div class="hex-info-contact">
@@ -187,119 +187,20 @@ function showBackboneInfo(hexId, info) {
         </div>
     `;
     
-    modal.style.display = 'block';
+    modal.style. display = 'block';
 }
 
-// ============================================================================
-// ED25519 KEY GENERATION - RFC 8032 COMPLIANT
-// ============================================================================
-
-// Load noble-ed25519 library
-let nobleEd25519 = null;
-
-async function loadNobleEd25519() {
-    if (nobleEd25519) return;
-    
-    try {
-        // Try loading from CDN
-        nobleEd25519 = await import('https://unpkg.com/@noble/ed25519@2.3.0/index.js');
-        console.log('✓ noble-ed25519 loaded from unpkg.com');
-    } catch (error) {
-        console.error('Failed to load from unpkg.com:', error);
-        try {
-            // Fallback to jsDelivr
-            nobleEd25519 = await import('https://cdn.jsdelivr.net/npm/@noble/ed25519@2.3.0/+esm');
-            console.log('✓ noble-ed25519 loaded from jsDelivr');
-        } catch (fallbackError) {
-            console.error('Failed to load noble-ed25519 from CDN:', fallbackError);
-            throw new Error('Failed to load Ed25519 library.Please check your internet connection.');
-        }
-    }
-}
-
-// Generate a single MeshCore-compatible Ed25519 keypair
-async function generateMeshCoreKeypair() {
-    // Ensure library is loaded
-    await loadNobleEd25519();
-    
-    // Step 1: Generate 32-byte random seed
-    const seed = crypto.getRandomValues(new Uint8Array(32));
-    
-    // Step 2: Hash the seed with SHA-512
-    const digest = await crypto.subtle.digest('SHA-512', seed);
-    const digestArray = new Uint8Array(digest);
-    
-    // Step 3: Clamp the first 32 bytes according to Ed25519 rules (RFC 8032)
-    const clamped = new Uint8Array(digestArray.slice(0, 32));
-    clamped[0] &= 248;  // Clear bottom 3 bits (divisible by 8)
-    clamped[31] &= 63;  // Clear top 2 bits
-    clamped[31] |= 64;  // Set bit 6
-    
-    // Step 4: Generate public key from the clamped scalar
-    let publicKeyBytes;
-    
-    try {
-        // Method 1: Try using Point.BASE.multiply (preferred)
-        if (nobleEd25519.Point && nobleEd25519.Point.BASE) {
-            // Convert clamped scalar to BigInt
-            let scalarBigInt = 0n;
-            for (let i = 0; i < 32; i++) {
-                scalarBigInt += BigInt(clamped[i]) << BigInt(8 * i);
-            }
-            
-            const publicKey = nobleEd25519.Point.BASE.multiply(scalarBigInt);
-            
-            // Convert Point to bytes
-            if (publicKey.toRawBytes) {
-                publicKeyBytes = publicKey.toRawBytes();
-            } else if (publicKey.toBytes) {
-                publicKeyBytes = publicKey.toBytes();
-            } else {
-                throw new Error('Point conversion method not found');
-            }
-        } else {
-            throw new Error('Point.BASE not available');
-        }
-    } catch (error) {
-        // Method 2: Fallback to getPublicKey
-        try {
-            publicKeyBytes = await nobleEd25519.getPublicKey(clamped);
-            if (!(publicKeyBytes instanceof Uint8Array)) {
-                publicKeyBytes = new Uint8Array(publicKeyBytes);
-            }
-        } catch (fallbackError) {
-            console.error('All public key generation methods failed:', error, fallbackError);
-            throw new Error('Failed to generate public key');
-        }
-    }
-    
-    // Step 5: Create MeshCore-compatible 64-byte private key
-    // Format: [clamped_scalar (32 bytes)][sha512_second_half (32 bytes)]
-    const meshcorePrivateKey = new Uint8Array(64);
-    meshcorePrivateKey.set(clamped, 0);                    // First 32 bytes:  clamped scalar
-    meshcorePrivateKey.set(digestArray.slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32:64]
-    
-    return {
-        publicKey: publicKeyBytes,
-        privateKey: meshcorePrivateKey
-    };
-}
-
-// Convert Uint8Array to hex string
-function toHex(bytes) {
-    if (!(bytes instanceof Uint8Array)) {
-        console.error('toHex: bytes is not Uint8Array:', typeof bytes, bytes);
-        return '';
-    }
-    return Array.from(bytes)
-        .map(b => b.toString(16).padStart(2, '0'))
-        .join('')
-        .toUpperCase();
-}
-
-// Key generation with target prefix matching
+// Key generation using Web Crypto API
 async function generateKeyForPrefix(prefix) {
     const targetPrefix = prefix.toUpperCase();
+    
+    // Convert bytes to hex
+    const toHex = (bytes) => {
+        return Array.from(bytes)
+            .map(b => b.toString(16).padStart(2, '0'))
+            .join('')
+            .toUpperCase();
+    };
     
     let attempts = 0;
     const startTime = Date.now();
@@ -308,15 +209,37 @@ async function generateKeyForPrefix(prefix) {
         attempts++;
         
         try {
-            // Generate a keypair
-            const keypair = await generateMeshCoreKeypair();
+            // Generate Ed25519 keypair using Web Crypto
+            const keypair = await crypto. subtle.generateKey(
+                { name: 'Ed25519' },
+                true,
+                ['sign', 'verify']
+            );
             
-            // Convert to hex
-            const publicKeyHex = toHex(keypair.publicKey);
-            const privateKeyHex = toHex(keypair.privateKey);
+            // Export public key
+            const publicKeyJwk = await crypto.subtle.exportKey('jwk', keypair.publicKey);
+            const publicKeyBytes = Uint8Array.from(
+                atob(publicKeyJwk. x. replace(/-/g, '+').replace(/_/g, '/')), 
+                c => c.charCodeAt(0)
+            );
             
-            // Check if it matches the target prefix
-            if (publicKeyHex.startsWith(targetPrefix)) {
+            // Export private key
+            const privateKeyJwk = await crypto.subtle. exportKey('jwk', keypair.privateKey);
+            const privateKeyBytes = Uint8Array. from(
+                atob(privateKeyJwk. d.replace(/-/g, '+').replace(/_/g, '/')), 
+                c => c.charCodeAt(0)
+            );
+            
+            // MeshCore uses 64-byte private key format (32-byte seed + 32-byte public key)
+            const meshcorePrivateKey = new Uint8Array(64);
+            meshcorePrivateKey.set(privateKeyBytes, 0);
+            meshcorePrivateKey.set(publicKeyBytes, 32);
+            
+            const publicKeyHex = toHex(publicKeyBytes);
+            const privateKeyHex = toHex(meshcorePrivateKey);
+            
+            // Check if it matches
+            if (publicKeyHex. startsWith(targetPrefix)) {
                 const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
                 return {
                     publicKey: publicKeyHex,
@@ -326,13 +249,14 @@ async function generateKeyForPrefix(prefix) {
                 };
             }
             
-            // Update progress every 100 attempts
+            // Update progress every 100 attempts (Ed25519 generation is slower)
             if (attempts % 100 === 0) {
                 const elapsed = (Date.now() - startTime) / 1000;
                 const rate = Math.floor(attempts / elapsed);
                 updateKeygenProgress(attempts, rate);
             }
         } catch (error) {
+            // Skip this attempt if there's an error
             console.error('Key generation error:', error);
             continue;
         }
@@ -342,13 +266,13 @@ async function generateKeyForPrefix(prefix) {
 function updateKeygenProgress(attempts, rate) {
     const progressEl = document.getElementById('keygen-progress');
     if (progressEl) {
-        progressEl.textContent = `Attempts: ${attempts.toLocaleString()} | Speed: ${rate.toLocaleString()}/sec`;
+        progressEl.textContent = `Attempts: ${attempts. toLocaleString()} | Speed: ${rate.toLocaleString()}/sec`;
     }
 }
 
 // Show keygen modal
 function showKeygenModal(hexId) {
-    const modal = document.getElementById('hex-modal');
+    const modal = document. getElementById('hex-modal');
     const modalBody = document.getElementById('hex-modal-body');
     
     modalBody.innerHTML = `
@@ -414,9 +338,9 @@ function showKeygenModal(hexId) {
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
             document.getElementById('public-key-output').value = result.publicKey;
-            document.getElementById('private-key-output').value = result.privateKey;
+            document. getElementById('private-key-output').value = result.privateKey;
             document.getElementById('keygen-stats').textContent = 
-                `✓ Generated in ${result.timeSeconds}s (${result.attempts.toLocaleString()} attempts)`;
+                `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
             
             // Store for download
             window.generatedKey = result;
@@ -448,14 +372,14 @@ function downloadKeyJSON(prefix) {
     
     const data = {
         public_key: window.generatedKey.publicKey,
-        private_key: window.generatedKey.privateKey,
+        private_key: window.generatedKey. privateKey,
         generated_at: new Date().toISOString(),
         prefix: prefix
     };
     
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
+    const url = URL. createObjectURL(blob);
     
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
     const filename = `meshcore_${prefix}_${timestamp}.json`;
@@ -492,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchResults = document.getElementById('hex-search-results');
     const hexTable = document.getElementById('repeater-hex-grid');
     
-    if (! searchInput || !hexTable) return;
+    if (!searchInput || !hexTable) return;
     
     // Store original repeater data in data attributes
     const cells = hexTable.querySelectorAll('td[onclick]');
@@ -549,7 +473,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // For single repeaters:  showRepeaterInfo or showBackboneInfo
             if (onclick.includes('showRepeaterInfo') || onclick.includes('showBackboneInfo')) {
                 // Extract JSON between the quotes after the hex ID
-                const regex = /show(? :Repeater|Backbone)Info\("([^"]+)",\s*({[^}]+})\)/;
+                const regex = /show(?:Repeater|Backbone)Info\("([^"]+)",\s*({[^}]+})\)/;
                 const match = onclick.match(regex);
                 if (match && match[2]) {
                     const infoStr = match[2].replace(/&quot;/g, '"');
