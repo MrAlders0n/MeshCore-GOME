@@ -190,39 +190,7 @@ function showBackboneInfo(hexId, info) {
     modal.style. display = 'block';
 }
 
-// Key generation using noble-ed25519 (already loaded in mkdocs.yml)
-let nobleEd25519Module = null;
-
-async function loadNobleEd25519() {
-    if (nobleEd25519Module) return nobleEd25519Module;
-    
-    try {
-        // Try unpkg first (most reliable)
-        nobleEd25519Module = await import('https://unpkg.com/@noble/ed25519@2.1.0/index.js');
-        console.log('✓ noble-ed25519 loaded from unpkg');
-        return nobleEd25519Module;
-    } catch (error) {
-        console.warn('Failed to load from unpkg:', error);
-        try {
-            // Fallback to jsDelivr
-            nobleEd25519Module = await import('https://cdn.jsdelivr.net/npm/@noble/ed25519@2.1.0/+esm');
-            console.log('✓ noble-ed25519 loaded from jsDelivr');
-            return nobleEd25519Module;
-        } catch (fallbackError) {
-            console.warn('Failed to load from jsDelivr:', fallbackError);
-            try {
-                // Final fallback: offline implementation
-                nobleEd25519Module = await import('./noble-ed25519-offline-simple.js');
-                console.log('✓ noble-ed25519 loaded from offline fallback');
-                return nobleEd25519Module;
-            } catch (offlineError) {
-                console.error('Failed to load offline noble-ed25519:', offlineError);
-                throw new Error('Ed25519 library not available - all loading methods failed');
-            }
-        }
-    }
-}
-
+// Key generation using pure JS Ed25519 implementation (no external dependencies)
 async function generateKeyForPrefix(prefix) {
     const targetPrefix = prefix.toUpperCase();
     
@@ -237,8 +205,8 @@ async function generateKeyForPrefix(prefix) {
     let attempts = 0;
     const startTime = Date.now();
     
-    // Load the library first
-    const noble = await loadNobleEd25519();
+    // Load the offline implementation (pure JS, no external dependencies)
+    const noble = await import('./noble-ed25519-offline-simple.js');
     
     while (true) {
         attempts++;
@@ -259,31 +227,20 @@ async function generateKeyForPrefix(prefix) {
             clamped[31] &= 63;  // Clear top 2 bits
             clamped[31] |= 64;  // Set bit 6
             
-            // Step 4: Generate public key from unclamped using noble-ed25519
-            let publicKeyBytes;
-            
-            try {
-                // Try using getPublicKey (works with noble-ed25519 v2.x)
-                publicKeyBytes = await noble.getPublicKey(unclamped);
-                if (!(publicKeyBytes instanceof Uint8Array)) {
-                    publicKeyBytes = new Uint8Array(publicKeyBytes);
-                }
-            } catch (error) {
-                console.error('noble.getPublicKey failed:', error);
-                throw error;
-            }
+            // Step 4: Generate public key using offline implementation
+            const publicKeyBytes = noble.getPublicKeyFromScalar(clamped);
             
             // Step 5: Create MeshCore 64-byte private key
             // Format: [clamped_scalar (32 bytes)][sha512_second_half (32 bytes)]
             const meshcorePrivateKey = new Uint8Array(64);
-            meshcorePrivateKey.set(clamped, 0);                    // First 32 bytes:  clamped scalar
-            meshcorePrivateKey.set(digestArray.slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32: 64]
+            meshcorePrivateKey.set(clamped, 0);                    // First 32 bytes: clamped scalar
+            meshcorePrivateKey.set(digestArray.slice(32, 64), 32); // Second 32 bytes: SHA-512(seed)[32:64]
             
             const publicKeyHex = toHex(publicKeyBytes);
             const privateKeyHex = toHex(meshcorePrivateKey);
             
             // Check if it matches
-            if (publicKeyHex. startsWith(targetPrefix)) {
+            if (publicKeyHex.startsWith(targetPrefix)) {
                 const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
                 return {
                     publicKey: publicKeyHex,
@@ -293,11 +250,13 @@ async function generateKeyForPrefix(prefix) {
                 };
             }
             
-            // Update progress every 100 attempts
+            // Update progress every 100 attempts and yield to UI
             if (attempts % 100 === 0) {
                 const elapsed = (Date.now() - startTime) / 1000;
                 const rate = Math.floor(attempts / elapsed);
                 updateKeygenProgress(attempts, rate);
+                // Yield to browser to prevent freezing
+                await new Promise(resolve => setTimeout(resolve, 0));
             }
         } catch (error) {
             console.error('Key generation error:', error);

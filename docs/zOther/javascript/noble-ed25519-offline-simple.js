@@ -101,7 +101,7 @@ function pointMultiply(point, scalar) {
   return result;
 }
 
-// Main functions
+// Main functions - getPublicKey expects raw 32-byte seed (will hash internally)
 async function getPublicKey(privateKey) {
   if (!(privateKey instanceof Uint8Array)) {
     throw new Error('Private key must be Uint8Array');
@@ -139,5 +139,38 @@ async function getPublicKey(privateKey) {
   result[31] |= Number((x & 1n) << 7);
   
   return result;
-}// Export the functions
-export { getPublicKey };
+}
+
+// getPublicKeyFromScalar expects already-clamped 32-byte scalar (no hashing)
+function getPublicKeyFromScalar(clampedScalar) {
+  if (!(clampedScalar instanceof Uint8Array)) {
+    throw new Error('Scalar must be Uint8Array');
+  }
+  if (clampedScalar.length !== 32) {
+    throw new Error('Scalar must be 32 bytes');
+  }
+  
+  // Convert bytes to BigInt (little-endian)
+  let scalar = 0n;
+  for (let i = 0; i < 32; i++) {
+    scalar += BigInt(clampedScalar[i]) << BigInt(8 * i);
+  }
+  
+  // Multiply base point by scalar
+  const point = pointMultiply(CURVE.G, scalar);
+  
+  // Convert point to compressed bytes
+  const x = point[0];
+  const y = point[1];
+  const result = new Uint8Array(32);
+  
+  for (let i = 0; i < 32; i++) {
+    result[i] = Number((y >> BigInt(8 * i)) & 255n);
+  }
+  result[31] |= Number((x & 1n) << 7);
+  
+  return result;
+}
+
+// Export the functions
+export { getPublicKey, getPublicKeyFromScalar };
