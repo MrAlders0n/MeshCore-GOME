@@ -198,9 +198,9 @@ async function loadNobleEd25519() {
     if (nobleEd25519) return nobleEd25519;
     
     const sources = [
+        'https://cdn.skypack.dev/noble-ed25519',
         'https://unpkg.com/noble-ed25519@latest/esm/index.js',
         'https://cdn.jsdelivr.net/npm/noble-ed25519@latest/esm/index.js',
-        'https://cdn.skypack.dev/noble-ed25519',
         './noble-ed25519-offline-simple.js'
     ];
     
@@ -210,7 +210,7 @@ async function loadNobleEd25519() {
             console.log(`✓ noble-ed25519 loaded from: ${src}`);
             return nobleEd25519;
         } catch (e) {
-            console.warn(`Failed to load from ${src}:`, e.message);
+            // Silently try next source
         }
     }
     
