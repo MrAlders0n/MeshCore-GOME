@@ -355,7 +355,7 @@ function showKeygenModal(hexId) {
             <p class="hex-keygen-description">
                 Generate a MeshCore-compatible Ed25519 keypair with this ID prefix.
             </p>
-            <div class="hex-info-contact">
+            <div class="hex-info-contact" id="button-container">
                 <button id="generate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
             </div>
             <div id="keygen-status" style="margin-top: 12px; display: none;">
@@ -368,21 +368,18 @@ function showKeygenModal(hexId) {
                             <span class="hex-info-label">🔑 Public Key</span>
                             <button onclick="copyToClipboard('public-key-output')" class="copy-btn-inline">📋 Copy</button>
                         </div>
-                        <textarea readonly id="public-key-output" class="key-output-compact" rows="1"></textarea>
+                        <div id="public-key-output" class="key-output-condensed" onclick="toggleKeyExpansion('public-key-output')" title="Click to expand/collapse"></div>
                     </div>
                     <div class="hex-key-section">
                         <div class="hex-key-header">
                             <span class="hex-info-label">🔐 Private Key</span>
                             <button onclick="copyToClipboard('private-key-output')" class="copy-btn-inline">📋 Copy</button>
                         </div>
-                        <textarea readonly id="private-key-output" class="key-output-compact" rows="1"></textarea>
+                        <div id="private-key-output" class="key-output-condensed" onclick="toggleKeyExpansion('private-key-output')" title="Click to expand/collapse"></div>
                     </div>
                 </div>
                 <div class="hex-key-stats-inline">
                     <span id="keygen-stats"></span>
-                </div>
-                <div class="hex-info-contact" style="margin-top: 12px;">
-                    <button onclick="downloadKeyJSON('${hexId}')" class="hex-contact-btn">💾 Download JSON</button>
                 </div>
             </div>
             <div class="hex-keygen-footer">
@@ -408,9 +405,62 @@ function showKeygenModal(hexId) {
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
             document.getElementById('public-key-output').value = result.publicKey;
-            document. getElementById('private-key-output').value = result.privateKey;
+            document.getElementById('private-key-output').value = result.privateKey;
             document.getElementById('keygen-stats').textContent = 
-                `✓ Generated in ${result.timeSeconds}s (${result.attempts. toLocaleString()} attempts)`;
+                `✓ Generated in ${result.timeSeconds}s (${result.attempts.toLocaleString()} attempts)`;
+            
+            // Add download button next to generate button
+            const buttonContainer = document.getElementById('button-container');
+            buttonContainer.innerHTML = `
+                <button id="generate-key-btn" class="hex-contact-btn">🔑 Generate Key</button>
+                <button onclick="downloadKeyJSON('${hexId}')" class="hex-contact-btn">💾 Download</button>
+            `;
+            
+            // Re-attach event listener to new generate button
+            document.getElementById('generate-key-btn').addEventListener('click', async () => {
+                const btn = document.getElementById('generate-key-btn');
+                btn.disabled = true;
+                btn.textContent = '⏳ Generating...';
+                
+                document.getElementById('keygen-status').style.display = 'block';
+                
+                try {
+                    const result = await generateKeyForPrefix(hexId);
+                    
+                    // Show results
+                    document.getElementById('keygen-status').style.display = 'none';
+                    document.getElementById('keygen-result').style.display = 'block';
+                    
+                    const pubKeyEl = document.getElementById('public-key-output');
+                    pubKeyEl.dataset.fullKey = result.publicKey;
+                    pubKeyEl.textContent = result.publicKey.substring(0, 8) + '...' + result.publicKey.substring(result.publicKey.length - 8);
+                    
+                    const privKeyEl = document.getElementById('private-key-output');
+                    privKeyEl.dataset.fullKey = result.privateKey;
+                    privKeyEl.textContent = result.privateKey.substring(0, 8) + '...' + result.privateKey.substring(result.privateKey.length - 8);
+                    pubKeyEl.dataset.fullKey = result.publicKey;
+                    pubKeyEl.textContent = result.publicKey.substring(0, 8) + '...' + result.publicKey.substring(result.publicKey.length - 8);
+                    
+                    const privKeyEl = document.getElementById('private-key-output');
+                    privKeyEl.dataset.fullKey = result.privateKey;
+                    privKeyEl.textContent = result.privateKey.substring(0, 8) + '...' + result.privateKey.substring(result.privateKey.length - 8);
+                    
+                    document.getElementById('keygen-stats').textContent = 
+                        `✓ Generated in ${result.timeSeconds}s (${result.attempts.toLocaleString()} attempts)`;
+                    
+                    // Re-enable generate button
+                    btn.disabled = false;
+                    btn.textContent = '🔑 Generate Key';
+                    
+                    // Store for download
+                    window.generatedKey = result;
+                } catch (error) {
+                    alert('Error generating key: ' + error.message);
+                    btn.disabled = false;
+                    btn.textContent = '🔑 Generate Key';
+                    document.getElementById('keygen-status').style.display = 'none';
+                }
+            });
             
             // Store for download
             window.generatedKey = result;
@@ -423,18 +473,37 @@ function showKeygenModal(hexId) {
     });
 }
 
+function toggleKeyExpansion(elementId) {
+    const element = document.getElementById(elementId);
+    const fullKey = element.dataset.fullKey;
+    
+    if (element.classList.contains('expanded')) {
+        // Collapse to condensed view
+        element.textContent = fullKey.substring(0, 8) + '...' + fullKey.substring(fullKey.length - 8);
+        element.classList.remove('expanded');
+    } else {
+        // Expand to full view
+        element.textContent = fullKey;
+        element.classList.add('expanded');
+    }
+}
+
 function copyToClipboard(elementId) {
     const element = document.getElementById(elementId);
-    element.select();
-    document.execCommand('copy');
+    const textToCopy = element.dataset.fullKey || element.textContent;
     
-    // Visual feedback
-    const btn = event.target;
-    const originalText = btn.textContent;
-    btn.textContent = '✓ Copied!';
-    setTimeout(() => {
-        btn.textContent = originalText;
-    }, 2000);
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        // Visual feedback
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy to clipboard');
+    });
 }
 
 function downloadKeyJSON(prefix) {
