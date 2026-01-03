@@ -404,8 +404,15 @@ function showKeygenModal(hexId) {
             // Show results
             document.getElementById('keygen-status').style.display = 'none';
             document.getElementById('keygen-result').style.display = 'block';
-            document.getElementById('public-key-output').value = result.publicKey;
-            document.getElementById('private-key-output').value = result.privateKey;
+            
+            const pubKeyEl = document.getElementById('public-key-output');
+            pubKeyEl.dataset.fullKey = result.publicKey;
+            pubKeyEl.textContent = result.publicKey.substring(0, 8) + '...' + result.publicKey.substring(result.publicKey.length - 8);
+            
+            const privKeyEl = document.getElementById('private-key-output');
+            privKeyEl.dataset.fullKey = result.privateKey;
+            privKeyEl.textContent = result.privateKey.substring(0, 8) + '...' + result.privateKey.substring(result.privateKey.length - 8);
+            
             document.getElementById('keygen-stats').textContent = 
                 `✓ Generated in ${result.timeSeconds}s (${result.attempts.toLocaleString()} attempts)`;
             
@@ -431,19 +438,13 @@ function showKeygenModal(hexId) {
                     document.getElementById('keygen-status').style.display = 'none';
                     document.getElementById('keygen-result').style.display = 'block';
                     
-                    const pubKeyEl = document.getElementById('public-key-output');
-                    pubKeyEl.dataset.fullKey = result.publicKey;
-                    pubKeyEl.textContent = result.publicKey.substring(0, 8) + '...' + result.publicKey.substring(result.publicKey.length - 8);
+                    const pubKeyEl2 = document.getElementById('public-key-output');
+                    pubKeyEl2.dataset.fullKey = result.publicKey;
+                    pubKeyEl2.textContent = result.publicKey.substring(0, 8) + '...' + result.publicKey.substring(result.publicKey.length - 8);
                     
-                    const privKeyEl = document.getElementById('private-key-output');
-                    privKeyEl.dataset.fullKey = result.privateKey;
-                    privKeyEl.textContent = result.privateKey.substring(0, 8) + '...' + result.privateKey.substring(result.privateKey.length - 8);
-                    pubKeyEl.dataset.fullKey = result.publicKey;
-                    pubKeyEl.textContent = result.publicKey.substring(0, 8) + '...' + result.publicKey.substring(result.publicKey.length - 8);
-                    
-                    const privKeyEl = document.getElementById('private-key-output');
-                    privKeyEl.dataset.fullKey = result.privateKey;
-                    privKeyEl.textContent = result.privateKey.substring(0, 8) + '...' + result.privateKey.substring(result.privateKey.length - 8);
+                    const privKeyEl2 = document.getElementById('private-key-output');
+                    privKeyEl2.dataset.fullKey = result.privateKey;
+                    privKeyEl2.textContent = result.privateKey.substring(0, 8) + '...' + result.privateKey.substring(result.privateKey.length - 8);
                     
                     document.getElementById('keygen-stats').textContent = 
                         `✓ Generated in ${result.timeSeconds}s (${result.attempts.toLocaleString()} attempts)`;
