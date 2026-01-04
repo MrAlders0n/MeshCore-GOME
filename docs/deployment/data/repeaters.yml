@@ -89,9 +89,9 @@ repeaters:
 
   - id: "0C"
     name: "TBRG_R0"
-    antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
-    location: "Ashton"
+    antenna: "Yagi"
+    height_metre: "5.0"
+    location: "Beckwith (Pointed to CAN)"
     contact: "meshcore://contact/add?name=TBRG_R0&public_key=0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D&type=2"
     state: "Active"
     hex_id: "0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D"
@@ -430,9 +430,9 @@ repeaters:
 
   - id: "64"
     name: "TBRG_R3"
-    antenna: null
-    height_metre: null
-    location: "Beckwith"
+    antenna: "LOGP"
+    height_metre: "6.0"
+    location: "Beckwith (Pointed at Carleton Place)"
     contact: "meshcore://contact/add?name=TBRG_R3&public_key=649D120810863F3ADE5682832842E5523B4286F8253C658ABA&type=2"
     state: "Active"
     hex_id: "649D120810863F3ADE5682832842E5523B4286F8253C658ABA"
@@ -893,8 +893,8 @@ repeaters:
   - id: "F2"
     name: "TBRG_R1"
     antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
-    location: "Ashton"
+    height_metre: "12.0"
+    location: "Carleton Place"
     contact: "meshcore://contact/add?name=TBRG_R1&public_key=F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7&type=2"
     state: "Active"
     hex_id: "F22AD68CC80F1A4AA516047782B34F2DA2FE035209C395B2F7"
