@@ -1352,17 +1352,6 @@ repeaters:
     last_heard: 1767317042
     power_watt: null
 
-  - id: "75"
-    name: "LowerTown-R1"
-    antenna: null
-    height_metre: null
-    location: "Lowertown"
-    contact: "meshcore://contact/add?name=LowerTown-R1&public_key=7541FEB3D9B7294C540E81EC82E21CA677806174357F103E49&type=2"
-    state: "Duplicate"
-    hex_id: "7541FEB3D9B7294C540E81EC82E21CA677806174357F103E49"
-    last_heard: 1767391523
-    power_watt: null
-
   - id: "BE"
     name: "Queenswood Heights RS"
     antenna: null
