@@ -406,17 +406,6 @@ repeaters:
     last_heard: 1767318779
     power_watt: null
 
-  - id: "5C"
-    name: "OOS BBS"
-    antenna: "N/A"
-    height_metre: null
-    location: "Old Ottawa South (N/A)"
-    contact: null
-    state: "Unknown"
-    hex_id: null
-    last_heard: null
-    power_watt: null
-
   - id: "61"
     name: "WTE2 Repeater"
     antenna: "Pulse Electronics W5012"
