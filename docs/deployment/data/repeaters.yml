@@ -351,17 +351,6 @@ repeaters:
     last_heard: 1767488577
     power_watt: null
 
-  - id: "4E"
-    name: "MrAlders0n_R1_DUP"
-    antenna: "Alfa Omni 5.8dBi"
-    height_metre: null
-    location: "TEST"
-    contact: null
-    state: "Reserved"
-    hex_id: null
-    last_heard: null
-    power_watt: null
-
   - id: "4F"
     name: "ElDoc_Temp_R"
     antenna: "Log Periodic"
