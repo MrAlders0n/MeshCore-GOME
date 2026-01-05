@@ -1011,17 +1011,6 @@ repeaters:
     last_heard: 1767139293
     power_watt: "0.3"
 
-  - id: "8E"
-    name: "HX_R1"
-    antenna: null
-    height_metre: null
-    location: "Gatineau"
-    contact: "meshcore://contact/add?name=HX_R1&public_key=8E656408D1C7&type=2"
-    state: "New"
-    hex_id: "8E656408D1C7"
-    last_heard: 1766092908
-    power_watt: null
-
   - id: "B2"
     name: "BUN_SOLAR_R"
     antenna: null
