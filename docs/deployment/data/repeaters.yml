@@ -1402,7 +1402,7 @@ repeaters:
     height_metre: null
     location: "Cumberland"
     contact: "meshcore://contact/add?name=YOW_Cumberland&public_key=87D2F9F4498B612464B598F7FA95259677D91093CA92042F80EA6E1C9B83DB03&type=2"
-    state: null
+    state: "New"
     hex_id: "87D2F9F4498B612464B598F7FA95259677D91093CA92042F80EA6E1C9B83DB03"
     last_heard: null
     power_watt: null

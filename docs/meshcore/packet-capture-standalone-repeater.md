@@ -91,7 +91,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
      ```
 
 9. (Optional) Configure ownership info for the Packet Analyzer:  
-    You must have an account on [analyzer.letsme.sh](https://analyzer.letsme.sh/) (login uses MeshCore Forum authentication).
+    You must have an account on [analyzer.letsmesh.net](https://analyzer.letsmesh.net/) (login uses MeshCore Forum authentication).
 
      ```bash
      set mqtt.owner <Companion-Public-Key>
@@ -153,7 +153,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 After the device reboots and connects to Wi-Fi, it should automatically start sending logs to the Analyzer MQTT broker.  
 
-1. Go to [analyzer.letsme.sh/status/observers](https://analyzer.letsme.sh/status/observers)  
+1. Go to [analyzer.letsmesh.net/status/observers](https://analyzer.letsmesh.net/status/observers)  
 
 2. Locate your node name (for example ```YOW_OldBarrhaven```) in the list.  
 
