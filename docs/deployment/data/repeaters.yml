@@ -1396,7 +1396,7 @@ repeaters:
     last_heard: 1767543639
     power_watt: null
   
-    - id: "87"
+  - id: "87"
     name: "YOW_Cumberland"
     antenna: null
     height_metre: null
