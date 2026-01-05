@@ -1,6 +1,6 @@
 # MeshCore Packet Capture (Standalone Repeater Listener)
 
-This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **HeltekV3** and **HeltekV4** to act as a standalone packet capture device that forwards logs directly to [analyzer.letsme.sh](https://analyzer.letsme.sh).  
+This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **HeltekV3** to act as a standalone packet capture device that forwards logs directly to [analyzer.letsme.sh](https://analyzer.letsme.sh).  
 This setup does **not** require a Raspberry Pi, VM, or companion node.
 
 ## Overview
@@ -28,9 +28,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 ## Firmware Download
 
-**HeltekV3 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0.bin) **Tested on: 2025-12-13**
-
-**HeltekV4 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v4_Repeater_MQTT_Bridge_1.11.0.bin) **Tested on: 2025-12-15**
+**HeltekV3 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0.bin) **Tested on: 2025-12-13**&
 
 ## Firmware Installation
 
@@ -60,44 +58,43 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 ## Configure Device Identity
 
-1. Visit [Ottawa Repeater ID List](../deployment/repeaters.md) and choose an unused 2-digit ID.  
+1. Visit [Ottawa Repeater ID List](../deployment/repeaters.md) and choose an unused 2-digit ID, a popup will appear.  
 
-2. Open [mc-keygen](https://gessaman.com/mc-keygen/) and enter that ID into the **Repeater ID** field, then click **Generate Key**.  
+2. Click **Generate Key**.  
 
-3. Scroll down and copy the value under **Private Key**.  
+3. Click copy next to the **Private Key** value.  
 
 4. Open [MeshCore Flasher](https://flasher.meshcore.co.uk/), click **Console**, and select the serial device for your repeater.  
 
 5. Run the following command, replacing ```PRIVATE-KEY``` with your generated key:
-
     ```set prv.key <PRIVATE-KEY>```
 
-7. Configure the repeater name
+    If you get a error, run this command first, then re-run step 5:
+    ```get prv.key```
 
-    ```
-    set name <Repeater-Name>
+6. Configure the repeater name using the Ottawa naming convention (```YOW_Location```):  
+
+    ```bash
+    set name YOW_OldBarrhaven
      ```
 
-8. Configure the IATA Code for MQTT ingestion
+7. Configure the IATA Code for MQTT ingestion
 
-    ```
+    ```bash
     set mqtt.iata YOW 
     ```
 
-9. Disable repeat:  
+8. Disable repeat:  
 
-    ```
+    ```bash
     set repeat off
      ```
 
-10. (Optional) Configure ownership info for the Packet Analyzer:  
+9. (Optional) Configure ownership info for the Packet Analyzer:  
     You must have an account on [analyzer.letsme.sh](https://analyzer.letsme.sh/) (login uses MeshCore Forum authentication).
 
-     ```
+     ```bash
      set mqtt.owner <Companion-Public-Key>
-     ```
-     
-     ```
      set mqtt.email <MeshCore-Fourm-Email-Address>
       ```
 
@@ -105,53 +102,50 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 1. Set Wi-Fi credentials:
 
-    ```
+    ```bash
     set wifi.ssid <WIFI-NETWORK-NAME>
-    ```
-    
-    ```
     set wifi.pwd <WIFI-PASSWORD>
     ```
 
 2. Set timezone:  
 
-    ```
+    ```bash
     set timezone America/Toronto
     ```
 
 3. Configure the radio settings
 
-    ```
-   set radio 910.525,62.5,7,5
+    ```bash
+   set radio 510.525,62.5,7,5
     ```
 
 4. Set the admin password
 
-    ```
-   set password <Admin Password>
+    ```bash
+   password <Admin Password>
     ```
 
 5. Set the guest password
 
-    ```
+    ```bash
    set password.guest <Guest Password>
     ```
 
 6. Set the device latitude
 
-    ```
+    ```bash
    set lat <Latitude>
     ```
 
 7. Set the device longitude
 
-    ```
-   set long <Longitude>
+    ```bash
+   set lon <Longitude>
     ```
 
 8. Reboot the device:
 
-    ```
+    ```bash
     reboot
     ```
 
