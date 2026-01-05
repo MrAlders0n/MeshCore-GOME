@@ -1395,6 +1395,17 @@ repeaters:
     hex_id: "5B3EAD1E649D430A1D62CEB28A481B331793DE8887F0F7E6B9"
     last_heard: 1767543639
     power_watt: null
+  
+  - id: "87"
+    name: "YOW_Cumberland"
+    antenna: null
+    height_metre: null
+    location: "Cumberland"
+    contact: "meshcore://contact/add?name=YOW_Cumberland&public_key=87D2F9F4498B612464B598F7FA95259677D91093CA92042F80EA6E1C9B83DB03&type=2"
+    state: null
+    hex_id: "87D2F9F4498B612464B598F7FA95259677D91093CA92042F80EA6E1C9B83DB03"
+    last_heard: null
+    power_watt: null
 
   - id: "0C"
     name: "FGR-1"
