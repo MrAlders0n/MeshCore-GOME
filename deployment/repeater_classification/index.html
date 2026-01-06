@@ -575,10 +575,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-backbone" class="md-nav__link">
+  <a href="#backbone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1) Backbone
+        Backbone
       
     </span>
   </a>
@@ -586,10 +586,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-regional" class="md-nav__link">
+  <a href="#regional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2) Regional
+        Regional
       
     </span>
   </a>
@@ -597,10 +597,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-community" class="md-nav__link">
+  <a href="#community" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3) Community
+        Community
       
     </span>
   </a>
@@ -1773,10 +1773,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-backbone" class="md-nav__link">
+  <a href="#backbone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1) Backbone
+        Backbone
       
     </span>
   </a>
@@ -1784,10 +1784,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-regional" class="md-nav__link">
+  <a href="#regional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2) Regional
+        Regional
       
     </span>
   </a>
@@ -1795,10 +1795,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-community" class="md-nav__link">
+  <a href="#community" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3) Community
+        Community
       
     </span>
   </a>
@@ -1834,38 +1834,70 @@
 
 <h2 id="gome-meshcore-repeater-classification-wip">GOME MeshCore Repeater Classification (WIP)<a class="headerlink" href="#gome-meshcore-repeater-classification-wip" title="Permanent link">¶</a></h2>
 <p>Below is an attempt to classify repeaters so they can be deployed and managed according to a consistent spec. These categories describe the repeater’s intended role in the network (not just what it <em>happens</em> to do on a good day).</p>
-<h3 id="1-backbone">1) Backbone<a class="headerlink" href="#1-backbone" title="Permanent link">¶</a></h3>
+<h3 id="backbone">Backbone<a class="headerlink" href="#backbone" title="Permanent link">¶</a></h3>
 <p><strong>Purpose:</strong> High-impact sites that keep multiple parts of the city mesh well connected.<br>
 <strong>Rule:</strong> <strong>30+ neighbors</strong><br>
 <strong>Typical hardware:</strong> Prefer <strong>full 1W</strong> units + <strong>Seeed 8 dBi antennas</strong> <em>(at a bare minimum: </em><em>Alfa 5.8 dBi</em><em>)</em>.<br>
 <strong>Notes:</strong> Usually higher sites / wider footprint. If it fails, large areas lose good paths or the mesh becomes significantly weaker.</p>
-<p><strong>Examples:</strong>
-- CAN
-- GAT_R1
-- AlxR2</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>
+<p>CAN</p>
+</li>
+<li>
+<p>GAT_R1</p>
+</li>
+<li>
+<p>AlxR2</p>
+</li>
+</ul>
 <hr>
-<h3 id="2-regional">2) Regional<a class="headerlink" href="#2-regional" title="Permanent link">¶</a></h3>
+<h3 id="regional">Regional<a class="headerlink" href="#regional" title="Permanent link">¶</a></h3>
 <p><strong>Purpose:</strong> Placed primarily to connect communities / bridge gaps between parts of the mesh (it may also provide local coverage).<br>
 <strong>Rule:</strong> <strong>&lt;30 neighbors</strong>, and its <strong>primary intent/role</strong> is linking two (or a few) community areas.<br>
 <strong>Repeater IDs:</strong> Regional repeaters use the <strong>C Block</strong> of repeater IDs.<br>
 <strong>Typical hardware:</strong> Prefer <strong>full 1W</strong> units + <strong>Seeed 8 dBi antennas</strong> <em>(at a bare minimum: </em><em>Alfa 5.8 dBi</em><em>)</em>.</p>
-<p><strong>Examples:</strong>
-- TOO
-- NEW
-- SILO REPEATER
-- phr4</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>
+<p>TOO</p>
+</li>
+<li>
+<p>NEW</p>
+</li>
+<li>
+<p>SILO REPEATER</p>
+</li>
+<li>
+<p>phr4</p>
+</li>
+</ul>
 <hr>
-<h3 id="3-community">3) Community<a class="headerlink" href="#3-community" title="Permanent link">¶</a></h3>
+<h3 id="community">Community<a class="headerlink" href="#community" title="Permanent link">¶</a></h3>
 <p><strong>Purpose:</strong> Primarily for local coverage and capacity within one community/neighborhood area.<br>
 <strong>Rule:</strong> <strong>&lt;30 neighbors</strong>, and its primary intent/role is local service rather than bridging.<br>
 <strong>Typical hardware:</strong> Prefer <strong>0.3W</strong> units + <strong>Alfa 5.8 dBi antenna</strong>.</p>
-<p><strong>Examples:</strong>
-- MrAlders0n_R1
-- MrAlders0n_R5
-- MAY
-- VA3TEC_R1
-- NIS_RPTR1
-- TBRG_R2</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>
+<p>MrAlders0n_R1</p>
+</li>
+<li>
+<p>MrAlders0n_R5</p>
+</li>
+<li>
+<p>MAY</p>
+</li>
+<li>
+<p>VA3TEC_R1</p>
+</li>
+<li>
+<p>NIS_RPTR1</p>
+</li>
+<li>
+<p>TBRG_R2</p>
+</li>
+</ul>
 
 
 
