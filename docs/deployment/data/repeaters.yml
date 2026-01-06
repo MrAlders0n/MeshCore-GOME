@@ -1429,3 +1429,68 @@ repeaters:
     last_heard: 1767655018
     power_watt: null
 
+  - id: "a2"
+    name: "WW.R0"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+  - id: "fa"
+    name: "WW.R1"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+  - id: "8c"
+    name: "WW.R2"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+  - id: "6f"
+    name: "WW.R3"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+  - id: "63"
+    name: "WW.R4"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+  - id: "ba"
+    name: "WW.R5"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
