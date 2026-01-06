@@ -1396,17 +1396,6 @@ repeaters:
     last_heard: null
     power_watt: null
 
-  - id: "0C"
-    name: "FGR-1"
-    antenna: null
-    height_metre: null
-    location: "The Nation"
-    contact: "meshcore://contact/add?name=FGR-1&public_key=0CAFAF5BC6FDC7133CD57564F8922B7516C20C5EEC6EEADECA&type=2"
-    state: "Duplicate"
-    hex_id: "0CAFAF5BC6FDC7133CD57564F8922B7516C20C5EEC6EEADECA"
-    last_heard: 1767618321
-    power_watt: null
-
   - id: "8A"
     name: "Conroy Repeater"
     antenna: null
