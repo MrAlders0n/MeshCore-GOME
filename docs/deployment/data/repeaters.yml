@@ -1396,14 +1396,14 @@ repeaters:
     last_heard: null
     power_watt: null
 
-  - id: "8A"
+  - id: "66"
     name: "Conroy Repeater"
     antenna: null
     height_metre: null
-    location: "Ottawa"
-    contact: "meshcore://contact/add?name=Conroy%20Repeater&public_key=8AB01BF324F2DDB2205FC6C8F3C3A310FB3BA75E34AED9552E&type=2"
-    state: "Duplicate"
-    hex_id: "8AB01BF324F2DDB2205FC6C8F3C3A310FB3BA75E34AED9552E"
+    location: null
+    contact: null
+    state: "New"
+    hex_id: null
     last_heard: 1767640380
     power_watt: null
 
