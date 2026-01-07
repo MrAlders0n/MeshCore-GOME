@@ -11,7 +11,7 @@ Photos, technical notes, and installation details are provided for each site.
 
 **Location:** Old Ottawa South  
 **Type:** Solar-powered repeater  
-**Role:** Old Ottawa South Regional Repeater  
+**Role:** Old Ottawa South Community Repeater  
 **Antenna:** Alfa 5.8 dBi  
 **Height:** ~15 m  
 
@@ -44,7 +44,7 @@ Photos, technical notes, and installation details are provided for each site.
 
 **Location:** Ashton  
 **Type:** Solar-powered high-elevation repeater  
-**Role:** Western Wide Area Repeater  
+**Role:** Western Regional Repeater  
 **Antenna:** Seeed Studio RF Explorer 902–928 MHz 8 dBi (1300 mm)  
 **Height:** ~31 m  
 
@@ -65,7 +65,7 @@ Photos, technical notes, and installation details are provided for each site.
 
 **Location:** Valley View Grain Silo  
 **Type:** Solar-powered high-elevation repeater  
-**Role:** Western Wide Area Repeater  
+**Role:** Western Backbone Repeater  
 **Antenna:** Alfa Omni 5.8 dBi  
 **Height:** ~45 m  
 
@@ -90,7 +90,7 @@ Photos, technical notes, and installation details are provided for each site.
 
 **Location:** Kemptville region  
 **Type:** Solar-powered elevated home-mounted repeater  
-**Role:** Southern Wide Area Repeater  
+**Role:** Southern Regional Repeater  
 **Antenna:** TBD  
 **Height:** ~18 m  
 
@@ -128,7 +128,7 @@ Photos, technical notes, and installation details are provided for each site.
 
 **Location:** Kanata  
 **Type:** Solar-powered elevated home-mounted repeater  
-**Role:** Kanata Regional Repeater  
+**Role:** Kanata Community Repeater  
 **Antenna:** Alfa 5.8 dBi  
 **Height:** ~14 m  
 
@@ -146,7 +146,7 @@ Photos, technical notes, and installation details are provided for each site.
 
 **Location:** Orleans / Gloucester  
 **Type:** Mix of directional and omni installations  
-**Role:** East-end Wide Area Repeaters  
+**Role:** East-end Backbone Repeaters  
 
 *Photos:*  
 <!-- - ![AlxR1](./images/alxr1_placeholder.jpg)  -->
