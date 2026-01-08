@@ -271,7 +271,7 @@ repeaters:
     contact: "meshcore://contact/add?name=NIS-RPTR1&public_key=3E6E8B520F0F3B30F5D6BDEA4355F66289A6B51FD9307C5489&type=2"
     state: "Active"
     hex_id: "3E6E8B520F0F3B30F5D6BDEA4355F66289A6B51FD9307C5489"
-    last_heard: 1767865179
+    last_heard: 1767908378
     power_watt: "0.3"
 
   - id: "42"
@@ -293,7 +293,7 @@ repeaters:
     contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46322f039e3fbc63c3c810af4fa4589de360c4349d642f78c485ad182887a51c&type=2"
     state: "Active"
     hex_id: "46322F039E3FBC63C3C810AF4FA4589DE360C4349D642F78C4"
-    last_heard: 1767906557
+    last_heard: 1767910158
     power_watt: "0.3"
 
   - id: "47"
@@ -304,7 +304,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3HUP_DowsLake&public_key=47d004ded5f0bd0839ae60a33bfe724d3f30a4b66b3f7770d1b9a69a85940321&type=2"
     state: "Active"
     hex_id: "47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1"
-    last_heard: 1767897578
+    last_heard: 1767909458
     power_watt: "1.0"
 
   - id: "48"
@@ -337,7 +337,7 @@ repeaters:
     contact: "meshcore://contact/add?name=MrAlders0n_R2&public_key=4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929D&type=2"
     state: "Active"
     hex_id: "4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929D"
-    last_heard: 1767903529
+    last_heard: 1767907128
     power_watt: "0.3"
 
   - id: "4E"
@@ -348,7 +348,7 @@ repeaters:
     contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7&type=2"
     state: "Active"
     hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7"
-    last_heard: 1767906184
+    last_heard: 1767909784
     power_watt: "0.3"
 
   - id: "4F"
@@ -425,7 +425,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Tek_HV4_Repeater&public_key=678A01CA375E65B5AC42080C3D5727063F2A9213BD6EB2A88D16D8A74C134614&type=2"
     state: "Active"
     hex_id: "678A01CA375E65B5AC42080C3D5727063F2A9213BD6EB2A88D"
-    last_heard: 1767895914
+    last_heard: 1767906711
     power_watt: "0.6"
 
   - id: "68"
@@ -447,7 +447,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Zaffman_R1&public_key=6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2&type=2"
     state: "Active"
     hex_id: "6A409EEB29368D776574419D54D255D1C1F6BC130AD20A06A2"
-    last_heard: 1767821894
+    last_heard: 1767908296
     power_watt: "0.3"
 
   - id: "74"
@@ -623,7 +623,7 @@ repeaters:
     contact: "meshcore://contact/add?name=CAN_SOLAR_R&public_key=921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF&type=2"
     state: "Active"
     hex_id: "921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF"
-    last_heard: 1767906036
+    last_heard: 1767909637
     power_watt: "0.3"
 
   - id: "99"
@@ -1287,14 +1287,14 @@ repeaters:
     power_watt: null
 
   - id: "6B"
-    name: "Silo Repeater"
+    name: "Silo Repeater OG"
     antenna: null
     height_metre: null
     location: "Alfred and Plantagenet"
-    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
+    contact: "meshcore://contact/add?name=Silo%20Repeater%20OG&public_key=6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E&type=2"
     state: "New"
     hex_id: "6BF4343724D8A9201859E29FC9106D95D64A56043826E5B91E"
-    last_heard: 1767903835
+    last_heard: 1767907435
     power_watt: "0.3"
 
   - id: "85"
@@ -1327,7 +1327,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Queenswood%20Heights%20RS&public_key=BEFDE828CDDD05480654DF6B8DC6ED7516FDF6AF7BA0CA8B92&type=2"
     state: "New"
     hex_id: "BEFDE828CDDD05480654DF6B8DC6ED7516FDF6AF7BA0CA8B92"
-    last_heard: 1767905313
+    last_heard: 1767908913
     power_watt: null
 
   - id: "15"
@@ -1514,6 +1514,17 @@ repeaters:
     contact: "meshcore://contact/add?name=Shai-Hulud&public_key=9C5FDBF2DA54285CF2CA9424C2ADDAF6AF996F5F0A1F2E354C&type=2"
     state: "New"
     hex_id: "9C5FDBF2DA54285CF2CA9424C2ADDAF6AF996F5F0A1F2E354C"
-    last_heard: 1767904651
+    last_heard: 1767908250
+    power_watt: null
+
+  - id: "B6"
+    name: "Silo Repeater"
+    antenna: null
+    height_metre: null
+    location: "Alfred and Plantagenet"
+    contact: "meshcore://contact/add?name=Silo%20Repeater&public_key=B6670B0D4BC3C57326547E254564812F186E1646E27B97E1D5&type=2"
+    state: "New"
+    hex_id: "B6670B0D4BC3C57326547E254564812F186E1646E27B97E1D5"
+    last_heard: 1767907130
     power_watt: null
 
