@@ -27,6 +27,11 @@ def define_env(env):
     data = yaml.safe_load(data_path.read_text(encoding="utf-8"))
     repeaters = data.get("repeaters", [])
 
+    # Calculate 7 days ago timestamp for inactive detection
+    from datetime import timedelta
+    current_time = datetime.now()
+    seven_days_ago = current_time - timedelta(days=7)
+
     # Count occurrences of each ID (uppercase for consistency)
     id_list = [str(r["id"]).upper() for r in repeaters if "id" in r]
     id_counts = Counter(id_list)
@@ -55,8 +60,18 @@ def define_env(env):
             location = r.get("location", "N/A")
             height_metre = r.get("height_metre", "")
             power_watt = r.get("power_watt", "")
-            last_heard = epoch_to_date(r.get("last_heard"))
+            last_heard_epoch = r.get("last_heard")
+            last_heard = epoch_to_date(last_heard_epoch)
             contact_url = r. get("contact", "")
+            
+            # Determine if inactive (not heard in 7+ days)
+            is_inactive = False
+            if last_heard_epoch:
+                try:
+                    last_heard_dt = datetime.fromtimestamp(int(last_heard_epoch))
+                    is_inactive = last_heard_dt < seven_days_ago
+                except (ValueError, TypeError):
+                    pass
             
             # If duplicate, store in a list
             if rid not in repeater_info:
@@ -69,7 +84,8 @@ def define_env(env):
                 "height_metre":  height_metre,
                 "power_watt": power_watt,
                 "last_heard":  last_heard,
-                "contact_url": contact_url
+                "contact_url": contact_url,
+                "is_inactive": is_inactive
             })
 
     # Reserved IDs by MeshCore (always reserved, regardless of YAML)
@@ -124,17 +140,26 @@ def define_env(env):
             elif cell_id in duplicate_ids: 
                 # DUPLICATES TAKE PRIORITY - even over backbone reserved
                 css_class = "hex-duplicate"
+                # Check if any instance is inactive
+                if any(info.get("is_inactive") for info in repeater_info[cell_id]):
+                    css_class += " hex-inactive"
                 # Escape quotes in JSON data
                 info_json = json.dumps(repeater_info[cell_id]).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showDuplicateInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
             elif cell_id in backbone_reserved_ids:
-                css_class = "hex-backbone"
                 info = repeater_info[cell_id][0]
+                css_class = "hex-backbone"
+                # Add inactive class if backbone repeater hasn't been heard in 7+ days
+                if info.get("is_inactive"):
+                    css_class += " hex-inactive"
                 info_json = json.dumps(info).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showBackboneInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
             elif cell_id in used_ids: 
-                css_class = "hex-used"
                 info = repeater_info[cell_id][0]
+                css_class = "hex-used"
+                # Add inactive class if repeater hasn't been heard in 7+ days
+                if info.get("is_inactive"):
+                    css_class += " hex-inactive"
                 info_json = json.dumps(info).replace('"', '&quot;')
                 html_table += f'    <td class="{css_class}" onclick=\'showRepeaterInfo("{cell_id}", {info_json})\'><span class="hex-clickable">{cell_id}</span></td>\n'
             else:

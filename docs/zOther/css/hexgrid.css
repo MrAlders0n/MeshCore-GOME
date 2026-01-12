@@ -89,6 +89,12 @@
   cursor: pointer;
 }
 
+/* Inactive state - dimmed color for repeaters not heard in 7+ days */
+#repeater-hex-grid td.hex-inactive {
+  opacity: 0.5 !important;
+  filter: grayscale(40%) !important;
+}
+
 /* Dimmed/highlighted states for search */
 #repeater-hex-grid td.hex-dimmed {
   opacity: 0.2;
