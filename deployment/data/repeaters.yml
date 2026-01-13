@@ -351,17 +351,6 @@ repeaters:
     last_heard: 1768259302
     power_watt: "0.3"
 
-  - id: "4F"
-    name: "ElDoc_Temp_R"
-    antenna: "Log Periodic"
-    height_metre: "7"
-    location: "Cumberland  - Indoors"
-    contact: "meshcore://contact/add?name=ElDoc_Temp_R&public_key=4FCDB1CF17476A0F6E2F3564925BDE7269F71F7B80544152CFA08DCE9CAC3865&type=2"
-    state: "Unknown"
-    hex_id: null
-    last_heard: null
-    power_watt: null
-
   - id: "50"
     name: "WTE5 TRASH"
     antenna: null
