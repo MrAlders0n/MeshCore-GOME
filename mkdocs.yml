@@ -7,7 +7,6 @@ repo_url:  https://github.com/MrAlders0n/MeshCore-NCR
 # Navigation Structure
 nav:
   - Home:  index.md
-  - RID: rid.md
   
   - Community:
       - Goals: community/goals.md
@@ -78,7 +77,6 @@ plugins:
   - macros
   - glightbox:
       touchNavigation: true
-  - not_in_nav
 
 # Extra JavaScript
 extra_javascript:
