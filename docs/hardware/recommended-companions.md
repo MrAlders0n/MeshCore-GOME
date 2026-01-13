@@ -26,6 +26,9 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 
 The following pre-built companion nodes are popular and widely available:
 
+!!! warning "Aliexpress bundles"
+   
+
 | Product            | Notes | Link |
 |--------------------|-------|------|
 | **ThinkNode M1** | Compact device powered by the nRF52840 with a 1.54" screen and GPS support. Designed as a ready-to-use companion node for reliable messaging and tracking. **Note:** Has RP-SMA connector - See SMA vs. RP-SMA warning above. | [Elecrow](https://www.elecrow.com/thinknode-m1-meshtastic-lora-signal-transceiver-powered-by-nrf52840-with-154-screen-support-gps.html) |
@@ -46,10 +49,10 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 
 | Item         | Product Name                  | Cost (CAD) | Link |
 |--------------|-------------------------------|------------|------|
-| **LoRa Board** | Heltek T114 (Bundle with screen & case) | $48.18 | [AliExpress](https://www.aliexpress.com/item/1005007916299029.html) |
+| **LoRa Board** | Heltek T114 (Bundle with screen & case) | $54.38 | [AliExpress](https://www.aliexpress.com/item/1005007916299029.html) **Note:** Aliexpress usually shows the cheapest items (e.g., only the GPS module) when opening their links. Make sure you select the right bundle when adding to your cart.|
 | **Battery**   | Makerfocus 3.7V 3000mAh LiPo | $10.00     | [MakerFocus](https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4?variant=44823607541998) |
 
-*Approximate total cost (excluding antenna): **$58.18 CAD***  
+*Approximate total cost (excluding antenna): **$64.38 CAD***  
 
 For 3D-printable cases, check out **[Alley Cat’s models](https://www.printables.com/@AlleyCat/models)** — they are excellent for custom companion node builds.
 
