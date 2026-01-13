@@ -1,5 +1,8 @@
 ---
 title: Redirecting…
+hide:
+  - navigation
+  - toc
 ---
 
 If you are not redirected automatically, go here:
