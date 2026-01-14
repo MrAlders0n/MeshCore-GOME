@@ -802,17 +802,6 @@ repeaters:
     last_heard: 1768194062
     power_watt: "0.3"
 
-  - id: "E4"
-    name: "Vanier East R3"
-    antenna: null
-    height_metre: null
-    location: "Vanier"
-    contact: "meshcore://contact/add?name=Vanier%20East%20R3&public_key=e4c361f1d3a5bd94a7c914f8a02f4abe1adcd1a12ee67f9037174069bf5adcd2&type=2"
-    state: "Active"
-    hex_id: "E4C361F1D3A5BD94A7C914F8A02F4ABE1ADCD1A12EE67F9037"
-    last_heard: 1767365588
-    power_watt: "0.3"
-
   - id: "EC"
     name: "MAG 101"
     antenna: null
