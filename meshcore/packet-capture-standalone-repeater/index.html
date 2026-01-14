@@ -1959,7 +1959,8 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 <li>Basic familiarity with the <a href="https://flasher.meshcore.co.uk">MeshCore Flasher</a> tool  </li>
 </ul>
 <h2 id="firmware-download">Firmware Download<a class="headerlink" href="#firmware-download" title="Permanent link">¶</a></h2>
-<p><strong>HeltekV3 MQTT Repeater Firmware 1.11.0</strong> <a href="../firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0.bin">Download Link</a> <strong>Tested on: 2025-12-13</strong>&amp;</p>
+<p><strong>HeltekV3 MQTT Repeater Firmware 1.11.0</strong> <a href="../firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0.bin">Download Link</a> <strong>Tested on: 2025-12-13</strong>&amp;
+<strong>HeltekV4 MQTT Repeater Firmware 1.11.0</strong> <a href="../firmware/Heltek_v4_Repeater_MQTT_Bridge_1.11.0.bin">Download Link</a> <strong>Tested on: 2025-12-15</strong></p>
 <h2 id="firmware-installation">Firmware Installation<a class="headerlink" href="#firmware-installation" title="Permanent link">¶</a></h2>
 <ol>
 <li>
@@ -1987,7 +1988,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 <p>Click <strong>Custom Firmware</strong>  </p>
 </li>
 <li>
-<p>Select the HeltekV3 MQTT Repeater firmware you downloaded in step 1.  </p>
+<p>Select the Heltek MQTT Repeater firmware you downloaded in step 1.  </p>
 </li>
 <li>
 <p><strong>Do NOT click Erase Device</strong> — if you erase here, the firmware will not boot.  </p>
@@ -2014,10 +2015,10 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 <p>Open <a href="https://flasher.meshcore.co.uk/">MeshCore Flasher</a>, click <strong>Console</strong>, and select the serial device for your repeater.  </p>
 </li>
 <li>
-<p>Run the following command, replacing <code>PRIVATE-KEY</code> with your generated key:
-    <code>set prv.key &lt;PRIVATE-KEY&gt;</code></p>
-<p>If you get a error, run this command first, then re-run step 5:
-<code>get prv.key</code></p>
+<p>Run the following command, replacing <code>PRIVATE-KEY</code> with your generated key:</p>
+<p><code>set prv.key &lt;PRIVATE-KEY&gt;</code></p>
+<p>If you get a error, run this command first, then re-run step 5:</p>
+<p><code>get prv.key</code></p>
 </li>
 <li>
 <p>Configure the repeater name using the Ottawa naming convention (<code>YOW_Location</code>):  </p>
@@ -2051,7 +2052,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 </li>
 <li>
 <p>Configure the radio settings</p>
-<p><code>set radio 510.525,62.5,7,5</code></p>
+<p><code>set radio 910.525,62.5,7,5</code></p>
 </li>
 <li>
 <p>Set the admin password</p>
