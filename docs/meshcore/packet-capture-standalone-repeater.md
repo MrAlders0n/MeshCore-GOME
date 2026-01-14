@@ -29,6 +29,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 ## Firmware Download
 
 **HeltekV3 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0.bin) **Tested on: 2025-12-13**&
+**HeltekV4 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v4_Repeater_MQTT_Bridge_1.11.0.bin) **Tested on: 2025-12-15**
 
 ## Firmware Installation
 
@@ -48,7 +49,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 8. Click **Custom Firmware**  
 
-9. Select the HeltekV3 MQTT Repeater firmware you downloaded in step 1.  
+9. Select the Heltek MQTT Repeater firmware you downloaded in step 1.  
 
 10. **Do NOT click Erase Device** — if you erase here, the firmware will not boot.  
 
@@ -67,10 +68,16 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 4. Open [MeshCore Flasher](https://flasher.meshcore.co.uk/), click **Console**, and select the serial device for your repeater.  
 
 5. Run the following command, replacing ```PRIVATE-KEY``` with your generated key:
-    ```set prv.key <PRIVATE-KEY>```
+
+    ```
+    set prv.key <PRIVATE-KEY>
+    ```
 
     If you get a error, run this command first, then re-run step 5:
-    ```get prv.key```
+
+    ```
+    get prv.key
+    ```
 
 6. Configure the repeater name using the Ottawa naming convention (```YOW_Location```):  
 
@@ -122,7 +129,7 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 3. Configure the radio settings
 
     ```
-   set radio 510.525,62.5,7,5
+   set radio 910.525,62.5,7,5
     ```
 
 4. Set the admin password
