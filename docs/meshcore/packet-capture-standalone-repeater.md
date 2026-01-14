@@ -28,8 +28,8 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 ## Firmware Download
 
-**HeltekV3 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0.bin) **Tested on: 2025-12-13**&
-**HeltekV4 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v4_Repeater_MQTT_Bridge_1.11.0.bin) **Tested on: 2025-12-15**
+**HeltekV3 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0-20250113.bin) **Tested on: 2025-12-13**&
+**HeltekV4 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v4_Repeater_MQTT_Bridge_1.11.0-20250113.bin) **Tested on: 2025-12-15**
 
 ## Firmware Installation
 
