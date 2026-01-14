@@ -27,6 +27,7 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 The following pre-built companion nodes are popular and widely available:
 
 !!! warning "Aliexpress bundles"
+    Aliexpress usually shows the cheapest items (e.g., only the GPS module) when opening their links. Make sure you select the right bundle when adding to your cart.
    
 
 | Product            | Notes | Link |
@@ -49,7 +50,7 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 
 | Item         | Product Name                  | Cost (CAD) | Link |
 |--------------|-------------------------------|------------|------|
-| **LoRa Board** | Heltek T114 (Bundle with screen & case) | $54.38 | [AliExpress](https://www.aliexpress.com/item/1005007916299029.html) **Note:** Aliexpress usually shows the cheapest items (e.g., only the GPS module) when opening their links. Make sure you select the right bundle when adding to your cart.|
+| **LoRa Board** | Heltek T114 (Bundle with screen & case) | $54.38 | [AliExpress](https://www.aliexpress.com/item/1005007916299029.html)|
 | **Battery**   | Makerfocus 3.7V 3000mAh LiPo | $10.00     | [MakerFocus](https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4?variant=44823607541998) |
 
 *Approximate total cost (excluding antenna): **$64.38 CAD***  
