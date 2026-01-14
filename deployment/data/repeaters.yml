@@ -153,17 +153,6 @@ repeaters:
     last_heard: 1768310389
     power_watt: "0.3"
 
-  - id: "28"
-    name: "Juno_REP"
-    antenna: null
-    height_metre: null
-    location: "Barrhaven"
-    contact: "meshcore://contact/add?name=Juno_REP&public_key=283AF70DBE2D62CFC8281C64ECC48ABF5748F773CB69B47A7F1A8E18D0FF179A&type=2"
-    state: "Active"
-    hex_id: "283af70dbe2d"
-    last_heard: 1766418819
-    power_watt: null
-
   - id: "2D"
     name: "HappyR1"
     antenna: null
@@ -174,17 +163,6 @@ repeaters:
     hex_id: "2DEB5C1040DB0243A0B298CC4FD0B96CE24C2E44ACFEBB6230"
     last_heard: 1768076819
     power_watt: "0.3"
-
-  - id: "2E"
-    name: "loug_2e"
-    antenna: "Alfa Omni 5.8dBi"
-    height_metre: "18"
-    location: "Baseline & Greenbank"
-    contact: null
-    state: "Unknown"
-    hex_id: null
-    last_heard: null
-    power_watt: null
 
   - id: "30"
     name: "MrAlders0n_R4"
@@ -736,17 +714,6 @@ repeaters:
     last_heard: 1767733827
     power_watt: null
 
-  - id: "C4"
-    name: "YOW_Orleans_AR1"
-    antenna: null
-    height_metre: null
-    location: "Orleans"
-    contact: "meshcore://contact/add?name=YOW_Orleans_AR1&public_key=C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92FF037CCE7BF06AD&type=2"
-    state: "Observer"
-    hex_id: "C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92F"
-    last_heard: 1767305191
-    power_watt: null
-
   - id: "C9"
     name: "MrAlders0n_Drone"
     antenna: "Gizont 167mm Whip"
@@ -922,17 +889,6 @@ repeaters:
     hex_id: "ffca1e2ceeb8"
     last_heard: 1766348440
     power_watt: null
-
-  - id: "1B"
-    name: "Inured Repeater 3"
-    antenna: null
-    height_metre: null
-    location: "Laurentian View"
-    contact: "meshcore://contact/add?name=Inured%20Repeater%203&public_key=1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714&type=2"
-    state: "New"
-    hex_id: "1B58C2B83AF239DD68808E8F8BF7463C4B985812E39F032714"
-    last_heard: 1767083051
-    power_watt: "0.3"
 
   - id: "5B"
     name: "Baby Jesus"
@@ -1297,17 +1253,6 @@ repeaters:
     last_heard: 1768335558
     power_watt: null
 
-  - id: "F1"
-    name: "YOW_Alx_Mob_Rpt_2"
-    antenna: null
-    height_metre: null
-    location: null
-    contact: "meshcore://contact/add?name=YOW_Alx_Mob_Rpt_2&public_key=F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265&type=2"
-    state: "New"
-    hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265"
-    last_heard: 1767710329
-    power_watt: null
-
   - id: "BE"
     name: "Queenswood Heights RS"
     antenna: null
@@ -1330,17 +1275,6 @@ repeaters:
     last_heard: 1768275924
     power_watt: "0.3"
 
-  - id: "5F"
-    name: "VTinker"
-    antenna: null
-    height_metre: null
-    location: "Vanier"
-    contact: "meshcore://contact/add?name=VTinker&public_key=5FB66C4D05201A82EDA3A7E84B1D43315069E373F05B0BBCE4&type=2"
-    state: "New"
-    hex_id: "5FB66C4D05201A82EDA3A7E84B1D43315069E373F05B0BBCE4"
-    last_heard: 1767437235
-    power_watt: null
-
   - id: "5C"
     name: "OOS BBS"
     antenna: null
@@ -1351,17 +1285,6 @@ repeaters:
     hex_id: "5C6717EE137C00B933BD8EB13173F5D00F2F88FEC2F4849783"
     last_heard: 1768327597
     power_watt: null
-
-  - id: "8E"
-    name: "HX_R3"
-    antenna: null
-    height_metre: null
-    location: "Gatineau"
-    contact: "meshcore://contact/add?name=HX_R3&public_key=8E89F1681E9E180EEC43A2C48AADA8A52A1FF812C425A0BDA2&type=2"
-    state: "Duplicate"
-    hex_id: "8E89F1681E9E180EEC43A2C48AADA8A52A1FF812C425A0BDA2"
-    last_heard: 1767889004
-    power_watt: "0.3"
 
   - id: "5B"
     name: "YOW_Marlborough"
@@ -1537,17 +1460,6 @@ repeaters:
     state: "Duplicate"
     hex_id: "8EE93B765DC1019FDFE4AF7D7B69562C75ABA21BB88A092175"
     last_heard: 1768133965
-    power_watt: null
-
-  - id: "CD"
-    name: "Inured Repeater 4"
-    antenna: null
-    height_metre: null
-    location: "Barrhaven West"
-    contact: "meshcore://contact/add?name=Inured%20Repeater%204&public_key=CD06508D396A66CB3CF522EB26459840B9093A167B8FD89D66&type=2"
-    state: "Duplicate"
-    hex_id: "CD06508D396A66CB3CF522EB26459840B9093A167B8FD89D66"
-    last_heard: 1768116738
     power_watt: null
 
   - id: "2E"
