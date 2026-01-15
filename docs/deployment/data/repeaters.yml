@@ -1605,3 +1605,15 @@ repeaters:
     last_heard: null
     power_watt: null
 
+  - id: "f9"
+    name: "PMStan Winchester"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: ""
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+
