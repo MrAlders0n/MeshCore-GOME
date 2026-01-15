@@ -3,7 +3,7 @@
 Most LoRa devices ship with a very basic factory antenna that performs poorly.  
 The Ottawa mesh community has tested many replacements, and the antennas below are highly recommended as reliable upgrades.
 
-!!! warning "Disconnect device to power before swapping an antenna!"
+!!! warning "Swapping Antennas"
     Make sure your device is disconnected to power/battery when swapping an antenna. Since these devices can transmit radio signals, turning on a device without an antenna can damage it. [See more information here.](https://electronics.stackexchange.com/questions/335912/can-i-break-a-radio-tranceiving-device-by-operating-it-with-no-antenna-connected)
 
 ## Companion Antennas
