@@ -714,17 +714,6 @@ repeaters:
     last_heard: 1767733827
     power_watt: null
 
-  - id: "C9"
-    name: "MrAlders0n_Drone"
-    antenna: "Gizont 167mm Whip"
-    height_metre: null
-    location: "Everywhere"
-    contact: null
-    state: "Active"
-    hex_id: null
-    last_heard: null
-    power_watt: null
-
   - id: "CF"
     name: "SVIL_R1"
     antenna: null
@@ -1527,18 +1516,7 @@ repeaters:
     hex_id: "C427B10D4E3D08592551CBF7BEAF4C3703D3A0A9FF49BDB92F"
     last_heard: 1767305191
     power_watt: null
-
-  - id: "CD"
-    name: "Inured Repeater 4"
-    antenna: null
-    height_metre: null
-    location: "Barrhaven West"
-    contact: "meshcore://contact/add?name=Inured%20Repeater%204&public_key=CD06508D396A66CB3CF522EB26459840B9093A167B8FD89D66&type=2"
-    state: "Duplicate"
-    hex_id: "CD06508D396A66CB3CF522EB26459840B9093A167B8FD89D66"
-    last_heard: 1768116738
-    power_watt: null
-
+    
   - id: "3A"
     name: "Inured Repeater 4"
     antenna: null
