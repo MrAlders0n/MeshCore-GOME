@@ -725,17 +725,6 @@ repeaters:
     last_heard: null
     power_watt: null
 
-  - id: "CC"
-    name: "Vanier East R1"
-    antenna: "Alfa Omni 5.8dBi"
-    height_metre: "45"
-    location: "Vanier  - Balcony railing facing NW"
-    contact: "meshcore://contact/add?name=Vanier%20East%20R1&public_key=ccef942235d61d1cf094fecc235eae3f10d7e407b69a3463a5f3837d591ecdb0&type=2"
-    state: "Active"
-    hex_id: "CCBEABBE3774EDBAC849728338A68F521E1F2D7D6CEF89B493"
-    last_heard: 1768423716
-    power_watt: "0.3"
-
   - id: "CF"
     name: "SVIL_R1"
     antenna: null
