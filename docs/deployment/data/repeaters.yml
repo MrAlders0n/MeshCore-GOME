@@ -1594,3 +1594,13 @@ repeaters:
     last_heard: 1768426218
     power_watt: null
 
+  - id: "AA"
+    name: "Mack7400"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: ""
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
