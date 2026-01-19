@@ -254,8 +254,8 @@ repeaters:
 
   - id: "42"
     name: "EZ Repeater"
-    antenna: null
-    height_metre: null
+    antenna: "Alfa Omni 5.8dBi"
+    height_metre: "5.0"
     location: "Richmond"
     contact: "meshcore://contact/add?name=EZ%20Repeater&public_key=4226EAAF38AAF479F35572C3D376B872309D72D33B56DDB91D8494F47845EBCD&type=2"
     state: "Active"
