@@ -41,7 +41,7 @@ The following pre-built companion nodes are popular and widely available:
 
 ### Build Your Own
 
-For hobbyists who like to source parts and assemble their own node, here is an Ottawa-friendly example build (antenna not included; see recommendations above).
+For hobbyists who like to source parts and assemble their own node, here is an Ottawa-friendly example build (antenna not included; see [Recommended Antennas](recommended-antenna.md)).
 
 This is a **companion node** role and requires a smartphone.  
 The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is used to send and receive messages on the mesh.
@@ -52,6 +52,7 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 |--------------|-------------------------------|------------|------|
 | **LoRa Board** | Heltek T114 (Bundle with screen & case) | $54.38 | [AliExpress](https://www.aliexpress.com/item/1005007916299029.html)|
 | **Battery**   | Makerfocus 3.7V 3000mAh LiPo - (Pack of 4), Micro JST 1.5 connection with protection board | $24.99     | [MakerFocus](https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4?variant=44823607541998) |
+| **Antenna** | Gizont 167CM 915MHz SMA M |$6.37 | [AliExpress](https://www.aliexpress.com/item/1005004607615001.html) (Make sure you select the right antenna when opening the link)
 
 *Approximate total cost (excluding antenna): **$64.38 CAD***  Prices will vary, so please confirm with links. MakerFocus batteries are shipped from China with no duties.
 
