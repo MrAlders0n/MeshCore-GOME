@@ -1737,3 +1737,26 @@ repeaters:
     last_heard: 1769196468
     power_watt: null
 
+  - id: "bb"
+    name: "dowjames_solar"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+  - id: "bc"
+    name: "YOW_Cornwall"
+    antenna: null
+    height_metre: null
+    location: null
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+
