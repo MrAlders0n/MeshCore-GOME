@@ -534,9 +534,15 @@ jobs:
             ---
             _Generated automatically by the sync workflow._
 
-      - name: Enable Auto-merge (only if no duplicates)
-        if: steps.sync.outputs.has_changes == 'true'
+      - name: Auto-merge PR (only if no duplicates)
+        if: steps.sync.outputs.has_changes == 'true' && steps.sync.outputs.has_duplicates != 'true'
         run: |
-          gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --auto --squash
+          # Wait a moment for PR to be fully created
+          sleep 5
+          # Try to enable auto-merge (requires branch protection), or directly merge if that's not available
+          if ! gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash --auto 2>/dev/null; then
+            echo "Auto-merge not available (branch protection not configured), attempting direct merge..."
+            gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash
+          fi
         env:
-          GH_TOKEN: ${{ secrets. GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
