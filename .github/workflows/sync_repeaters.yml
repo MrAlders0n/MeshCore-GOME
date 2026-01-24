@@ -540,7 +540,9 @@ jobs:
           # Wait a moment for PR to be fully created
           sleep 5
           # Try to enable auto-merge (requires branch protection), or directly merge if that's not available
-          gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash --auto || \
-          gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash
+          if ! gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash --auto 2>/dev/null; then
+            echo "Auto-merge not available (branch protection not configured), attempting direct merge..."
+            gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash
+          fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
