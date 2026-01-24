@@ -537,10 +537,10 @@ jobs:
       - name: Auto-merge PR (only if no duplicates)
         if: steps.sync.outputs.has_changes == 'true' && steps.sync.outputs.has_duplicates != 'true'
         run: |
-          # Wait a moment for PR checks to start
+          # Wait a moment for PR to be fully created
           sleep 5
-          # Directly merge the PR since there are no duplicates
+          # Try to enable auto-merge (requires branch protection), or directly merge if that's not available
           gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash --auto || \
-          gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash --merge
+          gh pr merge ${{ steps.create_pr.outputs.pull-request-number }} --squash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
