@@ -50,11 +50,11 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 
 | Item         | Product Name                  | Cost (CAD) | Link |
 |--------------|-------------------------------|------------|------|
-| **LoRa Board** | Heltek T114 (Bundle with screen & case) | $54.38 | [AliExpress](https://www.aliexpress.com/item/1005007916299029.html)|
-| **Battery**   | Makerfocus 3.7V 3000mAh LiPo - (Pack of 4), Micro JST 1.5 connection with protection board | $24.99     | [MakerFocus](https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4?variant=44823607541998) |
+| **LoRa Board** | Heltek T114 (Bundle with screen & case) | $53.68 | [AliExpress](https://www.aliexpress.com/item/1005007916299029.html)|
+| **Battery**   | Makerfocus 3.7V 3000mAh LiPo - (Pack of 4), Micro JST 1.5 connection with protection board | $34.10     | [MakerFocus](https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4?variant=44823607541998) |
 | **Antenna** | Gizont 167CM 915MHz SMA M |$6.37 | [AliExpress](https://www.aliexpress.com/item/1005004607615001.html) (Make sure you select the right antenna when opening the link)
 
-*Approximate total cost (excluding antenna): **$64.38 CAD***  Prices will vary, so please confirm with links. MakerFocus batteries are shipped from China with no duties.
+*Approximate total cost (excluding antenna): **$87.88 CAD***  Prices will vary, so please confirm with links. MakerFocus batteries are shipped from China with no duties. 
 
 For 3D-printable cases, check out **[Alley Cat’s models](https://www.printables.com/@AlleyCat/models)** — they are excellent for custom companion node builds.
 
