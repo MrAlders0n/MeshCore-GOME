@@ -1462,17 +1462,6 @@ repeaters:
     last_heard: 1768426218
     power_watt: null
 
-  - id: "AA"
-    name: "Mack7400"
-    antenna: null
-    height_metre: null
-    location: null
-    contact: ""
-    state: "Reserved"
-    hex_id: null
-    last_heard: null
-    power_watt: null
-
   - id: "f9"
     name: "PMStan Winchester"
     antenna: null
@@ -1526,17 +1515,6 @@ repeaters:
     state: "Duplicate"
     hex_id: "CC50C05442611798681C92C973401593923C49454F843815D2BEF39B3EEE4A27"
     last_heard: 1769561171
-    power_watt: null
-
-  - id: "1A"
-    name: "Heltec Repeater"
-    antenna: null
-    height_metre: null
-    location: null
-    contact: "meshcore://contact/add?name=Heltec%20Repeater&public_key=1AF105DD99F8046B4F9809B51C70FCC814C656013E914037D3&type=2"
-    state: "New"
-    hex_id: "1AF105DD99F8046B4F9809B51C70FCC814C656013E914037D3"
-    last_heard: 1768617603
     power_watt: null
 
   - id: "56"
@@ -1605,28 +1583,6 @@ repeaters:
     last_heard: 1769549083
     power_watt: null
 
-  - id: "0F"
-    name: "Split RX"
-    antenna: null
-    height_metre: null
-    location: "Alfred and Plantagenet"
-    contact: "meshcore://contact/add?name=Split%20RX&public_key=0F4CD775459B241456563BBF0107A1D2410D162502323ADC2B7E90D00485E751&type=2"
-    state: "New"
-    hex_id: "0F4CD775459B241456563BBF0107A1D2410D162502323ADC2B7E90D00485E751"
-    last_heard: 1769453902
-    power_watt: null
-
-  - id: "34"
-    name: "Split TX"
-    antenna: null
-    height_metre: null
-    location: "Alfred and Plantagenet"
-    contact: "meshcore://contact/add?name=Split%20TX&public_key=34AF8D3D0B6055749848D9054AB7281F5B88EB495150079B075D393811140AFA&type=2"
-    state: "New"
-    hex_id: "34AF8D3D0B6055749848D9054AB7281F5B88EB495150079B075D393811140AFA"
-    last_heard: 1769551400
-    power_watt: null
-
   - id: "A0"
     name: "AlxRak1WSol2"
     antenna: null
@@ -1660,17 +1616,6 @@ repeaters:
     last_heard: 1769565477
     power_watt: null
 
-  - id: "1A"
-    name: "Split RX"
-    antenna: null
-    height_metre: null
-    location: null
-    contact: "meshcore://contact/add?name=Split%20RX&public_key=1ACD99CFA2E0A4B4C583C69F58D2DD014460F161535C4E97B654CDF443B54340&type=2"
-    state: "Duplicate"
-    hex_id: "1ACD99CFA2E0A4B4C583C69F58D2DD014460F161535C4E97B654CDF443B54340"
-    last_heard: 1769387558
-    power_watt: null
-
   - id: "AA"
     name: "Tanglewood_R1"
     antenna: null
@@ -1682,14 +1627,4 @@ repeaters:
     last_heard: 1769389869
     power_watt: null
 
-  - id: "47"
-    name: "Split RX"
-    antenna: null
-    height_metre: null
-    location: null
-    contact: "meshcore://contact/add?name=Split%20RX&public_key=47E757FF38960C38FB0CCF8FA268B1B68AEFDAFD4E317D93BEAFB83676665E89&type=2"
-    state: "Duplicate"
-    hex_id: "47E757FF38960C38FB0CCF8FA268B1B68AEFDAFD4E317D93BEAFB83676665E89"
-    last_heard: 1769393772
-    power_watt: null
 
