@@ -1951,14 +1951,16 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode</strong> again, then click <strong>Flash</strong>.</p>
 <hr>
 <h2 id="configuring-a-meshcore-repeater">Configuring a MeshCore Repeater<a class="headerlink" href="#configuring-a-meshcore-repeater" title="Permanent link">¶</a></h2>
-<ol>
-<li>Using a Chromium-based browser that supports the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility">required serial connection</a> (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:<br>
-<a href="https://config.meshcore.dev">https://config.meshcore.dev</a></li>
-</ol>
 <p><strong>Note:</strong><br>
-   If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.</p>
+If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.</p>
 <ol>
-<li>Connect to your repeater and note the <strong>Repeater ID</strong> shown in the tool.</li>
+<li>
+<p>Using a Chromium-based browser that supports the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility">required serial connection</a> (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:<br>
+<a href="https://config.meshcore.dev">https://config.meshcore.dev</a></p>
+</li>
+<li>
+<p>Connect to your repeater and note the <strong>Repeater ID</strong> shown in the tool.</p>
+</li>
 <li>The Repeater ID is derived from the keypair (it corresponds to the <strong>first byte / first two hex characters</strong> of the repeater’s key).  </li>
 <li>
 <p>Because there are only <strong>256 possible IDs</strong>, overlaps become more likely as the network grows—especially when keys are generated automatically during flashing.</p>
