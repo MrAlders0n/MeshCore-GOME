@@ -43,11 +43,11 @@ If flashing fails after erasing, refresh the page, click **Enter DFU Mode** agai
 
 ## Configuring a MeshCore Repeater
 
+**Note:**  
+If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.
+
 1. Using a Chromium-based browser that supports the [required serial connection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility) (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:  
    <https://config.meshcore.dev>
-
-   **Note:**  
-   If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.
 
 2. Connect to your repeater and note the **Repeater ID** shown in the tool.
    - The Repeater ID is derived from the keypair (it corresponds to the **first byte / first two hex characters** of the repeater’s key).  
