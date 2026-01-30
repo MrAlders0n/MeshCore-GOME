@@ -1254,10 +1254,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flashing-meshcore-repeater-firmware" class="md-nav__link">
+  <a href="#flashing-meshcore-repeater-firmware-usb-recommended-route" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flashing MeshCore Repeater Firmware
+        Flashing MeshCore Repeater Firmware - USB (Recommended Route)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flashing-meshcore-repeater-firmware-over-the-air-ota-non-recommended-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing MeshCore Repeater Firmware - Over-the-air (OTA) - Non Recommended Route
       
     </span>
   </a>
@@ -1836,10 +1847,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flashing-meshcore-repeater-firmware" class="md-nav__link">
+  <a href="#flashing-meshcore-repeater-firmware-usb-recommended-route" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flashing MeshCore Repeater Firmware
+        Flashing MeshCore Repeater Firmware - USB (Recommended Route)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flashing-meshcore-repeater-firmware-over-the-air-ota-non-recommended-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flashing MeshCore Repeater Firmware - Over-the-air (OTA) - Non Recommended Route
       
     </span>
   </a>
@@ -1937,7 +1959,7 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 <li>Open <strong>INFO.TXT</strong> on the drive and confirm it reports bootloader version <strong>0.9.2</strong>.</li>
 </ol>
 <hr>
-<h2 id="flashing-meshcore-repeater-firmware">Flashing MeshCore Repeater Firmware<a class="headerlink" href="#flashing-meshcore-repeater-firmware" title="Permanent link">¶</a></h2>
+<h2 id="flashing-meshcore-repeater-firmware-usb-recommended-route">Flashing MeshCore Repeater Firmware - USB (Recommended Route)<a class="headerlink" href="#flashing-meshcore-repeater-firmware-usb-recommended-route" title="Permanent link">¶</a></h2>
 <ol>
 <li>Plug the device into your computer via USB.  </li>
 <li>Open the <strong>MeshCore Web Flasher</strong>: <a href="https://flasher.meshcore.co.uk">https://flasher.meshcore.co.uk</a>  </li>
@@ -1949,6 +1971,15 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 </ol>
 <p><strong>Note:</strong><br>
 If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode</strong> again, then click <strong>Flash</strong>.</p>
+<hr>
+<h2 id="flashing-meshcore-repeater-firmware-over-the-air-ota-non-recommended-route">Flashing MeshCore Repeater Firmware - Over-the-air (OTA) - Non Recommended Route<a class="headerlink" href="#flashing-meshcore-repeater-firmware-over-the-air-ota-non-recommended-route" title="Permanent link">¶</a></h2>
+<p><strong>Note:</strong> This section only applies to NRF-based boards (e.g., RAK4630, Heltec T114, Seed XIAO). Please read the warning below since we highly recommend you flash firmware using USB instead.</p>
+<div class="admonition warning">
+<p class="admonition-title">OTA Risks</p>
+<p>Although it is possible to flash a repeater's firmware OTA, there is a very high risk of a flash failing (even if the app says there are no issues) which will require a USB re-flash. We have experienced an OTA failure during Winter that requires to wait until the Spring to get physical access to the repeater. Proceed at your own risk!</p>
+</div>
+<p>If you are OK with these risks, follow the instructions on <a href="https://github.com/LitBomb/MeshCore-FAQ?tab=readme-ov-file#71-q-how-to-update-nrf-rak-t114-seed-xiao-repeater-and-room-server-firmware-over-the-air-using-the-new-simpler-dfu-app">LitBomb's MeshCore FAQ</a>.</p>
+<p><strong>Note:</strong> For RAK boards with the Bootloader update, when following LitBomb's instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU). Select this device and re-upload the update.</p>
 <hr>
 <h2 id="configuring-a-meshcore-repeater">Configuring a MeshCore Repeater<a class="headerlink" href="#configuring-a-meshcore-repeater" title="Permanent link">¶</a></h2>
 <p><strong>Note:</strong><br>
