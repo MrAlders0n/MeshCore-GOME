@@ -26,7 +26,7 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 
 ---
 
-## Flashing MeshCore Repeater Firmware
+## Flashing MeshCore Repeater Firmware - USB (Recommended Route)
 
 1. Plug the device into your computer via USB.  
 2. Open the **MeshCore Web Flasher**: <https://flasher.meshcore.co.uk>  
@@ -38,6 +38,19 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 
 **Note:**  
 If flashing fails after erasing, refresh the page, click **Enter DFU Mode** again, then click **Flash**.
+
+---
+
+## Flashing MeshCore Repeater Firmware - Over-the-air (OTA) - Non Recommended Route
+
+**Note:** This section only applies to NRF-based boards (e.g., RAK4630, Heltec T114, Seed XIAO). Please read the warning below since we highly recommend you flash firmware using USB instead.
+
+!!! warning "OTA Risks"
+    Although it is possible to flash a repeater's firmware OTA, there is a very high risk of a flash failing (even if the app says there are no issues) which will require a USB re-flash. We have experienced an OTA failure during Winter that requires to wait until the Spring to get physical access to the repeater. Proceed at your own risk!
+
+If you are OK with these risks, follow the instructions on [LitBomb's MeshCore FAQ](https://github.com/LitBomb/MeshCore-FAQ?tab=readme-ov-file#71-q-how-to-update-nrf-rak-t114-seed-xiao-repeater-and-room-server-firmware-over-the-air-using-the-new-simpler-dfu-app).
+
+**Note:** For RAK boards with the Bootloader update, when following LitBomb's instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU). Select this device and re-upload the update.
 
 ---
 
