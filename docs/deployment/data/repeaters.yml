@@ -1330,17 +1330,6 @@ repeaters:
     last_heard: 1769749757
     power_watt: null
 
-  - id: "DF"
-    name: "AlxRSol1"
-    antenna: null
-    height_metre: null
-    location: "Rockland"
-    contact: "meshcore://contact/add?name=AlxRSol1&public_key=DFCF369CA441C7B567665BE50C0DB940BB5588902F223C4287&type=2"
-    state: "New"
-    hex_id: "DFCF369CA441C7B567665BE50C0DB940BB5588902F223C4287"
-    last_heard: 1768096312
-    power_watt: null
-
   - id: "8E"
     name: "HX_R3"
     antenna: null
