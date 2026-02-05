@@ -23,6 +23,10 @@ MeshCore uses a **repeater-driven advert system** for discovery (not a prerequis
   - **Zero-hop adverts:** Every 1 hour  
   - **Flood adverts:** Every 3 hours  
 
+## Routing Algorithms
+
+The Netherland's LocalMesh network has a page explaining how [routing in MeshCore](https://www.localmesh.nl/en/meshcore-routing-algorithms/) works.
+
 ---
 
 ## Repeater Neighbours
