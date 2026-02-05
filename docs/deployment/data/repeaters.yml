@@ -1693,3 +1693,24 @@ repeaters:
     last_heard: 1769743641
     power_watt: null
 
+  - id: "B8"
+    name: "RsideS_R1"
+    antenna: null
+    height_metre: "3"
+    location: "Riverside South"
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
+
+  - id: "F0"
+    name: "Rockland-messenger"
+    antenna: null
+    height_metre: null
+    location: "Rockland"
+    contact: null
+    state: "Reserved"
+    hex_id: null
+    last_heard: null
+    power_watt: null
