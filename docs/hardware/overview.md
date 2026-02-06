@@ -4,7 +4,7 @@ Welcome! This section helps you pick the right hardware for MeshCore, whether yo
 
 ## New Ottawa Store
 
-One of our own members recently created a store with inventory in Ottawa to help the community grow, with local pickup or delivery by courier options. Visit them at: **[Space Hedgehog](https://space-hedgehog.com/pages/about)**
+One of our own members recently created a store with inventory in Ottawa to help the community grow, with local pickup or delivery by courier options. Visit them at: **[Space Hedgehog](https://space-hedgehog.com/)**
 
 ## Companions (Connect to the Mesh)
 Start here to grab a companion and connect to the mesh:
