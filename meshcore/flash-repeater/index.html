@@ -2027,12 +2027,18 @@ If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the pri
 <p>If everything is working, nearby companion nodes should receive the advert.</p>
 <hr>
 <h2 id="advert-interval-configuration">Advert Interval Configuration<a class="headerlink" href="#advert-interval-configuration" title="Permanent link">¶</a></h2>
-<p>Once the repeater has been discovered by your companion node, use Remote Administration to set:</p>
+<p>Once the repeater has been discovered by your companion node, login to your repeater via the MeshCore app and use Remote Administration to set:</p>
 <ol>
 <li><strong>Zero-hop adverts:</strong> every <strong>1 hour</strong>  </li>
 <li><strong>Flood adverts:</strong> every <strong>12 hours</strong>  </li>
 <li>Click <strong>Save</strong></li>
 </ol>
+<p><strong>Optional</strong>
+If you prefer to set the Advert Interval Configuration via the CLI when connected to your repeater, you can set these with the commands:</p>
+<pre><code class="language-bash">set advert.interval 60
+set flood.advert.interval 12
+reboot
+</code></pre>
 <p><strong>Tip:</strong><br>
 After every reboot, you must <strong>resync the repeater’s clock</strong>.<br>
 The repeater will still route messages without a clock, but <strong>its adverts will be ignored</strong> until the time is set.</p>
