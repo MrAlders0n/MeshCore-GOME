@@ -1,0 +1,210 @@
+/* ==========================================================================
+   C-Block Interlink Diagram Styles
+   Compatible with MkDocs Material - Slate theme
+   Add to your extra_css in mkdocs.yml:
+     extra_css:
+       - stylesheets/cblock-diagram.css
+   ========================================================================== */
+
+/* --- Color tokens --- */
+.cblock-diagram {
+  --cblock-ottawa: #22d3ee;
+  --cblock-ottawa-bg: rgba(34, 211, 238, 0.1);
+  --cblock-ottawa-border: rgba(34, 211, 238, 0.3);
+
+  --cblock-montreal: #a78bfa;
+  --cblock-montreal-bg: rgba(167, 139, 250, 0.1);
+  --cblock-montreal-border: rgba(167, 139, 250, 0.3);
+
+  --cblock-quebec: #fb923c;
+  --cblock-quebec-bg: rgba(251, 146, 60, 0.1);
+  --cblock-quebec-border: rgba(251, 146, 60, 0.3);
+
+  --cblock-interlink1: #f472b6;
+  --cblock-interlink1-bg: rgba(244, 114, 182, 0.1);
+  --cblock-interlink1-border: rgba(244, 114, 182, 0.3);
+
+  --cblock-interlink2: #facc15;
+  --cblock-interlink2-bg: rgba(250, 204, 21, 0.1);
+  --cblock-interlink2-border: rgba(250, 204, 21, 0.3);
+
+  --cblock-green: #34d399;
+  --cblock-red: #f87171;
+  --cblock-blue: #818cf8;
+}
+
+/* --- Raw path bar --- */
+.cblock-raw-path {
+  background: var(--md-code-bg-color, #1e1e1e);
+  border: 1px solid var(--md-default-fg-color--lightest, #ffffff1a);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.8rem;
+  line-height: 2.2;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.cblock-hop {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  margin: 0.1rem 0.1rem;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.cblock-hop.cblock-ottawa { background: var(--cblock-ottawa-bg); color: var(--cblock-ottawa); border-color: var(--cblock-ottawa-border); }
+.cblock-hop.cblock-montreal { background: var(--cblock-montreal-bg); color: var(--cblock-montreal); border-color: var(--cblock-montreal-border); }
+.cblock-hop.cblock-quebec { background: var(--cblock-quebec-bg); color: var(--cblock-quebec); border-color: var(--cblock-quebec-border); }
+.cblock-hop.cblock-interlink1 { background: var(--cblock-interlink1-bg); color: var(--cblock-interlink1); border-color: var(--cblock-interlink1-border); }
+.cblock-hop.cblock-interlink2 { background: var(--cblock-interlink2-bg); color: var(--cblock-interlink2); border-color: var(--cblock-interlink2-border); }
+
+.cblock-arrow {
+  color: var(--md-default-fg-color--light, #ffffffb3);
+  margin: 0 0.15rem;
+  font-size: 0.75rem;
+}
+
+/* --- Two-column grid --- */
+.cblock-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .cblock-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- City/interlink blocks --- */
+.cblock-block {
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid;
+}
+
+.cblock-block-ottawa { background: var(--cblock-ottawa-bg); border-color: var(--cblock-ottawa-border); }
+.cblock-block-montreal { background: var(--cblock-montreal-bg); border-color: var(--cblock-montreal-border); }
+.cblock-block-quebec { background: var(--cblock-quebec-bg); border-color: var(--cblock-quebec-border); }
+.cblock-block-interlink1 { background: var(--cblock-interlink1-bg); border-color: var(--cblock-interlink1-border); }
+.cblock-block-interlink2 { background: var(--cblock-interlink2-bg); border-color: var(--cblock-interlink2-border); }
+
+.cblock-block-label {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.cblock-label-ottawa { color: var(--cblock-ottawa); }
+.cblock-label-montreal { color: var(--cblock-montreal); }
+.cblock-label-quebec { color: var(--cblock-quebec); }
+.cblock-label-interlink1 { color: var(--cblock-interlink1); }
+.cblock-label-interlink2 { color: var(--cblock-interlink2); }
+
+.cblock-repeater {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light, #ffffffb3);
+}
+
+.cblock-id {
+  font-family: var(--md-code-font-family, monospace);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: var(--md-default-fg-color--lightest, #ffffff12);
+  min-width: 2.2rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.cblock-id-ottawa { color: var(--cblock-ottawa); }
+.cblock-id-montreal { color: var(--cblock-montreal); }
+.cblock-id-quebec { color: var(--cblock-quebec); }
+.cblock-id-interlink1 { color: var(--cblock-interlink1); }
+.cblock-id-interlink2 { color: var(--cblock-interlink2); }
+
+.cblock-connector {
+  text-align: center;
+  padding: 0.15rem 0;
+  color: var(--md-default-fg-color--lighter, #ffffff54);
+  font-size: 1.1rem;
+}
+
+/* --- Interpretation panel --- */
+.cblock-interp-col {
+  background: var(--md-code-bg-color, #1e1e1e);
+  border: 1px solid var(--md-default-fg-color--lightest, #ffffff1a);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+.cblock-interp-title {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--md-default-fg-color--light, #ffffffb3);
+  margin-bottom: 1rem;
+}
+
+.cblock-step {
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  border-left: 3px solid;
+  color: var(--md-default-fg-color, #ffffffe6);
+}
+
+.cblock-step strong {
+  font-weight: 700;
+}
+
+.cblock-step code {
+  font-size: 0.78rem;
+}
+
+.cblock-step-scan { background: rgba(99, 102, 241, 0.08); border-color: var(--cblock-blue); }
+.cblock-step-detect1 { background: var(--cblock-interlink1-bg); border-color: var(--cblock-interlink1); }
+.cblock-step-detect2 { background: var(--cblock-interlink2-bg); border-color: var(--cblock-interlink2); }
+.cblock-step-ignore { background: rgba(248, 113, 113, 0.08); border-color: var(--cblock-red); }
+.cblock-step-focus { background: rgba(52, 211, 153, 0.08); border-color: var(--cblock-green); }
+.cblock-step-info {
+  background: var(--md-default-fg-color--lightest, #ffffff08);
+  border-color: var(--md-default-fg-color--lighter, #ffffff54);
+  margin-top: 0.75rem;
+}
+
+/* --- Badges --- */
+.cblock-badge {
+  display: inline-block;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.12rem 0.4rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-left: 0.25rem;
+}
+
+.cblock-badge-origin { background: rgba(34, 211, 238, 0.15); color: var(--cblock-ottawa); }
+.cblock-badge-transit { background: rgba(167, 139, 250, 0.15); color: var(--cblock-montreal); }
+.cblock-badge-ignored { background: rgba(248, 113, 113, 0.15); color: var(--cblock-red); }
+.cblock-badge-local { background: rgba(52, 211, 153, 0.15); color: var(--cblock-green); }
