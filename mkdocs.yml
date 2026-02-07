@@ -79,7 +79,7 @@ plugins:
   - glightbox:
       touchNavigation: true
   - i18n:
-      default_language: en
+      reconfigure_material: true
       languages:
         - locale: en
           name: English
@@ -88,6 +88,7 @@ plugins:
         - locale: fr
           name: Français
           build: true
+
 
 # Extra JavaScript
 extra_javascript:
