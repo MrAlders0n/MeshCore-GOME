@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 <h1>Syst&egrave;me de liaison inter-villes C-Block de MeshCore</h1>
 
 <p>MeshCore utilise des <strong>identifiants de r&eacute;p&eacute;teur sur 1 octet</strong>. Lorsque deux villes se connectent, on rencontre souvent des <strong>identifiants de r&eacute;p&eacute;teur en double</strong>, ce qui rend impossible la lecture des chemins de messages.</p>

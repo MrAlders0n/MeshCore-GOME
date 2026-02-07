@@ -1,4 +1,8 @@
-<!-- docs/interlink/c-block-system.md -->
+
+---
+hide:
+  - toc
+---
 
 # MeshCore C-Block Interlink ID System
 
