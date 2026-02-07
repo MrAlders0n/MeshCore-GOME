@@ -1,23 +1,29 @@
-# Système de liaison inter-villes C-Block de MeshCore
+---
+hide:
+  - toc
+---
 
-MeshCore utilise des **identifiants de répéteur sur 1 octet**. Lorsque deux villes se connectent, on rencontre souvent des **identifiants de répéteur en double**, ce qui rend impossible la lecture des chemins de messages.
+# MeshCore C-Block Interlink ID System
 
-Pour résoudre ce problème, Ottawa et Montréal ont réservé les **identifiants du bloc C** (`C0`-`CF`) pour les liaisons inter-villes. Lorsque le récepteur détecte un identifiant du bloc C dans le chemin du message, il sait exactement où se trouvent les frontières entre les villes et peut isoler les sauts locaux des sauts distants.
+MeshCore supports **1-byte Repeater IDs** today. Because of this, when two cities connect you are often met with **overlapping Repeater IDs**, making it impossible to know message paths.
 
-## Plages réservées du bloc C
+To combat this, Ottawa, Montreal and Quebec City have reserved the **C-block IDs** (`C0`-`CF`) for inter-city links. When a receiver sees a C-block ID in the message path, it knows exactly where city boundaries are and can isolate local hops from remote ones.
 
-| Plage | Corridor |
+## Reserved C-Block Ranges
+
+| Range | Corridor |
 |-------|----------|
-| `CC` - `CF` | Liaisons Ottawa ↔ Montréal |
-| `C6` - `CB` | Liaisons Montréal ↔ Québec |
-| `C0` - `C5` | Disponible pour de futurs corridors |
+| `CC` - `CF` | Ottawa ↔ Montreal Interlinks |
+| `C6` - `CB` | Montreal ↔ Quebec City Interlinks |
+| `C0` - `C5` | Available for future corridors |
 
-## Exemple : Ottawa → Montréal → Québec
+## Example: Ottawa → Montreal → Quebec City
 
-Un utilisateur envoie un message depuis Ottawa. Le message traverse les répéteurs locaux de Ottawa, franchit la liaison Ottawa-Montréal, passe par les répéteurs locaux de Montréal, franchit la liaison Montréal-Québec, et arrive aux répéteurs locaux de Québec.
+A user in Ottawa sends a message. It traverses local Ottawa repeaters, crosses the Ottawa-Montreal interlink, passes through Montreal's local repeaters, crosses the Montreal-Quebec City interlink, and arrives at Quebec City's local repeaters.
 
 <div class="cblock-diagram">
 
+<!-- Raw path -->
 <div class="cblock-raw-path">
   <span class="cblock-hop cblock-ottawa">AA</span><span class="cblock-arrow">→</span>
   <span class="cblock-hop cblock-ottawa">AB</span><span class="cblock-arrow">→</span>
@@ -36,76 +42,78 @@ Un utilisateur envoie un message depuis Ottawa. Le message traverse les répéte
 
 <div class="cblock-grid">
 
+<!-- Left: Visual path -->
 <div class="cblock-path-col">
 
 <div class="cblock-block cblock-block-ottawa">
-  <div class="cblock-block-label cblock-label-ottawa">● Ottawa (origine)</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AA</span> Répéteur, Ottawa</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AB</span> Répéteur, Ottawa</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AC</span> Répéteur, Ottawa</div>
+  <div class="cblock-block-label cblock-label-ottawa">● Ottawa (origin)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AA</span> Repeater, Ottawa</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AB</span> Repeater, Ottawa</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AC</span> Repeater, Ottawa</div>
 </div>
 
 <div class="cblock-connector">↓</div>
 
 <div class="cblock-block cblock-block-interlink1">
-  <div class="cblock-block-label cblock-label-interlink1">● Liaison : Ottawa ↔ Montréal (CC-CF)</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink1">CC</span> Répéteur de liaison 1</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink1">CD</span> Répéteur de liaison 2</div>
+  <div class="cblock-block-label cblock-label-interlink1">● Interlink: Ottawa ↔ Montreal (CC-CF)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink1">CC</span> Interlink Repeater 1</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink1">CD</span> Interlink Repeater 2</div>
 </div>
 
 <div class="cblock-connector">↓</div>
 
 <div class="cblock-block cblock-block-montreal">
-  <div class="cblock-block-label cblock-label-montreal">● Montréal (transit)</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AA</span> Répéteur, Montréal</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AB</span> Répéteur, Montréal</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AC</span> Répéteur, Montréal</div>
+  <div class="cblock-block-label cblock-label-montreal">● Montreal (transit)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AA</span> Repeater, Montreal</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AB</span> Repeater, Montreal</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AC</span> Repeater, Montreal</div>
 </div>
 
 <div class="cblock-connector">↓</div>
 
 <div class="cblock-block cblock-block-interlink2">
-  <div class="cblock-block-label cblock-label-interlink2">● Liaison : Montréal ↔ Québec (C6-CB)</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink2">C8</span> Répéteur de liaison 1</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink2">C9</span> Répéteur de liaison 2</div>
+  <div class="cblock-block-label cblock-label-interlink2">● Interlink: Montreal ↔ Quebec City (C6-CB)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink2">C8</span> Interlink Repeater 1</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink2">C9</span> Interlink Repeater 2</div>
 </div>
 
 <div class="cblock-connector">↓</div>
 
 <div class="cblock-block cblock-block-quebec">
-  <div class="cblock-block-label cblock-label-quebec">● Québec (local)</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AA</span> Répéteur, Québec</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AB</span> Répéteur, Québec</div>
-  <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AC</span> Répéteur, Québec</div>
+  <div class="cblock-block-label cblock-label-quebec">● Quebec City (local)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AA</span> Repeater, Quebec City</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AB</span> Repeater, Quebec City</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AC</span> Repeater, Quebec City</div>
 </div>
 
 </div>
 
+<!-- Right: Interpretation -->
 <div class="cblock-interp-col">
-<div class="cblock-interp-title">Comment un utilisateur de Québec interprète ce chemin</div>
+<div class="cblock-interp-title">How a Quebec City user reads this path</div>
 
 <div class="cblock-step cblock-step-scan">
-  <strong>01</strong> — Parcourir le chemin du message pour trouver des <strong>identifiants du bloc C</strong>
+  <strong>01</strong> — Scan the message path for any <strong>C-block IDs</strong>
 </div>
 
 <div class="cblock-step cblock-step-detect1">
-  <strong>02</strong> — <code>CC</code>, <code>CD</code> détectés dans la <strong>plage CC-CF</strong>. Le message a traversé le corridor Ottawa ↔ Montréal. <span class="cblock-badge cblock-badge-origin">origine : ottawa</span>
+  <strong>02</strong> — Found <code>CC</code>, <code>CD</code> in the <strong>CC-CF range</strong>. The message crossed the Ottawa ↔ Montreal corridor. <span class="cblock-badge cblock-badge-origin">origin: ottawa</span>
 </div>
 
 <div class="cblock-step cblock-step-detect2">
-  <strong>03</strong> — <code>C8</code>, <code>C9</code> détectés dans la <strong>plage C6-CB</strong>. Le message a aussi traversé le corridor Montréal ↔ Québec. <span class="cblock-badge cblock-badge-transit">transit : montréal</span>
+  <strong>03</strong> — Found <code>C8</code>, <code>C9</code> in the <strong>C6-CB range</strong>. The message also crossed the Montreal ↔ Quebec City corridor. <span class="cblock-badge cblock-badge-transit">transit: montreal</span>
 </div>
 
 <div class="cblock-step cblock-step-ignore">
-  <strong>04</strong> — <strong>Ignorer tout ce qui précède la dernière frontière du bloc C.</strong> Tous les identifiants avant <code>C8</code>/<code>C9</code> appartiennent aux villes de Ottawa et Montréal. Les <code>AA</code>, <code>AB</code>, <code>AC</code> en double ne sont PAS locaux. <span class="cblock-badge cblock-badge-ignored">ignoré</span>
+  <strong>04</strong> — <strong>Ignore everything above the last C-block boundary.</strong> All IDs before <code>C8</code>/<code>C9</code> belong to Ottawa and Montreal. The overlapping <code>AA</code>, <code>AB</code>, <code>AC</code> are NOT local. <span class="cblock-badge cblock-badge-ignored">ignored</span>
 </div>
 
 <div class="cblock-step cblock-step-focus">
-  <strong>05</strong> — <strong>Se concentrer sur le chemin local après le dernier bloc C.</strong> Les identifiants <code>AA → AB → AC</code> après la liaison C6-CB sont des répéteurs de Québec. <span class="cblock-badge cblock-badge-local">chemin local</span>
+  <strong>05</strong> — <strong>Focus on local path below the last C-block.</strong> <code>AA → AB → AC</code> after the C6-CB interlink are definitively Quebec City repeaters. <span class="cblock-badge cblock-badge-local">local path</span>
 </div>
 
 <div class="cblock-step cblock-step-info">
-  <strong>ℹ️</strong> — La présence de <strong>deux plages du bloc C</strong> indique exactement combien de frontières le message a traversées et quel corridor correspond. Une provenance complète dans un système sur 1 octet.
+  <strong>ℹ️</strong> — The presence of <strong>two C-block ranges</strong> tells the user exactly how many city boundaries the message crossed and which corridor each belongs to. Full provenance in a 1-byte ID system.
 </div>
 
 </div>
