@@ -1862,7 +1862,11 @@
   
 
 
-<!-- docs/interlink/c-block-system.md --><h1 id="meshcore-c-block-interlink-id-system">MeshCore C-Block Interlink ID System<a class="headerlink" href="#meshcore-c-block-interlink-id-system" title="Permanent link">¶</a></h1>
+<hr>
+<p>hide:
+  - toc</p>
+<hr>
+<h1 id="meshcore-c-block-interlink-id-system">MeshCore C-Block Interlink ID System<a class="headerlink" href="#meshcore-c-block-interlink-id-system" title="Permanent link">¶</a></h1>
 <p>MeshCore supports <strong>1-byte Repeater IDs</strong> today. Because of this, when two cities connect you are often met with <strong>overlapping Repeater IDs</strong>, making it impossible to know message paths.</p>
 <p>To combat this, Ottawa and Montreal have reserved the <strong>C-block IDs</strong> (<code>C0</code>-<code>CF</code>) for inter-city links. When a receiver sees a C-block ID in the message path, it knows exactly where city boundaries are and can isolate local hops from remote ones.</p>
 <h2 id="reserved-c-block-ranges">Reserved C-Block Ranges<a class="headerlink" href="#reserved-c-block-ranges" title="Permanent link">¶</a></h2>
