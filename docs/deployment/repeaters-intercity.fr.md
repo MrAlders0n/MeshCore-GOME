@@ -17,9 +17,79 @@
   </tbody>
 </table>
 
-<h2>Exemple : Ottawa &rarr; Montr&eacute;al &rarr; Qu&eacute;bec</h2>
+<h2>&Eacute;tape 1 : Ottawa &rarr; Montr&eacute;al</h2>
 
-<p>Un utilisateur envoie un message depuis Ottawa. Le message traverse les r&eacute;p&eacute;teurs locaux de Ottawa, franchit la liaison Ottawa-Montr&eacute;al, passe par les r&eacute;p&eacute;teurs locaux de Montr&eacute;al, franchit la liaison Montr&eacute;al-Qu&eacute;bec, et arrive aux r&eacute;p&eacute;teurs locaux de Qu&eacute;bec.</p>
+<p>Un utilisateur envoie un message depuis Ottawa. Le message traverse les r&eacute;p&eacute;teurs locaux de Ottawa, franchit la liaison Ottawa-Montr&eacute;al, et arrive aux r&eacute;p&eacute;teurs locaux de Montr&eacute;al.</p>
+
+<div class="cblock-diagram">
+
+<div class="cblock-raw-path">
+  <span class="cblock-hop cblock-ottawa">AA</span><span class="cblock-arrow">&rarr;</span>
+  <span class="cblock-hop cblock-ottawa">AB</span><span class="cblock-arrow">&rarr;</span>
+  <span class="cblock-hop cblock-ottawa">AC</span><span class="cblock-arrow">&rarr;</span>
+  <span class="cblock-hop cblock-interlink1">CC</span><span class="cblock-arrow">&rarr;</span>
+  <span class="cblock-hop cblock-interlink1">CD</span><span class="cblock-arrow">&rarr;</span>
+  <span class="cblock-hop cblock-montreal">AA</span><span class="cblock-arrow">&rarr;</span>
+  <span class="cblock-hop cblock-montreal">AB</span><span class="cblock-arrow">&rarr;</span>
+  <span class="cblock-hop cblock-montreal">AC</span>
+</div>
+
+<div class="cblock-grid">
+
+<div class="cblock-path-col">
+
+<div class="cblock-block cblock-block-ottawa">
+  <div class="cblock-block-label cblock-label-ottawa">&#9679; Ottawa (origine)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AA</span> R&eacute;p&eacute;teur, Ottawa</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AB</span> R&eacute;p&eacute;teur, Ottawa</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-ottawa">AC</span> R&eacute;p&eacute;teur, Ottawa</div>
+</div>
+
+<div class="cblock-connector">&darr;</div>
+
+<div class="cblock-block cblock-block-interlink1">
+  <div class="cblock-block-label cblock-label-interlink1">&#9679; Liaison : Ottawa &harr; Montr&eacute;al (CC-CF)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink1">CC</span> R&eacute;p&eacute;teur de liaison 1</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-interlink1">CD</span> R&eacute;p&eacute;teur de liaison 2</div>
+</div>
+
+<div class="cblock-connector">&darr;</div>
+
+<div class="cblock-block cblock-block-montreal">
+  <div class="cblock-block-label cblock-label-montreal">&#9679; Montr&eacute;al (destination)</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AA</span> R&eacute;p&eacute;teur, Montr&eacute;al</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AB</span> R&eacute;p&eacute;teur, Montr&eacute;al</div>
+  <div class="cblock-repeater"><span class="cblock-id cblock-id-montreal">AC</span> R&eacute;p&eacute;teur, Montr&eacute;al</div>
+</div>
+
+</div>
+
+<div class="cblock-interp-col">
+<div class="cblock-interp-title">Comment un utilisateur de Montr&eacute;al interpr&egrave;te ce chemin</div>
+
+<div class="cblock-step cblock-step-scan">
+  <strong>01</strong> &mdash; Parcourir le chemin du message pour trouver des <strong>identifiants du bloc C</strong>
+</div>
+
+<div class="cblock-step cblock-step-detect1">
+  <strong>02</strong> &mdash; <code>CC</code>, <code>CD</code> d&eacute;tect&eacute;s dans la <strong>plage CC-CF</strong>. Le message a travers&eacute; le corridor Ottawa &harr; Montr&eacute;al. <span class="cblock-badge cblock-badge-origin">origine : ottawa</span>
+</div>
+
+<div class="cblock-step cblock-step-ignore">
+  <strong>03</strong> &mdash; <strong>Ignorer tout ce qui pr&eacute;c&egrave;de la fronti&egrave;re du bloc C.</strong> Les identifiants <code>AA</code>, <code>AB</code>, <code>AC</code> au-dessus de la liaison sont les sauts locaux de Ottawa, pas ceux de Montr&eacute;al, m&ecirc;me si les identifiants sont identiques. <span class="cblock-badge cblock-badge-ignored">ignor&eacute;</span>
+</div>
+
+<div class="cblock-step cblock-step-focus">
+  <strong>04</strong> &mdash; <strong>Se concentrer sur le chemin local apr&egrave;s le bloc C.</strong> Les identifiants <code>AA &rarr; AB &rarr; AC</code> apr&egrave;s la liaison CC-CF sont des r&eacute;p&eacute;teurs de Montr&eacute;al. <span class="cblock-badge cblock-badge-local">chemin local</span>
+</div>
+
+</div>
+</div>
+</div>
+
+<h2>&Eacute;tape 2 : Le message continue vers Qu&eacute;bec</h2>
+
+<p>Le m&ecirc;me message continue depuis Montr&eacute;al. Il traverse les r&eacute;p&eacute;teurs locaux de Montr&eacute;al, franchit la liaison Montr&eacute;al-Qu&eacute;bec, et arrive aux r&eacute;p&eacute;teurs locaux de Qu&eacute;bec.</p>
 
 <div class="cblock-diagram">
 
@@ -78,7 +148,7 @@
 <div class="cblock-connector">&darr;</div>
 
 <div class="cblock-block cblock-block-quebec">
-  <div class="cblock-block-label cblock-label-quebec">&#9679; Qu&eacute;bec (local)</div>
+  <div class="cblock-block-label cblock-label-quebec">&#9679; Qu&eacute;bec (destination)</div>
   <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AA</span> R&eacute;p&eacute;teur, Qu&eacute;bec</div>
   <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AB</span> R&eacute;p&eacute;teur, Qu&eacute;bec</div>
   <div class="cblock-repeater"><span class="cblock-id cblock-id-quebec">AC</span> R&eacute;p&eacute;teur, Qu&eacute;bec</div>
