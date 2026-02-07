@@ -16,6 +16,7 @@ nav:
   - Deployment:
       - Coverage: deployment/coverage.md
       - Repeaters: deployment/repeaters.md
+      - Repeaters Interlink: deployment/repeaters-intercity.md
       - Repeater Classification: deployment/repeater_classification.md
       - Repeater Showcase: deployment/repeaters-showcase.md
       - Wanted Repeater Locations: deployment/repeater-wanted-locations.md
