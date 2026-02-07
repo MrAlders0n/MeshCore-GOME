@@ -758,17 +758,6 @@ repeaters:
     last_heard: 1770440495
     power_watt: "0.3"
 
-  - id: "EC"
-    name: "MAG 101"
-    antenna: null
-    height_metre: null
-    location: "Barrhaven"
-    contact: "meshcore://contact/add?name=MAG%20101&public_key=ECE23809B83C019C44CBC8B8F09DD638DF90FADA5382804A6A8DE98E271E4970&type=2"
-    state: "Active"
-    hex_id: "ECE23809B83C019C44CBC8B8F09DD638DF90FADA5382804A6A8DE98E271E4970"
-    last_heard: 1769552073
-    power_watt: "0.3"
-
   - id: "F2"
     name: "TBRG_R1"
     antenna: "Alfa Omni 5.8dBi"
@@ -1770,17 +1759,6 @@ repeaters:
     last_heard: 1770462113
     power_watt: null
 
-  - id: "DF"
-    name: "AlxRSol1"
-    antenna: null
-    height_metre: null
-    location: "Rockland"
-    contact: "meshcore://contact/add?name=AlxRSol1&public_key=DFCF369CA441C7B567665BE50C0DB940BB5588902F223C4287&type=2"
-    state: "New"
-    hex_id: "DFCF369CA441C7B567665BE50C0DB940BB5588902F223C4287"
-    last_heard: 1768096312
-    power_watt: null
-
   - id: "FD"
     name: "CU1_SOLAR_R"
     antenna: null
@@ -1809,7 +1787,7 @@ repeaters:
     height_metre: null
     location: "Barrhaven East"
     contact: "meshcore://contact/add?name=MAG%20101&public_key=ECDF355B135B6EE1C9F414C46CF97A30FF40569E55E6104B35F1096B8FD0B148&type=2"
-    state: "Duplicate"
+    state: "Active"
     hex_id: "ECDF355B135B6EE1C9F414C46CF97A30FF40569E55E6104B35F1096B8FD0B148"
     last_heard: 1770447515
     power_watt: null
