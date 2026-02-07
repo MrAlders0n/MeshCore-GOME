@@ -31,7 +31,7 @@ jobs:
 
       - name: Install Mkdocs-plugin
         run: |
-          pip install mkdocs-macros-plugin pyyaml mkdocs-glightbox pymdown-extensions
+          pip install mkdocs-macros-plugin pyyaml mkdocs-glightbox pymdown-extensions mkdocs-static-i18n
 
       - name: Build MkDocs site
         run: mkdocs build --strict

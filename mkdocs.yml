@@ -78,6 +78,16 @@ plugins:
   - macros
   - glightbox:
       touchNavigation: true
+  - i18n:
+      default_language: en
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: fr
+          name: Français
+          build: true
 
 # Extra JavaScript
 extra_javascript:
