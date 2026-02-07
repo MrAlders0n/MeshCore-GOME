@@ -18,7 +18,7 @@ Pour remédier à ce problème, Ottawa et Montréal ont réservé les **identifi
 
 Un utilisateur à Ottawa envoie un message. Celui-ci traverse les répéteurs locaux d'Ottawa, franchit l'interliage Ottawa-Montréal, passe par les répéteurs locaux de Montréal, franchit l'interliage Montréal-Québec, et arrive aux répéteurs locaux de Québec.
 
-<div class="cblock-diagram">
+<div class="cblock-diagram" markdown="1">
 
 <!-- Chemin brut -->
 <div class="cblock-raw-path">
