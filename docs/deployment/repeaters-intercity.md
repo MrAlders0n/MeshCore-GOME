@@ -1,10 +1,13 @@
-<!-- docs/interlink/c-block-system.md -->
+---
+hide:
+  - toc
+---
 
 # MeshCore C-Block Interlink ID System
 
 MeshCore supports **1-byte Repeater IDs** today. Because of this, when two cities connect you are often met with **overlapping Repeater IDs**, making it impossible to know message paths.
 
-To combat this, Ottawa and Montreal have reserved the **C-block IDs** (`C0`-`CF`) for inter-city links. When a receiver sees a C-block ID in the message path, it knows exactly where city boundaries are and can isolate local hops from remote ones.
+To combat this, Ottawa, Montreal and Quebec City have reserved the **C-block IDs** (`C0`-`CF`) for inter-city links. When a receiver sees a C-block ID in the message path, it knows exactly where city boundaries are and can isolate local hops from remote ones.
 
 ## Reserved C-Block Ranges
 
