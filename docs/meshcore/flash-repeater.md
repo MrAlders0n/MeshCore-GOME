@@ -101,11 +101,21 @@ If everything is working, nearby companion nodes should receive the advert.
 
 ## Advert Interval Configuration
 
-Once the repeater has been discovered by your companion node, use Remote Administration to set:
+Once the repeater has been discovered by your companion node, login to your repeater via the MeshCore app and use Remote Administration to set:
 
 8. **Zero-hop adverts:** every **1 hour**  
 9. **Flood adverts:** every **12 hours**  
 10. Click **Save**
+
+
+**Optional**
+If you prefer to set the Advert Interval Configuration via the CLI when connected to your repeater, you can set these with the commands:
+
+```bash
+set advert.interval 60
+set flood.advert.interval 12
+reboot
+```
 
 **Tip:**  
 After every reboot, you must **resync the repeater’s clock**.  
