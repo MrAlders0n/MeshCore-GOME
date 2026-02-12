@@ -56,9 +56,6 @@ If you are OK with these risks, follow the instructions on [LitBomb's MeshCore F
 
 ## Configuring a MeshCore Repeater
 
-**Note:**  
-If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.
-
 1. Using a Chromium-based browser that supports the [required serial connection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility) (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:  
    <https://config.meshcore.dev>
 
@@ -103,12 +100,18 @@ If everything is working, nearby companion nodes should receive the advert.
 
 Once the repeater has been discovered by your companion node, use Remote Administration to set:
 
-8. **Zero-hop adverts:** every **1 hour**  
-9. **Flood adverts:** every **12 hours**  
-10. Click **Save**
+1. **Zero-hop adverts:** every **1 hour**  
+2. **Flood adverts:** every **12 hours**  
+3. Click **Save**
 
 **Tip:**  
 After every reboot, you must **resync the repeater’s clock**.  
 The repeater will still route messages without a clock, but **its adverts will be ignored** until the time is set.
 
 ---
+
+## Changing Repeater private key after initial setup (not always needed)
+
+You may need to change your repeater's private key after you have set it up to avoid ID conflicts. If this happens, you can do it again via USB as per the [Configuring a MeshCore Repeater](#configuring-a-meshcore-repeater) and [Assigning a New Repeater ID (if your ID is already in use)](#assigning-a-new-repeater-id-if-your-id-is-already-in-use) sections of this page.
+
+Optional - If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.
