@@ -1385,6 +1385,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#changing-repeater-private-key-after-initial-setup-not-always-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing Repeater private key after initial setup (not always needed)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1978,6 +1989,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#changing-repeater-private-key-after-initial-setup-not-always-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing Repeater private key after initial setup (not always needed)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2042,8 +2064,6 @@ If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode<
 <p><strong>Note:</strong> For RAK boards with the Bootloader update, when following LitBomb's instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU). Select this device and re-upload the update.</p>
 <hr>
 <h2 id="configuring-a-meshcore-repeater">Configuring a MeshCore Repeater<a class="headerlink" href="#configuring-a-meshcore-repeater" title="Permanent link">¶</a></h2>
-<p><strong>Note:</strong><br>
-If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.</p>
 <ol>
 <li>
 <p>Using a Chromium-based browser that supports the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility">required serial connection</a> (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:<br>
@@ -2103,6 +2123,9 @@ reboot
 After every reboot, you must <strong>resync the repeater’s clock</strong>.<br>
 The repeater will still route messages without a clock, but <strong>its adverts will be ignored</strong> until the time is set.</p>
 <hr>
+<h2 id="changing-repeater-private-key-after-initial-setup-not-always-needed">Changing Repeater private key after initial setup (not always needed)<a class="headerlink" href="#changing-repeater-private-key-after-initial-setup-not-always-needed" title="Permanent link">¶</a></h2>
+<p>You may need to change your repeater's private key after you have set it up to avoid ID conflicts. If this happens, you can do it again via USB as per the <a href="#configuring-a-meshcore-repeater">Configuring a MeshCore Repeater</a> and <a href="#assigning-a-new-repeater-id-if-your-id-is-already-in-use">Assigning a New Repeater ID (if your ID is already in use)</a> sections of this page.</p>
+<p>Optional - If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.</p>
 
 
 
