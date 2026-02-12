@@ -27,7 +27,7 @@ These options come fully assembled; simply flash MeshCore and mount them in a hi
 
 ### Pre-Built Repeater Options
 
-!!! warning "Important SenseCAP Solar Node P1 Pro Note"
+!!! warning "Important SenseCAP Solar Node P1/P1 Pro Note"
     Make sure to order an **RP-SMA → N-Type coax cable** with the device.  
     **Do not accidentally buy SMA — you specifically need RP-SMA.**  
     Seeed uses RP-SMA for the P1 for some reason, and the wrong connector will not fit.  
