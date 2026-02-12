@@ -59,6 +59,8 @@ The MeshCore/Meshtastic app connects to the node over Bluetooth (BLE) and is use
 
 For 3D-printable cases, check out **[Alley Cat’s models](https://www.printables.com/@AlleyCat/models)** — they are excellent for custom companion node builds.
 
+You can also purchase this build fully assembled locally from [Space Hedgehog](https://space-hedgehog.com/).
+
 ---
 
 ## Standalone Nodes
