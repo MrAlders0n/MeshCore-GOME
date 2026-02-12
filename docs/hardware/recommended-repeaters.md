@@ -36,6 +36,7 @@ These options come fully assembled; simply flash MeshCore and mount them in a hi
 | Product | Notes | Link |
 |---------|--------|------|
 | **SenseCAP Solar Node P1 Pro** | Solar-powered communication node using the XIAO nRF52840 Plus + Wio-SX1262 LoRa module. Includes a 5W solar panel, IPX5 waterproofing, four 18650 cells (3350 mAh each), and a 2 dBi rubber antenna. Includes GPS (XIAO L76K). | [RobotShop (Canadian Store)](https://ca.robotshop.com/products/sensecap-solar-node-p1-pro-for-meshtastic-w-gps-battery) |
+| **SenseCAP Solar Node P1 w/o GPS & Battery** | Same as above but **does not include GPS or batteries**. | [RobotShop (Canadian Store)](https://ca.robotshop.com/products/sensecap-solar-node-p1-meshtastic-w-o-gps-battery) |
 | **WisMesh Solar Repeater Mini** | Compact outdoor repeater built around the RAK4631 (nRF52840 + SX1262) with a WisBlock mini base. Housed in an IP67 Unify enclosure with integrated solar panel, 3200 mAh Li-ion battery, and a WisMesh blade antenna (902–928 MHz). | [RAK Store](https://store.rakwireless.com/products/wishmesh-meshtastic-solar-repeater-mini) |
 
 ---
