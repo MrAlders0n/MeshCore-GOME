@@ -1044,17 +1044,6 @@ repeaters:
     last_heard: null
     power_watt: null
 
-  - id: "CC"
-    name: "Backbone to Montreal"
-    antenna: null
-    height_metre: null
-    location: null
-    contact: null
-    state: "BackboneReserved"
-    hex_id: null
-    last_heard: null
-    power_watt: null
-
   - id: "CD"
     name: "Backbone to Montreal"
     antenna: null
@@ -1352,17 +1341,6 @@ repeaters:
     last_heard: 1770341721
     power_watt: null
 
-  - id: "64"
-    name: "VA3NFA - Solar R2"
-    antenna: null
-    height_metre: null
-    location: "Copeland Park"
-    contact: "meshcore://contact/add?name=VA3NFA%20-%20Solar%20R2&public_key=64427019A2AF6C3D5222AA4F112034919875A39C99EACAF52E&type=2"
-    state: "Duplicate"
-    hex_id: "64427019A2AF6C3D5222AA4F112034919875A39C99EACAF52E"
-    last_heard: 1768402947
-    power_watt: null
-
   - id: "B4"
     name: "Peter Heltec V4 Repeate"
     antenna: null
@@ -1449,17 +1427,6 @@ repeaters:
     state: "Reserved"
     hex_id: null
     last_heard: null
-    power_watt: null
-
-  - id: "CD"
-    name: "Inured Repeater 4"
-    antenna: null
-    height_metre: null
-    location: "Barrhaven West"
-    contact: "meshcore://contact/add?name=Inured%20Repeater%204&public_key=CD06508D396A66CB3CF522EB26459840B9093A167B8FD89D66&type=2"
-    state: "Duplicate"
-    hex_id: "CD06508D396A66CB3CF522EB26459840B9093A167B8FD89D66"
-    last_heard: 1768116738
     power_watt: null
 
   - id: "97"
@@ -1559,17 +1526,6 @@ repeaters:
     state: "New"
     hex_id: "13F797CEC36D0686CBAE5084904D31022943419E2BCFD54287008AFE976290EC"
     last_heard: 1771015545
-    power_watt: null
-
-  - id: "A0"
-    name: "AlxRak1WSol2"
-    antenna: null
-    height_metre: null
-    location: "Avalon"
-    contact: "meshcore://contact/add?name=AlxRak1WSol2&public_key=A04595D51E9B4E39AA86641AE9BC2FE18B2DC2FFCFA522179062DDC7927D62CF&type=2"
-    state: "New"
-    hex_id: "A04595D51E9B4E39AA86641AE9BC2FE18B2DC2FFCFA522179062DDC7927D62CF"
-    last_heard: 1769368870
     power_watt: null
 
   - id: "AB"
@@ -1867,17 +1823,6 @@ repeaters:
     state: "New"
     hex_id: "7A7C67C06BD4402BC5513F480968EBDAD32145A3EF6B1896A83D56426B6AFACD"
     last_heard: 1770600852
-    power_watt: null
-
-  - id: "EC"
-    name: "KIKO-RPTR"
-    antenna: null
-    height_metre: null
-    location: "Barrhaven West"
-    contact: "meshcore://contact/add?name=KIKO-RPTR&public_key=ECDE2635C5B55B86282434965CB221A5FC44FBB5038D5193FF3FFA4B53C98BC5&type=2"
-    state: "Duplicate"
-    hex_id: "ECDE2635C5B55B86282434965CB221A5FC44FBB5038D5193FF3FFA4B53C98BC5"
-    last_heard: 1770568680
     power_watt: null
 
   - id: "E9"
