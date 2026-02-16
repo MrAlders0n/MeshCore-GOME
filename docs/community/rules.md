@@ -15,7 +15,7 @@ Non-compliance can result in an immediate and permanent ban from the server.
 
 ## Radio Compliance Rules
 
-LoRa mesh networks operate mainly with unlicensed Industrial, Scientific, and Medical (ISM) radio bands, which is regulated in Canada by [Innovation, Science and Economic Development Canada (ISED)](https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/devices-and-equipment/radio-equipment-standards/radio-standards-specifications-rss/rss-247-digital-transmission-systems-dtss-frequency-hopping-systems-fhss-and-licence-exempt-local#s5).
+LoRa mesh networks operate mainly with unlicensed Industrial, Scientific, and Medical (ISM) radio bands, which is regulated in Canada by [Innovation, Science and Economic Development Canada (ISED)](https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/devices-and-equipment/radio-equipment-standards/radio-standards-specifications-rss/rss-247-digital-transmission-systems-dtss-frequency-hopping-systems-fhss-and-licence-exempt-local).
 
 1. All members agree to comply with Canadian regulations, in particular those governing conductive power for unlicensed low-power devices (limited to 1W input power) and antenna gain.
 
