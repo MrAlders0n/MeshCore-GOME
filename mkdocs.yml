@@ -12,6 +12,7 @@ nav:
       - Goals: community/goals.md
       - Getting Involved: community/getting-involved.md
       - Contributing: community/contributing.md
+      - Rules: community/rules.md
   
   - Deployment:
       - Coverage: deployment/coverage.md
