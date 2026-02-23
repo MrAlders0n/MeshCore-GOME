@@ -19,4 +19,4 @@ LoRa mesh networks operate mainly with unlicensed Industrial, Scientific, and Me
 
 1. All members agree to comply with Canadian regulations, in particular those governing conductive power for unlicensed low-power devices (limited to 1W input power) and antenna gain.
 
-The maximum radiated output power for these unlicensed devices is **+30dBM / 1 Watt**. If you wish to use more power, you must be a licensed [amateur radio](https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/radio-authorizations/amateur-radio-operator-certification) operator and must abide by all rules/regulations set by ISED for your amateur radio operator certificate.
+If you wish to use more power, you must be a licensed [amateur radio](https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/licences-and-certificates/radio-authorizations/amateur-radio-operator-certification) operator and must abide by all rules/regulations set by ISED for your amateur radio operator certificate.
