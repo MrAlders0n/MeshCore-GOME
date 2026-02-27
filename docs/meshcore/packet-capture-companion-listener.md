@@ -172,7 +172,7 @@ If it fails to start, confirm:
 
 Open:
 
-**https://analyzer.letsme.sh/status/observers**
+**https://analyzer.letsmesh.net/status/observers**
 
 Use the **All Regions** dropdown and select **YOW**.  
 If your listener appears and shows green status, it is forwarding packets correctly.

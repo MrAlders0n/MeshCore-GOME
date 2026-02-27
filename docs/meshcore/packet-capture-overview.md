@@ -6,7 +6,7 @@ The **MeshCore Packet Analyzer** provides real-time visibility into MeshCore net
 
 View the live packet feed here:
 
-**[MeshCore Packet Analyzer – Ottawa (YOW)](https://analyzer.letsme.sh/packets?region=YOW)**
+**[MeshCore Packet Analyzer – Ottawa (YOW)](https://analyzer.letsmesh.net/packets?region=YOW)**
 
 ## What You'll See on the Page
 

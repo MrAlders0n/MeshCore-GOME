@@ -1,6 +1,6 @@
 # MeshCore Packet Capture (Standalone Repeater Listener)
 
-This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **HeltekV3** to act as a standalone packet capture device that forwards logs directly to [analyzer.letsme.sh](https://analyzer.letsme.sh).  
+This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **HeltekV3** to act as a standalone packet capture device that forwards logs directly to [analyzer.letsme.sh](https://analyzer.letsmesh.net).  
 This setup does **not** require a Raspberry Pi, VM, or companion node.
 
 ## Overview
