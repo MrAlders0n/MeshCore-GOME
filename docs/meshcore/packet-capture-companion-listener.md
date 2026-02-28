@@ -5,7 +5,7 @@ This guide explains how to install and run **[MeshCore Packet Capture](https://g
 
 **Scope:**  
 This setup covers **packet capture from companion nodes only**.  
-Packet capture for **repeaters** and **room servers** is supported by MeshCore but not yet documented here.
+If you wish to setup a standalone packet capture repeater with a Heltec V3 go to **[MeshCore Packet Capture (Standalone Repeater Listener)](packet-capture-standalone-repeater.md)**.
 
 ## Requirements
 

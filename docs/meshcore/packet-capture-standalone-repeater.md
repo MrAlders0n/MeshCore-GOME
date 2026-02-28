@@ -17,7 +17,7 @@ Please share your assigned ID in the **Ottawa Mesh Discord** so we can track it.
 ## Scope
 
 This setup covers packet capture from a standalone repeater node only.  
-If you wish to run a full repeater, simply skip the step where repeat is disabled.
+```Note:If you wish to run a full repeater, simply skip the step where repeat is disabled.```
 
 ## Requirements
 
@@ -93,9 +93,12 @@ If you wish to run a full repeater, simply skip the step where repeat is disable
 
 8. Disable repeat:  
 
+    ```Note: If you wish to run a full repeater, simply skip this step.```
+
     ```
     set repeat off
      ```
+    
 
 9. (Optional) Configure ownership info for the Packet Analyzer:  
     You must have an account on [analyzer.letsmesh.net](https://analyzer.letsmesh.net/) (login uses MeshCore Forum authentication).
