@@ -55,7 +55,9 @@ A robust build using a purpose-built weatherproof enclosure.
 | **LoRa Board (Small)** | RAK WisBlock RAK19003/RAK4631 (Type 6) | $36.38     | [AliExpress](https://aliexpress.com/item/1005008285698839.html) |
 | **Antenna**          | ALFA AOA-915-5ACM                     | $34.99    | [Amazon](https://www.amazon.ca/dp/B08H8J6ZV6) |
 | **Antenna Coax Cable** | N Female to IPX                       | $6.79      | [AliExpress](https://aliexpress.com/item/1005001920963497.html) |
-| **Battery**          | 3000mAh Li-ion                         | $16.00     | [Amazon](https://www.amazon.com/3000mAh-Rechargable-Protection-Insulated-Development/dp/B08T6GT7DV) |
+| **Battery - Option 1**          | 3000mAh Li-ion  - Makerfocus (Pack of 4) - Ships from China                       | $24.99 | [Makerfocus](https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4) |
+| **Battery - Option 2**          | 3000mAh Li-ion  - Amazon US store (Pack of 4)                       | $29.99 | [Amazon](https://www.amazon.com/3000mAh-Rechargable-Protection-Insulated-Development/dp/B08T6GT7DV) |
+| **Battery - Option 3**          | 3000mAh Li-ion - Sold at Local store (Space Hedgehog)                        | $11.00     | [Space Hedgehog](https://space-hedgehog.com/products/3000mah-battery) |
 | **Battery Protection** | VoltaicEnclosures Li-ion PCM           | $7.50      | [Etsy](https://www.etsy.com/listing/1421193059) |
 | **Vent**             | Waterproof Vent Plug (M12X1.5-10)     | $6.12      | [AliExpress](https://aliexpress.com/item/1005006370919409.html) |
 
