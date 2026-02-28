@@ -93,7 +93,7 @@ This setup covers packet capture from a standalone repeater node only.
 
 8. Disable repeat:  
 
-    ```Note: If you wish to run a full repeater, simply skip this step.```
+    **Note: If you wish to run a full repeater, simply skip this step.**
 
     ```
     set repeat off
