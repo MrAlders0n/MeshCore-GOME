@@ -1,4 +1,4 @@
-# Sync Repeaters Workflow
+# This workflow will sync repeaters
 
 name: Sync Repeaters
 
@@ -13,7 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Sync Repeaters
+      - name: Fetch repeaters
         run: |
           curl -X GET https://yow.meshmapper.net/get_repeaters.php -o repeaters.json
-          # Additional commands to process repeaters.json
+
+      - name: Update mesh mapping
+        run: |
+          # Add commands to update mapping based on repeaters.json
