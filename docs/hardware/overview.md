@@ -2,9 +2,12 @@
 
 Welcome! This section helps you pick the right hardware for MeshCore, whether you’re just joining the mesh or you’re ready to help it grow.
 
-## New Ottawa Store
+## Local Store Options
 
-One of our own members recently created a store with inventory in Ottawa to help the community grow, with local delivery by courier options. Visit them at: **[Space Hedgehog](https://space-hedgehog.com/)**
+- One of our own members recently created a store with inventory in Ottawa to help the community grow, with local delivery by courier options. Visit them at: **[Space Hedgehog](https://space-hedgehog.com/)**
+- New local store selling lithium batteries and related hardware, has local pickup option: **[Motion Power & Witt Supply Co.](https://mpandw.ca/)
+
+
 
 ## Companions (Connect to the Mesh)
 Start here to grab a companion and connect to the mesh:
