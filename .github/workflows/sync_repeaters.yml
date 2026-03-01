@@ -580,10 +580,21 @@ jobs:
             echo "Waiting for PR to be ready (attempt $i)..."
             sleep 2
           done
-          # Try auto-merge first, fall back to direct merge
-          if ! gh pr merge "$PR_NUMBER" --squash --auto 2>/dev/null; then
-            echo "Auto-merge not available (branch protection not configured), attempting direct merge..."
-            gh pr merge "$PR_NUMBER" --squash
+          # Try auto-merge first, fall back to direct merge with retries
+          if gh pr merge "$PR_NUMBER" --squash --auto 2>/dev/null; then
+            echo "Auto-merge enabled successfully"
+            exit 0
           fi
+          echo "Auto-merge not available, attempting direct merge..."
+          for attempt in 1 2 3; do
+            if gh pr merge "$PR_NUMBER" --squash 2>&1; then
+              echo "PR merged successfully"
+              exit 0
+            fi
+            echo "Merge attempt $attempt failed, retrying in 5s..."
+            sleep 5
+          done
+          echo "All merge attempts failed"
+          exit 1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
