@@ -1,6 +1,7 @@
 # Welcome to Greater Ottawa Mesh Enthusiasts
 
 [**Join us on Discord**](https://discord.gg/WSyNd8SfNr)
+[**Join us on Matrix (bridged with Discord)**](https://matrix.to/#/!mmikqViPfjFpOERUxA:matrix.org?via=matrix.org&via=mauve.moe)
 
 ## About the Community
 
