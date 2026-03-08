@@ -73,7 +73,7 @@ repeaters:
     contact: "meshcore://contact/add?name=SSHO_R1&public_key=0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651BE32C17404DCA14&type=2"
     state: "Active"
     hex_id: "0AF59C1FDED7222F1325B96ABBF74030299C1F3CD4A236651BE32C17404DCA14"
-    last_heard: 1772986473
+    last_heard: 1772990072
     power_watt: "1.0"
 
   - id: "0B"
@@ -95,7 +95,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R0&public_key=0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D652D75F290511D&type=2"
     state: "Active"
     hex_id: "0C2F099AF2CE53F13E0909F4419CAA30669D0032EDE58F726D652D75F290511D"
-    last_heard: 1772985261
+    last_heard: 1772988860
     power_watt: "0.3"
 
   - id: "14"
@@ -106,7 +106,7 @@ repeaters:
     contact: "meshcore://contact/add?name=CORRIGE-R1&public_key=146ACF961C253989FA7B79E5B014D39B622F736EA3F6FBF998052E20B2884796&type=2"
     state: "Active"
     hex_id: "146ACF961C253989FA7B79E5B014D39B622F736EA3F6FBF998052E20B2884796"
-    last_heard: 1772986302
+    last_heard: 1772989903
     power_watt: "0.3"
 
   - id: "17"
@@ -117,7 +117,7 @@ repeaters:
     contact: "meshcore://contact/add?name=llm-repeater2&public_key=17AB75372ACA255E7810C99DBB31475C0EAC133D59EC4B0F9E5D78C6BC413EBF&type=2"
     state: "Active"
     hex_id: "17AB75372ACA255E7810C99DBB31475C0EAC133D59EC4B0F9E5D78C6BC413EBF"
-    last_heard: 1772984322
+    last_heard: 1772991522
     power_watt: "0.3"
 
   - id: "20"
@@ -205,7 +205,7 @@ repeaters:
     contact: "meshcore://contact/add?name=funkymonkey&public_key=394192EB8139264051606C15421CF5127BDC22100067238CA6B0FF37784CFCA2&type=2"
     state: "Active"
     hex_id: "394192EB8139264051606C15421CF5127BDC22100067238CA6B0FF37784CFCA2"
-    last_heard: 1772984387
+    last_heard: 1772991587
     power_watt: "0.3"
 
   - id: "3B"
@@ -216,7 +216,7 @@ repeaters:
     contact: "meshcore://contact/add?name=NEW_SOLAR_R&public_key=3B5DFCAE5F5061AE67AF0B6AAECA05EEAF16461424B093A771F3269248B54BF1&type=2"
     state: "Active"
     hex_id: "3B5DFCAE5F5061AE67AF0B6AAECA05EEAF16461424B093A771F3269248B54BF1"
-    last_heard: 1772984438
+    last_heard: 1772988038
     power_watt: "0.3"
 
   - id: "3D"
@@ -271,7 +271,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3HUP_DowsLake&public_key=47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1B9A69A85940321&type=2"
     state: "Active"
     hex_id: "47D004DED5F0BD0839AE60A33BFE724D3F30A4B66B3F7770D1B9A69A85940321"
-    last_heard: 1772986237
+    last_heard: 1772989837
     power_watt: "1.0"
 
   - id: "48"
@@ -304,7 +304,7 @@ repeaters:
     contact: "meshcore://contact/add?name=MrAlders0n_R2&public_key=4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929DD90E506049010F&type=2"
     state: "Active"
     hex_id: "4D5CA81D3B9962398B45F3DD9807B6709724AC87489C8B929DD90E506049010F"
-    last_heard: 1772983522
+    last_heard: 1772990723
     power_watt: "0.3"
 
   - id: "4E"
@@ -315,7 +315,7 @@ repeaters:
     contact: "meshcore://contact/add?name=MrAlders0n_R1&public_key=4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7EFD3F542B4416B&type=2"
     state: "Active"
     hex_id: "4E3192DCBB257474F63922229BCD93CD6DD510636541E1A6F7EFD3F542B4416B"
-    last_heard: 1772986447
+    last_heard: 1772990047
     power_watt: "0.3"
 
   - id: "51"
@@ -359,7 +359,7 @@ repeaters:
     contact: "meshcore://contact/add?name=TBRG_R3&public_key=649D120810863F3ADE5682832842E5523B4286F8253C658ABA7D7E4AD96016C9&type=2"
     state: "Active"
     hex_id: "649D120810863F3ADE5682832842E5523B4286F8253C658ABA7D7E4AD96016C9"
-    last_heard: 1772983263
+    last_heard: 1772990463
     power_watt: "0.3"
 
   - id: "67"
@@ -436,7 +436,7 @@ repeaters:
     contact: "meshcore://contact/add?name=CSP-RPTR1&public_key=798AEF1F0A148A0B62EFF07B0D631D8630948269E6D39616B83514A7A77851EF&type=2"
     state: "Active"
     hex_id: "798AEF1F0A148A0B62EFF07B0D631D8630948269E6D39616B83514A7A77851EF"
-    last_heard: 1772983897
+    last_heard: 1772991096
     power_watt: "0.6"
 
   - id: "7B"
@@ -447,7 +447,7 @@ repeaters:
     contact: "meshcore://contact/add?name=EssentialTrash_R1&public_key=7B2EF0359918364D66048102B574C830DCB023489514899D404205E8726E1265&type=2"
     state: "Active"
     hex_id: "7B2EF0359918364D66048102B574C830DCB023489514899D404205E8726E1265"
-    last_heard: 1772984560
+    last_heard: 1772991760
     power_watt: "0.3"
 
   - id: "7C"
@@ -469,7 +469,7 @@ repeaters:
     contact: "meshcore://contact/add?name=phr4&public_key=7D4DB5943B01B52E8A409F57A9457E497B6020BE6FC0872B482665B4786EE99F&type=2"
     state: "Active"
     hex_id: "7D4DB5943B01B52E8A409F57A9457E497B6020BE6FC0872B482665B4786EE99F"
-    last_heard: 1772983626
+    last_heard: 1772990826
     power_watt: "0.3"
 
   - id: "80"
@@ -524,7 +524,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Vanier%20East%20R2&public_key=895358746537E4FAEC0CBAEA50313E94C1D425BDE3A46DF98BDD41DF5807EFEC&type=2"
     state: "Active"
     hex_id: "895358746537E4FAEC0CBAEA50313E94C1D425BDE3A46DF98BDD41DF5807EFEC"
-    last_heard: 1772980163
+    last_heard: 1772990940
     power_watt: "0.3"
 
   - id: "8B"
@@ -546,7 +546,7 @@ repeaters:
     contact: "meshcore://contact/add?name=ZabRepeater1&public_key=8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC76DAC5D3B99529&type=2"
     state: "Active"
     hex_id: "8FB3E8FBEA11E76CEBB11EEECF543430001E62B5FECBF405DC76DAC5D3B99529"
-    last_heard: 1772967224
+    last_heard: 1772988823
     power_watt: "0.3"
 
   - id: "90"
@@ -568,7 +568,7 @@ repeaters:
     contact: "meshcore://contact/add?name=CAN_SOLAR_R&public_key=921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF1C8038157C81B4&type=2"
     state: "Active"
     hex_id: "921578E08537DE98B655A37B025370AA15EC53995B41FA1FCF1C8038157C81B4"
-    last_heard: 1772981018
+    last_heard: 1772991818
     power_watt: "0.3"
 
   - id: "99"
@@ -700,7 +700,7 @@ repeaters:
     contact: "meshcore://contact/add?name=SVIL_R1&public_key=CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A854327C1CD502D&type=2"
     state: "Active"
     hex_id: "CF2F5371CDA59C157DA3AC065195F622C3D7D6FFCAECE13D5A854327C1CD502D"
-    last_heard: 1772980721
+    last_heard: 1772991523
     power_watt: "0.3"
 
   - id: "D0"
@@ -711,7 +711,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Gatineau_R1&public_key=D05386332896FF78742C824A47009D9A219AC7A7232F7DD2D63FD91086B74D8C&type=2"
     state: "Active"
     hex_id: "D05386332896FF78742C824A47009D9A219AC7A7232F7DD2D63FD91086B74D8C"
-    last_heard: 1772983942
+    last_heard: 1772987542
     power_watt: "0.3"
 
   - id: "D2"
@@ -744,7 +744,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Quinterra&public_key=DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0A9E7A28C826767&type=2"
     state: "Active"
     hex_id: "DA6F580119B90F018667C40D464BF2FE41DE1937AD09305FB0A9E7A28C826767"
-    last_heard: 1772983504
+    last_heard: 1772990704
     power_watt: "0.3"
 
   - id: "E1"
@@ -755,7 +755,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3HUP_Roof&public_key=E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8A42F22095B4385&type=2"
     state: "Active"
     hex_id: "E1AD61E9227202E6F2D23F97070C77B0FCEB61617D7006B2D8A42F22095B4385"
-    last_heard: 1772982371
+    last_heard: 1772989571
     power_watt: "0.3"
 
   - id: "F2"
@@ -854,7 +854,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3TEC_R1&public_key=75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB9379796EEBC0087C&type=2"
     state: "Active"
     hex_id: "75861A6CE4ED63AA3D754FE97F47B40C20F3C49B3F02D7BB9379796EEBC0087C"
-    last_heard: 1772947749
+    last_heard: 1772990950
     power_watt: null
 
   - id: "77"
@@ -1140,7 +1140,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Queenswood%20Heights%20RS&public_key=BEFDE828CDDD05480654DF6B8DC6ED7516FDF6AF7BA0CA8B925A159D77E5B798&type=2"
     state: "New"
     hex_id: "BEFDE828CDDD05480654DF6B8DC6ED7516FDF6AF7BA0CA8B925A159D77E5B798"
-    last_heard: 1772985239
+    last_heard: 1772988839
     power_watt: null
 
   - id: "15"
@@ -1173,7 +1173,7 @@ repeaters:
     contact: "meshcore://contact/add?name=YOW_Marlborough&public_key=5B3EAD1E649D430A1D62CEB28A481B331793DE8887F0F7E6B9E2F4FEA19C107C&type=2"
     state: "Duplicate"
     hex_id: "5B3EAD1E649D430A1D62CEB28A481B331793DE8887F0F7E6B9E2F4FEA19C107C"
-    last_heard: 1772944144
+    last_heard: 1772987343
     power_watt: null
 
   - id: "87"
@@ -1305,7 +1305,7 @@ repeaters:
     contact: "meshcore://contact/add?name=Shai-Hulud&public_key=9C5FDBF2DA54285CF2CA9424C2ADDAF6AF996F5F0A1F2E354CF0F1E4A538A6B7&type=2"
     state: "New"
     hex_id: "9C5FDBF2DA54285CF2CA9424C2ADDAF6AF996F5F0A1F2E354CF0F1E4A538A6B7"
-    last_heard: 1772985730
+    last_heard: 1772989331
     power_watt: null
 
   - id: "8E"
@@ -1382,7 +1382,7 @@ repeaters:
     contact: "meshcore://contact/add?name=YOW_Alx_Mob_Rpt_2&public_key=F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265BACE32C1F1A378&type=2"
     state: "New"
     hex_id: "F1DE457F57DA7C6427761ED43AA29BCD2427A6981A323B7265BACE32C1F1A378"
-    last_heard: 1772948341
+    last_heard: 1772991541
     power_watt: null
 
   - id: "E4"
@@ -1547,7 +1547,7 @@ repeaters:
     contact: "meshcore://contact/add?name=AlxRak1WSol2&public_key=F69F816DA7D59979DD56BEAA53C49946293C14146F6E2E59A95F2AD1558F3328&type=2"
     state: "New"
     hex_id: "F69F816DA7D59979DD56BEAA53C49946293C14146F6E2E59A95F2AD1558F3328"
-    last_heard: 1772943796
+    last_heard: 1772986983
     power_watt: null
 
   - id: "AA"
@@ -1778,7 +1778,7 @@ repeaters:
     contact: "meshcore://contact/add?name=VA3NFA-R1&public_key=211B2DC6654C2D26E3EF7F7ACE2AEE04EE589A03DB09605D42FA28FBAF354E56&type=2"
     state: "New"
     hex_id: "211B2DC6654C2D26E3EF7F7ACE2AEE04EE589A03DB09605D42FA28FBAF354E56"
-    last_heard: 1772980542
+    last_heard: 1772991342
     power_watt: null
 
   - id: "10"
@@ -1833,7 +1833,7 @@ repeaters:
     contact: "meshcore://contact/add?name=RDVW-02&public_key=E9C9B6D00B538247A23C178E9F9365158097145E710DFBC5B5EC592C7327DEE0&type=2"
     state: "New"
     hex_id: "E9C9B6D00B538247A23C178E9F9365158097145E710DFBC5B5EC592C7327DEE0"
-    last_heard: 1772981238
+    last_heard: 1772992038
     power_watt: null
 
   - id: "2B"
@@ -1954,7 +1954,7 @@ repeaters:
     contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46BEEF1BD86C0A52F28F581C65C7116A11BECA6258E99104DB5D76C1A00553C1&type=2"
     state: "Duplicate"
     hex_id: "46BEEF1BD86C0A52F28F581C65C7116A11BECA6258E99104DB5D76C1A00553C1"
-    last_heard: 1772985701
+    last_heard: 1772989301
     power_watt: null
 
   - id: "11"
