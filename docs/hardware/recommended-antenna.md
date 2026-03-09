@@ -21,7 +21,7 @@ These are SMA antennas and are more compact, yet they’ve consistently shown ex
 | Gizont 167CM 915MHz RP-SMA M   | RP-SMA       | $10.53     | [AliExpress](https://www.aliexpress.com/item/1005004607615001.html) |
 | LINX ANT-916-CW-HW-SMA      | SMA       | $14.65     | [DigiKey](https://www.digikey.ca/en/products/detail/te-connectivity-linx/ANT-916-CW-HW-SMA/2694126?s=N4IgTCBcDaIDIEkByANABAQSQFQLQE4BGANlwGEB1XACSoGUBZDEAXQF8g) |
 | Taoglas TI.09.A.0111        | SMA       | $17.47     | [DigiKey](https://www.digikey.ca/en/products/detail/taoglas-limited/TI-09-A-0111/2332695?s=N4IgTCBcDaICoEMD2BzANggzgAjgSQDoAGATgIEFiBGGkAXQF8g) |
-
+| Seeed Studio LoRa Antenna Kit        | SMA       | $6.79     | [Seeed Studio](https://www.seeedstudio.com/LoRa-Antenna-Kit-for-reTerminal-DM-p-5714.html) |
 ## Repeater Omni Antennas
 
 These are N-Type antennas and are best suited for repeaters. At an absolute minimum, all repeaters should use the Alfa antenna — it’s a major reason the Ottawa mesh performs as well as it does. MrAlders0n has made a link between a repeater and a companion at 110KM distance with an Alfa on both ends.
