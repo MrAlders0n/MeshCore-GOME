@@ -40,4 +40,4 @@ Directional antennas are intended for fixed repeaters and long-distance point-to
 
 | Product                | Connector | Cost (CAD) | Link |
 |------------------------|-----------|------------|------|
-| TBD       | N-Type    | $TBD     | [TBD](https://TBD) |
+| L-com HG913Y-NF      | N-Type    | $237.17     | [DigiKey](https://www.digikey.ca/en/products/detail/l-com/HG913Y-NF/21289980) |
