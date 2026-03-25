@@ -38,8 +38,9 @@ These options come fully assembled; simply flash MeshCore and mount them in a hi
 |---------|--------|------|
 | **SenseCAP Solar Node P1 Pro** | Solar-powered communication node using the XIAO nRF52840 Plus + Wio-SX1262 LoRa module. Includes a 5W solar panel, IPX5 waterproofing, four 18650 cells (3350 mAh each), and a 2 dBi rubber antenna. Includes GPS (XIAO L76K). | [RobotShop (Canadian Store)](https://ca.robotshop.com/products/sensecap-solar-node-p1-pro-for-meshtastic-w-gps-battery) |
 | **SenseCAP Solar Node P1 w/o GPS & Battery** | Same as above but **does not include GPS or batteries**. | [RobotShop (Canadian Store)](https://ca.robotshop.com/products/sensecap-solar-node-p1-meshtastic-w-o-gps-battery) |
-| **Option 1 - Local Store - Batteries for SenseCAP Solar Node P1** | You can purchase four of these 18650 cells locally, but you'll need to add something (e.g., a spring, copper wire, etc.) to each to ensure a proper connection in the positive poles if you decide to purchase the P1 model without GPS & Battery | [Motion Power & Witt Supply Co.](https://mpandw.ca/products/eve-35v-18650-battery-cells-set-of-6-with-holders) |
-| **Option 2 - Ships from China - Batteries for SenseCAP Solar Node P1** | You'll need four button-top 18650 cells if you decide to purchase the P1 model without GPS & Battery  | [AliExpress](https://www.aliexpress.com/item/1005009897181947.html) |
+| **Option 1 - Local Store - Batteries for SenseCAP Solar Node P1** | You can purchase four of these button-top 18650 cells locally, if you decide to purchase the P1 model without GPS & Battery | [Motion Power & Witt Supply Co.](https://mpandw.ca/products/button-top-eve-35v-house-made) |
+| **Option 2 - Local Store - Batteries for SenseCAP Solar Node P1** | You can purchase four of these 18650 cells locally, but you'll need to add something (e.g., a spring, copper wire, etc.) to each to ensure a proper connection in the positive poles if you decide to purchase the P1 model without GPS & Battery | [Motion Power & Witt Supply Co.](https://mpandw.ca/products/eve-35v-18650-battery-cells-set-of-6-with-holders) |
+| **Option 3 - Ships from China - Batteries for SenseCAP Solar Node P1** | You'll need four button-top 18650 cells if you decide to purchase the P1 model without GPS & Battery  | [AliExpress](https://www.aliexpress.com/item/1005009897181947.html) |
 | **WisMesh Solar Repeater Mini** | Compact outdoor repeater built around the RAK4631 (nRF52840 + SX1262) with a WisBlock mini base. Housed in an IP67 Unify enclosure with integrated solar panel, 3200 mAh Li-ion battery, and a WisMesh blade antenna (902–928 MHz). | [RAK Store](https://store.rakwireless.com/products/wishmesh-meshtastic-solar-repeater-mini) |
 
 ---
@@ -69,4 +70,3 @@ A robust build using a purpose-built weatherproof enclosure.
 **Build Instructions:** [300mW Solar Repeater Build Guide](./repeater-solar-300mw-diy-build.md)
 
 ---
-
