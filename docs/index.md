@@ -50,6 +50,8 @@ Meshtastic is a **peer-to-peer mesh** where every node can forward traffic.
 
 [Watch a quick overview on YouTube](https://www.youtube.com/watch?v=tXoAhebQc0c)
 
+[An article that compares both protocols](https://www.seeedstudio.com/blog/2026/03/23/meshcore-vs-meshtastic/) - Note that they erroneusly say that MeshCore is not open source. Some apps are proprietary, but the protocol and some apps are open source.
+
 ## Getting Started With MeshCore
 
 ### Pick a Companion Node
