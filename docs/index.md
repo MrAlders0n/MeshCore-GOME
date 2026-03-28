@@ -15,6 +15,8 @@ Across the NCR and the surrounding area we currently operate over **50 static Me
 
 Whether you want to experiment, build hardware, climb towers, or just connect with other enthusiasts — you’re welcome here.
 
+Also see our presentation at the [March 2026 OARC Monthly Meeting](https://oarc.net/2026-03-11-oarc-monthly-meeting-march-2026-report/).
+
 ## MeshCore Map
 
 <div style="height: 600px; border: 1px solid #444;">
