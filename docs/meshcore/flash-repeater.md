@@ -4,18 +4,26 @@ This guide will help you flash a node and configure it as a MeshCore repeater.
 
 ---
 
-## RAK Bootloader Update  
+## nRF52 Bootloader Update  
 
 *(Skip this section if you are not using a RAK-based board)*
 
 **Important:**  
-Before configuring a repeater, you must update the bootloader on **RAK** boards.  
+Before configuring a repeater, you must update the bootloader on **nRF52 based** boards (e.g, RAK 4631, Xiao NRF52840, Heltec T114, etc).  
 Without this fix, a failed OTA update can brick the repeater and require physical recovery.
 
 ### Steps
 
-1. Download the OTA bootloader fix:  
-   **[OTAFIX Bootloader UF2 File](https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-OTAFIX2.1-BP1.2/update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2)**
+1. Download the UF2 file (they have the 'update-' prefix) of the OTA bootloader fix for your device in the **[OTAFIX GitHub Repo](https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases)**
+
+Examples:
+
+RAK 4631 -> update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
+
+Heltec T114 -> update-heltec_t114_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2 
+
+Xiao NRF52840 (Used in Ikoka Stick) -> update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
+
 2. Connect your repeater to your computer via USB.  
 3. Double-click the button beside the USB port on the RAK board.  
    - The green LED should turn on, indicating DFU mode.  
@@ -43,7 +51,7 @@ If flashing fails after erasing, refresh the page, click **Enter DFU Mode** agai
 
 ## Flashing MeshCore Repeater Firmware - Over-the-air (OTA) - Non Recommended Route
 
-**Note:** This section only applies to NRF-based boards (e.g., RAK4630, Heltec T114, Seed XIAO). Please read the warning below since we highly recommend you flash firmware using USB instead.
+**Note:** This section only applies to NRF-based boards (e.g., RAK4630, Heltec T114, XIAO NRF52). Please read the warning below since we highly recommend you flash firmware using USB instead.
 
 !!! warning "OTA Risks"
     Although it is possible to flash a repeater's firmware OTA, there is a very high risk of a flash failing (even if the app says there are no issues) which will require a USB re-flash. We have experienced an OTA failure during Winter that requires to wait until the Spring to get physical access to the repeater. Proceed at your own risk!

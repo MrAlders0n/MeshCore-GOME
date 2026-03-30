@@ -11,13 +11,12 @@ Pre-built units have improved a lot in reliability and price, while DIY builds r
     
 ---
 
-## Important Note for RAK-Based Repeaters
+## Important Note for nRF52-Based Repeaters
 
-If you plan to use a **RAK** board for a repeater, you must update it to the **OTAFIX bootloader firmware**.  
+If you plan to use a **nRF52** board for a repeater, you must update it to the **OTAFIX bootloader firmware**.  
 Without this fix, if an OTA update fails over BLE, the repeater will enter an unusable state and require physical access to recover.
 
-Download the OTAFIX firmware:  
-**[OTAFIX Bootloader UF2 File](https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-otafix1/update-wiscore_rak4631_board_bootloader-0.9.2-otafix1_nosd.uf2)**
+See more infomation [in the repeater flashing instructions page](/meshcore/flash-repeater.md)
 
 ---
 
