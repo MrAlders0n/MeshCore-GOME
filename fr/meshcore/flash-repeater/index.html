@@ -1314,15 +1314,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#rak-bootloader-update" class="md-nav__link">
+  <a href="#nrf52-bootloader-update" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RAK Bootloader Update
+        nRF52 Bootloader Update
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RAK Bootloader Update">
+    <nav class="md-nav" aria-label="nRF52 Bootloader Update">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1918,15 +1918,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#rak-bootloader-update" class="md-nav__link">
+  <a href="#nrf52-bootloader-update" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RAK Bootloader Update
+        nRF52 Bootloader Update
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="RAK Bootloader Update">
+    <nav class="md-nav" aria-label="nRF52 Bootloader Update">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2051,15 +2051,20 @@
 <h1 id="flashing-and-configuring-a-repeater-node">Flashing and Configuring a Repeater Node<a class="headerlink" href="#flashing-and-configuring-a-repeater-node" title="Permanent link">¶</a></h1>
 <p>This guide will help you flash a node and configure it as a MeshCore repeater.</p>
 <hr>
-<h2 id="rak-bootloader-update">RAK Bootloader Update<a class="headerlink" href="#rak-bootloader-update" title="Permanent link">¶</a></h2>
+<h2 id="nrf52-bootloader-update">nRF52 Bootloader Update<a class="headerlink" href="#nrf52-bootloader-update" title="Permanent link">¶</a></h2>
 <p><em>(Skip this section if you are not using a RAK-based board)</em></p>
 <p><strong>Important:</strong><br>
-Before configuring a repeater, you must update the bootloader on <strong>RAK</strong> boards.<br>
+Before configuring a repeater, you must update the bootloader on <strong>nRF52 based</strong> boards (e.g, RAK 4631, Xiao NRF52840, Heltec T114, etc).<br>
 Without this fix, a failed OTA update can brick the repeater and require physical recovery.</p>
 <h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">¶</a></h3>
 <ol>
-<li>Download the OTA bootloader fix:<br>
-<strong><a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases/download/0.9.2-OTAFIX2.1-BP1.2/update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2">OTAFIX Bootloader UF2 File</a></strong></li>
+<li>Download the UF2 file (they have the 'update-' prefix) of the OTA bootloader fix for your device in the <strong><a href="https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases">OTAFIX GitHub Repo</a></strong></li>
+</ol>
+<p>Examples:</p>
+<p>RAK 4631 -&gt; update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2</p>
+<p>Heltec T114 -&gt; update-heltec_t114_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2 </p>
+<p>Xiao NRF52840 (Used in Ikoka Stick) -&gt; update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2</p>
+<ol>
 <li>Connect your repeater to your computer via USB.  </li>
 <li>Double-click the button beside the USB port on the RAK board.  </li>
 <li>The green LED should turn on, indicating DFU mode.  </li>
@@ -2083,7 +2088,7 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode</strong> again, then click <strong>Flash</strong>.</p>
 <hr>
 <h2 id="flashing-meshcore-repeater-firmware-over-the-air-ota-non-recommended-route">Flashing MeshCore Repeater Firmware - Over-the-air (OTA) - Non Recommended Route<a class="headerlink" href="#flashing-meshcore-repeater-firmware-over-the-air-ota-non-recommended-route" title="Permanent link">¶</a></h2>
-<p><strong>Note:</strong> This section only applies to NRF-based boards (e.g., RAK4630, Heltec T114, Seed XIAO). Please read the warning below since we highly recommend you flash firmware using USB instead.</p>
+<p><strong>Note:</strong> This section only applies to NRF-based boards (e.g., RAK4630, Heltec T114, XIAO NRF52). Please read the warning below since we highly recommend you flash firmware using USB instead.</p>
 <div class="admonition warning">
 <p class="admonition-title">OTA Risks</p>
 <p>Although it is possible to flash a repeater's firmware OTA, there is a very high risk of a flash failing (even if the app says there are no issues) which will require a USB re-flash. We have experienced an OTA failure during Winter that requires to wait until the Spring to get physical access to the repeater. Proceed at your own risk!</p>
