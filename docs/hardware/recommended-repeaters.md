@@ -16,7 +16,7 @@ Pre-built units have improved a lot in reliability and price, while DIY builds r
 If you plan to use a **nRF52** board for a repeater, you must update it to the **OTAFIX bootloader firmware**.  
 Without this fix, if an OTA update fails over BLE, the repeater will enter an unusable state and require physical access to recover.
 
-See more infomation [in the repeater flashing instructions page](\meshcore/flash-repeater.md).
+See more infomation [in the repeater flashing instructions page](../meshcore/flash-repeater.md).
 
 ---
 
