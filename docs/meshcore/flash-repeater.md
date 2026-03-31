@@ -6,7 +6,7 @@ This guide will help you flash a node and configure it as a MeshCore repeater.
 
 ## nRF52 Bootloader Update  
 
-*(Skip this section if you are not using a RAK-based board)*
+*(Skip this section if you are not using an nRF52-based board)*
 
 **Important:**  
 Before configuring a repeater, you must update the bootloader on **nRF52 based** boards (e.g, RAK 4631, Xiao NRF52840, Heltec T114, etc).  
@@ -16,13 +16,13 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 
 1. Download the UF2 file (they have the 'update-' prefix) of the OTA bootloader fix for your device in the **[OTAFIX GitHub Repo](https://github.com/oltaco/Adafruit_nRF52_Bootloader_OTAFIX/releases)**
 
-Examples:
+   Examples:
 
-RAK 4631 -> update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
+      RAK 4631 -> update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
 
-Heltec T114 -> update-heltec_t114_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2 
+      Heltec T114 -> update-heltec_t114_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2 
 
-Xiao NRF52840 (Used in Ikoka Stick) -> update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
+      Xiao NRF52840 (Used in Ikoka Stick) -> update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
 
 2. Connect your repeater to your computer via USB.  
 3. Double-click the button beside the USB port on the RAK board.  
