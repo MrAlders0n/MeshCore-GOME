@@ -1947,11 +1947,11 @@ repeaters:
     power_watt: null
 
   - id: "46"
-    name: "High in the Sky"
+    name: "High in the Sky"
     antenna: null
     height_metre: null
     location: "Highland Park"
-    contact: "meshcore://contact/add?name=%01High%20in%20the%20Sky&public_key=46BEEF1BD86C0A52F28F581C65C7116A11BECA6258E99104DB5D76C1A00553C1&type=2"
+    contact: "meshcore://contact/add?name=High%20in%20the%20Sky&public_key=46BEEF1BD86C0A52F28F581C65C7116A11BECA6258E99104DB5D76C1A00553C1&type=2"
     state: "Duplicate"
     hex_id: "46BEEF1BD86C0A52F28F581C65C7116A11BECA6258E99104DB5D76C1A00553C1"
     last_heard: 1774847563

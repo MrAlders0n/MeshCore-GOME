@@ -36,6 +36,7 @@ jobs:
         run: |
           python <<'PYTHON_SCRIPT'
           import os
+          import re
           import time
           import yaml
           import requests
@@ -49,6 +50,12 @@ jobs:
               'backbonereserved': 'BackboneReserved',
               'reserved': 'Reserved',
           }
+
+          def sanitize_name(name):
+              """Strip control characters (U+0000-U+001F except tab/newline) from names."""
+              if name is None:
+                  return name
+              return re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', str(name))
 
           def normalize_state(state):
               if state is None:
@@ -243,7 +250,7 @@ jobs:
           for repeater in api_repeaters:
               hex_id = norm_hex(repeater.get("hex_id"))
               repeater_id = repeater.get("id")
-              api_name = repeater.get("name", "Unknown")
+              api_name = sanitize_name(repeater.get("name", "Unknown"))
               api_power = repeater.get("power")
               api_lat = repeater.get("lat")
               api_lon = repeater.get("lon")
