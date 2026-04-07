@@ -1,6 +1,6 @@
 # MeshCore Packet Capture (Standalone Repeater Listener)
 
-This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **HeltekV3** to act as a standalone packet capture device that forwards logs directly to [analyzer.letsme.sh](https://analyzer.letsmesh.net).  
+This guide explains how to install and run a **custom build of MeshCore repeater firmware** on a **HeltekV3 or HeltekV4** to act as a standalone packet capture device that forwards logs directly to [analyzer.letsme.sh](https://analyzer.letsmesh.net).  
 This setup does **not** require a Raspberry Pi, VM, or companion node.
 
 ## Overview
@@ -21,21 +21,22 @@ This setup covers packet capture from a standalone repeater node only.
 
 ## Requirements
 
-* Heltek V3 board  
+* Heltek V3 or Heltek V4 board  
 * USB-C cable  
 * Wi-Fi network access  
 * Basic familiarity with the [MeshCore Flasher](https://flasher.meshcore.co.uk) tool  
 
 ## Firmware Download
 
-**HeltekV3 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0-20250113.bin) **Tested on: 2025-12-13**&
-**HeltekV4 MQTT Repeater Firmware 1.11.0** [Download Link](./firmware/Heltek_v4_Repeater_MQTT_Bridge_1.11.0-20250113.bin) **Tested on: 2025-12-15**
+**HeltekV3 MQTT Repeater Firmware 1.14.1 (Experimental)** [Download Link](./firmware/Heltec_v3_repeater_observer_mqtt-v1.14.1-1c524a93.bin) **Tested on: 2026-04-06**
+
+**HeltekV4 MQTT Repeater Firmware 1.14.1 (Experimental)** [Download Link](./firmware/heltec_v4_repeater_observer_mqtt-v1.14.1-1c524a93.bin) **Tested on: 2026-04-06**
 
 ## Firmware Installation
 
-1. Download the HeltekV3 MQTT Repeater Firmware you wish to use
+1. Download the Heltek MQTT Repeater Firmware you wish to use
 
-2. Go to [MeshCore Flasher](https://flasher.meshcore.co.uk/) and click **HeltekV3**  
+2. Go to [MeshCore Flasher](https://flasher.meshcore.co.uk/) and click **HeltekV3 or HeltekV4 depending on your model**  
 
 3. Select **Repeater**  
 
@@ -110,6 +111,12 @@ This setup covers packet capture from a standalone repeater node only.
      ```
      set mqtt.email <MeshCore-Fourm-Email-Address>
     ```
+10. Configure MeshMapper MQTT server:  
+    The firmware by default connects to LetsMesh MQTT servers. Connecting to both LetsMesh and Meshmapper brokers is recommended but not required. Data received from multiple brokers is automatically deduplicated by MeshMapper.
+
+     ```
+     set mqtt3.preset meshmapper
+     ```
 
 ## Configure Remaining Things
 
