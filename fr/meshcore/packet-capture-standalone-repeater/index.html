@@ -2025,7 +2025,7 @@
 
 
 <h1 id="meshcore-packet-capture-standalone-repeater-listener">MeshCore Packet Capture (Standalone Repeater Listener)<a class="headerlink" href="#meshcore-packet-capture-standalone-repeater-listener" title="Permanent link">¶</a></h1>
-<p>This guide explains how to install and run a <strong>custom build of MeshCore repeater firmware</strong> on a <strong>HeltekV3</strong> to act as a standalone packet capture device that forwards logs directly to <a href="https://analyzer.letsmesh.net">analyzer.letsme.sh</a>.<br>
+<p>This guide explains how to install and run a <strong>custom build of MeshCore repeater firmware</strong> on a <strong>HeltekV3 or HeltekV4</strong> to act as a standalone packet capture device that forwards logs directly to <a href="https://analyzer.letsmesh.net">analyzer.letsme.sh</a>.<br>
 This setup does <strong>not</strong> require a Raspberry Pi, VM, or companion node.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
 <p>This firmware was compiled from <a href="https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation">agessaman/MeshCore (mqtt-bridge-implementation)</a> to simplify setup for the community.</p>
@@ -2041,21 +2041,21 @@ Please share your assigned ID in the <strong>Ottawa Mesh Discord</strong> so we 
 <code>Note:If you wish to run a full repeater, simply skip the step where repeat is disabled.</code></p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
 <ul>
-<li>Heltek V3 board  </li>
+<li>Heltek V3 or Heltek V4 board  </li>
 <li>USB-C cable  </li>
 <li>Wi-Fi network access  </li>
 <li>Basic familiarity with the <a href="https://flasher.meshcore.co.uk">MeshCore Flasher</a> tool  </li>
 </ul>
 <h2 id="firmware-download">Firmware Download<a class="headerlink" href="#firmware-download" title="Permanent link">¶</a></h2>
-<p><strong>HeltekV3 MQTT Repeater Firmware 1.11.0</strong> <a href="../../../meshcore/firmware/Heltek_v3_Repeater_MQTT_Bridge_1.11.0-20250113.bin">Download Link</a> <strong>Tested on: 2025-12-13</strong>&amp;
-<strong>HeltekV4 MQTT Repeater Firmware 1.11.0</strong> <a href="../../../meshcore/firmware/Heltek_v4_Repeater_MQTT_Bridge_1.11.0-20250113.bin">Download Link</a> <strong>Tested on: 2025-12-15</strong></p>
+<p><strong>HeltekV3 MQTT Repeater Firmware 1.14.1 (Experimental)</strong> <a href="../../../meshcore/firmware/Heltec_v3_repeater_observer_mqtt-v1.14.1-1c524a93.bin">Download Link</a> <strong>Tested on: 2026-04-06</strong></p>
+<p><strong>HeltekV4 MQTT Repeater Firmware 1.14.1 (Experimental)</strong> <a href="../../../meshcore/firmware/heltec_v4_repeater_observer_mqtt-v1.14.1-1c524a93.bin">Download Link</a> <strong>Tested on: 2026-04-06</strong></p>
 <h2 id="firmware-installation">Firmware Installation<a class="headerlink" href="#firmware-installation" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>Download the HeltekV3 MQTT Repeater Firmware you wish to use</p>
+<p>Download the Heltek MQTT Repeater Firmware you wish to use</p>
 </li>
 <li>
-<p>Go to <a href="https://flasher.meshcore.co.uk/">MeshCore Flasher</a> and click <strong>HeltekV3</strong>  </p>
+<p>Go to <a href="https://flasher.meshcore.co.uk/">MeshCore Flasher</a> and click <strong>HeltekV3 or HeltekV4 depending on your model</strong>  </p>
 </li>
 <li>
 <p>Select <strong>Repeater</strong>  </p>
@@ -2125,7 +2125,10 @@ Please share your assigned ID in the <strong>Ottawa Mesh Discord</strong> so we 
 <p>(Optional) Configure ownership info for the Packet Analyzer:<br>
     You must have an account on <a href="https://analyzer.letsmesh.net/">analyzer.letsmesh.net</a> (login uses MeshCore Forum authentication).</p>
 <p><code>set mqtt.owner &lt;Companion-Public-Key&gt;</code></p>
-<p><code>set mqtt.email &lt;MeshCore-Fourm-Email-Address&gt;</code></p>
+<p><code>set mqtt.email &lt;MeshCore-Fourm-Email-Address&gt;</code>
+10. Configure MeshMapper MQTT server:<br>
+The firmware by default connects to LetsMesh MQTT servers. Connecting to both LetsMesh and Meshmapper brokers is recommended but not required. Data received from multiple brokers is automatically deduplicated by MeshMapper.</p>
+<p><code>set mqtt3.preset meshmapper</code></p>
 </li>
 </ol>
 <h2 id="configure-remaining-things">Configure Remaining Things<a class="headerlink" href="#configure-remaining-things" title="Permanent link">¶</a></h2>
