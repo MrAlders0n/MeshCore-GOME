@@ -111,6 +111,7 @@ This setup covers packet capture from a standalone repeater node only.
      ```
      set mqtt.email <MeshCore-Fourm-Email-Address>
     ```
+    
 10. Configure MeshMapper MQTT server:  
     The firmware by default connects to LetsMesh MQTT servers. Connecting to both LetsMesh and Meshmapper brokers is recommended but not required. Data received from multiple brokers is automatically deduplicated by MeshMapper.
 
