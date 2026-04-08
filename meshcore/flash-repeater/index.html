@@ -2100,6 +2100,7 @@ If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode<
 <p><strong>Note:</strong> For RAK boards with the Bootloader update, when following LitBomb's instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU). Select this device and re-upload the update.</p>
 <hr>
 <h2 id="configuring-a-meshcore-repeater">Configuring a MeshCore Repeater<a class="headerlink" href="#configuring-a-meshcore-repeater" title="Permanent link">¶</a></h2>
+<p><strong>Note</strong>: We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.</p>
 <ol>
 <li>
 <p>Using a Chromium-based browser that supports the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility">required serial connection</a> (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:<br>
@@ -2120,6 +2121,7 @@ If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode<
 </ol>
 <hr>
 <h3 id="assigning-a-new-repeater-id-if-your-id-is-already-in-use">Assigning a New Repeater ID (if your ID is already in use)<a class="headerlink" href="#assigning-a-new-repeater-id-if-your-id-is-already-in-use" title="Permanent link">¶</a></h3>
+<p><strong>Note</strong>: We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.</p>
 <ol>
 <li>Go to the <strong><a href="../../deployment/repeaters/">Ottawa Repeater ID List</a></strong> and choose an unused <strong>2-digit ID</strong>.  </li>
 <li>Click the unused ID to open its key generator page.  </li>
@@ -2137,6 +2139,8 @@ If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode<
 <li>Set an <strong>admin password</strong> (required for MeshCore Remote Administration).  </li>
 <li>Apply the Ottawa defaults:<br>
 <strong>910.525 MHz / BW 62.5 kHz / SF7 / CR5</strong>  </li>
+<li>Set the node's advert path hash size to 3-bytes:
+   <code>set path.hash.mode 2</code></li>
 <li>Click <strong>Save</strong> and reboot the repeater.  </li>
 <li>Reconnect with the configuration tool and click <strong>Send Advert</strong>.</li>
 </ol>
