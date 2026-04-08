@@ -64,6 +64,9 @@ If you are OK with these risks, follow the instructions on [LitBomb's MeshCore F
 
 ## Configuring a MeshCore Repeater
 
+**Note**: We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.
+
+
 1. Using a Chromium-based browser that supports the [required serial connection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility) (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:  
    <https://config.meshcore.dev>
 
@@ -78,6 +81,8 @@ If you are OK with these risks, follow the instructions on [LitBomb's MeshCore F
 ---
 
 ### Assigning a New Repeater ID (if your ID is already in use)
+
+**Note**: We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.
 
 1. Go to the **[Ottawa Repeater ID List](../deployment/repeaters.md)** and choose an unused **2-digit ID**.  
 2. Click the unused ID to open its key generator page.  
@@ -97,8 +102,10 @@ After reboot, the repeater will use the new private key and the public key will 
 2. Set an **admin password** (required for MeshCore Remote Administration).  
 3. Apply the Ottawa defaults:  
    **910.525 MHz / BW 62.5 kHz / SF7 / CR5**  
-4. Click **Save** and reboot the repeater.  
-5. Reconnect with the configuration tool and click **Send Advert**.
+4. Set the node's advert path hash size to 3-bytes:
+   `set path.hash.mode 2`
+5. Click **Save** and reboot the repeater.  
+6. Reconnect with the configuration tool and click **Send Advert**.
 
 If everything is working, nearby companion nodes should receive the advert.
 
