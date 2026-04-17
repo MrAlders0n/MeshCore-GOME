@@ -18,11 +18,11 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 
    Examples:
 
-      RAK 4631 -> update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
+      RAK 4631 -> update-wiscore_rak4631_board_bootloader-0.9.2-OTAFIX2.2-BP1.3_nosd.uf2 
 
-      Heltec T114 -> update-heltec_t114_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2 
+      Heltec T114 -> update-heltec_t114_bootloader-0.9.2-OTAFIX2.2-BP1.3_nosd.uf2 
 
-      Xiao NRF52840 (Used in Ikoka Stick) -> update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
+      Xiao NRF52840 (Used in Ikoka Stick) -> update-xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2-BP1.3_nosd.uf2 
 
 2. Connect your repeater to your computer via USB.  
 3. Double-click the button beside the USB port on the RAK board.  
