@@ -36,6 +36,7 @@ These options come fully assembled; simply flash MeshCore and mount them in a hi
 | **Batteries for SenseCAP Solar Node P1 (Local Store)** | Four button-top 18650 cells, required if you purchase the P1 model without GPS & Battery. | [Motion Power & Witt Supply Co.](https://mpandw.ca/products/button-top-eve-35v-house-made) |
 | **LoRa Antenna for SenseCAP Solar Node P1** | External antenna for the node. | [Amazon.ca](https://www.amazon.ca/dp/B08H8J6ZV6?ref=ppx_yo2ov_dt_b_fed_asin_title) |
 | **RP-SMA to N-Type Cable (Type 2, 30 cm) for SenseCAP Solar Node P1** | Pigtail cable for connecting the node to an external antenna. Make sure to select **Type 2** and **30 cm** when ordering. | [AliExpress](https://www.aliexpress.com/item/1005004652556159.html) |
+
 ---
 
 ## Build Your Own
