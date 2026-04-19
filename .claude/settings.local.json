@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(LC_ALL=C cat -v /Users/schnobbc/Documents/Github/MeshCore-GOME/docs/deployment/data/repeaters.yml)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "WebSearch"
+    ]
+  }
+}
