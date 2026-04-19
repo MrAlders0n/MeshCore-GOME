@@ -2124,8 +2124,8 @@ If flashing fails after erasing, refresh the page, click <strong>Enter DFU Mode<
 <p class="admonition-title">OTA Risks</p>
 <p>Although it is possible to flash a repeater's firmware OTA, there is a very high risk of a flash failing (even if the app says there are no issues) which will require a USB re-flash. We have experienced an OTA failure during Winter that requires to wait until the Spring to get physical access to the repeater. Proceed at your own risk!</p>
 </div>
-<p>If you are OK with these risks, follow the instructions on <a href="https://github.com/LitBomb/MeshCore-FAQ?tab=readme-ov-file#71-q-how-to-update-nrf-rak-t114-seed-xiao-repeater-and-room-server-firmware-over-the-air-using-the-new-simpler-dfu-app">LitBomb's MeshCore FAQ</a>.</p>
-<p><strong>Note:</strong> For RAK boards with the Bootloader update, when following LitBomb's instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU). Select this device and re-upload the update.</p>
+<p>If you are OK with these risks, follow the instructions on <a href="https://blog.meshcore.io/2026/04/02/nrf-ota-update">MeshCore's Blog</a>.</p>
+<p><strong>Note:</strong> For RAK 4631 boards with the Bootloader update, when following the OTA instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU, RAK4631_DFU, etc.). Select this device and re-upload the update.</p>
 <hr>
 <h2 id="configuring-a-meshcore-repeater">Configuring a MeshCore Repeater<a class="headerlink" href="#configuring-a-meshcore-repeater" title="Permanent link">¶</a></h2>
 <p><strong>Note</strong>: We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.</p>
