@@ -56,9 +56,9 @@ If flashing fails after erasing, refresh the page, click **Enter DFU Mode** agai
 !!! warning "OTA Risks"
     Although it is possible to flash a repeater's firmware OTA, there is a very high risk of a flash failing (even if the app says there are no issues) which will require a USB re-flash. We have experienced an OTA failure during Winter that requires to wait until the Spring to get physical access to the repeater. Proceed at your own risk!
 
-If you are OK with these risks, follow the instructions on [LitBomb's MeshCore FAQ](https://github.com/LitBomb/MeshCore-FAQ?tab=readme-ov-file#71-q-how-to-update-nrf-rak-t114-seed-xiao-repeater-and-room-server-firmware-over-the-air-using-the-new-simpler-dfu-app).
+If you are OK with these risks, follow the instructions on [MeshCore's Blog](https://blog.meshcore.io/2026/04/02/nrf-ota-update).
 
-**Note:** For RAK boards with the Bootloader update, when following LitBomb's instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU). Select this device and re-upload the update.
+**Note:** For RAK 4631 boards with the Bootloader update, when following the OTA instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU, RAK4631_DFU, etc.). Select this device and re-upload the update.
 
 ---
 
