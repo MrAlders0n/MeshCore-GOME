@@ -22,11 +22,11 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 
       Heltec T114 -> update-heltec_t114_bootloader-0.9.2-OTAFIX2.2-BP1.3_nosd.uf2 
 
-      Xiao NRF52840 (Used in Ikoka Stick) -> update-xiao_nrf52840_ble_bootloader-0.9.2-OTAFIX2.2-BP1.3_nosd.uf2 
+      Xiao NRF52840 (Used in Ikoka Stick) -> update-xiao_nrf52840_ble_sense_bootloader-0.9.2-OTAFIX2.1-BP1.2_nosd.uf2
 
 2. Connect your repeater to your computer via USB.  
-3. Double-click the button beside the USB port on the RAK board.  
-   - The green LED should turn on, indicating DFU mode.  
+3. Double-click the button beside the USB port on the RAK board or the reset button on other boards.  
+   - The green LED should turn on, indicating DFU mode (On the RAK specically this will occour).  
 4. A new **USB drive** should appear on your computer.  
 5. Drag the `.uf2` file into the drive.  
 6. The copy will appear to fail, and the board will reboot — **this is expected**.  
@@ -103,22 +103,16 @@ After reboot, the repeater will use the new private key and the public key will 
 3. Apply the Ottawa defaults:  
    **910.525 MHz / BW 62.5 kHz / SF7 / CR5**  
 4. Set the node's advert path hash size to 3-bytes:
-   `set path.hash.mode 2`
+   1. Click Advanced
+   2. Set **Advert Path Size** to 3-bytes
+   3. **Zero-hop adverts:** every **1 hour**  
+   4. **Flood adverts:** every **24 hours**  
 5. Click **Save** and reboot the repeater.  
 6. Reconnect with the configuration tool and click **Send Advert**.
 
 If everything is working, nearby companion nodes should receive the advert.
 
 ---
-
-## Advert Interval Configuration
-
-Once the repeater has been discovered by your companion node, login to your repeater via the MeshCore app and use Remote Administration to set:
-
-1. **Zero-hop adverts:** every **1 hour**  
-2. **Flood adverts:** every **12 hours**  
-3. Click **Save**
-
 
 **Optional**
 If you prefer to set the Advert Interval Configuration via the CLI when connected to your repeater, you can set these with the commands:

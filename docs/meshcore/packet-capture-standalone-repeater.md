@@ -28,9 +28,7 @@ This setup covers packet capture from a standalone repeater node only.
 
 ## Firmware Download
 
-**HeltekV3 MQTT Repeater Firmware 1.14.1 (Experimental)** [Download Link](./firmware/Heltec_v3_repeater_observer_mqtt-v1.14.1-1c524a93.bin) **Tested on: 2026-04-06**
-
-**HeltekV4 MQTT Repeater Firmware 1.14.1 (Experimental)** [Download Link](./firmware/heltec_v4_repeater_observer_mqtt-v1.14.1-1c524a93.bin) **Tested on: 2026-04-06**
+The firmware can be downloaded directly from [Repeater MQTT Firmware](https://analyzer.letsmesh.net/observer/onboard?type=repeater)
 
 ## Firmware Installation
 
