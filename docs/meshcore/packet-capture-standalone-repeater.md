@@ -24,7 +24,7 @@ This setup covers packet capture from a standalone repeater node only.
 * Heltek V3 or Heltek V4 board  
 * USB-C cable  
 * Wi-Fi network access  
-* Basic familiarity with the [MeshCore Flasher](https://flasher.meshcore.co.uk) tool  
+* Basic familiarity with the [MeshCore Flasher](https://meshcore.io/flasher) tool  
 
 ## Firmware Download
 
@@ -34,7 +34,7 @@ The firmware can be downloaded directly from [Repeater MQTT Firmware](https://an
 
 1. Download the Heltek MQTT Repeater Firmware you wish to use
 
-2. Go to [MeshCore Flasher](https://flasher.meshcore.co.uk/) and click **HeltekV3 or HeltekV4 depending on your model**  
+2. Go to [MeshCore Flasher](https://meshcore.io/flasher) and click **HeltekV3 or HeltekV4 depending on your model**  
 
 3. Select **Repeater**  
 
@@ -44,7 +44,7 @@ The firmware can be downloaded directly from [Repeater MQTT Firmware](https://an
 
 6. Flashing will take a minute; if it fails, restart at step 2 and try again.  
 
-7. Return to [MeshCore Flasher](https://flasher.meshcore.co.uk/) and scroll to the bottom.  
+7. Return to [MeshCore Flasher](https://meshcore.io/flasher) and scroll to the bottom.  
 
 8. Click **Custom Firmware**  
 
@@ -64,7 +64,7 @@ The firmware can be downloaded directly from [Repeater MQTT Firmware](https://an
 
 3. Click copy next to the **Private Key** value.  
 
-4. Open [MeshCore Flasher](https://flasher.meshcore.co.uk/), click **Console**, and select the serial device for your repeater.  
+4. Open [MeshCore Flasher](https://meshcore.io/flasher), click **Console**, and select the serial device for your repeater.  
 
 5. Run the following command, replacing ```PRIVATE-KEY``` with your generated key:
 

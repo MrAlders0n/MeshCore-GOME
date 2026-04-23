@@ -37,7 +37,7 @@ Without this fix, a failed OTA update can brick the repeater and require physica
 ## Flashing MeshCore Repeater Firmware - USB (Recommended Route)
 
 1. Plug the device into your computer via USB.  
-2. Open the **MeshCore Web Flasher**: <https://flasher.meshcore.co.uk>  
+2. Open the **MeshCore Web Flasher**: <https://meshcore.io/flasher>  
 3. Select your device hardware.  
 4. Select **Repeater** as the firmware type.  
 5. Click **Enter DFU Mode**.  
