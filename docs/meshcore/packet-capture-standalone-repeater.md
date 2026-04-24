@@ -5,14 +5,12 @@ This setup does **not** require a Raspberry Pi, VM, or companion node.
 
 ## Overview
 
-This firmware was compiled from [agessaman/MeshCore (mqtt-bridge-implementation)](https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation) to simplify setup for the community.
+This firmware is compiled and distributed by [LetsMesh](https://analyzer.letsmesh.net) to simplify setup for the community.
 
-* **Default Frequency:** USA/CAN recommended settings pre-configured  
 * **Role:** Repeater with repeat disabled (acts as a “silent repeater” for packet capture)
 
 Each unit functions like a repeater that does not forward packets.  
 To avoid ID collisions, each device must have a unique private key.  
-Please share your assigned ID in the **Ottawa Mesh Discord** so we can track it.
 
 ## Scope
 
@@ -58,64 +56,65 @@ The firmware can be downloaded directly from [Repeater MQTT Firmware](https://an
 
 ## Configure Device Identity
 
-1. Visit [Ottawa Repeater ID List](../deployment/repeaters.md) and choose an unused 2-digit ID, a popup will appear.  
+1. Go to the **[Ottawa Repeater ID List](../deployment/repeaters.md)** and choose an unused ID.
 
-2. Click **Generate Key**.  
+2. Open the **[MeshCore Key Generator](https://gessaman.com/mc-keygen/)**.
 
-3. Click copy next to the **Private Key** value.  
+3. Type the unused ID into the input field and click **Generate Key**.
 
-4. Open [MeshCore Flasher](https://meshcore.io/flasher), click **Console**, and select the serial device for your repeater.  
+4. Copy the **Private Key** value.
 
-5. Run the following command, replacing ```PRIVATE-KEY``` with your generated key:
+5. Open [MeshCore Flasher](https://meshcore.io/flasher), click **Console**, and select the serial device for your repeater.
+
+6. Run the following command, replacing ```PRIVATE-KEY``` with your generated key:
 
     ```
     set prv.key <PRIVATE-KEY>
     ```
 
-    If you get a error, run this command first, then re-run step 5:
+    If you get an error, run this command first, then re-run step 6:
 
     ```
     get prv.key
     ```
 
-6. Configure the repeater name using the Ottawa naming convention (```YOW_Location```):  
+7. Configure the repeater name using the Ottawa naming convention (```YOW_Location```):
 
     ```
     set name YOW_OldBarrhaven
-     ```
-
-7. Configure the IATA Code for MQTT ingestion
-
-    ```
-    set mqtt.iata YOW 
     ```
 
-8. Disable repeat:  
+8. Configure the IATA Code for MQTT ingestion:
+
+    ```
+    set mqtt.iata YOW
+    ```
+
+9. Disable repeat:
 
     **Note: If you wish to run a full repeater, simply skip this step.**
 
     ```
     set repeat off
-     ```
-    
+    ```
 
-9. (Optional) Configure ownership info for the Packet Analyzer:  
+10. (Optional) Configure ownership info for the Packet Analyzer:
     You must have an account on [analyzer.letsmesh.net](https://analyzer.letsmesh.net/) (login uses MeshCore Forum authentication).
 
-     ```
-     set mqtt.owner <Companion-Public-Key>
-     ```
-
-     ```
-     set mqtt.email <MeshCore-Fourm-Email-Address>
     ```
-    
-10. Configure MeshMapper MQTT server:  
+    set mqtt.owner <Companion-Public-Key>
+    ```
+
+    ```
+    set mqtt.email <MeshCore-Forum-Email-Address>
+    ```
+
+11. Configure MeshMapper MQTT server:
     The firmware by default connects to LetsMesh MQTT servers. Connecting to both LetsMesh and Meshmapper brokers is recommended but not required. Data received from multiple brokers is automatically deduplicated by MeshMapper.
 
-     ```
-     set mqtt3.preset meshmapper
-     ```
+    ```
+    set mqtt2.preset meshmapper
+    ```
 
 ## Configure Remaining Things
 

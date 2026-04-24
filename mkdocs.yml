@@ -35,6 +35,7 @@ nav:
   
   - MeshCore:
       - General:
+          - Overview: meshcore/general-overview.md
           - MeshCore FAQ: meshcore/general-faq.md
           - MeshCore How-To: meshcore/general-howto.md
           - MeshCore Roles: meshcore/general-meshcore-roles.md
