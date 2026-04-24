@@ -21,7 +21,7 @@ Also see our presentation at the [March 2026 OARC Monthly Meeting](https://oarc.
 
 <div style="height: 600px; border: 1px solid #444;">
   <iframe
-    src="https://yow.meshmapper.net/embed.php?lat=45.4215&lon=-75.6972&zoom=11"
+    src="https://yow.meshmapper.net/embed.php?lat=45.4215&lon=-75.6972&zoom=11&geofence=0&fail_grid=1"
     width="100%"
     height="100%"
     style="border:0;"
