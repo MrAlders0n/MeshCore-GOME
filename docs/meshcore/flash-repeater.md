@@ -49,88 +49,59 @@ If flashing fails after erasing, refresh the page, click **Enter DFU Mode** agai
 
 ---
 
-## Flashing MeshCore Repeater Firmware - Over-the-air (OTA) - Non Recommended Route
-
-**Note:** This section only applies to NRF-based boards (e.g., RAK4630, Heltec T114, XIAO NRF52). Please read the warning below since we highly recommend you flash firmware using USB instead.
-
-!!! warning "OTA Risks"
-    Although it is possible to flash a repeater's firmware OTA, there is a very high risk of a flash failing (even if the app says there are no issues) which will require a USB re-flash. We have experienced an OTA failure during Winter that requires to wait until the Spring to get physical access to the repeater. Proceed at your own risk!
-
-If you are OK with these risks, follow the instructions on [MeshCore's Blog](https://blog.meshcore.io/2026/04/02/nrf-ota-update).
-
-**Note:** For RAK 4631 boards with the Bootloader update, when following the OTA instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU, RAK4631_DFU, etc.). Select this device and re-upload the update.
-
----
-
 ## Configuring a MeshCore Repeater
 
 **Note**: We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.
 
+1. Using a Chromium-based browser that supports the [required serial connection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility) (e.g., Google Chrome or Microsoft Edge), open the **MeshCore Web Flasher**:
+   <https://meshcore.io/flasher>
 
-1. Using a Chromium-based browser that supports the [required serial connection](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility) (e.g., Google Chrome or Microsoft Edge), open the repeater configuration tool:  
-   <https://config.meshcore.dev>
+2. Click the **Repeater Setup** button in the top right.
 
-2. Connect to your repeater and note the **Repeater ID** shown in the tool.
-   - The Repeater ID is derived from the keypair (it corresponds to the **first byte / first two hex characters** of the repeater’s key).  
-   - Because there are only **256 possible IDs**, overlaps become more likely as the network grows—especially when keys are generated automatically during flashing.
+3. Connect to your repeater and note the **Repeater ID** shown in the tool.
+   - The Repeater ID is derived from the keypair (it corresponds to the **first byte / first two hex characters** of the repeater’s key).
+   - Because there are only **256 possible IDs**, overlaps become more likely as the network grows, especially when keys are generated automatically during flashing.
 
-3. Check the **[Ottawa Repeater ID List](../deployment/repeaters.md)** to confirm your repeater ID is **not already in use**.
-   - If it’s unique, continue configuring the rest of the repeater settings as normal.
-   - If it’s already in use, follow the steps below to assign a new ID.
+4. Check the **[Ottawa Repeater ID List](../deployment/repeaters.md)** to confirm your repeater ID is **not already in use**.
+   - If it’s unique, continue with the next step.
+   - If it’s already in use, follow the **[Generating a Repeater ID](generate-repeater-id.md)** instructions to assign a new one, then return here to continue.
 
----
+5. Check the **Show Advanced Settings** checkbox so all fields below are visible.
 
-### Assigning a New Repeater ID (if your ID is already in use)
+6. Set a descriptive repeater **name** (e.g., `Callsign_R1`, `Downtown_R1`).
 
-**Note**: We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.
+7. Set an **admin password** (required for MeshCore Remote Administration).
 
-1. Go to the **[Ottawa Repeater ID List](../deployment/repeaters.md)** and choose an unused **2-digit ID**.  
-2. Click the unused ID to open its key generator page.  
-3. Click **Generate Key**.  
-4. Copy the **Private Key** value.  
-5. In the repeater console, set the private key (replace `<PRIVATE-KEY>` with what you copied):  
-   `set prv.key <PRIVATE-KEY>`  
-6. Reboot the repeater.  
+8. Apply the Ottawa defaults:
+   **910.525 MHz / BW 62.5 kHz / SF7 / CR5**
 
-After reboot, the repeater will use the new private key and the public key will correspond to the ID you selected.
+9. Set the advert intervals:
+   1. **Advert Interval:** `60`
+   2. **Flood Advert Interval:** `24`
+   3. **Flood Max:** `64`
 
----
+10. Set **Path Hash Mode** to **3-byte (2)**.
 
-## Final Configuration Steps
+11. *(Optional)* Set your own info (e.g., owner name or contact).
 
-1. Set a descriptive repeater **name** (e.g., `Callsign_R1`, `Downtown_R1`).  
-2. Set an **admin password** (required for MeshCore Remote Administration).  
-3. Apply the Ottawa defaults:  
-   **910.525 MHz / BW 62.5 kHz / SF7 / CR5**  
-4. Set the node's advert path hash size to 3-bytes:
-   1. Click Advanced
-   2. Set **Advert Path Size** to 3-bytes
-   3. **Zero-hop adverts:** every **1 hour**  
-   4. **Flood adverts:** every **24 hours**  
-5. Click **Save** and reboot the repeater.  
-6. Reconnect with the configuration tool and click **Send Advert**.
+12. Click **Save Settings**, then reboot the repeater.
+
+13. Reconnect with the configuration tool and click **Send Advert**.
 
 If everything is working, nearby companion nodes should receive the advert.
 
 ---
 
-**Optional**
-If you prefer to set the Advert Interval Configuration via the CLI when connected to your repeater, you can set these with the commands:
-
-```bash
-set advert.interval 60
-set flood.advert.interval 12
-reboot
-```
-
 **Tip:**  
 After every reboot, you must **resync the repeater’s clock**.  
-The repeater will still route messages without a clock, but **its adverts will be ignored** until the time is set.
+The repeater will still route messages without a clock, but **its adverts will be ignored** by companions that have already heard an advert from it until the time is set.
 
 ---
 
-## Changing Repeater private key after initial setup (not always needed)
+## Changing Repeater Private Key After Initial Setup (not always needed)
 
-You may need to change your repeater's private key after you have set it up to avoid ID conflicts. If this happens, you can do it again via USB as per the [Configuring a MeshCore Repeater](#configuring-a-meshcore-repeater) and [Assigning a New Repeater ID (if your ID is already in use)](#assigning-a-new-repeater-id-if-your-id-is-already-in-use) sections of this page.
+You may need to change your repeater's private key after you have set it up to avoid ID conflicts. If this happens, you can do it again via USB as per the [Configuring a MeshCore Repeater](#configuring-a-meshcore-repeater) section of this page, following the **[Generating a Repeater ID](generate-repeater-id.md)** instructions to pick a new ID and key.
 
-Optional - If your repeater is on Meshcore Firmware v1.12.0 and up, you can now set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps will be the same for USB/Remote connections. If configuring remotely, make sure you have good signal to your repeater.
+*Optional*: If your repeater is on MeshCore Firmware v1.12.0 and up, you can set the private key remotely by logging in to the repeater console with a companion node that has admin access to your repeater. The steps are the same for USB and remote connections. If configuring remotely, make sure you have good signal to your repeater.
+
+---
