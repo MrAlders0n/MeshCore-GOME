@@ -204,6 +204,13 @@
         <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/meshcore/general-meshcore-roles/"/>
     </url>
     <url>
+        <loc>https://ottawamesh.ca/meshcore/general-overview/</loc>
+        <lastmod>2026-04-24</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/meshcore/general-overview/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/meshcore/general-overview/"/>
+    </url>
+    <url>
         <loc>https://ottawamesh.ca/meshcore/generate-repeater-id/</loc>
         <lastmod>2026-04-24</lastmod>
         <changefreq>daily</changefreq>
@@ -230,6 +237,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/meshcore/packet-capture-standalone-repeater/"/>
         <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/meshcore/packet-capture-standalone-repeater/"/>
+    </url>
+    <url>
+        <loc>https://ottawamesh.ca/meshcore/update-repeater-ota/</loc>
+        <lastmod>2026-04-24</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/meshcore/update-repeater-ota/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/meshcore/update-repeater-ota/"/>
     </url>
     <url>
         <loc>https://ottawamesh.ca/meshtastic/frequency-settings/</loc>
@@ -456,6 +470,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/meshcore/general-meshcore-roles/"/>
     </url>
     <url>
+        <loc>https://ottawamesh.ca/fr/meshcore/general-overview/</loc>
+        <lastmod>2026-04-24</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/meshcore/general-overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/meshcore/general-overview/"/>
+    </url>
+    <url>
         <loc>https://ottawamesh.ca/fr/meshcore/generate-repeater-id/</loc>
         <lastmod>2026-04-24</lastmod>
         <changefreq>daily</changefreq>
@@ -482,6 +503,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/meshcore/packet-capture-standalone-repeater/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/meshcore/packet-capture-standalone-repeater/"/>
+    </url>
+    <url>
+        <loc>https://ottawamesh.ca/fr/meshcore/update-repeater-ota/</loc>
+        <lastmod>2026-04-24</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/meshcore/update-repeater-ota/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/meshcore/update-repeater-ota/"/>
     </url>
     <url>
         <loc>https://ottawamesh.ca/fr/meshtastic/frequency-settings/</loc>

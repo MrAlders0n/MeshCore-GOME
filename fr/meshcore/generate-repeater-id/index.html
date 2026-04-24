@@ -8,7 +8,7 @@
         <link rel="canonical" href="https://ottawamesh.ca/fr/meshcore/generate-repeater-id/">
       
       
-        <link rel="prev" href="../flash-repeater/">
+        <link rel="prev" href="../update-repeater-ota/">
       
       
         <link rel="next" href="../flash-room-server/">
@@ -1111,6 +1111,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../general-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../general-faq/" class="md-nav__link">
         
   
@@ -1288,6 +1316,34 @@
     
   
     Flashing a Repeater
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-repeater-ota/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating a Repeater (OTA)
   
 
     
@@ -1874,16 +1930,15 @@
 <p>In Ottawa, we generate Repeater IDs manually to avoid accidentally reusing an ID that’s already in service. Follow the steps below to pick an available ID and program the matching private key onto your repeater.</p>
 <div class="admonition note">
 <p class="admonition-title">Why this is an issue</p>
-<p>Repeater ID clashes are common because there are only 256 possible IDs (the first byte / two hex characters of the repeater’s private key), so as the network grows, generating keys during firmware flashing increasingly produces overlapping IDs by chance.</p>
+<p>We are beginning to transition from 1-byte to 3-byte path sizes, and eventually will not need to worry about overlapping repeater id's. In the meantime, follow the steps in this section.</p>
 </div>
 <ol>
-<li>Go to the <strong><a href="../../deployment/repeaters/">Ottawa Repeater ID List</a></strong>.  </li>
-<li>Choose an unused ID from the list.  </li>
-<li>Click the unused ID to open its key generator page.  </li>
-<li>Click <strong>Generate Key</strong>.  </li>
-<li>Copy the <strong>Private Key</strong> value.  </li>
-<li>On the repeater console, run (replace <code>&lt;PRIVATE-KEY&gt;</code> with the value you copied):<br>
-<code>set prv.key &lt;PRIVATE-KEY&gt;</code>  </li>
+<li>Go to the <strong><a href="../../deployment/repeaters/">Ottawa Repeater ID List</a></strong> and choose an unused ID.</li>
+<li>Open the <strong><a href="https://gessaman.com/mc-keygen/">MeshCore Key Generator</a></strong>.</li>
+<li>Type the unused ID(2-6 charectors) into the input field and click <strong>Generate Key</strong>.</li>
+<li>Copy the <strong>Private Key</strong> value.</li>
+<li>On the repeater console, run (replace <code>&lt;PRIVATE-KEY&gt;</code> with the value you copied):
+   <code>set prv.key &lt;PRIVATE-KEY&gt;</code></li>
 <li>Reboot the repeater.</li>
 </ol>
 <p>After reboot, the repeater will use that private key, and its public key will correspond to the ID you selected.</p>

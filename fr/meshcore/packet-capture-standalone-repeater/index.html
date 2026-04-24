@@ -1111,6 +1111,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../general-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../general-faq/" class="md-nav__link">
         
   
@@ -1286,6 +1314,34 @@
     
   
     Flashing a Repeater
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-repeater-ota/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating a Repeater (OTA)
   
 
     
@@ -2054,14 +2110,12 @@
 <p>This guide explains how to install and run a <strong>custom build of MeshCore repeater firmware</strong> on a <strong>HeltekV3 or HeltekV4</strong> to act as a standalone packet capture device that forwards logs directly to <a href="https://analyzer.letsmesh.net">analyzer.letsme.sh</a>.<br>
 This setup does <strong>not</strong> require a Raspberry Pi, VM, or companion node.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
-<p>This firmware was compiled from <a href="https://github.com/agessaman/MeshCore/tree/mqtt-bridge-implementation">agessaman/MeshCore (mqtt-bridge-implementation)</a> to simplify setup for the community.</p>
+<p>This firmware is compiled and distributed by <a href="https://analyzer.letsmesh.net">LetsMesh</a> to simplify setup for the community.</p>
 <ul>
-<li><strong>Default Frequency:</strong> USA/CAN recommended settings pre-configured  </li>
 <li><strong>Role:</strong> Repeater with repeat disabled (acts as a “silent repeater” for packet capture)</li>
 </ul>
 <p>Each unit functions like a repeater that does not forward packets.<br>
-To avoid ID collisions, each device must have a unique private key.<br>
-Please share your assigned ID in the <strong>Ottawa Mesh Discord</strong> so we can track it.</p>
+To avoid ID collisions, each device must have a unique private key.  </p>
 <h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">¶</a></h2>
 <p>This setup covers packet capture from a standalone repeater node only.<br>
 <code>Note:If you wish to run a full repeater, simply skip the step where repeat is disabled.</code></p>
@@ -2116,46 +2170,49 @@ Please share your assigned ID in the <strong>Ottawa Mesh Discord</strong> so we 
 <h2 id="configure-device-identity">Configure Device Identity<a class="headerlink" href="#configure-device-identity" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>Visit <a href="../../deployment/repeaters/">Ottawa Repeater ID List</a> and choose an unused 2-digit ID, a popup will appear.  </p>
+<p>Go to the <strong><a href="../../deployment/repeaters/">Ottawa Repeater ID List</a></strong> and choose an unused ID.</p>
 </li>
 <li>
-<p>Click <strong>Generate Key</strong>.  </p>
+<p>Open the <strong><a href="https://gessaman.com/mc-keygen/">MeshCore Key Generator</a></strong>.</p>
 </li>
 <li>
-<p>Click copy next to the <strong>Private Key</strong> value.  </p>
+<p>Type the unused ID into the input field and click <strong>Generate Key</strong>.</p>
 </li>
 <li>
-<p>Open <a href="https://meshcore.io/flasher">MeshCore Flasher</a>, click <strong>Console</strong>, and select the serial device for your repeater.  </p>
+<p>Copy the <strong>Private Key</strong> value.</p>
+</li>
+<li>
+<p>Open <a href="https://meshcore.io/flasher">MeshCore Flasher</a>, click <strong>Console</strong>, and select the serial device for your repeater.</p>
 </li>
 <li>
 <p>Run the following command, replacing <code>PRIVATE-KEY</code> with your generated key:</p>
 <p><code>set prv.key &lt;PRIVATE-KEY&gt;</code></p>
-<p>If you get a error, run this command first, then re-run step 5:</p>
+<p>If you get an error, run this command first, then re-run step 6:</p>
 <p><code>get prv.key</code></p>
 </li>
 <li>
-<p>Configure the repeater name using the Ottawa naming convention (<code>YOW_Location</code>):  </p>
+<p>Configure the repeater name using the Ottawa naming convention (<code>YOW_Location</code>):</p>
 <p><code>set name YOW_OldBarrhaven</code></p>
 </li>
 <li>
-<p>Configure the IATA Code for MQTT ingestion</p>
+<p>Configure the IATA Code for MQTT ingestion:</p>
 <p><code>set mqtt.iata YOW</code></p>
 </li>
 <li>
-<p>Disable repeat:  </p>
+<p>Disable repeat:</p>
 <p><strong>Note: If you wish to run a full repeater, simply skip this step.</strong></p>
 <p><code>set repeat off</code></p>
 </li>
 <li>
-<p>(Optional) Configure ownership info for the Packet Analyzer:<br>
+<p>(Optional) Configure ownership info for the Packet Analyzer:
     You must have an account on <a href="https://analyzer.letsmesh.net/">analyzer.letsmesh.net</a> (login uses MeshCore Forum authentication).</p>
 <p><code>set mqtt.owner &lt;Companion-Public-Key&gt;</code></p>
-<p><code>set mqtt.email &lt;MeshCore-Fourm-Email-Address&gt;</code></p>
+<p><code>set mqtt.email &lt;MeshCore-Forum-Email-Address&gt;</code></p>
 </li>
 <li>
-<p>Configure MeshMapper MQTT server:<br>
+<p>Configure MeshMapper MQTT server:
     The firmware by default connects to LetsMesh MQTT servers. Connecting to both LetsMesh and Meshmapper brokers is recommended but not required. Data received from multiple brokers is automatically deduplicated by MeshMapper.</p>
-<p><code>set mqtt3.preset meshmapper</code></p>
+<p><code>set mqtt2.preset meshmapper</code></p>
 </li>
 </ol>
 <h2 id="configure-remaining-things">Configure Remaining Things<a class="headerlink" href="#configure-remaining-things" title="Permanent link">¶</a></h2>
