@@ -32,13 +32,13 @@ Alternatively, go to the **[MeshCore GitHub Releases page](https://github.com/me
 1. Using the MeshCore mobile app, log in to your device with the admin password.
 2. Switch to the **Command Line** tab and enter:
 
-    ```bash
+    ```
     start ota
     ```
 
 3. You should see a reply similar to:
 
-    ```bash
+    ```
     OK - mac: FF:AA:BB ...
     ```
 
@@ -74,7 +74,7 @@ In the app, tap the **Settings** icon and apply the following recommended settin
 1. Once the update completes, log out and log back in (either with the app or a standalone device).
 2. Verify the clock is correct with the `clock` command. If it is incorrect, issue:
 
-    ```bash
+    ```
     clock sync
     ```
 
@@ -86,7 +86,7 @@ In the app, tap the **Settings** icon and apply the following recommended settin
 
 If the update stalls or fails, issue the following command from your phone or a standalone device, then try the process again:
 
-```bash
+```
 reboot
 ```
 
