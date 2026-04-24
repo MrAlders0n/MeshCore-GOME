@@ -41,7 +41,7 @@ Follow each step carefully for a reliable and weatherproof build.
 
       ![](images/RAK19003-Layout.png){ width="300" }
 
-11. Connect the other end of this cable to the **CHG** side of the VoltaicEnclosures Li-ion PCM.  
+11. Connect the other end of this cable to the **CHG** side of the Li-ion PCM. The following picture of the PCM is from VoltaicEnclosures which is what we used initially, but it is the same principle for our current recommended PCM:  
 
       ![](images/VoltaicEnclosures_Layout.png){ width="300" }
 
@@ -51,7 +51,7 @@ Follow each step carefully for a reliable and weatherproof build.
 
       ![](images/RAK19003-LayoutSolar.jpg){ width="300" }
 
-14. Heat-shrink the VoltaicEnclosures Li-ion PCM so the entire board is covered.  
+14. Heat-shrink the Li-ion PCM so the entire board is covered.  
 
 15. (Optional) Secure the PCM to the backplate using double-sided tape. It can also float freely inside the box if preferred.  
 
