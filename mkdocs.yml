@@ -77,7 +77,6 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
-  - macros
   - glightbox:
       touchNavigation: true
   - i18n:
@@ -96,9 +95,7 @@ plugins:
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - zOther/javascript/tablesort.js
-  - zOther/javascript/hexgrid.js
 
 # Extra CSS
-extra_css: 
-  - zOther/css/hexgrid.css
+extra_css:
   - zOther/css/repeaters-intercity.css
