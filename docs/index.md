@@ -4,6 +4,15 @@
 
 [**Join us on Matrix (bridged with Discord)**](https://matrix.to/#/!mmikqViPfjFpOERUxA:matrix.org?via=matrix.org&via=mauve.moe)
 
+!!! important "MeshCore project split, use the official links"
+    Due to recent events in the MeshCore development team, the project has split. To stay on the official track, please only use:
+
+    - **Flashing tool and blog:** [meshcore.io](https://meshcore.io/)
+    - **Source code:** [github.com/meshcore-dev/MeshCore](https://github.com/meshcore-dev/MeshCore)
+    - **Discord (named "MeshCore.io"):** [discord.com/invite/fUfWevRXAg](https://discord.com/invite/fUfWevRXAg)
+
+    Read more about the split: [The Split, blog.meshcore.io](https://blog.meshcore.io/2026/04/23/the-split).
+
 ## About the Community
 
 We’re a community of hobbyists, builders, and experimenters collaborating to build a decentralized long-range communications network across Canada's National Capital Region (NCR) in Eastern Ontario and Western Quebec.
