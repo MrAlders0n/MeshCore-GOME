@@ -2134,13 +2134,11 @@
 <li>Using the MeshCore mobile app, log in to your device with the admin password.</li>
 <li>
 <p>Switch to the <strong>Command Line</strong> tab and enter:</p>
-<p><code>bash
-start ota</code></p>
+<p><code>start ota</code></p>
 </li>
 <li>
 <p>You should see a reply similar to:</p>
-<p><code>bash
-OK - mac: FF:AA:BB ...</code></p>
+<p><code>OK - mac: FF:AA:BB ...</code></p>
 </li>
 </ol>
 <p><strong>Tip:</strong> You can also use a standalone device such as a T-Deck running the Ripple firmware to issue the <code>start ota</code> command.</p>
@@ -2169,8 +2167,7 @@ OK - mac: FF:AA:BB ...</code></p>
 <li>Once the update completes, log out and log back in (either with the app or a standalone device).</li>
 <li>
 <p>Verify the clock is correct with the <code>clock</code> command. If it is incorrect, issue:</p>
-<p><code>bash
-clock sync</code></p>
+<p><code>clock sync</code></p>
 </li>
 <li>
 <p>Run the <code>ver</code> command to confirm the firmware version has been updated.</p>
@@ -2179,7 +2176,7 @@ clock sync</code></p>
 <hr>
 <h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h3>
 <p>If the update stalls or fails, issue the following command from your phone or a standalone device, then try the process again:</p>
-<pre><code class="language-bash">reboot
+<pre><code>reboot
 </code></pre>
 <p><strong>Note:</strong> For RAK 4631 boards with the Bootloader update, when following the OTA instructions and when you upload the update, you will likely get an error that the flash has failed. When scanning again for devices in the app, it will appear with a generic name (e.g., AdaDFU, RAK4631_DFU, etc.). Select this device and re-upload the update.</p>
 
