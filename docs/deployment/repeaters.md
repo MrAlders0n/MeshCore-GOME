@@ -13,8 +13,8 @@ Click any cell to view details. The grid is served live from [MeshMapper](https:
   <iframe
     src="https://yow.meshmapper.net/embed_repeaters.php?mode=dark"
     width="100%"
-    height="500"
-    style="border: none;"
+    height="800"
+    style="border: none; display: block;"
     loading="lazy">
   </iframe>
 </div>
