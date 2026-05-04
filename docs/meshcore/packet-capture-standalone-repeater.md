@@ -113,7 +113,7 @@ The firmware can be downloaded directly from [Repeater MQTT Firmware](https://an
     The firmware by default connects to LetsMesh MQTT servers. Connecting to both LetsMesh and Meshmapper brokers is recommended but not required. Data received from multiple brokers is automatically deduplicated by MeshMapper.
 
     ```
-    set mqtt2.preset meshmapper
+    set mqtt3.preset meshmapper
     ```
 
 ## Configure Remaining Things
