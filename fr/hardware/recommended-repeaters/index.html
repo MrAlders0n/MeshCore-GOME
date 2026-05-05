@@ -1003,10 +1003,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#recommended-parts-list" class="md-nav__link">
+  <a href="#300mw-solar-repeater-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recommended Parts List
+        300mW Solar Repeater (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1w-solar-repeater-backbone-long-reach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1W Solar Repeater (backbone / long-reach)
       
     </span>
   </a>
@@ -2035,10 +2046,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#recommended-parts-list" class="md-nav__link">
+  <a href="#300mw-solar-repeater-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recommended Parts List
+        300mW Solar Repeater (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1w-solar-repeater-backbone-long-reach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1W Solar Repeater (backbone / long-reach)
       
     </span>
   </a>
@@ -2125,77 +2147,17 @@ Without this fix, if an OTA update fails over BLE, the repeater will enter an un
 </table>
 <hr>
 <h2 id="build-your-own">Build Your Own<a class="headerlink" href="#build-your-own" title="Permanent link">¶</a></h2>
-<p>A robust build using a purpose-built weatherproof enclosure.</p>
-<h3 id="recommended-parts-list">Recommended Parts List<a class="headerlink" href="#recommended-parts-list" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Product Name</th>
-<th>Cost (CAD)</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Enclosure</strong></td>
-<td>WisMesh Unify Enclosure 910422</td>
-<td>$72.50</td>
-<td><a href="https://aliexpress.com/item/1005008369061766.html">AliExpress</a></td>
-</tr>
-<tr>
-<td><strong>LoRa Board (Small)</strong></td>
-<td>RAK WisBlock RAK19003/RAK4631 (Type 6)</td>
-<td>$36.38</td>
-<td><a href="https://aliexpress.com/item/1005008285698839.html">AliExpress</a></td>
-</tr>
-<tr>
-<td><strong>Antenna</strong></td>
-<td>ALFA AOA-915-5ACM</td>
-<td>$34.99</td>
-<td><a href="https://www.amazon.ca/dp/B08H8J6ZV6">Amazon</a></td>
-</tr>
-<tr>
-<td><strong>Antenna Coax Cable</strong></td>
-<td>N Female to IPX</td>
-<td>$6.79</td>
-<td><a href="https://aliexpress.com/item/1005001920963497.html">AliExpress</a></td>
-</tr>
-<tr>
-<td><strong>Battery - Option 1</strong></td>
-<td>3000mAh Li-ion  - Makerfocus (Pack of 4) - Ships from China</td>
-<td>$34.10</td>
-<td><a href="https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4">Makerfocus</a></td>
-</tr>
-<tr>
-<td><strong>Battery - Option 2</strong></td>
-<td>3000mAh Li-ion  - Amazon US store (Pack of 4)</td>
-<td>$40.92</td>
-<td><a href="https://www.amazon.com/3000mAh-Rechargable-Protection-Insulated-Development/dp/B08T6GT7DV">Amazon</a></td>
-</tr>
-<tr>
-<td><strong>Battery - Option 3</strong></td>
-<td>3000mAh Li-ion - Sold at Local store (Space Hedgehog)</td>
-<td>$11.00</td>
-<td><a href="https://space-hedgehog.com/products/3000mah-battery">Space Hedgehog</a></td>
-</tr>
-<tr>
-<td><strong>Battery Protection ^</strong></td>
-<td>Space Hedgehog (Local Store) Li-ion PCM</td>
-<td>$6.00</td>
-<td><a href="https://space-hedgehog.com/products/battery-protection-with-low-voltage-cut-off?variant=51646910660664">Space Hedgehog</a></td>
-</tr>
-<tr>
-<td><strong>Vent</strong></td>
-<td>Waterproof Vent Plug (M12X1.5-10)</td>
-<td>$6.12</td>
-<td><a href="https://aliexpress.com/item/1005006370919409.html">AliExpress</a></td>
-</tr>
-</tbody>
-</table>
-<p>^ If you're using the Makerfocus flat battery: This already includes a PCM, the extra PCM is an added safety measure. If you're using unprotected batteries (e.g., 18650 button top), then you will need to purchase a PCM.</p>
-<p><strong>Approximate total cost: $180 CAD</strong></p>
-<p><strong>Build Instructions:</strong> <a href="../repeater-solar-300mw-diy-build/">300mW Solar Repeater Build Guide</a></p>
+<p>We have two DIY solar repeater builds. Choose based on the role the repeater will fill in the mesh.</p>
+<h3 id="300mw-solar-repeater-default">300mW Solar Repeater (default)<a class="headerlink" href="#300mw-solar-repeater-default" title="Permanent link">¶</a></h3>
+<p>Use this for the vast majority of deployments. It is cheaper, simpler to assemble, and fully sufficient for most rooftop, gutter, and pole-mounted locations across the city.</p>
+<p><a href="../repeater-solar-300mw-diy-build/">300mW Solar Repeater Build Guide</a></p>
+<h3 id="1w-solar-repeater-backbone-long-reach">1W Solar Repeater (backbone / long-reach)<a class="headerlink" href="#1w-solar-repeater-backbone-long-reach" title="Permanent link">¶</a></h3>
+<p>Only build a 1W repeater when you have a specific reason to. Good reasons include backbone links between repeaters, and locations that have been proven through testing to need the extra output to reach far enough to connect to the rest of the mesh. Higher transmit power increases noise floor and battery draw.</p>
+<p><a href="../repeater-solar-1w-diy-build/">1W Solar Repeater Build Guide</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Not sure which to build?</p>
+<p>Start with the <strong>300mW</strong> build. Reach out to the community first if you think you need a 1W, since location and antenna choice usually matter more than transmit power.</p>
+</div>
 <hr>
 
 
