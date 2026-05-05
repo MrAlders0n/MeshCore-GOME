@@ -127,6 +127,13 @@
         <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/hardware/repeater-mounting-options/"/>
     </url>
     <url>
+        <loc>https://ottawamesh.ca/hardware/repeater-solar-1w-diy-build/</loc>
+        <lastmod>2026-05-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/hardware/repeater-solar-1w-diy-build/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/hardware/repeater-solar-1w-diy-build/"/>
+    </url>
+    <url>
         <loc>https://ottawamesh.ca/hardware/repeater-solar-300mw-diy-build/</loc>
         <lastmod>2026-05-05</lastmod>
         <changefreq>daily</changefreq>
@@ -391,6 +398,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/hardware/repeater-mounting-options/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/hardware/repeater-mounting-options/"/>
+    </url>
+    <url>
+        <loc>https://ottawamesh.ca/fr/hardware/repeater-solar-1w-diy-build/</loc>
+        <lastmod>2026-05-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/hardware/repeater-solar-1w-diy-build/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/hardware/repeater-solar-1w-diy-build/"/>
     </url>
     <url>
         <loc>https://ottawamesh.ca/fr/hardware/repeater-solar-300mw-diy-build/</loc>
