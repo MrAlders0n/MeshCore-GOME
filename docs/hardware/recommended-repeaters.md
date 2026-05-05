@@ -40,26 +40,21 @@ These options come fully assembled; simply flash MeshCore and mount them in a hi
 
 ## Build Your Own
 
-A robust build using a purpose-built weatherproof enclosure.
+We have two DIY solar repeater builds. Choose based on the role the repeater will fill in the mesh.
 
-### Recommended Parts List
+### 300mW Solar Repeater (default)
 
-| Item                 | Product Name                         | Cost (CAD) | Link |
-|----------------------|---------------------------------------|------------|------|
-| **Enclosure**        | WisMesh Unify Enclosure 910422        | $72.50     | [AliExpress](https://aliexpress.com/item/1005008369061766.html) |
-| **LoRa Board (Small)** | RAK WisBlock RAK19003/RAK4631 (Type 6) | $36.38     | [AliExpress](https://aliexpress.com/item/1005008285698839.html) |
-| **Antenna**          | ALFA AOA-915-5ACM                     | $34.99    | [Amazon](https://www.amazon.ca/dp/B08H8J6ZV6) |
-| **Antenna Coax Cable** | N Female to IPX                       | $6.79      | [AliExpress](https://aliexpress.com/item/1005001920963497.html) |
-| **Battery - Option 1**          | 3000mAh Li-ion  - Makerfocus (Pack of 4) - Ships from China                       | $34.10 | [Makerfocus](https://www.makerfocus.com/products/makerfocus-3-7v-3000mah-lithium-rechargeable-battery-1s-3c-lipo-battery-pack-of-4) |
-| **Battery - Option 2**          | 3000mAh Li-ion  - Amazon US store (Pack of 4)                       | $40.92 | [Amazon](https://www.amazon.com/3000mAh-Rechargable-Protection-Insulated-Development/dp/B08T6GT7DV) |
-| **Battery - Option 3**          | 3000mAh Li-ion - Sold at Local store (Space Hedgehog)                        | $11.00     | [Space Hedgehog](https://space-hedgehog.com/products/3000mah-battery) |
-| **Battery Protection ^** | Space Hedgehog (Local Store) Li-ion PCM           | $6.00      | [Space Hedgehog](https://space-hedgehog.com/products/battery-protection-with-low-voltage-cut-off?variant=51646910660664) |
-| **Vent**             | Waterproof Vent Plug (M12X1.5-10)     | $6.12      | [AliExpress](https://aliexpress.com/item/1005006370919409.html) |
+Use this for the vast majority of deployments. It is cheaper, simpler to assemble, and fully sufficient for most rooftop, gutter, and pole-mounted locations across the city.
 
-^ If you're using the Makerfocus flat battery: This already includes a PCM, the extra PCM is an added safety measure. If you're using unprotected batteries (e.g., 18650 button top), then you will need to purchase a PCM.
+[300mW Solar Repeater Build Guide](./repeater-solar-300mw-diy-build.md)
 
-**Approximate total cost: $180 CAD**
+### 1W Solar Repeater (backbone / long-reach)
 
-**Build Instructions:** [300mW Solar Repeater Build Guide](./repeater-solar-300mw-diy-build.md)
+Only build a 1W repeater when you have a specific reason to. Good reasons include backbone links between repeaters, and locations that have been proven through testing to need the extra output to reach far enough to connect to the rest of the mesh. Higher transmit power increases noise floor and battery draw.
+
+[1W Solar Repeater Build Guide](./repeater-solar-1w-diy-build.md)
+
+!!! tip "Not sure which to build?"
+    Start with the **300mW** build. Reach out to the community first if you think you need a 1W, since location and antenna choice usually matter more than transmit power.
 
 ---
