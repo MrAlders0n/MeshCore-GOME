@@ -2324,22 +2324,22 @@
   
 
 
-<h1 id="building-a-1w-solar-repeater-ikoka-stick">Building a 1W Solar Repeater – IKOKA Stick<a class="headerlink" href="#building-a-1w-solar-repeater-ikoka-stick" title="Permanent link">¶</a></h1>
+<h1 id="building-a-1w-solar-repeater-ikoka-stick">Building a 1W Solar Repeater – Ikoka Stick<a class="headerlink" href="#building-a-1w-solar-repeater-ikoka-stick" title="Permanent link">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Work In Progress</p>
 <p>THIS IS A WORK IN PROGRESS AND IS NOT FINAL, please contact <strong>MrAlders0n</strong> for questions related to the build.</p>
 </div>
-<p><strong>Board:</strong> GOME IKOKA Stick (HW v0.4.0)<br>
+<p><strong>Board:</strong> GOME Ikoka Stick (HW v0.4.0)<br>
 <strong>Power:</strong> Waveshare Solar Power Manager (standard)<br>
 <strong>Firmware:</strong> MeshCore  </p>
-<p>This guide walks through assembling a solar-powered MeshCore repeater using the GOME IKOKA Stick, a junction box enclosure, and an epoxied solar panel. Follow each step carefully for a reliable and weatherproof build.</p>
+<p>This guide walks through assembling a solar-powered MeshCore repeater using the GOME Ikoka Stick, a junction box enclosure, and an epoxied solar panel. Follow each step carefully for a reliable and weatherproof build.</p>
 <div class="admonition info">
 <p class="admonition-title">When to use a 1W repeater</p>
 <p>1W repeaters should typically be used for backbone links and for locations that are struggling to connect to the mesh. They are not necessary for every deployment.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Antenna Required</p>
-<p><strong>Always ensure a LoRa antenna is attached to the IKOKA Stick before powering it on. Transmitting without an antenna can permanently damage the radio module.</strong></p>
+<p><strong>Always ensure a LoRa antenna is attached to the Ikoka Stick before powering it on. Transmitting without an antenna can permanently damage the radio module.</strong></p>
 </div>
 <hr>
 <h2 id="parts-list">Parts List<a class="headerlink" href="#parts-list" title="Permanent link">¶</a></h2>
@@ -2356,7 +2356,7 @@
 <tbody>
 <tr>
 <td>1</td>
-<td>GOME IKOKA Stick (HW v0.4.0)</td>
+<td>GOME Ikoka Stick (HW v0.4.0)</td>
 <td>1</td>
 <td>$55</td>
 <td><a href="https://github.com/ndoo/ikoka-stick-meshtastic-device">GitHub</a> (group buy)</td>
@@ -2471,7 +2471,7 @@
 <p><strong>Estimated total cost:</strong> ~$280-290 without the INA3221, ~$300-310 with it. This does not include the antenna, 3D-printed parts, or mounting hardware (M3 spacers/screws).</p>
 <p><strong>Alternative filter option (minimal):</strong> Callboost 915MHz cavity filter, 26M BW, $82. <a href="https://www.aliexpress.com/item/1005004468960058.html">AliExpress</a></p>
 <h3 id="antenna">Antenna<a class="headerlink" href="#antenna" title="Permanent link">¶</a></h3>
-<p>An antenna is not included in this parts list as selection will vary by deployment. It is highly recommended to use a higher dBi antenna such as a 6-8 dBi or higher with 1W builds. We have found that the IKOKA Stick does not pair well with the Alfa 5.8 dBi antenna for some reason, with several folks in Ottawa observing noticeably worse signal quality when using them together. This is not a definitive statement, just a pattern observed across multiple deployments.</p>
+<p>An antenna is not included in this parts list as selection will vary by deployment. It is highly recommended to use a higher dBi antenna such as a 6-8 dBi or higher with 1W builds. We have found that the Ikoka Stick does not pair well with the Alfa 5.8 dBi antenna for some reason, with several folks in Ottawa observing noticeably worse signal quality when using them together. This is not a definitive statement, just a pattern observed across multiple deployments.</p>
 <p>For recommended antenna options, see the <a href="../recommended-antenna/#repeater-omni-antennas">GOME Repeater Omni Antennas</a> page.</p>
 <hr>
 <h2 id="tools-required">Tools Required<a class="headerlink" href="#tools-required" title="Permanent link">¶</a></h2>
@@ -2525,7 +2525,7 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>Before starting assembly, you will need the following 3D-printed parts. Both are available for download below:</p>
 <ul>
-<li><strong>Mounting plate</strong> for the junction box (holds the filter, IKOKA, and Waveshare board)</li>
+<li><strong>Mounting plate</strong> for the junction box (holds the filter, Ikoka, and Waveshare board)</li>
 <li><strong>3P1S 18650 battery holder</strong> (or sized to match your chosen battery configuration)</li>
 </ul>
 <h3 id="downloads">Downloads<a class="headerlink" href="#downloads" title="Permanent link">¶</a></h3>
@@ -2609,14 +2609,14 @@
 <h3 id="component-mounting">Component Mounting<a class="headerlink" href="#component-mounting" title="Permanent link">¶</a></h3>
 <ol>
 <li>
-<p>Outside the box (for easier access), mount the IKOKA Stick and the Waveshare Solar Power Manager to the 3D-printed mounting plate. If using the optional INA3221, mount it as well.</p>
+<p>Outside the box (for easier access), mount the Ikoka Stick and the Waveshare Solar Power Manager to the 3D-printed mounting plate. If using the optional INA3221, mount it as well.</p>
 </li>
 <li>
-<p><strong>(Optional, Adafruit INA3221)</strong> Using a soldering iron, carefully remove the IKOKA Stick's OLED display header pins. Work slowly and gently to avoid damaging nearby components.</p>
+<p><strong>(Optional, Adafruit INA3221)</strong> Using a soldering iron, carefully remove the Ikoka Stick's OLED display header pins. Work slowly and gently to avoid damaging nearby components.</p>
 </li>
 <li>
-<p><strong>(Optional, Adafruit INA3221)</strong> Solder the INA3221 to the IKOKA's I2C bus using the display header pads. See the <a href="#ina3221-wiring-optional">INA3221 Wiring</a> section below for the pin connections.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/repeater-solar-1w-diy-build-5.jpg" data-desc-position="bottom"><img alt="INA3221 wired to IKOKA Stick I2C with Waveshare Solar Power Manager" src="../images/repeater-solar-1w-diy-build-5.jpg" width="300"></a></p>
+<p><strong>(Optional, Adafruit INA3221)</strong> Solder the INA3221 to the Ikoka's I2C bus using the display header pads. See the <a href="#ina3221-wiring-optional">INA3221 Wiring</a> section below for the pin connections.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/repeater-solar-1w-diy-build-5.jpg" data-desc-position="bottom"><img alt="INA3221 wired to Ikoka Stick I2C with Waveshare Solar Power Manager" src="../images/repeater-solar-1w-diy-build-5.jpg" width="300"></a></p>
 </li>
 <li>
 <p>Install the mounting plate assembly into the junction box and secure it with M3x5 screws into the M3x35 spacers.</p>
@@ -2644,12 +2644,12 @@
 <h3 id="final-connections">Final Connections<a class="headerlink" href="#final-connections" title="Permanent link">¶</a></h3>
 <ol>
 <li>
-<p>Connect the SMA cable from the filter's input to the IKOKA Stick's SMA connector. Tighten both ends firmly with a wrench or pliers. A loose RF connection will cause signal loss.</p>
+<p>Connect the SMA cable from the filter's input to the Ikoka Stick's SMA connector. Tighten both ends firmly with a wrench or pliers. A loose RF connection will cause signal loss.</p>
 </li>
 <li>
-<p>Run the USB-A to USB-C cable from the Waveshare Solar Power Manager's USB output to the IKOKA Stick's USB-C input.</p>
+<p>Run the USB-A to USB-C cable from the Waveshare Solar Power Manager's USB output to the Ikoka Stick's USB-C input.</p>
 <p><em>If using the Adafruit INA3221, your completed assembly should look similar to this:</em></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/repeater-solar-1w-diy-build-6.jpg" data-desc-position="bottom"><img alt="Completed build with INA3221, Waveshare, and IKOKA Stick" src="../images/repeater-solar-1w-diy-build-6.jpg" width="300"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/repeater-solar-1w-diy-build-6.jpg" data-desc-position="bottom"><img alt="Completed build with INA3221, Waveshare, and Ikoka Stick" src="../images/repeater-solar-1w-diy-build-6.jpg" width="300"></a></p>
 <p><em>Without the INA3221:</em></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/repeater-solar-1w-diy-build-7.jpg" data-desc-position="bottom"><img alt="Completed build without INA3221" src="../images/repeater-solar-1w-diy-build-7.jpg" width="300"></a></p>
 <p><em>Full interior view with INA3221, battery pack, and all wiring complete:</em></p>
@@ -2658,12 +2658,12 @@
 </ol>
 <hr>
 <h2 id="ina3221-wiring-optional">INA3221 Wiring (Optional)<a class="headerlink" href="#ina3221-wiring-optional" title="Permanent link">¶</a></h2>
-<p>The Adafruit INA3221 connects to the IKOKA Stick via I2C using the <strong>OLED display header</strong> pads. Remove the display header pins and solder wires directly to the pads.</p>
-<p><strong>I2C connection (IKOKA display header to INA3221):</strong></p>
+<p>The Adafruit INA3221 connects to the Ikoka Stick via I2C using the <strong>OLED display header</strong> pads. Remove the display header pins and solder wires directly to the pads.</p>
+<p><strong>I2C connection (Ikoka display header to INA3221):</strong></p>
 <table>
 <thead>
 <tr>
-<th>IKOKA Display Header</th>
+<th>Ikoka Display Header</th>
 <th>INA3221 Pin</th>
 <th>Wire</th>
 </tr>
@@ -2718,7 +2718,7 @@
 </tr>
 </tbody>
 </table>
-<p><code>Note: VCC on the INA3221 is the board power pin (3.3V from the IKOKA). VIN1/VIN2/VIN3 are the measurement channel inputs, not the power pin.</code></p>
+<p><code>Note: VCC on the INA3221 is the board power pin (3.3V from the Ikoka). VIN1/VIN2/VIN3 are the measurement channel inputs, not the power pin.</code></p>
 <p><strong>Firmware build flags:</strong> MeshCore does not auto-detect the Adafruit INA3221 at its default address. Add these flags to your build configuration:</p>
 <pre><code class="language-ini">[env:ikoka_stick_nrf_30dbm_repeater]
 build_flags =
