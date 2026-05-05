@@ -1,19 +1,19 @@
-# Building a 1W Solar Repeater – IKOKA Stick
+# Building a 1W Solar Repeater – Ikoka Stick
 
 !!! warning "Work In Progress"
     THIS IS A WORK IN PROGRESS AND IS NOT FINAL, please contact **MrAlders0n** for questions related to the build.
 
-**Board:** GOME IKOKA Stick (HW v0.4.0)  
+**Board:** GOME Ikoka Stick (HW v0.4.0)  
 **Power:** Waveshare Solar Power Manager (standard)  
 **Firmware:** MeshCore  
 
-This guide walks through assembling a solar-powered MeshCore repeater using the GOME IKOKA Stick, a junction box enclosure, and an epoxied solar panel. Follow each step carefully for a reliable and weatherproof build.
+This guide walks through assembling a solar-powered MeshCore repeater using the GOME Ikoka Stick, a junction box enclosure, and an epoxied solar panel. Follow each step carefully for a reliable and weatherproof build.
 
 !!! info "When to use a 1W repeater"
     1W repeaters should typically be used for backbone links and for locations that are struggling to connect to the mesh. They are not necessary for every deployment.
 
 !!! danger "Antenna Required"
-    **Always ensure a LoRa antenna is attached to the IKOKA Stick before powering it on. Transmitting without an antenna can permanently damage the radio module.**
+    **Always ensure a LoRa antenna is attached to the Ikoka Stick before powering it on. Transmitting without an antenna can permanently damage the radio module.**
 
 ---
 
@@ -21,7 +21,7 @@ This guide walks through assembling a solar-powered MeshCore repeater using the 
 
 | # | Part | Qty | Price | Source |
 |---|------|-----|-------|--------|
-| 1 | GOME IKOKA Stick (HW v0.4.0) | 1 | $55 | [GitHub](https://github.com/ndoo/ikoka-stick-meshtastic-device) (group buy) |
+| 1 | GOME Ikoka Stick (HW v0.4.0) | 1 | $55 | [GitHub](https://github.com/ndoo/ikoka-stick-meshtastic-device) (group buy) |
 | 2 | Waveshare Solar Power Manager (standard) | 1 | $15 | [Waveshare](https://www.waveshare.com/wiki/Solar_Power_Manager) |
 | 3 | IP65 Junction Box, 220x170x110mm, Gray | 1 | $30 | [AliExpress](https://www.aliexpress.com/item/1005007587120013.html) |
 | 4 | Solar panel, 10W/18V, 250x340mm | 1 | $35 | [Amazon](https://a.co/d/0eJo5GCr) |
@@ -44,7 +44,7 @@ This guide walks through assembling a solar-powered MeshCore repeater using the 
 
 ### Antenna
 
-An antenna is not included in this parts list as selection will vary by deployment. It is highly recommended to use a higher dBi antenna such as a 6-8 dBi or higher with 1W builds. We have found that the IKOKA Stick does not pair well with the Alfa 5.8 dBi antenna for some reason, with several folks in Ottawa observing noticeably worse signal quality when using them together. This is not a definitive statement, just a pattern observed across multiple deployments.
+An antenna is not included in this parts list as selection will vary by deployment. It is highly recommended to use a higher dBi antenna such as a 6-8 dBi or higher with 1W builds. We have found that the Ikoka Stick does not pair well with the Alfa 5.8 dBi antenna for some reason, with several folks in Ottawa observing noticeably worse signal quality when using them together. This is not a definitive statement, just a pattern observed across multiple deployments.
 
 For recommended antenna options, see the [GOME Repeater Omni Antennas](recommended-antenna.md#repeater-omni-antennas) page.
 
@@ -70,7 +70,7 @@ For recommended antenna options, see the [GOME Repeater Omni Antennas](recommend
 
 Before starting assembly, you will need the following 3D-printed parts. Both are available for download below:
 
-- **Mounting plate** for the junction box (holds the filter, IKOKA, and Waveshare board)
+- **Mounting plate** for the junction box (holds the filter, Ikoka, and Waveshare board)
 - **3P1S 18650 battery holder** (or sized to match your chosen battery configuration)
 
 ### Downloads
@@ -137,13 +137,13 @@ Before starting assembly, you will need the following 3D-printed parts. Both are
 
 ### Component Mounting
 
-19. Outside the box (for easier access), mount the IKOKA Stick and the Waveshare Solar Power Manager to the 3D-printed mounting plate. If using the optional INA3221, mount it as well.
+19. Outside the box (for easier access), mount the Ikoka Stick and the Waveshare Solar Power Manager to the 3D-printed mounting plate. If using the optional INA3221, mount it as well.
 
-20. **(Optional, Adafruit INA3221)** Using a soldering iron, carefully remove the IKOKA Stick's OLED display header pins. Work slowly and gently to avoid damaging nearby components.
+20. **(Optional, Adafruit INA3221)** Using a soldering iron, carefully remove the Ikoka Stick's OLED display header pins. Work slowly and gently to avoid damaging nearby components.
 
-21. **(Optional, Adafruit INA3221)** Solder the INA3221 to the IKOKA's I2C bus using the display header pads. See the [INA3221 Wiring](#ina3221-wiring-optional) section below for the pin connections.
+21. **(Optional, Adafruit INA3221)** Solder the INA3221 to the Ikoka's I2C bus using the display header pads. See the [INA3221 Wiring](#ina3221-wiring-optional) section below for the pin connections.
 
-      ![INA3221 wired to IKOKA Stick I2C with Waveshare Solar Power Manager](./images/repeater-solar-1w-diy-build-5.jpg){ width="300" }
+      ![INA3221 wired to Ikoka Stick I2C with Waveshare Solar Power Manager](./images/repeater-solar-1w-diy-build-5.jpg){ width="300" }
 
 22. Install the mounting plate assembly into the junction box and secure it with M3x5 screws into the M3x35 spacers.
 
@@ -163,13 +163,13 @@ Before starting assembly, you will need the following 3D-printed parts. Both are
 
 ### Final Connections
 
-27. Connect the SMA cable from the filter's input to the IKOKA Stick's SMA connector. Tighten both ends firmly with a wrench or pliers. A loose RF connection will cause signal loss.
+27. Connect the SMA cable from the filter's input to the Ikoka Stick's SMA connector. Tighten both ends firmly with a wrench or pliers. A loose RF connection will cause signal loss.
 
-28. Run the USB-A to USB-C cable from the Waveshare Solar Power Manager's USB output to the IKOKA Stick's USB-C input.
+28. Run the USB-A to USB-C cable from the Waveshare Solar Power Manager's USB output to the Ikoka Stick's USB-C input.
 
       *If using the Adafruit INA3221, your completed assembly should look similar to this:*
 
-      ![Completed build with INA3221, Waveshare, and IKOKA Stick](./images/repeater-solar-1w-diy-build-6.jpg){ width="300" }
+      ![Completed build with INA3221, Waveshare, and Ikoka Stick](./images/repeater-solar-1w-diy-build-6.jpg){ width="300" }
 
       *Without the INA3221:*
 
@@ -183,11 +183,11 @@ Before starting assembly, you will need the following 3D-printed parts. Both are
 
 ## INA3221 Wiring (Optional)
 
-The Adafruit INA3221 connects to the IKOKA Stick via I2C using the **OLED display header** pads. Remove the display header pins and solder wires directly to the pads.
+The Adafruit INA3221 connects to the Ikoka Stick via I2C using the **OLED display header** pads. Remove the display header pins and solder wires directly to the pads.
 
-**I2C connection (IKOKA display header to INA3221):**
+**I2C connection (Ikoka display header to INA3221):**
 
-| IKOKA Display Header | INA3221 Pin | Wire |
+| Ikoka Display Header | INA3221 Pin | Wire |
 |----------------------|-------------|------|
 | Pin 1 - GND | GND | Ground |
 | Pin 2 - VCC (3.3V) | VCC | Power |
@@ -202,7 +202,7 @@ The Adafruit INA3221 connects to the IKOKA Stick via I2C using the **OLED displa
 | CH2 | (unused) | Available for future use |
 | CH3 | Solar | Monitor solar input voltage and charging current |
 
-```Note: VCC on the INA3221 is the board power pin (3.3V from the IKOKA). VIN1/VIN2/VIN3 are the measurement channel inputs, not the power pin.```
+```Note: VCC on the INA3221 is the board power pin (3.3V from the Ikoka). VIN1/VIN2/VIN3 are the measurement channel inputs, not the power pin.```
 
 **Firmware build flags:** MeshCore does not auto-detect the Adafruit INA3221 at its default address. Add these flags to your build configuration:
 
