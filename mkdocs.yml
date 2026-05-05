@@ -31,6 +31,7 @@ nav:
           - Repeater Nodes:  hardware/recommended-repeaters.md
           - Repeater Mounting Options: hardware/repeater-mounting-options.md
           - 300mW Solar Repeater Build Guide: hardware/repeater-solar-300mw-diy-build.md
+          - 1W Solar Repeater Build Guide: hardware/repeater-solar-1w-diy-build.md
       - Wire Connector Types: hardware/wire-connector-types.md
   
   - MeshCore:
