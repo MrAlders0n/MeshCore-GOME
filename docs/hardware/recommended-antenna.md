@@ -41,3 +41,11 @@ Directional antennas are intended for fixed repeaters and long-distance point-to
 | Product                | Connector | Cost (CAD) | Link |
 |------------------------|-----------|------------|------|
 | L-com HG913Y-NF      | N-Type    | $237.17     | [DigiKey](https://www.digikey.ca/en/products/detail/l-com/HG913Y-NF/21289980) |
+
+## Antenna Cables
+
+For short, high-quality LMR-240 cables, [Infinite Cables](https://www.infinitecables.com/) in Toronto is the best source we’ve found. Their cables are on the expensive side, but the build quality is excellent and they offer a wide variety of lengths and connector combinations to suit any installation.
+
+| Product                | Connector | Link |
+|------------------------|-----------|------|
+| LMR-240 Ultra Flex N-Type Male to N-Type Female | N-Type M to N-Type F | [Infinite Cables](https://www.infinitecables.com/products/lmr-240-ultra-flex-n-type-male-to-n-type-female-cable?variant=42809804980465) |
