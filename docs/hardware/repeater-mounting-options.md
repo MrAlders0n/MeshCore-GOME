@@ -65,6 +65,15 @@ Community member **Aussiemandias** designed a specialized 3D printable gutter mo
 
 ---
 
+### Speaker Stand (Apartment Balconies)
+
+* Adjustable Speaker Stand - 4.1 to 6.6-Foot - [Amazon](https://www.amazon.ca/dp/B07S62HZR7)
+* Preferred for temporary deployments. You are responsible for securing the repeater to the stand and the stand to the balcony.
+
+![](images/SpeakerStand.jpg){ width="300" }
+
+---
+
 ## Notes
 
 * Regardless of mount type, always ensure the mount and fasteners are weather-rated and can handle local wind conditions.  
