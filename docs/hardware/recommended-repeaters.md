@@ -42,6 +42,9 @@ These options come fully assembled; simply flash MeshCore and mount them in a hi
 
 We have two DIY solar repeater builds. Choose based on the role the repeater will fill in the mesh.
 
+!!! warning "Wire Connector Types"
+    Make sure you choose the right wire connector type for your build. See [Wire Connector Types](./wire-connector-types.md) for more information.
+
 ### 300mW Solar Repeater (default)
 
 Use this for the vast majority of deployments. It is cheaper, simpler to assemble, and fully sufficient for most rooftop, gutter, and pole-mounted locations across the city.
