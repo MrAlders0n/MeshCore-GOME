@@ -81,5 +81,6 @@ The general rule is that doubling your elements gets you about +3 dB of gain. Yo
 
 Below 5 dBi, the length-to-gain correlation gets less reliable. Manufacturers use loaded and helical designs to shrink things down, so you'll see "2 dBi" antennas that are only 50-80 mm because they're coiled internally. The eyeball method really shines from 5 dBi and up where you're looking at full-size collinear builds.
 
-TL;DR
+### TL;DR
+
 Under 200 mm? Probably 2-3 dBi. Around 300-450 mm? 4-5 dBi range. Half a metre, ~6 dBi. Approaching a metre, ~7 dBi. Over a metre, ~8 dBi. Pushing 1.5m+, you're in 9 dBi territory. No spec sheet needed, just eyeball it.
