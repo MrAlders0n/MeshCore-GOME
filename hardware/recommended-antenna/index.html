@@ -890,6 +890,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#antenna-gain-vs-length-quick-reference-for-915-mhz-omnis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antenna Gain vs Length - Quick Reference for 915 MHz Omnis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Antenna Gain vs Length - Quick Reference for 915 MHz Omnis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-does-this-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does this work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2002,6 +2041,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#antenna-gain-vs-length-quick-reference-for-915-mhz-omnis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antenna Gain vs Length - Quick Reference for 915 MHz Omnis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Antenna Gain vs Length - Quick Reference for 915 MHz Omnis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-does-this-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why does this work?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2149,6 +2227,34 @@ The Ottawa mesh community has tested many replacements, and the antennas below a
 </tr>
 </tbody>
 </table>
+<h2 id="antenna-gain-vs-length-quick-reference-for-915-mhz-omnis">Antenna Gain vs Length - Quick Reference for 915 MHz Omnis<a class="headerlink" href="#antenna-gain-vs-length-quick-reference-for-915-mhz-omnis" title="Permanent link">¶</a></h2>
+<p>If you've ever wondered how to ballpark an antenna's gain just by looking at it, here's a cheat sheet:</p>
+<ul>
+<li><strong>2 dBi</strong> → ~120-170 mm</li>
+<li><strong>3 dBi</strong> → ~200-250 mm</li>
+<li><strong>4 dBi</strong> → ~280-350 mm</li>
+<li><strong>5 dBi</strong> → ~400-450 mm</li>
+<li><strong>6 dBi</strong> → ~500-600 mm</li>
+<li><strong>7 dBi</strong> → ~800-900 mm</li>
+<li><strong>8 dBi</strong> → ~1200-1350 mm</li>
+<li><strong>9 dBi</strong> → ~1500-1650 mm</li>
+</ul>
+<h3 id="why-does-this-work">Why does this work?<a class="headerlink" href="#why-does-this-work" title="Permanent link">¶</a></h3>
+<p>At 915 MHz, one wavelength (λ) is about 328 mm. Omnidirectional collinear antennas get their gain by stacking half-wave elements vertically with phasing stubs between them. More elements = longer antenna = more gain.</p>
+<ul>
+<li><strong>2 dBi</strong> is basically a half-wave dipole (λ/2 = 164 mm). This is where most stock LoRa whip antennas land.</li>
+<li><strong>3 dBi</strong> gets into 5/8-wave territory (~205 mm plus matching network)</li>
+<li><strong>4-5 dBi</strong> covers short collinears and 2-element designs</li>
+<li><strong>6 dBi</strong> around 550 mm is a 3-element collinear (~1.68λ)</li>
+<li><strong>7 dBi</strong> around 850 mm is a 4-5 element collinear (~2.6λ)</li>
+<li><strong>8 dBi</strong> around 1275 mm is pushing 7+ elements (~3.9λ)</li>
+<li><strong>9 dBi</strong> around 1600 mm is an 8+ element array (~4.88λ)</li>
+</ul>
+<p>The general rule is that doubling your elements gets you about +3 dB of gain. You'll notice the gaps get smaller as you go up because at higher element counts you hit diminishing returns from losses in the phasing network.</p>
+<h3 id="one-caveat">One caveat<a class="headerlink" href="#one-caveat" title="Permanent link">¶</a></h3>
+<p>Below 5 dBi, the length-to-gain correlation gets less reliable. Manufacturers use loaded and helical designs to shrink things down, so you'll see "2 dBi" antennas that are only 50-80 mm because they're coiled internally. The eyeball method really shines from 5 dBi and up where you're looking at full-size collinear builds.</p>
+<p>TL;DR
+Under 200 mm? Probably 2-3 dBi. Around 300-450 mm? 4-5 dBi range. Half a metre, ~6 dBi. Approaching a metre, ~7 dBi. Over a metre, ~8 dBi. Pushing 1.5m+, you're in 9 dBi territory. No spec sheet needed, just eyeball it.</p>
 
 
 
