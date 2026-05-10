@@ -23,9 +23,9 @@ Follow each step carefully for a reliable and weatherproof build.
 **Approximate total cost: $180 CAD**
 
 !!! warning "Modifying other flat Li-ion batteries"
-    You can also purcahse a Li-ion battery with a Micro JST 1.25 connector, but you will need to change this connector to a Micro JST 2.0 connector and confirm that the connector has the right polarity (see Assembly Steps below).
+    You can also purchase a Li-ion battery with a different connector, but you will need to change this connector to a Micro JST 2.0 connector and confirm that the connector has the right polarity (see Assembly Steps below).
 
-    Example of a local Li-ion battery with Micro JST 1.25 connector - [Space Hedgehog](https://space-hedgehog.com/products/3000mah-battery?variant=51602989875256)
+    Example of a local Li-ion battery with Molex Picoblade 1.25 connector - [Space Hedgehog](https://space-hedgehog.com/products/3000mah-battery?variant=51602989875256)
 
     Example of a JST 2.0 connector - [Adafruit](https://www.adafruit.com/product/4714)
 
