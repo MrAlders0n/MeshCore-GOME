@@ -56,6 +56,9 @@ nav:
   - Meshtastic: 
       - Getting Started: meshtastic/getting-started.md
       - Frequency Settings: meshtastic/frequency-settings.md
+
+  - Reticulum: 
+      - Frequency Settings: reticulum/reticulum-frequency-settings.md
   
   - Resources:
       - Useful Links: resources/useful-links.md
