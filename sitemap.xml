@@ -274,6 +274,13 @@
         <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/resources/useful-links/"/>
     </url>
     <url>
+        <loc>https://ottawamesh.ca/reticulum/reticulum-frequency-settings/</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/reticulum/reticulum-frequency-settings/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/reticulum/reticulum-frequency-settings/"/>
+    </url>
+    <url>
         <loc>https://ottawamesh.ca/fr/</loc>
         <lastmod>2026-05-23</lastmod>
         <changefreq>daily</changefreq>
@@ -545,5 +552,12 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/resources/useful-links/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/resources/useful-links/"/>
+    </url>
+    <url>
+        <loc>https://ottawamesh.ca/fr/reticulum/reticulum-frequency-settings/</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://ottawamesh.ca/fr/reticulum/reticulum-frequency-settings/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ottawamesh.ca/reticulum/reticulum-frequency-settings/"/>
     </url>
 </urlset>
