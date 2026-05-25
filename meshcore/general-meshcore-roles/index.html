@@ -1234,24 +1234,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MeshCore Roles
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1268,58 +1250,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#companion-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Companion Nodes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeaters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Repeaters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#room-servers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Room Servers
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2025,47 +1955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#companion-nodes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Companion Nodes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeaters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Repeaters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#room-servers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Room Servers
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2085,42 +1974,7 @@
 
 
 <h1 id="meshcore-device-roles">MeshCore Device Roles<a class="headerlink" href="#meshcore-device-roles" title="Permanent link">¶</a></h1>
-<p>MeshCore defines several distinct roles within the network, and each role requires its own specific firmware.<br>
-A single piece of hardware can serve as a companion node, a repeater, or a room server depending on what firmware is flashed.<br>
-This section explains what each role does and how they work together within the MeshCore network.</p>
-<h2 id="companion-nodes">Companion Nodes<a class="headerlink" href="#companion-nodes" title="Permanent link">¶</a></h2>
-<p>A <strong>companion node</strong> is a small personal device (handheld or portable) that lets a user connect to the mesh.</p>
-<ul>
-<li>Runs on battery or USB power  </li>
-<li>Usually pairs with a smartphone over Bluetooth for messaging  </li>
-<li>Standalone options like the <strong>T-Deck</strong> include a screen and keyboard, but we don’t recommend them for beginners since the firmware is still rough  </li>
-<li>Companion nodes do <strong>not</strong> route packets  </li>
-<li>They can communicate directly with each other  </li>
-<li><strong>Only repeaters</strong> perform routing across the MeshCore network  </li>
-</ul>
-<p><strong>→ See <a href="../../hardware/recommended-companions/">Recommended Companions</a></strong></p>
-<hr>
-<h2 id="repeaters">Repeaters<a class="headerlink" href="#repeaters" title="Permanent link">¶</a></h2>
-<p>A <strong>repeater</strong> is a fixed installation, typically mounted at elevation (rooftop, tower, mast), that extends range and links mesh segments.</p>
-<ul>
-<li>Runs continuously on mains or solar power  </li>
-<li>Most Ottawa repeaters operate on solar  </li>
-<li>In MeshCore, repeaters form the stable <strong>backbone</strong> of the network  </li>
-<li>They are the <strong>only devices</strong> that perform packet routing  </li>
-</ul>
-<p><strong>→ See <a href="../../hardware/recommended-repeaters/">Recommended Repeaters</a></strong></p>
-<hr>
-<h2 id="room-servers">Room Servers<a class="headerlink" href="#room-servers" title="Permanent link">¶</a></h2>
-<p>A <strong>room server</strong> is a device flashed with specialized firmware that functions like a persistent chat room or mini-BBS.</p>
-<ul>
-<li>Stores the last <strong>32 messages</strong> sent to it  </li>
-<li>When a companion node connects, it retrieves stored messages (similar to checking an inbox)  </li>
-<li>While they technically can repeat, this is strongly discouraged  </li>
-<li>Ottawa disables repeat on room servers  </li>
-<li>Developers have discussed removing the option entirely  </li>
-<li>Room servers are <strong>not full repeaters</strong> and lack many repeater features  </li>
-<li>Best used as static message boards or shared chat nodes, <strong>not</strong> as repeaters</li>
-</ul>
+<p>This page has moved to <a href="https://meshcore.ca">MeshCore.ca</a>.</p>
 
 
 

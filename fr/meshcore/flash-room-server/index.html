@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuring-a-room-server" class="md-skip">
+        <a href="#flashing-a-room-server" class="md-skip">
           Aller au contenu
         </a>
       
@@ -1426,24 +1426,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Flashing a Room Server
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1461,73 +1445,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#configuring-a-room-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring a Room Server
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuring a Room Server">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flashing-the-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flashing the Firmware
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-the-room-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring the Room Server
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#final-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Final Steps
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2035,64 +1952,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#configuring-a-room-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring a Room Server
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuring a Room Server">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flashing-the-firmware" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flashing the Firmware
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-the-room-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring the Room Server
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#final-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Final Steps
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -2112,76 +1973,8 @@
   
 
 
-  <h1>Flashing a Room Server</h1>
-
-<p>← Home</p>
-<p>Follow these steps to flash and configure a device as a MeshCore Room Server:</p>
-<h2 id="configuring-a-room-server">Configuring a Room Server<a class="headerlink" href="#configuring-a-room-server" title="Permanent link">¶</a></h2>
-<h3 id="flashing-the-firmware">Flashing the Firmware<a class="headerlink" href="#flashing-the-firmware" title="Permanent link">¶</a></h3>
-<ol>
-<li>
-<p>Open the MeshCore Web Flasher: <a href="https://meshcore.io/flasher">Link</a></p>
-</li>
-<li>
-<p>Select your device from the list.</p>
-</li>
-<li>
-<p>Select <strong>Room Server</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Enter DFU Mode</strong>.</p>
-</li>
-<li>
-<p>Click <strong>Erase Flash</strong> and wait for it to complete.</p>
-</li>
-<li>
-<p>Select your desired version (the most recent is generally recommended).</p>
-</li>
-<li>
-<p>Click <strong>Flash</strong>.  </p>
-</li>
-</ol>
-<p><strong>Note:</strong> Sometimes after erasing, the flash step may fail.  </p>
-<p>If this happens, refresh the page, click <strong>Enter DFU Mode</strong> again, and then click <strong>Flash</strong> to retry.  </p>
-<h3 id="configuring-the-room-server">Configuring the Room Server<a class="headerlink" href="#configuring-the-room-server" title="Permanent link">¶</a></h3>
-<ol>
-<li>
-<p>After the flash is complete, click <strong>Configure via USB</strong>.</p>
-</li>
-<li>
-<p>Select your console device and click <strong>Connect</strong>.  </p>
-</li>
-<li>
-<p>Set a descriptive <strong>name</strong> for your Room Server.  </p>
-</li>
-<li>
-<p>Set both a <strong>guest password</strong> and an <strong>admin password</strong>.  </p>
-</li>
-<li>
-<p>Choose your radio preset: in Ottawa use <strong>USA/Canada (Recommended)</strong>.  </p>
-</li>
-<li>
-<p>Click <strong>Save Settings</strong>.  </p>
-</li>
-<li>
-<p>Click <strong>Reboot</strong>.  </p>
-</li>
-</ol>
-<h3 id="final-steps">Final Steps<a class="headerlink" href="#final-steps" title="Permanent link">¶</a></h3>
-<ol>
-<li>
-<p>Connect back to the device via the console.  </p>
-</li>
-<li>
-<p>Click <strong>Send Advert</strong>.  </p>
-</li>
-<li>
-<p>On your companion node, it should now discover your Room Server.  </p>
-</li>
-<li>
-<p>Log in from your companion node to the Room Server using the <strong>guest password</strong>.</p>
-</li>
-</ol>
+<h1 id="flashing-a-room-server">Flashing a Room Server<a class="headerlink" href="#flashing-a-room-server" title="Permanent link">¶</a></h1>
+<p>This page has moved to <a href="https://meshcore.ca">MeshCore.ca</a>.</p>
 
 
 

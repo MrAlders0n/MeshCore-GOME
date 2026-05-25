@@ -1178,24 +1178,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MeshCore FAQ
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1212,69 +1194,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#how-adverts-work" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How Adverts Work
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#routing-algorithms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Routing Algorithms
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeater-neighbours" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Repeater Neighbours
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-public-channel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Public Channel
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2036,58 +1955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#how-adverts-work" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How Adverts Work
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#routing-algorithms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Routing Algorithms
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repeater-neighbours" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Repeater Neighbours
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-public-channel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Public Channel
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2107,65 +1974,7 @@
 
 
 <h1 id="meshcore-faq">MeshCore FAQ<a class="headerlink" href="#meshcore-faq" title="Permanent link">¶</a></h1>
-<p>This page covers frequently asked questions about using MeshCore in Ottawa.<br>
-Each section provides quick guidance for common tasks.</p>
-<hr>
-<h2 id="how-adverts-work">How Adverts Work<a class="headerlink" href="#how-adverts-work" title="Permanent link">¶</a></h2>
-<p>MeshCore uses a <strong>repeater-driven advert system</strong> for discovery (not a prerequisite to transmit).</p>
-<ul>
-<li><strong>You do not need to receive an advert from a repeater to send a message.</strong>  </li>
-<li>
-<p>You can transmit at any time; any repeater that hears your packet will forward it.</p>
-</li>
-<li>
-<p>Adverts allow your node to <strong>discover repeaters</strong> (their ID and info). This enables:</p>
-</li>
-<li>Tracing paths to confirm connectivity  </li>
-<li>Seeing repeater names in message paths  </li>
-<li>
-<p>Setting static paths to a specific user</p>
-</li>
-<li>
-<p>Repeaters periodically broadcast <strong>adverts</strong> (short beacon packets).</p>
-</li>
-<li>
-<p>In Ottawa:</p>
-</li>
-<li><strong>Zero-hop adverts:</strong> Every 1 hour  </li>
-<li><strong>Flood adverts:</strong> Every 3 hours  </li>
-</ul>
-<h2 id="routing-algorithms">Routing Algorithms<a class="headerlink" href="#routing-algorithms" title="Permanent link">¶</a></h2>
-<p>The Netherland's LocalMesh network has a page explaining how <a href="https://www.localmesh.nl/en/meshcore-routing-algorithms/">routing in MeshCore</a> works.</p>
-<hr>
-<h2 id="repeater-neighbours">Repeater Neighbours<a class="headerlink" href="#repeater-neighbours" title="Permanent link">¶</a></h2>
-<p>Repeaters build their neighbour list over time based on the <strong>direct adverts</strong> they receive.<br>
-Keep in mind that having a neighbour listed doesn’t guarantee a <strong>bidirectional</strong> link.<br>
-It’s common for a repeater to transmit down a path that it can’t reliably receive from.<br>
-This is one of the reasons MeshCore allows repeaters to route messages through the entire mesh rather than relying only on direct neighbours.</p>
-<p><strong>Example:</strong></p>
-<p>Repeater 1 Neighbours:</p>
-<ul>
-<li>Repeater 2</li>
-<li>Repeater 3</li>
-</ul>
-<p>Repeater 2 Neighbours:</p>
-<ul>
-<li>Repeater 3</li>
-</ul>
-<p>Repeater 3 Neighbours:</p>
-<ul>
-<li>Repeater 1</li>
-</ul>
-<hr>
-<h2 id="the-public-channel">The Public Channel<a class="headerlink" href="#the-public-channel" title="Permanent link">¶</a></h2>
-<p>All Ottawa MeshCore nodes have access to the <strong>public channel</strong>.</p>
-<ul>
-<li>Any correctly flashed node on the correct frequency can pass traffic.</li>
-<li>When you send a message and a repeater hears it, the app shows <strong>Heard X Repeats</strong>.</li>
-<li>Hold a message → tap <strong>Heard Repeats</strong> to see which repeaters heard it.</li>
-<li>Known repeaters show <strong>names</strong>  </li>
-<li>Unknown repeaters show <strong>IDs</strong></li>
-</ul>
+<p>This page has moved to <a href="https://meshcore.ca">MeshCore.ca</a>.</p>
 
 
 

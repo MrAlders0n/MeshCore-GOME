@@ -1317,24 +1317,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Flashing a Companion
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1351,64 +1333,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#flashing-a-companion-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flashing a Companion Node
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Flashing a Companion Node">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Steps
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-a-companion-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring a Companion Node
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2031,53 +1955,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#flashing-a-companion-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flashing a Companion Node
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Flashing a Companion Node">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Steps
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-a-companion-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring a Companion Node
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2097,43 +1974,7 @@
 
 
 <h1 id="flashing-and-configuring-a-companion-node">Flashing and Configuring a Companion Node<a class="headerlink" href="#flashing-and-configuring-a-companion-node" title="Permanent link">¶</a></h1>
-<p>This guide will help you flash a node and configure it to operate as a companion.</p>
-<hr>
-<h2 id="flashing-a-companion-node">Flashing a Companion Node<a class="headerlink" href="#flashing-a-companion-node" title="Permanent link">¶</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">USB Serial Drivers</p>
-<p>You may need to install drivers on your computer to connect to your device.</p>
-</div>
-<p>The easiest way to flash a MeshCore-supported node is by using the official web flasher tool in <strong>Google Chrome</strong>:</p>
-<p><strong><a href="https://meshcore.io/flasher">MeshCore Web Flasher</a></strong><br>
-Only some Chromium-based browsers (e.g., Google Chrome, Microsoft Edge) support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API#browser_compatibility">serial connection</a> required for flashing.</p>
-<h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">¶</a></h3>
-<ol>
-<li>Plug your device into your computer via USB.  </li>
-<li>Open the <strong>MeshCore Web Flasher</strong>.  </li>
-<li>Select your device hardware.  </li>
-<li>Select the firmware type: <strong>Companion Radio (Bluetooth)</strong>.  </li>
-<li>Click <strong>Enter DFU Mode</strong>.  </li>
-<li>Click <strong>Erase Flash</strong>.  </li>
-<li>Click <strong>Flash</strong> to install the MeshCore firmware.</li>
-</ol>
-<p><strong>Note:</strong><br>
-If the flash step fails after erasing, refresh the page, click <strong>Enter DFU Mode</strong> again, then click <strong>Flash</strong> to retry.</p>
-<hr>
-<h2 id="configuring-a-companion-node">Configuring a Companion Node<a class="headerlink" href="#configuring-a-companion-node" title="Permanent link">¶</a></h2>
-<p>After flashing, follow these steps to complete setup:</p>
-<ol>
-<li>Pair the node with your phone or computer (usually over Bluetooth).  </li>
-<li>Give the node a descriptive <strong>name</strong> (for example: your callsign, location, or handle).  </li>
-<li>Set the Ottawa frequency defaults:<br>
-<strong>910.525 MHz / BW: 62.5 kHz / SF7 / CR5</strong>  </li>
-<li>Test the node by sending a message in the <strong>Public channel</strong>.  </li>
-<li>If a repeater hears you, the message will show <strong>Heard X Repeats</strong> instead of just <strong>Sent</strong>.</li>
-</ol>
-<p><strong>Tip:</strong><br>
-You may want to disable <strong>Message Settings → Auto Reset Path</strong>.<br>
-This isn’t required, but many users find it useful when testing unstable links because it prevents the path from constantly resetting.</p>
-<hr>
+<p>This page has moved to <a href="https://meshcore.ca">MeshCore.ca</a>.</p>
 
 
 
