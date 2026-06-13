@@ -4,4 +4,4 @@ MeshCore hashtag channels are topic-based groups that start with a "#" symbol, a
 
 | Channel | Description | Public Key | QR Code |
 |---------|-------------|------------|---------|
-| `#ottawa` | General discussion on the Ottawa mesh | 7871ec72b45617696c35c970bddd8124 | <img src="images/qr-ottawa.svg" width="120"> |
+| `#ottawa` | General discussion on the Ottawa mesh | 7871ec72b45617696c35c970bddd8124 | <img src="../images/qr-ottawa.svg" width="120"> |
