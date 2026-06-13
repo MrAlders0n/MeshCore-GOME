@@ -40,6 +40,7 @@ nav:
           - MeshCore FAQ: meshcore/general-faq.md
           - MeshCore How-To: meshcore/general-howto.md
           - MeshCore Roles: meshcore/general-meshcore-roles.md
+          - Public Channels: meshcore/public-channels.md
       - Configuration:
           - Flashing a Companion:  meshcore/flash-companion.md
           - Flashing a Repeater: meshcore/flash-repeater.md
