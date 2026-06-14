@@ -2,8 +2,8 @@
 
 Our community occasionaly orders a batch of Ikoka Stick nodes built for the Ottawa MeshCore community. Check out the Discord to see when the latest batch is being ordered.
 
-This design is based on the Ikoka Stick project:
-https://ndoo.sg/projects:amateur_radio:meshtastic:diy_devices:ikoka_stick
+This design is based on the [Ikoka Stick project](https://ndoo.sg/projects:amateur_radio:meshtastic:diy_devices:ikoka_stick).
+
 
 The latest batch uses the Ebyte E22P-915M30S 1 W LoRa module paired with the Seeed Studio XIAO nRF52840. It can be used in Companion and Repeater builds.
 
