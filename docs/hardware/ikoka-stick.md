@@ -38,3 +38,24 @@ The latest batch uses the Ebyte E22P-915M30S 1 W LoRa module paired with the See
 - While the Ikoka is a 1W / 30 dBm radio, that extra boost comes from the LNA
 - The built in USB charger is slow and has a safety timer that terminates charging after 7-10 hours, requiring a power cycle
 - It is recommended to charge batteries with an external charger and hot swap batteries if using the Ikoka Stick as a companion
+
+## Revisions
+
+### v0.3.1
+
+This revision uses a **green** pcb. Produced in November 2025.
+
+[repo with kicad files and gerbers](https://github.com/lesswater69/ikoka-stick-meshtastic-device/tree/1ee7e8232bde92a0abb1fd0b08f6c06d7b99656f)
+
+### v0.4.0
+
+This revision uses a **purple** pcb. Produced in May 2026.
+
+[Schematic](https://github.com/tahnok/ikoka-stick-meshtastic-device/blob/9280d3a1094b394b417363fd006ade38203663ac/ikoka-stick-meshtastic-device.pdf)
+
+[repo with kicad files and gerbers](https://github.com/tahnok/ikoka-stick-meshtastic-device/tree/9280d3a1094b394b417363fd006ade38203663ac)
+
+
+## Case
+
+[Ikoka Stick Beam Case by Alley Cat](https://www.printables.com/model/1428538-acos-ikoka-stick-beam-case)
