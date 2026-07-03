@@ -745,6 +745,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Ottawa MeshCore Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repeater-advert-path-hash-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeater Advert Path Hash Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companion-path-hash-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companion Path Hash Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2072,6 +2100,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Ottawa MeshCore Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repeater-advert-path-hash-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeater Advert Path Hash Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companion-path-hash-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companion Path Hash Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2097,6 +2153,7 @@
 <h1 id="meshcore-frequency-settings">MeshCore Frequency Settings<a class="headerlink" href="#meshcore-frequency-settings" title="Permanent link">¶</a></h1>
 <p>MeshCore developers have published recommended frequency settings that balance performance and reduce congestion in the ISM band, which is often crowded with devices like smart meters and other IoT systems.<br>
 Ottawa follows the new recommended defaults for the US/CAN region.</p>
+<p>All nodes operating in Ottawa should use these settings to ensure compatibility with the repeater network and other companion nodes.</p>
 <h2 id="ottawa-meshcore-settings">Ottawa MeshCore Settings<a class="headerlink" href="#ottawa-meshcore-settings" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>Frequency:</strong> 910.525 MHz  </li>
@@ -2104,7 +2161,11 @@ Ottawa follows the new recommended defaults for the US/CAN region.</p>
 <li><strong>Spreading Factor (SF):</strong> 7  </li>
 <li><strong>Coding Rate (CR):</strong> 5  </li>
 </ul>
-<p>All nodes operating in Ottawa should use these settings to ensure compatibility with the repeater network and other companion nodes.</p>
+<h3 id="repeater-advert-path-hash-size">Repeater Advert Path Hash Size<a class="headerlink" href="#repeater-advert-path-hash-size" title="Permanent link">¶</a></h3>
+<p>[Nodak Mesh] (https://nodakmesh.org/blog/meshcore-path-hash-explained) has a great article explaining Path hashes.</p>
+<p>Repeaters in Ottawa should have their advert path hash size 3-byte mode. See also <a href="https://meshcore.ca/meshcore/flash-repeater/">Flashing a Repeater</a> for more information.</p>
+<h3 id="companion-path-hash-size">Companion Path Hash Size<a class="headerlink" href="#companion-path-hash-size" title="Permanent link">¶</a></h3>
+<p>All companions should have their Default Path Hash Size set to 2-byte (max 32 hops). This can be set in the MeshCore app if your companion has v1.14.0+ firmware under Settings -&gt; Experimental Settings.</p>
 
 
 
