@@ -14,7 +14,7 @@ All nodes operating in Ottawa should use these settings to ensure compatibility 
 
 ### Repeater Advert Path Hash Size
 
-[Nodak Mesh] (https://nodakmesh.org/blog/meshcore-path-hash-explained) has a great article explaining Path hashes.
+[Nodak Mesh](https://nodakmesh.org/blog/meshcore-path-hash-explained) has a great article explaining Path hashes.
 
 Repeaters in Ottawa should have their advert path hash size 3-byte mode. See also [Flashing a Repeater](https://meshcore.ca/meshcore/flash-repeater/) for more information.
 
