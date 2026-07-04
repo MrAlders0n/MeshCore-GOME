@@ -13,6 +13,8 @@
 
     Read more about the split: [The Split, blog.meshcore.io](https://blog.meshcore.io/2026/04/23/the-split).
 
+    Support the developers of MeshCore and their fight for open source: [Help Us Save MeshCore](https://blog.meshcore.io/2026/07/04/help-us-save-meshcore)
+
 ## About the Community
 
 We’re a community of hobbyists, builders, and experimenters collaborating to build a decentralized long-range communications network across Canada's National Capital Region (NCR) in Eastern Ontario and Western Quebec.
