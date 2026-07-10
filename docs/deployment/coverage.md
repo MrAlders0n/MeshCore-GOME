@@ -5,8 +5,6 @@
 
 MeshCore coverage in the NCR area is provided by mostly solar powered repeaters. Coverage can vary based on height, line of sight, and terrain, but the network generally reaches Ashton, Barrhaven, Buckingham, Carleton Place, Cumberland, Downtown, Kanata, Nepean, Old Ottawa South, Orleans, Richmond, and Stittsville.
 
-For a live view of deployed nodes, check the [MeshCore Map](https://analyzer.letsmesh.net/map?lat=45.4215&long=-75.6972&zoom=9).
-
 ## Live Coverage (MeshMapper)
 
 The map below is powered by **MeshMapper**, a community-driven coverage tracking app created by **CSP-Tom** & **MrAlders0n**.  
@@ -27,4 +25,4 @@ If you want to explore the map in a full window, you can open it directly here:
 
 ## How MeshMapper Works
 
-Please visit the [MeshCore GOME WarDriver Github](https://github.com/MrAlders0n/MeshCore-GOME-WarDriver) page to learn more and get started.
+Please visit the [MeshMapper Wiki](https://wiki.meshmapper.net/) page to learn more and get started.
