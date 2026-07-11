@@ -26,6 +26,7 @@ nav:
   - Hardware: 
       - Overview: hardware/overview.md
       - Antenna: hardware/recommended-antenna.md
+      - Antenna Testing: hardware/antenna-testing.md
       - Companion Nodes: hardware/recommended-companions.md
       - Ikoka Stick: hardware/ikoka-stick.md
       - Repeater Nodes: 
