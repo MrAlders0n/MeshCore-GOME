@@ -12,3 +12,4 @@ MeshCore hashtag channels are topic-based groups that start with a "#" symbol, a
 | `#games` | A place to play some games and run experiments about multiplayer gaming on the mesh | ddffe2cfbf037caed279d02c41b74f5f | <img src="../images/qr-games.svg" width="120"> |
 | `#aircraft` | Reporting interesting aircraft sightings, types and heading in the NCR | dec938469f9bbfd9f07f2d968fec702d | <img src="../images/qr-aircraft.svg" width="120"> |
 | `#watersports` | The dedicated space for watersports, pleasure crafts, and pure aquatic freedom | d6d3a29372aba7b961e77710b7765c64 | <img src="../images/qr-watersports.svg" width="120"> |
+| `#ott-alerts` | Talk about alerts in the area (Weather, Power Outages, etc.) | a8038a2479d1c71ab04fa218f5f1fc69 | <img src="../images/qr-ott-alerts.svg" width="120"> |
