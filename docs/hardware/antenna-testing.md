@@ -15,8 +15,11 @@ All tests were performed at 910 MHz, since that is the frequency our mesh uses.
 ## Rokland 4dBi Helium Hotspot Fiberglass
 
 **Link**: [Rokland](https://store.rokland.com/products/4-dbi-helium-hotspot-fiberglass-outdoor-antenna-bracket-mount-for-rak-bobcat-nebra-sensecap)
+
 **SWR**: 1.29
+
 **Impedance**: 64.6 ohms
+
 **Reactance (j-value)** : +2.6 ohms
 
 *NanoVNA:*  
@@ -25,8 +28,11 @@ All tests were performed at 910 MHz, since that is the frequency our mesh uses.
 ## Slinkdsco Long-Range LORA Antenna (915 MHz Grey)
 
 **Link**: [AliExpress](https://a.aliexpress.com/_mMRiO8F)
+
 **SWR**: 1.27
+
 **Impedance**: 41.3 ohms
+
 **Reactance (j-value)** : +7.0 ohms
 
 *NanoVNA:*  
@@ -35,18 +41,24 @@ All tests were performed at 910 MHz, since that is the frequency our mesh uses.
 ## GizONT 915Mhz antenna
 
 **Link**: [Space Hedgehog](https://space-hedgehog.com/products/gizont-915mhz-antenna)
+
 **SWR**: 1.36
+
 **Impedance**: 37.6 ohms
+
 **Reactance (j-value)** : -5.7 ohms
 
-*NanoVNA*  
+*NanoVNA:*  
 ![GizONT 915Mhz antenna](./images/vna-gizont.png){ height="200" }
 
 ## Slinkdsco Waterproof 5.8dBi Meshtastic Lora 915MHz Fiberglass Antenna
 
 **Link**: [Amazon](https://www.amazon.ca/dp/B09N2H166D)
+
 **SWR**: 1.18
+
 **Impedance**: 45.8 ohms
+
 **Reactance (j-value)** : +6.7 ohms
 
 *NanoVNA:*  
