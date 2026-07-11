@@ -35,7 +35,7 @@ All tests were performed at 910 MHz, since that is the frequency our mesh uses.
 
 **Impedance**: 41.3 ohms
 
-**Reactance (j-value)** : +7.0 ohms
+**Reactance (j-value)** : -7.0 ohms
 
 *NanoVNA:*  
 ![Slinkdsco Long-Range LORA Antenna (915 MHz Grey)](./images/vna-slinkdsco-lr.png){ height="200" }
