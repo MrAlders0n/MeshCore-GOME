@@ -4,9 +4,11 @@ Here are some antennas tested by one of our community members, **Brianna (VA3QWQ
 
 For reference, these are the ideal values for antennas:
 
-SWR: 1.0
-Impedance match: 50 ohms
-Reactance: 0 ohms
+**SWR**: 1.0
+
+**Impedance match**: 50 ohms
+
+**Reactance**: 0 ohms
 
 With reactance at 0 ohm an antenna would be purely resistive which is ideal. A positive value means that the antenna has some inductance at that frequency, and a negative value means the antenna has some capacitance.
 
