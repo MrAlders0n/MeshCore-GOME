@@ -16,4 +16,4 @@ MeshCore hashtag channels are topic-based groups that start with a "#" symbol, a
 | `#queer` | Everything non-heterosexual and/or nonconforming identities | `5754476f162d93bbee3de0efba136860` | [Join](meshcore://channel/add?name=%23queer&secret=5754476f162d93bbee3de0efba136860) | <img src="../images/qr-queer.svg" width="120"> |
 | `#bots` | Beep Boop | `0d24f5830b449668b8c221759b6c50d2` | [Join](meshcore://channel/add?name=%23bots&secret=0d24f5830b449668b8c221759b6c50d2) | <img src="../images/qr-bots.svg" width="120"> |
 | `#cars` | Vroom Vroom | `e66008df541e729c6df02224fac0c359` | [Join](meshcore://channel/add?name=%23cars&secret=e66008df541e729c6df02224fac0c359) | <img src="../images/qr-cars.svg" width="120"> |
-
+| `#radio` | General radio talk (AM,FM,SW,etc.) | `266f225baced1b2a868dcc8e9c69a304` | [Join](meshcore://channel/add?name=%23radio&secret=266f225baced1b2a868dcc8e9c69a304) | <img src="../images/qr-radio.svg" width="120"> |
