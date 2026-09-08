@@ -25,7 +25,6 @@ Photos, technical notes, and installation details are provided for each site.
 *Photos:*  
 
 <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start;">
-  <img src="../images/repeater-showcase-CBC_1.jpg" alt="CBC_1" style="height: 220px; width: auto; border-radius: 4px;">
   <img src="../images/repeater-showcase-CBC_2.jpg" alt="CBC_2" style="height: 220px; width: auto; border-radius: 4px;">
   <img src="../images/repeater-showcase-CBC_3.jpg" alt="CBC_3" style="height: 220px; width: auto; border-radius: 4px;">
   <img src="../images/repeater-showcase-CBC_4.jpg" alt="CBC_4" style="height: 220px; width: auto; border-radius: 4px;">
