@@ -24,11 +24,13 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photos:*  
 
-![CBC_1](./images/repeater-showcase-CBC_1.jpg){ width="300" }
-![CBC_2](./images/repeater-showcase-CBC_2.jpg){ width="300" }
-![CBC_3](./images/repeater-showcase-CBC_3.jpg){ width="300" }
-![CBC_4](./images/repeater-showcase-CBC_4.jpg){ width="300" }
-![CBC_5](./images/repeater-showcase-CBC_5.jpg){ width="300" }
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start;">
+  <img src="../images/repeater-showcase-CBC_1.jpg" alt="CBC_1" style="height: 220px; width: auto; border-radius: 4px;">
+  <img src="../images/repeater-showcase-CBC_2.jpg" alt="CBC_2" style="height: 220px; width: auto; border-radius: 4px;">
+  <img src="../images/repeater-showcase-CBC_3.jpg" alt="CBC_3" style="height: 220px; width: auto; border-radius: 4px;">
+  <img src="../images/repeater-showcase-CBC_4.jpg" alt="CBC_4" style="height: 220px; width: auto; border-radius: 4px;">
+  <img src="../images/repeater-showcase-CBC_5.jpg" alt="CBC_5" style="height: 220px; width: auto; border-radius: 4px;">
+</div>
 
 ---
 
@@ -50,9 +52,10 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photos:*  
 
-![HULL_1](./images/repeater-showcase-HULL_1.jpg){ width="300" }
-![HULL_2](./images/repeater-showcase-HULL_2.jpg){ width="300" }
-![HULL_3](./images/repeater-showcase-HULL_3.jpg){ width="300" }
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start;">
+  <img src="../images/repeater-showcase-HULL_1.jpg" alt="HULL_1" style="height: 220px; width: auto; border-radius: 4px;">
+  <img src="../images/repeater-showcase-HULL_3.jpg" alt="HULL_3" style="height: 220px; width: auto; border-radius: 4px;">
+</div>
 
 ---
 
@@ -72,8 +75,10 @@ Photos, technical notes, and installation details are provided for each site.
 
 *Photos:*  
 
-![OARC_1](./images/repeater-showcase-OARC_1.jpg){ width="300" }
-![OARC_2](./images/repeater-showcase-OARC_2.jpg){ width="300" }
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start;">
+  <img src="../images/repeater-showcase-OARC_1.jpg" alt="OARC_1" style="height: 220px; width: auto; border-radius: 4px;">
+  <img src="../images/repeater-showcase-OARC_2.jpg" alt="OARC_2" style="height: 220px; width: auto; border-radius: 4px;">
+</div>
 
 ---
 
