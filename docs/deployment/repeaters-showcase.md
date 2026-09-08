@@ -43,6 +43,7 @@ Photos, technical notes, and installation details are provided for each site.
 **Notes:**  
 
 - Covers much of Hull and most of Ottawa  
+- Made possible by Club de Radio Amateur Outaouais, who host the repeater on behalf of the community  
 - 1 W Ikoka behind an Airframes filter, PoE powered  
 - A Raspberry Pi in the enclosure handles remote management over Tailscale, backed by LTE  
 - The Pi also carries lightning, vibration and environmental sensors along with an INA current monitor  
