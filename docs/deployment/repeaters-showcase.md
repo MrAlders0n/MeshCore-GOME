@@ -7,6 +7,75 @@ Photos, technical notes, and installation details are provided for each site.
 
 ---
 
+## CBC_FORTUNE_R1  
+
+**Location:** Camp Fortune  
+**Type:** PoE-powered high-elevation repeater  
+**Role:** City-wide Backbone Repeater  
+**Antenna:** Seeed Studio 902–928 MHz 8 dBi  
+**Height:** ~20 m AGL, on the highest point in the National Capital Region  
+
+**Notes:**  
+
+- Hears almost every repeater in the city and carries more traffic than any other node on the mesh  
+- Built entirely from high-end parts to cope with the level of FM broadcast energy at the site  
+- Current build is a Station G3 at 1 W behind a Baymesh filter, PoE powered, with a Raspberry Pi in the enclosure for remote management  
+- The first build used a solar Ikoka; its MCU kept restarting, which we attribute to RF interference at the site  
+
+*Photos:*  
+
+![CBC_1](./images/repeater-showcase-CBC_1.jpg){ width="300" }
+![CBC_2](./images/repeater-showcase-CBC_2.jpg){ width="300" }
+![CBC_3](./images/repeater-showcase-CBC_3.jpg){ width="300" }
+![CBC_4](./images/repeater-showcase-CBC_4.jpg){ width="300" }
+![CBC_5](./images/repeater-showcase-CBC_5.jpg){ width="300" }
+
+---
+
+## Hull_Hospital  
+
+**Location:** Hull  
+**Type:** PoE-powered high-elevation repeater  
+**Role:** Cross-river Backbone Repeater  
+**Antenna:** Seeed Studio 902–928 MHz 8 dBi  
+**Height:** ~110 m AGL  
+
+**Notes:**  
+
+- Covers much of Hull and most of Ottawa  
+- 1 W Ikoka behind an Airframes filter, PoE powered  
+- A Raspberry Pi in the enclosure handles remote management over Tailscale, backed by LTE  
+- The Pi also carries lightning, vibration and environmental sensors along with an INA current monitor  
+
+*Photos:*  
+
+![HULL_1](./images/repeater-showcase-HULL_1.jpg){ width="300" }
+![HULL_2](./images/repeater-showcase-HULL_2.jpg){ width="300" }
+![HULL_3](./images/repeater-showcase-HULL_3.jpg){ width="300" }
+
+---
+
+## OARC_R1  
+
+**Location:** Kanata  
+**Type:** Solar-powered rooftop repeater  
+**Role:** West-end Regional Repeater  
+**Antenna:** Seeed Studio 902–928 MHz 8 dBi  
+**Height:** ~20 m AGL  
+
+**Notes:**  
+
+- Covers much of the west end  
+- OARC helped secure the condo rooftop location for the install  
+- 1 W Ikoka behind an Airframes filter, running on solar  
+
+*Photos:*  
+
+![OARC_1](./images/repeater-showcase-OARC_1.jpg){ width="300" }
+![OARC_2](./images/repeater-showcase-OARC_2.jpg){ width="300" }
+
+---
+
 ## MAY_SOLAR_R  
 
 **Location:** Old Ottawa South  
