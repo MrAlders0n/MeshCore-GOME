@@ -681,6 +681,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#cbc_fortune_r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC_FORTUNE_R1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hull_hospital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hull_Hospital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oarc_r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OARC_R1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#may_solar_r" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2208,6 +2241,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
+  <a href="#cbc_fortune_r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CBC_FORTUNE_R1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hull_hospital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hull_Hospital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oarc_r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OARC_R1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#may_solar_r" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2330,6 +2396,60 @@
 <p>This page highlights several of the most prominent MeshCore repeater installations across the Ottawa region.<br>
 These nodes form much of the city’s <em>backbone layer</em>: long-range, high-reliability repeaters that bridge neighbourhoods and anchor the wider mesh.</p>
 <p>Photos, technical notes, and installation details are provided for each site.</p>
+<hr>
+<h2 id="cbc_fortune_r1">CBC_FORTUNE_R1<a class="headerlink" href="#cbc_fortune_r1" title="Permanent link">¶</a></h2>
+<p><strong>Location:</strong> Camp Fortune<br>
+<strong>Type:</strong> PoE-powered high-elevation repeater<br>
+<strong>Role:</strong> City-wide Backbone Repeater<br>
+<strong>Antenna:</strong> Seeed Studio 902–928 MHz 8 dBi<br>
+<strong>Height:</strong> ~20 m AGL, on the highest point in the National Capital Region  </p>
+<p><strong>Notes:</strong>  </p>
+<ul>
+<li>Hears almost every repeater in the city and carries more traffic than any other node on the mesh  </li>
+<li>Built entirely from high-end parts to cope with the level of FM broadcast energy at the site  </li>
+<li>Current build is a Station G3 at 1 W behind a Baymesh filter, PoE powered, with a Raspberry Pi in the enclosure for remote management  </li>
+<li>The first build used a solar Ikoka; its MCU kept restarting, which we attribute to RF interference at the site  </li>
+</ul>
+<p><em>Photos:</em>  </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-CBC_1.jpg" data-desc-position="bottom"><img alt="CBC_1" src="../../../deployment/images/repeater-showcase-CBC_1.jpg" width="300"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-CBC_2.jpg" data-desc-position="bottom"><img alt="CBC_2" src="../../../deployment/images/repeater-showcase-CBC_2.jpg" width="300"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-CBC_3.jpg" data-desc-position="bottom"><img alt="CBC_3" src="../../../deployment/images/repeater-showcase-CBC_3.jpg" width="300"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-CBC_4.jpg" data-desc-position="bottom"><img alt="CBC_4" src="../../../deployment/images/repeater-showcase-CBC_4.jpg" width="300"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-CBC_5.jpg" data-desc-position="bottom"><img alt="CBC_5" src="../../../deployment/images/repeater-showcase-CBC_5.jpg" width="300"></a></p>
+<hr>
+<h2 id="hull_hospital">Hull_Hospital<a class="headerlink" href="#hull_hospital" title="Permanent link">¶</a></h2>
+<p><strong>Location:</strong> Hull<br>
+<strong>Type:</strong> PoE-powered high-elevation repeater<br>
+<strong>Role:</strong> Cross-river Backbone Repeater<br>
+<strong>Antenna:</strong> Seeed Studio 902–928 MHz 8 dBi<br>
+<strong>Height:</strong> ~110 m AGL  </p>
+<p><strong>Notes:</strong>  </p>
+<ul>
+<li>Covers much of Hull and most of Ottawa  </li>
+<li>1 W Ikoka behind an Airframes filter, PoE powered  </li>
+<li>A Raspberry Pi in the enclosure handles remote management over Tailscale, backed by LTE  </li>
+<li>The Pi also carries lightning, vibration and environmental sensors along with an INA current monitor  </li>
+</ul>
+<p><em>Photos:</em>  </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-HULL_1.jpg" data-desc-position="bottom"><img alt="HULL_1" src="../../../deployment/images/repeater-showcase-HULL_1.jpg" width="300"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-HULL_2.jpg" data-desc-position="bottom"><img alt="HULL_2" src="../../../deployment/images/repeater-showcase-HULL_2.jpg" width="300"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-HULL_3.jpg" data-desc-position="bottom"><img alt="HULL_3" src="../../../deployment/images/repeater-showcase-HULL_3.jpg" width="300"></a></p>
+<hr>
+<h2 id="oarc_r1">OARC_R1<a class="headerlink" href="#oarc_r1" title="Permanent link">¶</a></h2>
+<p><strong>Location:</strong> Kanata<br>
+<strong>Type:</strong> Solar-powered rooftop repeater<br>
+<strong>Role:</strong> West-end Regional Repeater<br>
+<strong>Antenna:</strong> Seeed Studio 902–928 MHz 8 dBi<br>
+<strong>Height:</strong> ~20 m AGL  </p>
+<p><strong>Notes:</strong>  </p>
+<ul>
+<li>Covers much of the west end  </li>
+<li>OARC helped secure the condo rooftop location for the install  </li>
+<li>1 W Ikoka behind an Airframes filter, running on solar  </li>
+</ul>
+<p><em>Photos:</em>  </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-OARC_1.jpg" data-desc-position="bottom"><img alt="OARC_1" src="../../../deployment/images/repeater-showcase-OARC_1.jpg" width="300"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../deployment/images/repeater-showcase-OARC_2.jpg" data-desc-position="bottom"><img alt="OARC_2" src="../../../deployment/images/repeater-showcase-OARC_2.jpg" width="300"></a></p>
 <hr>
 <h2 id="may_solar_r">MAY_SOLAR_R<a class="headerlink" href="#may_solar_r" title="Permanent link">¶</a></h2>
 <p><strong>Location:</strong> Old Ottawa South<br>
