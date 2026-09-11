@@ -745,7 +745,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Ottawa MeshCore Settings">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-recommended-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other recommended CLI Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other recommended CLI Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2156,7 +2167,18 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Ottawa MeshCore Settings">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-recommended-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other recommended CLI Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other recommended CLI Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2207,16 +2229,43 @@
 
 
 <h1 id="meshcore-frequency-settings">MeshCore Frequency Settings<a class="headerlink" href="#meshcore-frequency-settings" title="Permanent link">¶</a></h1>
-<p>MeshCore developers have published recommended frequency settings that balance performance and reduce congestion in the ISM band, which is often crowded with devices like smart meters and other IoT systems.<br>
-Ottawa follows the new recommended defaults for the US/CAN region.</p>
+<p>MeshCore developers have published recommended frequency settings that balance performance and reduce congestion in the ISM band, which is often crowded with devices like smart meters and other IoT systems.  </p>
+<p>Ottawa follows the new recommended defaults for the Canada region.</p>
 <p>All nodes operating in Ottawa should use these settings to ensure compatibility with the repeater network and other companion nodes.</p>
 <h2 id="ottawa-meshcore-settings">Ottawa MeshCore Settings<a class="headerlink" href="#ottawa-meshcore-settings" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>Frequency:</strong> 910.525 MHz  </li>
 <li><strong>Bandwidth:</strong> 62.5 kHz  </li>
 <li><strong>Spreading Factor (SF):</strong> 7  </li>
-<li><strong>Coding Rate (CR):</strong> 5  </li>
+<li><strong>Coding Rate (CR):</strong> 5</li>
 </ul>
+<h2 id="other-recommended-cli-commands">Other recommended <a href="https://docs.meshcore.io/cli_commands/">CLI Commands</a><a class="headerlink" href="#other-recommended-cli-commands" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>CLI Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flood.max=16</td>
+<td>Limit the number of hops for a flood message</td>
+</tr>
+<tr>
+<td>flood.advert.interval=47</td>
+<td>Flood advert interval (Hours)</td>
+</tr>
+<tr>
+<td>advert.interval=240</td>
+<td>Zero-hop advert interval (Minutes)</td>
+</tr>
+<tr>
+<td>loop.detect=moderate</td>
+<td>Loop detection</td>
+</tr>
+</tbody>
+</table>
 <h3 id="repeater-advert-path-hash-size">Repeater Advert Path Hash Size<a class="headerlink" href="#repeater-advert-path-hash-size" title="Permanent link">¶</a></h3>
 <p><a href="https://nodakmesh.org/blog/meshcore-path-hash-explained">Nodak Mesh</a> has a great article explaining Path hashes.</p>
 <p>Repeaters in Ottawa should have their advert path hash size 3-byte mode. See also <a href="https://meshcore.ca/meshcore/flash-repeater/">Flashing a Repeater</a> for more information.</p>
