@@ -32,4 +32,4 @@ Repeaters in Ottawa should have their advert path hash size 3-byte mode. See als
 
 ### Companion Path Hash Size
 
-All companions should have their Default Path Hash Size set to 2-byte (max 32 hops). This can be set in the MeshCore app if your companion has v1.14.0+ firmware under Settings -> Experimental Settings.
+All companions should have their Default Path Hash Size set to 2-byte (max 32 hops). This can be set in the MeshCore app if your companion has v1.14.0+ firmware under Settings -> Network Settings - > Default Path Hash Size.
