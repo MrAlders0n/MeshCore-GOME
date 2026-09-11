@@ -15,7 +15,9 @@ All nodes operating in Ottawa should use these settings to ensure compatibility 
 
 ## Other recommended [CLI Commands](https://docs.meshcore.io/cli_commands/)
 
-| CLI Command| Description | 
+If you manage a repeater, also set these commands in your repeater's Command Line Interface:
+
+| CLI Command| Description |
 |---------|-------------|
 | flood.max=16 | Limit the number of hops for a flood message |
 | flood.advert.interval=47 | Flood advert interval (Hours) |
