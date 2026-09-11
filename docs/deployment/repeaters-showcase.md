@@ -13,7 +13,7 @@ Photos, technical notes, and installation details are provided for each site.
 **Type:** PoE-powered high-elevation repeater  
 **Role:** City-wide Backbone Repeater  
 **Antenna:** Seeed Studio 902–928 MHz 8 dBi  
-**Height:** ~20 m AGL, on the highest point in the National Capital Region  
+**Height:** ~15 m AGL, on the highest point in the National Capital Region  
 
 **Notes:**  
 
