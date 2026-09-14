@@ -19,10 +19,10 @@ If you manage a repeater, also set these commands in your repeater's Command Lin
 
 | CLI Command| Description |
 |---------|-------------|
-| flood.max=16 | Limit the number of hops for a flood message |
-| flood.advert.interval=47 | Flood advert interval (Hours) |
-| advert.interval=240 | Zero-hop advert interval (Minutes) |
-| loop.detect=moderate | Loop detection |
+| set flood.max 16 | Limit the number of hops for a flood message |
+| set flood.advert.interval 47 | Flood advert interval (Hours) |
+| set advert.interval 240 | Zero-hop advert interval (Minutes) |
+| set loop.detect moderate | Loop detection |
 
 ### Repeater Advert Path Hash Size
 
