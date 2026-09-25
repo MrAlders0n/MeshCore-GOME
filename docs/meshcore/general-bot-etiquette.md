@@ -20,6 +20,10 @@ This makes it straightforward for people who don't want to see bots to do so.
 
 Ottawa has one bot that welcomes new faces. If you want to improve or change it, contact @tahnok, [file an issue, or submit a pull request](https://github.com/tahnok/ottobot).
 
+## Add local area scope
+
+Our meshes are beginning to [implement region scopes](https://meshcore.ca/proposals/onqc-scopes/). Once this is adopted, each bot should only send messages in their local area.
+
 ## Respond to !bots in #bots
 
 Bots should be discoverable and the easiest way to do that is settle on a common command that all bots implement.
