@@ -47,3 +47,11 @@ Note: the !bots command must not require being addressed in this way.
 You can implement a !source command that links to the source code or ```!author``` that provides your email or similar.
 
 Running a bot is a responsibility, and it's polite to give others a way to contact you.
+
+## AI Bots
+
+Bots using Artificial Intelligence should clearly be labelled, should not give unprompted replies, and should not pretend to be a mesh user.
+
+## No umprompted sales
+
+Bots should not spam the mesh with unprompted sales of products or services.
