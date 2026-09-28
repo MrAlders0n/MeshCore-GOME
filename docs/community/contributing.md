@@ -67,9 +67,9 @@ If you know GitHub and want to edit the markdown files directly:
 
 We also have a community driven Bookstack Wiki that makes it easier to register and collaborate. Here you can showcase your repeater, add tutorials on specific builds, etc. Information found here may also be transferred to the main site.
 
-You can visit this Wiki at https://meshcore.wiki.gd/.
+You can visit this Wiki at [https://meshcore.wiki.gd/](https://meshcore.wiki.gd/)
 
-If you want to contribute to the Wiki, please register for an account here: https://meshcore.wiki.gd/register
+If you want to contribute to the Wiki, please register for an account here: [https://meshcore.wiki.gd/register](https://meshcore.wiki.gd/register)
 
 ---
 
