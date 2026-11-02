@@ -166,19 +166,19 @@ Here are a few examples of existing repeater installations across the Ottawa reg
 
 A high-elevation, PoE-powered backbone repeater helping connect much of the Ottawa region.
 
-![CBC Fortune repeater installation](../images/repeater-showcase-CBC_2.jpg)
+![CBC Fortune repeater installation](./images/repeater-showcase-CBC_2.jpg)
 
 ### Hull_Hospital – Hull
 
 A high-elevation installation providing important cross-river connectivity between Gatineau and Ottawa.
 
-![Hull Hospital repeater installation](../images/repeater-showcase-HULL_1.jpg)
+![Hull Hospital repeater installation](./images/repeater-showcase-HULL_1.jpg)
 
 ### TOO_SOLAR_R – Ashton
 
 A solar-powered, high-elevation repeater providing extended coverage across Ottawa's western rural communities, including Ashton, Beckwith, Munster, Kemptville, and Carleton Place.
 
-![TOO Solar repeater installation](../images/repeater-showcase-TOO_0.jpg)
+![TOO Solar repeater installation](./images/repeater-showcase-TOO_0.jpg)
 
 [See more Ottawa Mesh repeater installations in our Repeater Showcase.](../deployment/repeaters-showcase.md)
 
