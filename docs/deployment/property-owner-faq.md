@@ -4,6 +4,8 @@
 
 Thank you for considering hosting an Ottawa Mesh repeater!
 
+Click here to see a [Simplified brochure of this page](./images/property-owner-brochure.pdf).
+
 Ottawa Mesh is a community-driven, open-source wireless network that uses low-power radio technology to provide text-only communications across Ottawa, Gatineau, and surrounding communities.
 
 By hosting a repeater, you help extend the network's coverage, connect neighbourhoods, and build a more resilient communications infrastructure that operates independently of conventional cellular and internet services.
@@ -28,7 +30,7 @@ The repeater is part of a community-operated wireless mesh network called MeshCo
 - It allows people to exchange text messages without relying on cellular service or an internet connection.
 - It helps connect distant neighbourhoods and other repeater installations.
 - It provides an additional communications option during emergencies, power outages, and infrastructure disruptions.
-- Note that this will not meant to replace celular networks, nor will it have the same range across our area.
+- **Note that this will not meant to replace celular networks, is not a replacement for 911, nor will it have the same range across our area.**
 
 Repeaters operate automatically and do not require someone to monitor or operate them day to day.
 
@@ -154,7 +156,7 @@ Hosting a repeater does not require you to use MeshCore, but you are welcome to 
 
 You can use a compatible radio and the MeshCore mobile application to communicate with other members of the network. You can also create private channels for your own use.
 
-Our community can help you get started if you're interested in exploring the technology.
+Our community can help you get started by offering you a companion device if you're interested in exploring the technology.
 
 ---
 
@@ -224,5 +226,3 @@ Changes have been made to the original material, including adaptations for the O
 This adapted FAQ is also made available under the **CC BY-SA 4.0 International licence**.
 
 [Read the CC BY-SA 4.0 licence](https://creativecommons.org/licenses/by-sa/4.0/).
-
-[Visit the original Austin Mesh FAQ](https://www.austinmesh.org/about/property-owner-faq-hosting-a-node/).
