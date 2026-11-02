@@ -162,6 +162,12 @@ Our community can help you get started if you're interested in exploring the tec
 
 Here are a few examples of existing repeater installations across the Ottawa region. Each installation is adapted to its location, available infrastructure, and coverage requirements.
 
+### MAY_SOLAR_R – Mayfair Theatre
+
+One of the earliest long-term repeaters mounted on the roof of the historic Mayfair Theatre. Serves Old Ottawa South, Carleton University, Riverside, and parts of downtown.
+
+![MAY_SOLAR_R installation](./images/repeater-showcase-MAY_2.jpg)
+
 ### CBC_FORTUNE_R1 – Camp Fortune
 
 A high-elevation, PoE-powered backbone repeater helping connect much of the Ottawa region.
