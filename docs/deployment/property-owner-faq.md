@@ -30,7 +30,7 @@ The repeater is part of a community-operated wireless mesh network called MeshCo
 - It allows people to exchange text messages without relying on cellular service or an internet connection.
 - It helps connect distant neighbourhoods and other repeater installations.
 - It provides an additional communications option during emergencies, power outages, and infrastructure disruptions.
-- **Note that this will not meant to replace celular networks, is not a replacement for 911, nor will it have the same range across our area.**
+- **Note that this will not replace celular networks, is not a replacement for 911, nor will it have the same range across our area.**
 
 Repeaters operate automatically and do not require someone to monitor or operate them day to day.
 
